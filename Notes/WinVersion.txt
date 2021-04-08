@@ -1,0 +1,76 @@
+1. Версия системы
+var vi : TOSVersionInfoEx;
+
+vi.dwOSVersionInfoSize := Sizeof(vi);
+GetVersionEx(vi);
+
+В этой структуре (vi) достаточно информации для ответа на первую часть вопроса. Подробности есть в MSDN (см.Приложение). В том числе и тип конфигурации ОС (VER_SUITE_TERMINAL, VER_NT_DOMAIN_CONTROLLER и т.д. :-) )
+
+2. Язык GUI: GetSystemDefaultUILanguage и GetUserDefaultLangID
+
+Если нужен язык раскаладки и остальное см. раздел "National Language Support Functions" в MSDN.
+
+typedef struct _OSVERSIONINFOEX {
+  DWORD dwOSVersionInfoSize;
+  DWORD dwMajorVersion;
+  DWORD dwMinorVersion;
+  DWORD dwBuildNumber;
+  DWORD dwPlatformId;
+  TCHAR szCSDVersion[ 128 ];
+  WORD wServicePackMajor;
+  WORD wServicePackMinor;
+  WORD wSuiteMask;
+  BYTE wProductType;
+  BYTE wReserved;
+} OSVERSIONINFOEX;
+
+dwMajorVersion 
+Identifies the major version number of the operating system as follows. Operating System Value 
+Windows 95 4 
+Windows 98 4 
+Windows Me 4 
+Windows NT 3.51 3 
+Windows NT 4.0 4 
+Windows 2000 5 
+Windows XP 5 
+Windows .NET Server 5 
+
+
+dwMinorVersion 
+Identifies the minor version number of the operating system as follows. Operating System Value 
+Windows 95 0 
+Windows 98 10 
+Windows Me 90 
+Windows NT 3.51 51 
+Windows NT 4.0 0 
+Windows 2000 0 
+Windows XP 1 
+Windows .NET Server 1 
+
+
+dwBuildNumber 
+Identifies the build number of the operating system. 
+dwPlatformId 
+Identifies the operating system platform. This member can be VER_PLATFORM_WIN32_NT. 
+szCSDVersion 
+Contains a null-terminated string, such as "Service Pack 3", that indicates the latest Service Pack installed on the system. If no Service Pack has been installed, the string is empty. 
+wServicePackMajor 
+Identifies the major version number of the latest Service Pack installed on the system. For example, for Service Pack 3, the major version number is 3. If no Service Pack has been installed, the value is zero. 
+wServicePackMinor 
+Identifies the minor version number of the latest Service Pack installed on the system. For example, for Service Pack 3, the minor version number is 0. 
+wSuiteMask 
+A set of bit flags that identify the product suites available on the system. This member can be a combination of the following values. Value Meaning 
+VER_SUITE_BACKOFFICE Microsoft BackOffice components are installed. 
+VER_SUITE_DATACENTER Windows 2000 DataCenter Server is installed. 
+VER_SUITE_ENTERPRISE Windows 2000 Advanced Server or Windows .NET Enterprise Server is installed.. 
+VER_SUITE_PERSONAL  Windows XP: Windows XP Home Edition is installed.  
+VER_SUITE_SMALLBUSINESS Microsoft Small Business Server is installed. 
+VER_SUITE_SMALLBUSINESS_RESTRICTED Microsoft Small Business Server is installed with the restrictive client license in force. 
+VER_SUITE_TERMINAL Terminal Services is installed. 
+
+wProductType 
+Indicates additional information about the system. This member can be one of the following values. Value Meaning 
+VER_NT_WORKSTATION The system is running Windows NT 4.0 Workstation, Windows 2000 Professional, Windows XP Home Edition, or Windows XP Professional. 
+VER_NT_DOMAIN_CONTROLLER The system is a domain controller. 
+VER_NT_SERVER The system is a server. 
+

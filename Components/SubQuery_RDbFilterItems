@@ -1,0 +1,1 @@
+[SubQueryKeyField] in (select [SubQueryParentField] from [SubQueryTableName] where [FieldName] = ...)

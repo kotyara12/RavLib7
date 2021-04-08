@@ -1,0 +1,43 @@
+/****** Таблицы подсистемы сообщений ******/
+
+CREATE TABLE dbo.SM_MESSAGES (
+	ID int NOT NULL ,
+	ID_USERS int NOT NULL ,
+	SENDED datetime NOT NULL ,
+	TITLE str255 NULL ,
+	ADDRESS str255 NULL ,
+	MESSAGE text NULL ,
+	CONSTRAINT PK_SM_MESSAGES_ID PRIMARY KEY  CLUSTERED (ID),
+	CONSTRAINT FK_SM_MESSAGES_USERS FOREIGN KEY (ID_USERS) REFERENCES dbo.SU_USERS (ID)
+)
+GO
+
+GRANT  REFERENCES ,  SELECT ,  INSERT ,  DELETE ,  UPDATE  ON SM_MESSAGES  TO public
+GO
+
+CREATE TABLE dbo.SM_HISTORY (
+        ID_MESSAGES int NOT NULL ,
+        ID_USERS int NOT NULL ,
+        OPENED datetime NULL ,
+        CLOSED datetime NULL ,
+	CONSTRAINT PK_SM_HISTORY_ID PRIMARY KEY  CLUSTERED (ID_MESSAGES, ID_USERS),
+	CONSTRAINT FK_SM_HISTORY_MSG FOREIGN KEY (ID_MESSAGES) REFERENCES dbo.SM_MESSAGES (ID),
+	CONSTRAINT FK_SM_HISTORY_USERS FOREIGN KEY (ID_USERS) REFERENCES dbo.SU_USERS (ID)
+)
+GO
+
+GRANT  REFERENCES ,  SELECT ,  INSERT ,  DELETE ,  UPDATE  ON SM_HISTORY  TO public
+GO
+
+INSERT INTO SR_LEVELS (ID, NAME, NOTES, HIDDEN, FONT_STYLE, FONT_COLOR, CELL_COLOR) 
+VALUES (150, 'Чтение сообщений', 'Чтение коротких сообщений, отправляемых другими пользователями.', 0, -1, 8388608, 16777194)
+INSERT INTO SR_LEVELS (ID, NAME, NOTES, HIDDEN, FONT_STYLE, FONT_COLOR, CELL_COLOR) 
+VALUES (151, 'Создание сообщений', 'Создание коротких сообщений для других пользователей системы.', 0, -1, 8388608, 16777194)
+GO
+
+INSERT INTO SS_VARNAMES (ID, ID_GROUPS, TYPE, DEF_VALUE, NAME) 
+VALUES (1002, 2, 1, '90', 'Срок действия коротких сообщений, дней')
+
+INSERT INTO SR_OPERATIONS (ID, ID_LEVELS, NAME, NOTES) VALUES (9980, 150, 'Чтение сообщений', 'Чтение коротких сообщений, отправляемых другими пользователями.')
+INSERT INTO SR_OPERATIONS (ID, ID_LEVELS, NAME, NOTES) VALUES (9981, 151, 'Создание сообщений', 'Создание коротких сообщений для других пользователей системы.')
+GO

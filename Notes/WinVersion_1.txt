@@ -1,0 +1,59 @@
+type
+   OSVERSIONINFOEX = packed record
+     dwOSVersionInfoSize: DWORD;
+     dwMajorVersion: DWORD;
+     dwMinorVersion: DWORD;
+     dwBuildNumber: DWORD;
+     dwPlatformId: DWORD;
+     szCSDVersion: array[0..127] of Char;
+     wServicePackMajor: WORD;
+     wServicePackMinor: WORD;
+     wSuiteMask: WORD;
+     wProductType: BYTE;
+     wReserved: BYTE;
+   end;
+   TOSVersionInfoEx = OSVERSIONINFOEX;
+   POSVersionInfoEx = ^TOSVersionInfoEx;
+
+ const
+   VER_SUITE_TERMINAL = $00000010;
+   VER_SUITENAME = $00000040;
+   VER_AND = 6;
+
+ function VerSetConditionMask(
+   ConditionMask: int64;
+   TypeMask: DWORD;
+   Condition: Byte
+   ): int64; stdcall; external kernel32;
+
+ function VerifyVersionInfo(
+   var VersionInformation: OSVERSIONINFOEX;
+   dwTypeMask: DWORD;
+   dwlConditionMask: int64
+   ): BOOL; stdcall; external kernel32 name 'VerifyVersionInfoA';
+
+
+ function IsTerminalServicesEnabled: Boolean;
+ var
+   osVersionInfo: OSVERSIONINFOEX;
+   dwlConditionMask: int64;
+ begin
+   FillChar(osVersionInfo, SizeOf(osVersionInfo), 0);
+   osVersionInfo.dwOSVersionInfoSize := sizeof(osVersionInfo);
+   osVersionInfo.wSuiteMask := VER_SUITE_TERMINAL;
+   dwlConditionMask := 0;
+   dwlConditionMask :=
+     VerSetConditionMask(dwlConditionMask,
+     VER_SUITENAME,
+     VER_AND);
+   Result := VerifyVersionInfo(
+     osVersionInfo,
+     VER_SUITENAME,
+     dwlConditionMask);
+ end;
+
+ { 
+  But heed the warning in the C sample: the functions used here are not 
+  available on Win 9x and NT 4! If you use external declarations as above 
+  your program would not even load on such a platform. 
+}

@@ -1,0 +1,1656 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<RadialixLocalizerTM>
+  <Header>
+    <Languages>
+      <LangID>9</LangID>
+      <LangID>1033</LangID>
+      <LangID>25</LangID>
+      <LangID>1049</LangID>
+    </Languages>
+    <Info>
+      <CreatedBy Date="2017-03-16T11-43-07">Radialix Версия 3.00.00  Сборка 486</CreatedBy>
+      <ModifiedBy Date="2017-03-16T11-43-07">Radialix Версия 3.00.00  Сборка 486</ModifiedBy>
+      <Author>Разживин Александр Валерьевич</Author>
+      <Organization/>
+      <Comment/>
+      <WebSite/>
+      <ContactEMail/>
+      <Copyright/>
+      <Version MajorNumber="1" MinorNumber="0" Revision="0" Build="0" AutoIncrementBuildNumber="1"/>
+    </Info>
+  </Header>
+  <CheckSettings>
+    <AutoCheck>
+      <BeforeTargetGeneration>1</BeforeTargetGeneration>
+      <WhenChanged>1</WhenChanged>
+      <AfterProjectLoading>1</AfterProjectLoading>
+    </AutoCheck>
+    <Settings>
+      <Checker Name="PrintF" Enabled="1"/>
+      <Checker Name="InvalidSymbols" Enabled="1"/>
+      <Checker Name="MissingSymbol" Enabled="1">
+        <CharsToCheckMissing IncludeSpace="0" IncludeControlChars="0" IncludeChars="1">©®-+=_;:&lt;&gt;()[]{}/\?!*#@%&amp;¤~^|</CharsToCheckMissing>
+      </Checker>
+      <Checker Name="EmptyTargetString" Enabled="1"/>
+      <Checker Name="EmptySourceString" Enabled="1"/>
+      <Checker Name="EmptyTMString" Enabled="0"/>
+      <Checker Name="Tabulators" Enabled="1"/>
+      <Checker Name="Spaces" Enabled="1"/>
+      <Checker Name="SpellingError" Enabled="0"/>
+      <Checker Name="TextTooLong" Enabled="1"/>
+      <Checker Name="IgnoreErrorReplication" Enabled="1"/>
+      <Checker Name="DoNotCheckDeleted" Enabled="1"/>
+      <Checker Name="TargetAccelKey" Enabled="1"/>
+      <Checker Name="SourceAccelKey" Enabled="1"/>
+      <Checker Name="InvalidAccelKey" Enabled="1"/>
+      <Checker Name="MenuAccelKeyDuplicat" Enabled="1"/>
+      <Checker Name="DialogAccelKeyDuplicat" Enabled="1"/>
+      <Checker Name="TextDoesntFit" Enabled="1"/>
+      <Checker Name="ControlOverlaps" Enabled="1"/>
+      <Checker Name="ControlOutOfBorder" Enabled="1"/>
+      <Checker Name="InvalidAccelerator" Enabled="1"/>
+      <Checker Name="DuplicateAccelerator" Enabled="1"/>
+      <Checker Name="InvalidImage" Enabled="1"/>
+      <Checker Name="InconsistentImageSize" Enabled="1"/>
+      <Checker Name="InconsistentBPP" Enabled="1"/>
+      <Checker Name="InvalidPlurals" Enabled="1"/>
+    </Settings>
+  </CheckSettings>
+  <ImportSettings Current="CSVFile">
+    <CSVFile SourceCodePage="Autodetect"/>
+    <TextGlossary Codepage="Autodetect"/>
+    <TMXFile ByStatus="0" ForReview="1" Validated="1" Comment="1"/>
+    <TXTFile Escape="C/C++" SourceCodePage="Autodetect"/>
+    <Lg3 Russian="1" English="1" SkipDuplicates="1"/>
+    <XLSFile FirstLine="1"/>
+  </ImportSettings>
+  <ExportSettings Current="CSVFile">
+    <CSVFile FileName="" SortData="0" SkipDuplicates="0" RemoveAccelerators="0" RemoveAccelKeys="0" CaseSensitive="0" Separator="1" HeaderLangID="0" Header="1" SourceCodePage="Autodetect">
+      <RemoveChars IncludeSpace="1" IncludeControlChars="1" IncludeChars="1"/>
+    </CSVFile>
+    <TextGlossary FileName="" SortData="1" SkipDuplicates="1" RemoveAccelerators="1" RemoveAccelKeys="1" CaseSensitive="0" Header="1" SourceCodePage="Autodetect">
+      <RemoveChars IncludeSpace="1" IncludeControlChars="1" IncludeChars="1">-+Ђ$=_.,;:/\*#@¤~^|</RemoveChars>
+    </TextGlossary>
+    <TMXFile FileName="" SortData="1" SkipDuplicates="1" RemoveAccelerators="1" RemoveAccelKeys="1" CaseSensitive="0" EmptyTranslations="0" AddContext="1" AddStatus="1" Comment="1">
+      <RemoveChars IncludeSpace="1" IncludeControlChars="1" IncludeChars="1">-+Ђ$=_.,;:/\*#@¤~^|</RemoveChars>
+    </TMXFile>
+    <TXTFile FileName="" SortData="0" SkipDuplicates="0" RemoveAccelerators="0" RemoveAccelKeys="0" CaseSensitive="0" Separator="3" Quote="3" Escape="C/C++" Header="1" SourceCodePage="Autodetect">
+      <RemoveChars IncludeSpace="1" IncludeControlChars="1" IncludeChars="1"/>
+    </TXTFile>
+    <XLSFile FileName="" SortData="1" SkipDuplicates="1" RemoveAccelerators="1" RemoveAccelKeys="1" CaseSensitive="0" Header="1">
+      <RemoveChars IncludeSpace="1" IncludeControlChars="1" IncludeChars="1">-+Ђ$=_.,;:/\*#@¤~^|</RemoveChars>
+    </XLSFile>
+  </ExportSettings>
+  <ReportOptions>
+    <PageOptions>
+      <Orientation>0</Orientation>
+      <PaperWidth>2100</PaperWidth>
+      <PaperHeight>2970</PaperHeight>
+      <LeftMargin>10</LeftMargin>
+      <TopMargin>10</TopMargin>
+      <RightMargin>10</RightMargin>
+      <BottomMargin>10</BottomMargin>
+      <PaperSize>9</PaperSize>
+    </PageOptions>
+    <LangIDList/>
+    <Header Value="1"/>
+    <Errors Value="1"/>
+  </ReportOptions>
+  <IDESettings FocusedValueID="" SortDirection="1" SortedColumnIndex="5">
+    <Column Width="40" Position="0" Visible="1"/>
+    <Column Width="192" Position="1" Visible="1"/>
+    <Column Width="192" Position="2" Visible="1"/>
+    <Column Width="192" Position="3" Visible="1"/>
+    <Column Width="192" Position="4" Visible="1"/>
+    <Column Width="192" Position="5" Visible="1"/>
+    <Column Width="192" Position="6" Visible="1"/>
+  </IDESettings>
+  <TMDuplicates IgnoreCase="1" DeleteRowsWithIdenticalCells="1">
+    <CharsToIgnore IncludeSpace="0" IncludeControlChars="0" IncludeChars="1">&amp;_</CharsToIgnore>
+    <CharsToIgnoreInBeginningAndEnd IncludeSpace="1" IncludeControlChars="1" IncludeChars="1">-+Ђ$=_,.;:&lt;&gt;()[]{}/\?!*#@%¤~^|</CharsToIgnoreInBeginningAndEnd>
+  </TMDuplicates>
+  <Items>
+    <Item Comment="ComConst_SOleError">
+      <Str>OLE error %.8x</Str>
+      <Str>OLE error %.8x</Str>
+      <Str>Ошибка OLE %.8x</Str>
+      <Str>Ошибка OLE %.8x</Str>
+    </Item>
+    <Item Comment="ComConst_SNoMethod">
+      <Str>Method '%s' not supported by automation object</Str>
+      <Str>Method '%s' not supported by automation object</Str>
+      <Str>Метод '%s' не поддерживается automation объектом</Str>
+      <Str>Метод '%s' не поддерживается automation объектом</Str>
+    </Item>
+    <Item Comment="ComConst_SVarNotObject">
+      <Str>Variant does not reference an automation object</Str>
+      <Str>Variant does not reference an automation object</Str>
+      <Str>Вариант не ссылается на automation объект</Str>
+      <Str>Вариант не ссылается на automation объект</Str>
+    </Item>
+    <Item Comment="ComConst_STooManyParams">
+      <Str>Dispatch methods do not support more than 64 parameters</Str>
+      <Str>Dispatch methods do not support more than 64 parameters</Str>
+      <Str>Dispatch методы не поддерживают более 64 параметров</Str>
+      <Str>Dispatch методы не поддерживают более 64 параметров</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameInfoText">
+      <Str>Info Text</Str>
+      <Str>Info Text</Str>
+      <Str>Info Text</Str>
+      <Str>Info Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameMenu">
+      <Str>Menu Background</Str>
+      <Str>Menu Background</Str>
+      <Str>Menu Background</Str>
+      <Str>Menu Background</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameMenuText">
+      <Str>Menu Text</Str>
+      <Str>Menu Text</Str>
+      <Str>Menu Text</Str>
+      <Str>Menu Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameNone">
+      <Str>None</Str>
+      <Str>None</Str>
+      <Str>None</Str>
+      <Str>None</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameScrollBar">
+      <Str>Scroll Bar</Str>
+      <Str>Scroll Bar</Str>
+      <Str>Scroll Bar</Str>
+      <Str>Scroll Bar</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clName3DDkShadow">
+      <Str>3D Dark Shadow</Str>
+      <Str>3D Dark Shadow</Str>
+      <Str>3D Dark Shadow</Str>
+      <Str>3D Dark Shadow</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clName3DLight">
+      <Str>3D Light</Str>
+      <Str>3D Light</Str>
+      <Str>3D Light</Str>
+      <Str>3D Light</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameWindow">
+      <Str>Window Background</Str>
+      <Str>Window Background</Str>
+      <Str>Window Background</Str>
+      <Str>Window Background</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameWindowFrame">
+      <Str>Window Frame</Str>
+      <Str>Window Frame</Str>
+      <Str>Window Frame</Str>
+      <Str>Window Frame</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameWindowText">
+      <Str>Window Text</Str>
+      <Str>Window Text</Str>
+      <Str>Window Text</Str>
+      <Str>Window Text</Str>
+    </Item>
+    <Item Comment="ComStrs_sInvalidOwner">
+      <Str>Invalid owner</Str>
+      <Str>Invalid owner</Str>
+      <Str>Неверный владелец</Str>
+      <Str>Неверный владелец</Str>
+    </Item>
+    <Item Comment="ComStrs_sInvalidComCtl32">
+      <Str>This control requires version 4.70 or greater of COMCTL32.DLL</Str>
+      <Str>This control requires version 4.70 or greater of COMCTL32.DLL</Str>
+      <Str>Этот компонент требует COMCTL32.DLL версии 4.70 или выше</Str>
+      <Str>Этот компонент требует COMCTL32.DLL версии 4.70 или выше</Str>
+    </Item>
+    <Item Comment="WinHelpViewer_hNoKeyword">
+      <Str>No help keyword specified.</Str>
+      <Str>No help keyword specified.</Str>
+      <Str>No help keyword specified.</Str>
+      <Str>No help keyword specified.</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameActiveCaption">
+      <Str>Active Caption</Str>
+      <Str>Active Caption</Str>
+      <Str>Active Caption</Str>
+      <Str>Active Caption</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameAppWorkSpace">
+      <Str>Application Workspace</Str>
+      <Str>Application Workspace</Str>
+      <Str>Application Workspace</Str>
+      <Str>Application Workspace</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBackground">
+      <Str>Background</Str>
+      <Str>Background</Str>
+      <Str>Background</Str>
+      <Str>Background</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBtnFace">
+      <Str>Button Face</Str>
+      <Str>Button Face</Str>
+      <Str>Button Face</Str>
+      <Str>Button Face</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBtnHighlight">
+      <Str>Button Highlight</Str>
+      <Str>Button Highlight</Str>
+      <Str>Button Highlight</Str>
+      <Str>Button Highlight</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBtnShadow">
+      <Str>Button Shadow</Str>
+      <Str>Button Shadow</Str>
+      <Str>Button Shadow</Str>
+      <Str>Button Shadow</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBtnText">
+      <Str>Button Text</Str>
+      <Str>Button Text</Str>
+      <Str>Button Text</Str>
+      <Str>Button Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameCaptionText">
+      <Str>Caption Text</Str>
+      <Str>Caption Text</Str>
+      <Str>Caption Text</Str>
+      <Str>Caption Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameDefault">
+      <Str>Default</Str>
+      <Str>Default</Str>
+      <Str>Default</Str>
+      <Str>Default</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameGrayText">
+      <Str>Gray Text</Str>
+      <Str>Gray Text</Str>
+      <Str>Gray Text</Str>
+      <Str>Gray Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameHighlight">
+      <Str>Highlight Background</Str>
+      <Str>Highlight Background</Str>
+      <Str>Highlight Background</Str>
+      <Str>Highlight Background</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameHighlightText">
+      <Str>Highlight Text</Str>
+      <Str>Highlight Text</Str>
+      <Str>Highlight Text</Str>
+      <Str>Highlight Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameInactiveBorder">
+      <Str>Inactive Border</Str>
+      <Str>Inactive Border</Str>
+      <Str>Inactive Border</Str>
+      <Str>Inactive Border</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameInactiveCaption">
+      <Str>Inactive Caption</Str>
+      <Str>Inactive Caption</Str>
+      <Str>Inactive Caption</Str>
+      <Str>Inactive Caption</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameInactiveCaptionText">
+      <Str>Inactive Caption Text</Str>
+      <Str>Inactive Caption Text</Str>
+      <Str>Inactive Caption Text</Str>
+      <Str>Inactive Caption Text</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameInfoBk">
+      <Str>Info Background</Str>
+      <Str>Info Background</Str>
+      <Str>Info Background</Str>
+      <Str>Info Background</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNamePurple">
+      <Str>Purple</Str>
+      <Str>Purple</Str>
+      <Str>Purple</Str>
+      <Str>Purple</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameTeal">
+      <Str>Teal</Str>
+      <Str>Teal</Str>
+      <Str>Teal</Str>
+      <Str>Teal</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameGray">
+      <Str>Gray</Str>
+      <Str>Gray</Str>
+      <Str>Gray</Str>
+      <Str>Gray</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameSilver">
+      <Str>Silver</Str>
+      <Str>Silver</Str>
+      <Str>Silver</Str>
+      <Str>Silver</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameRed">
+      <Str>Red</Str>
+      <Str>Red</Str>
+      <Str>Red</Str>
+      <Str>Red</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameLime">
+      <Str>Lime</Str>
+      <Str>Lime</Str>
+      <Str>Lime</Str>
+      <Str>Lime</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameYellow">
+      <Str>Yellow</Str>
+      <Str>Yellow</Str>
+      <Str>Yellow</Str>
+      <Str>Yellow</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBlue">
+      <Str>Blue</Str>
+      <Str>Blue</Str>
+      <Str>Blue</Str>
+      <Str>Blue</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameFuchsia">
+      <Str>Fuchsia</Str>
+      <Str>Fuchsia</Str>
+      <Str>Fuchsia</Str>
+      <Str>Fuchsia</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameAqua">
+      <Str>Aqua</Str>
+      <Str>Aqua</Str>
+      <Str>Aqua</Str>
+      <Str>Aqua</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameWhite">
+      <Str>White</Str>
+      <Str>White</Str>
+      <Str>White</Str>
+      <Str>White</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameMoneyGreen">
+      <Str>Money Green</Str>
+      <Str>Money Green</Str>
+      <Str>Money Green</Str>
+      <Str>Money Green</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameSkyBlue">
+      <Str>Sky Blue</Str>
+      <Str>Sky Blue</Str>
+      <Str>Sky Blue</Str>
+      <Str>Sky Blue</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameCream">
+      <Str>Cream</Str>
+      <Str>Cream</Str>
+      <Str>Cream</Str>
+      <Str>Cream</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameMedGray">
+      <Str>Medium Gray</Str>
+      <Str>Medium Gray</Str>
+      <Str>Medium Gray</Str>
+      <Str>Medium Gray</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameActiveBorder">
+      <Str>Active Border</Str>
+      <Str>Active Border</Str>
+      <Str>Active Border</Str>
+      <Str>Active Border</Str>
+    </Item>
+    <Item Comment="Consts_SInvalidMemoSize">
+      <Str>Text exceeds memo capacity</Str>
+      <Str>Text exceeds memo capacity</Str>
+      <Str>Текст превысил емкость memo</Str>
+      <Str>Текст превысил емкость memo</Str>
+    </Item>
+    <Item Comment="Consts_SDuplicateMenus">
+      <Str>Menu '%s' is already being used by another form</Str>
+      <Str>Menu '%s' is already being used by another form</Str>
+      <Str>Меню '%s' уже используется другой формой</Str>
+      <Str>Меню '%s' уже используется другой формой</Str>
+    </Item>
+    <Item Comment="Consts_SDockedCtlNeedsName">
+      <Str>Docked control must have a name</Str>
+      <Str>Docked control must have a name</Str>
+      <Str>Докированный элемент должен иметь имя</Str>
+      <Str>Докированный элемент должен иметь имя</Str>
+    </Item>
+    <Item Comment="Consts_SDockTreeRemoveError">
+      <Str>Error removing control from dock tree</Str>
+      <Str>Error removing control from dock tree</Str>
+      <Str>Ошибка удаления элемента из dock tree</Str>
+      <Str>Ошибка удаления элемента из dock tree</Str>
+    </Item>
+    <Item Comment="Consts_SDockZoneNotFound">
+      <Str>\0x20- Dock zone not found</Str>
+      <Str>\0x20- Dock zone not found</Str>
+      <Str>\0x20- область докирования не найдена</Str>
+      <Str>\0x20- область докирования не найдена</Str>
+    </Item>
+    <Item Comment="Consts_SDockZoneHasNoCtl">
+      <Str>\0x20- Dock zone has no control</Str>
+      <Str>\0x20- Dock zone has no control</Str>
+      <Str>\0x20- область докирования не имеет элементов управления</Str>
+      <Str>\0x20- область докирования не имеет элементов управления</Str>
+    </Item>
+    <Item Comment="Consts_SNoGetItemEventHandler">
+      <Str>No OnGetItem event handler assigned</Str>
+      <Str>No OnGetItem event handler assigned</Str>
+      <Str>Не определен обработчик события OnGetItem</Str>
+      <Str>Не определен обработчик события OnGetItem</Str>
+    </Item>
+    <Item Comment="HelpIntfs_hNoTableOfContents">
+      <Str>Unable to find a Table of Contents</Str>
+      <Str>Unable to find a Table of Contents</Str>
+      <Str>Unable to find a Table of Contents</Str>
+      <Str>Unable to find a Table of Contents</Str>
+    </Item>
+    <Item Comment="HelpIntfs_hNothingFound">
+      <Str>No help found for %s</Str>
+      <Str>No help found for %s</Str>
+      <Str>No help found for %s</Str>
+      <Str>No help found for %s</Str>
+    </Item>
+    <Item Comment="HelpIntfs_hNoContext">
+      <Str>No context-sensitive help installed</Str>
+      <Str>No context-sensitive help installed</Str>
+      <Str>No context-sensitive help installed</Str>
+      <Str>No context-sensitive help installed</Str>
+    </Item>
+    <Item Comment="HelpIntfs_hNoTopics">
+      <Str>No topic-based help system installed</Str>
+      <Str>No topic-based help system installed</Str>
+      <Str>No topic-based help system installed</Str>
+      <Str>No topic-based help system installed</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameBlack">
+      <Str>Black</Str>
+      <Str>Black</Str>
+      <Str>Black</Str>
+      <Str>Black</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameMaroon">
+      <Str>Maroon</Str>
+      <Str>Maroon</Str>
+      <Str>Maroon</Str>
+      <Str>Maroon</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameGreen">
+      <Str>Green</Str>
+      <Str>Green</Str>
+      <Str>Green</Str>
+      <Str>Green</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameOlive">
+      <Str>Olive</Str>
+      <Str>Olive</Str>
+      <Str>Olive</Str>
+      <Str>Olive</Str>
+    </Item>
+    <Item Comment="ExtCtrls_clNameNavy">
+      <Str>Navy</Str>
+      <Str>Navy</Str>
+      <Str>Navy</Str>
+      <Str>Navy</Str>
+    </Item>
+    <Item Comment="Consts_SmkcEnter">
+      <Str>Enter</Str>
+      <Str>Enter</Str>
+      <Str>Enter</Str>
+      <Str>Enter</Str>
+    </Item>
+    <Item Comment="Consts_SmkcSpace">
+      <Str>Space</Str>
+      <Str>Space</Str>
+      <Str>Space</Str>
+      <Str>Space</Str>
+    </Item>
+    <Item Comment="Consts_SmkcPgUp">
+      <Str>PgUp</Str>
+      <Str>PgUp</Str>
+      <Str>PgUp</Str>
+      <Str>PgUp</Str>
+    </Item>
+    <Item Comment="Consts_SmkcPgDn">
+      <Str>PgDn</Str>
+      <Str>PgDn</Str>
+      <Str>PgDn</Str>
+      <Str>PgDn</Str>
+    </Item>
+    <Item Comment="Consts_SmkcEnd">
+      <Str>End</Str>
+      <Str>End</Str>
+      <Str>End</Str>
+      <Str>End</Str>
+    </Item>
+    <Item Comment="Consts_SmkcHome">
+      <Str>Home</Str>
+      <Str>Home</Str>
+      <Str>Home</Str>
+      <Str>Home</Str>
+    </Item>
+    <Item Comment="Consts_SmkcLeft">
+      <Str>Left</Str>
+      <Str>Left</Str>
+      <Str>Left</Str>
+      <Str>Left</Str>
+    </Item>
+    <Item Comment="Consts_SmkcUp">
+      <Str>Up</Str>
+      <Str>Up</Str>
+      <Str>Up</Str>
+      <Str>Up</Str>
+    </Item>
+    <Item Comment="Consts_SmkcRight">
+      <Str>Right</Str>
+      <Str>Right</Str>
+      <Str>Right</Str>
+      <Str>Right</Str>
+    </Item>
+    <Item Comment="Consts_SmkcDown">
+      <Str>Down</Str>
+      <Str>Down</Str>
+      <Str>Down</Str>
+      <Str>Down</Str>
+    </Item>
+    <Item Comment="Consts_SmkcIns">
+      <Str>Ins</Str>
+      <Str>Ins</Str>
+      <Str>Ins</Str>
+      <Str>Ins</Str>
+    </Item>
+    <Item Comment="Consts_SmkcDel">
+      <Str>Del</Str>
+      <Str>Del</Str>
+      <Str>Del</Str>
+      <Str>Del</Str>
+    </Item>
+    <Item Comment="Consts_SmkcShift">
+      <Str>Shift+</Str>
+      <Str>Shift+</Str>
+      <Str>Shift+</Str>
+      <Str>Shift+</Str>
+    </Item>
+    <Item Comment="Consts_SmkcCtrl">
+      <Str>Ctrl+</Str>
+      <Str>Ctrl+</Str>
+      <Str>Ctrl+</Str>
+      <Str>Ctrl+</Str>
+    </Item>
+    <Item Comment="Consts_SmkcAlt">
+      <Str>Alt+</Str>
+      <Str>Alt+</Str>
+      <Str>Alt+</Str>
+      <Str>Alt+</Str>
+    </Item>
+    <Item Comment="Consts_SIconToClipboard">
+      <Str>Clipboard does not support Icons</Str>
+      <Str>Clipboard does not support Icons</Str>
+      <Str>Буфер обмена не поддерживает иконки</Str>
+      <Str>Буфер обмена не поддерживает иконки</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgInformation">
+      <Str>Information</Str>
+      <Str>Information</Str>
+      <Str>Информация</Str>
+      <Str>Информация</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgConfirm">
+      <Str>Confirm</Str>
+      <Str>Confirm</Str>
+      <Str>Подтверждение</Str>
+      <Str>Подтверждение</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgYes">
+      <Str>&amp;Yes</Str>
+      <Str>&amp;Yes</Str>
+      <Str>&amp;Да</Str>
+      <Str>&amp;Да</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgNo">
+      <Str>&amp;No</Str>
+      <Str>&amp;No</Str>
+      <Str>&amp;Нет</Str>
+      <Str>&amp;Нет</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgOK">
+      <Str>OK</Str>
+      <Str>OK</Str>
+      <Str>OK</Str>
+      <Str>OK</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgCancel">
+      <Str>Cancel</Str>
+      <Str>Cancel</Str>
+      <Str>Отмена</Str>
+      <Str>Отмена</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgHelp">
+      <Str>&amp;Help</Str>
+      <Str>&amp;Help</Str>
+      <Str>&amp;Справка</Str>
+      <Str>&amp;Справка</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgAbort">
+      <Str>&amp;Abort</Str>
+      <Str>&amp;Abort</Str>
+      <Str>П&amp;рервать</Str>
+      <Str>П&amp;рервать</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgRetry">
+      <Str>&amp;Retry</Str>
+      <Str>&amp;Retry</Str>
+      <Str>&amp;Повторить</Str>
+      <Str>&amp;Повторить</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgIgnore">
+      <Str>&amp;Ignore</Str>
+      <Str>&amp;Ignore</Str>
+      <Str>Про&amp;должить</Str>
+      <Str>Про&amp;должить</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgAll">
+      <Str>&amp;All</Str>
+      <Str>&amp;All</Str>
+      <Str>&amp;Все</Str>
+      <Str>&amp;Все</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgNoToAll">
+      <Str>N&amp;o to All</Str>
+      <Str>N&amp;o to All</Str>
+      <Str>Н&amp;ет для всех</Str>
+      <Str>Н&amp;ет для всех</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgYesToAll">
+      <Str>Yes to &amp;All</Str>
+      <Str>Yes to &amp;All</Str>
+      <Str>Д&amp;а для всех</Str>
+      <Str>Д&amp;а для всех</Str>
+    </Item>
+    <Item Comment="Consts_SmkcBkSp">
+      <Str>BkSp</Str>
+      <Str>BkSp</Str>
+      <Str>BkSp</Str>
+      <Str>BkSp</Str>
+    </Item>
+    <Item Comment="Consts_SmkcTab">
+      <Str>Tab</Str>
+      <Str>Tab</Str>
+      <Str>Tab</Str>
+      <Str>Tab</Str>
+    </Item>
+    <Item Comment="Consts_SmkcEsc">
+      <Str>Esc</Str>
+      <Str>Esc</Str>
+      <Str>Esc</Str>
+      <Str>Esc</Str>
+    </Item>
+    <Item Comment="Consts_SGroupIndexTooLow">
+      <Str>GroupIndex cannot be less than a previous menu item's GroupIndex</Str>
+      <Str>GroupIndex cannot be less than a previous menu item's GroupIndex</Str>
+      <Str>GroupIndex не может быть меньше, чем GroupIndex предыдущего пункта меню</Str>
+      <Str>GroupIndex не может быть меньше, чем GroupIndex предыдущего пункта меню</Str>
+    </Item>
+    <Item Comment="Consts_SNoMDIForm">
+      <Str>Cannot create form. No MDI forms are currently active</Str>
+      <Str>Cannot create form. No MDI forms are currently active</Str>
+      <Str>Не могу создать форму. Нет активных MDI форм</Str>
+      <Str>Не могу создать форму. Нет активных MDI форм</Str>
+    </Item>
+    <Item Comment="Consts_SControlParentSetToSelf">
+      <Str>A control cannot have itself as its parent</Str>
+      <Str>A control cannot have itself as its parent</Str>
+      <Str>Элемент управления не может быть родителем самого себя</Str>
+      <Str>Элемент управления не может быть родителем самого себя</Str>
+    </Item>
+    <Item Comment="Consts_SOKButton">
+      <Str>OK</Str>
+      <Str>OK</Str>
+      <Str>OK</Str>
+      <Str>OK</Str>
+    </Item>
+    <Item Comment="Consts_SCancelButton">
+      <Str>Cancel</Str>
+      <Str>Cancel</Str>
+      <Str>Отмена</Str>
+      <Str>Отмена</Str>
+    </Item>
+    <Item Comment="Consts_SYesButton">
+      <Str>&amp;Yes</Str>
+      <Str>&amp;Yes</Str>
+      <Str>&amp;Да</Str>
+      <Str>&amp;Да</Str>
+    </Item>
+    <Item Comment="Consts_SNoButton">
+      <Str>&amp;No</Str>
+      <Str>&amp;No</Str>
+      <Str>&amp;Нет</Str>
+      <Str>&amp;Нет</Str>
+    </Item>
+    <Item Comment="Consts_SHelpButton">
+      <Str>&amp;Help</Str>
+      <Str>&amp;Help</Str>
+      <Str>&amp;Справка</Str>
+      <Str>&amp;Справка</Str>
+    </Item>
+    <Item Comment="Consts_SCloseButton">
+      <Str>&amp;Close</Str>
+      <Str>&amp;Close</Str>
+      <Str>&amp;Закрыть</Str>
+      <Str>&amp;Закрыть</Str>
+    </Item>
+    <Item Comment="Consts_SIgnoreButton">
+      <Str>&amp;Ignore</Str>
+      <Str>&amp;Ignore</Str>
+      <Str>Про&amp;должить</Str>
+      <Str>Про&amp;должить</Str>
+    </Item>
+    <Item Comment="Consts_SRetryButton">
+      <Str>&amp;Retry</Str>
+      <Str>&amp;Retry</Str>
+      <Str>&amp;Повторить</Str>
+      <Str>&amp;Повторить</Str>
+    </Item>
+    <Item Comment="Consts_SAbortButton">
+      <Str>Abort</Str>
+      <Str>Abort</Str>
+      <Str>Прервать</Str>
+      <Str>Прервать</Str>
+    </Item>
+    <Item Comment="Consts_SAllButton">
+      <Str>&amp;All</Str>
+      <Str>&amp;All</Str>
+      <Str>&amp;Все</Str>
+      <Str>&amp;Все</Str>
+    </Item>
+    <Item Comment="Consts_SCannotDragForm">
+      <Str>Cannot drag a form</Str>
+      <Str>Cannot drag a form</Str>
+      <Str>Не могу перемещать форму</Str>
+      <Str>Не могу перемещать форму</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgWarning">
+      <Str>Warning</Str>
+      <Str>Warning</Str>
+      <Str>Предупреждение</Str>
+      <Str>Предупреждение</Str>
+    </Item>
+    <Item Comment="Consts_SMsgDlgError">
+      <Str>Error</Str>
+      <Str>Error</Str>
+      <Str>Ошибка</Str>
+      <Str>Ошибка</Str>
+    </Item>
+    <Item Comment="Consts_SInvalidImageSize">
+      <Str>Invalid image size</Str>
+      <Str>Invalid image size</Str>
+      <Str>Неверный размер изображения</Str>
+      <Str>Неверный размер изображения</Str>
+    </Item>
+    <Item Comment="Consts_SInvalidImageList">
+      <Str>Invalid ImageList</Str>
+      <Str>Invalid ImageList</Str>
+      <Str>Неверный ImageList</Str>
+      <Str>Неверный ImageList</Str>
+    </Item>
+    <Item Comment="Consts_SImageIndexError">
+      <Str>Invalid ImageList Index</Str>
+      <Str>Invalid ImageList Index</Str>
+      <Str>Неверный индекс ImageList</Str>
+      <Str>Неверный индекс ImageList</Str>
+    </Item>
+    <Item Comment="Consts_SImageReadFail">
+      <Str>Failed to read ImageList data from stream</Str>
+      <Str>Failed to read ImageList data from stream</Str>
+      <Str>Ошибка чтения данных ImageList из потока</Str>
+      <Str>Ошибка чтения данных ImageList из потока</Str>
+    </Item>
+    <Item Comment="Consts_SImageWriteFail">
+      <Str>Failed to write ImageList data to stream</Str>
+      <Str>Failed to write ImageList data to stream</Str>
+      <Str>Ошибка записи данных ImageList в поток</Str>
+      <Str>Ошибка записи данных ImageList в поток</Str>
+    </Item>
+    <Item Comment="Consts_SWindowDCError">
+      <Str>Error creating window device context</Str>
+      <Str>Error creating window device context</Str>
+      <Str>Ошибка создания контекста окна (window device context)</Str>
+      <Str>Ошибка создания контекста окна (window device context)</Str>
+    </Item>
+    <Item Comment="Consts_SWindowClass">
+      <Str>Error creating window class</Str>
+      <Str>Error creating window class</Str>
+      <Str>Ошибка создания оконного класса</Str>
+      <Str>Ошибка создания оконного класса</Str>
+    </Item>
+    <Item Comment="Consts_SCannotFocus">
+      <Str>Cannot focus a disabled or invisible window</Str>
+      <Str>Cannot focus a disabled or invisible window</Str>
+      <Str>Не могу передать фокус ввода отключенному или невидимому окну</Str>
+      <Str>Не могу передать фокус ввода отключенному или невидимому окну</Str>
+    </Item>
+    <Item Comment="Consts_SParentRequired">
+      <Str>Control '%s' has no parent window</Str>
+      <Str>Control '%s' has no parent window</Str>
+      <Str>Элемент управления '%s' не имеет родительского окна</Str>
+      <Str>Элемент управления '%s' не имеет родительского окна</Str>
+    </Item>
+    <Item Comment="Consts_SMDIChildNotVisible">
+      <Str>Cannot hide an MDI Child Form</Str>
+      <Str>Cannot hide an MDI Child Form</Str>
+      <Str>Не могу скрыть дочернюю форму MDI</Str>
+      <Str>Не могу скрыть дочернюю форму MDI</Str>
+    </Item>
+    <Item Comment="Consts_SVisibleChanged">
+      <Str>Cannot change Visible in OnShow or OnHide</Str>
+      <Str>Cannot change Visible in OnShow or OnHide</Str>
+      <Str>Не могу изменить Visible в OnShow или OnHide</Str>
+      <Str>Не могу изменить Visible в OnShow или OnHide</Str>
+    </Item>
+    <Item Comment="Consts_SCannotShowModal">
+      <Str>Cannot make a visible window modal</Str>
+      <Str>Cannot make a visible window modal</Str>
+      <Str>Не могу сделать видимым модальное окно</Str>
+      <Str>Не могу сделать видимым модальное окно</Str>
+    </Item>
+    <Item Comment="Consts_SMenuIndexError">
+      <Str>Menu index out of range</Str>
+      <Str>Menu index out of range</Str>
+      <Str>Индекс меню вышел за границы</Str>
+      <Str>Индекс меню вышел за границы</Str>
+    </Item>
+    <Item Comment="Consts_SMenuReinserted">
+      <Str>Menu inserted twice</Str>
+      <Str>Menu inserted twice</Str>
+      <Str>Меню вставлено дважды</Str>
+      <Str>Меню вставлено дважды</Str>
+    </Item>
+    <Item Comment="Consts_SMenuNotFound">
+      <Str>Sub-menu is not in menu</Str>
+      <Str>Sub-menu is not in menu</Str>
+      <Str>Подменю - не в меню</Str>
+      <Str>Подменю - не в меню</Str>
+    </Item>
+    <Item Comment="Consts_SNoTimers">
+      <Str>Not enough timers available</Str>
+      <Str>Not enough timers available</Str>
+      <Str>Нет доступных таймеров</Str>
+      <Str>Нет доступных таймеров</Str>
+    </Item>
+    <Item Comment="RTLConsts_SMemoryStreamError">
+      <Str>Out of memory while expanding memory stream</Str>
+      <Str>Out of memory while expanding memory stream</Str>
+      <Str>Не хватает памяти при расширении memory stream</Str>
+      <Str>Не хватает памяти при расширении memory stream</Str>
+    </Item>
+    <Item Comment="RTLConsts_SPropertyException">
+      <Str>Error reading %s%s%s: %s</Str>
+      <Str>Error reading %s%s%s: %s</Str>
+      <Str>Ошибка чтения %s%s%s: %s</Str>
+      <Str>Ошибка чтения %s%s%s: %s</Str>
+    </Item>
+    <Item Comment="RTLConsts_SReadError">
+      <Str>Stream read error</Str>
+      <Str>Stream read error</Str>
+      <Str>Ошибка чтения потока</Str>
+      <Str>Ошибка чтения потока</Str>
+    </Item>
+    <Item Comment="RTLConsts_SReadOnlyProperty">
+      <Str>Property is read-only</Str>
+      <Str>Property is read-only</Str>
+      <Str>Свойство только для чтения</Str>
+      <Str>Свойство только для чтения</Str>
+    </Item>
+    <Item Comment="RTLConsts_SResNotFound">
+      <Str>Resource %s not found</Str>
+      <Str>Resource %s not found</Str>
+      <Str>Ресурс %s не найден</Str>
+      <Str>Ресурс %s не найден</Str>
+    </Item>
+    <Item Comment="RTLConsts_SSeekNotImplemented">
+      <Str>%s.Seek not implemented</Str>
+      <Str>%s.Seek not implemented</Str>
+      <Str>%s.Seek не выполнено</Str>
+      <Str>%s.Seek не выполнено</Str>
+    </Item>
+    <Item Comment="RTLConsts_SSortedListError">
+      <Str>Operation not allowed on sorted list</Str>
+      <Str>Operation not allowed on sorted list</Str>
+      <Str>Операция недопустима для отсортированного списка строк</Str>
+      <Str>Операция недопустима для отсортированного списка строк</Str>
+    </Item>
+    <Item Comment="RTLConsts_SUnknownGroup">
+      <Str>%s not in a class registration group</Str>
+      <Str>%s not in a class registration group</Str>
+      <Str>%s нет в группе регистрации класса</Str>
+      <Str>%s нет в группе регистрации класса</Str>
+    </Item>
+    <Item Comment="RTLConsts_SUnknownProperty">
+      <Str>Property %s does not exist</Str>
+      <Str>Property %s does not exist</Str>
+      <Str>Свойство %s не существует</Str>
+      <Str>Свойство %s не существует</Str>
+    </Item>
+    <Item Comment="RTLConsts_SWriteError">
+      <Str>Stream write error</Str>
+      <Str>Stream write error</Str>
+      <Str>Ошибка записи потока</Str>
+      <Str>Ошибка записи потока</Str>
+    </Item>
+    <Item Comment="Consts_SInvalidBitmap">
+      <Str>Bitmap image is not valid</Str>
+      <Str>Bitmap image is not valid</Str>
+      <Str>Изображение Bitmap имеет неверный формат</Str>
+      <Str>Изображение Bitmap имеет неверный формат</Str>
+    </Item>
+    <Item Comment="Consts_SInvalidIcon">
+      <Str>Icon image is not valid</Str>
+      <Str>Icon image is not valid</Str>
+      <Str>Иконка (Icon) имеет неверный формат</Str>
+      <Str>Иконка (Icon) имеет неверный формат</Str>
+    </Item>
+    <Item Comment="Consts_SChangeIconSize">
+      <Str>Cannot change the size of an icon</Str>
+      <Str>Cannot change the size of an icon</Str>
+      <Str>Не могу изменить размер иконки</Str>
+      <Str>Не могу изменить размер иконки</Str>
+    </Item>
+    <Item Comment="Consts_SUnknownClipboardFormat">
+      <Str>Unsupported clipboard format</Str>
+      <Str>Unsupported clipboard format</Str>
+      <Str>Неподдерживаемый формат буфера обмена</Str>
+      <Str>Неподдерживаемый формат буфера обмена</Str>
+    </Item>
+    <Item Comment="Consts_SOutOfResources">
+      <Str>Out of system resources</Str>
+      <Str>Out of system resources</Str>
+      <Str>Не хватает системных ресурсов</Str>
+      <Str>Не хватает системных ресурсов</Str>
+    </Item>
+    <Item Comment="Consts_SNoCanvasHandle">
+      <Str>Canvas does not allow drawing</Str>
+      <Str>Canvas does not allow drawing</Str>
+      <Str>Canvas не позволяет рисовать</Str>
+      <Str>Canvas не позволяет рисовать</Str>
+    </Item>
+    <Item Comment="RTLConsts_SCheckSynchronizeError">
+      <Str>CheckSynchronize called from thread $%x, which is NOT the main thread</Str>
+      <Str>CheckSynchronize called from thread $%x, which is NOT the main thread</Str>
+      <Str>CheckSynchronize вызван из нити (трэда) $%x, которая НЕ является основной нитью</Str>
+      <Str>CheckSynchronize вызван из нити (трэда) $%x, которая НЕ является основной нитью</Str>
+    </Item>
+    <Item Comment="RTLConsts_SClassNotFound">
+      <Str>Class %s not found</Str>
+      <Str>Class %s not found</Str>
+      <Str>Класс %s не найден</Str>
+      <Str>Класс %s не найден</Str>
+    </Item>
+    <Item Comment="RTLConsts_SDuplicateClass">
+      <Str>A class named %s already exists</Str>
+      <Str>A class named %s already exists</Str>
+      <Str>Класс с именем %s уже существует</Str>
+      <Str>Класс с именем %s уже существует</Str>
+    </Item>
+    <Item Comment="RTLConsts_SDuplicateItem">
+      <Str>List does not allow duplicates ($0%x)</Str>
+      <Str>List does not allow duplicates ($0%x)</Str>
+      <Str>Список не допускает дубликатов ($0%x)</Str>
+      <Str>Список не допускает дубликатов ($0%x)</Str>
+    </Item>
+    <Item Comment="RTLConsts_SDuplicateName">
+      <Str>A component named %s already exists</Str>
+      <Str>A component named %s already exists</Str>
+      <Str>Компонент с именем %s уже существует</Str>
+      <Str>Компонент с именем %s уже существует</Str>
+    </Item>
+    <Item Comment="RTLConsts_SDuplicateString">
+      <Str>String list does not allow duplicates</Str>
+      <Str>String list does not allow duplicates</Str>
+      <Str>Список строк не допускает дубликатов</Str>
+      <Str>Список строк не допускает дубликатов</Str>
+    </Item>
+    <Item Comment="RTLConsts_SFCreateErrorEx">
+      <Str>Cannot create file "%s". %s</Str>
+      <Str>Cannot create file "%s". %s</Str>
+      <Str>Не могу создать файл "%s". %s</Str>
+      <Str>Не могу создать файл "%s". %s</Str>
+    </Item>
+    <Item Comment="RTLConsts_SFOpenErrorEx">
+      <Str>Cannot open file "%s". %s</Str>
+      <Str>Cannot open file "%s". %s</Str>
+      <Str>Не могу открыть файл "%s". %s</Str>
+      <Str>Не могу открыть файл "%s". %s</Str>
+    </Item>
+    <Item Comment="RTLConsts_SInvalidImage">
+      <Str>Invalid stream format</Str>
+      <Str>Invalid stream format</Str>
+      <Str>Неверный формат потока</Str>
+      <Str>Неверный формат потока</Str>
+    </Item>
+    <Item Comment="RTLConsts_SInvalidName">
+      <Str>''%s'' is not a valid component name</Str>
+      <Str>''%s'' is not a valid component name</Str>
+      <Str>''%s'' недопустимо в качестве имени компонента</Str>
+      <Str>''%s'' недопустимо в качестве имени компонента</Str>
+    </Item>
+    <Item Comment="RTLConsts_SInvalidProperty">
+      <Str>Invalid property value</Str>
+      <Str>Invalid property value</Str>
+      <Str>Неверное значение свойства</Str>
+      <Str>Неверное значение свойства</Str>
+    </Item>
+    <Item Comment="RTLConsts_SInvalidPropertyPath">
+      <Str>Invalid property path</Str>
+      <Str>Invalid property path</Str>
+      <Str>Неверный путь к свойству</Str>
+      <Str>Неверный путь к свойству</Str>
+    </Item>
+    <Item Comment="RTLConsts_SInvalidPropertyValue">
+      <Str>Invalid property value</Str>
+      <Str>Invalid property value</Str>
+      <Str>Неверное значение свойства</Str>
+      <Str>Неверное значение свойства</Str>
+    </Item>
+    <Item Comment="RTLConsts_SListCapacityError">
+      <Str>List capacity out of bounds (%d)</Str>
+      <Str>List capacity out of bounds (%d)</Str>
+      <Str>Размер списка вышел за границы (%d)</Str>
+      <Str>Размер списка вышел за границы (%d)</Str>
+    </Item>
+    <Item Comment="RTLConsts_SListCountError">
+      <Str>List count out of bounds (%d)</Str>
+      <Str>List count out of bounds (%d)</Str>
+      <Str>Счетчик списка вышел за границы (%d)</Str>
+      <Str>Счетчик списка вышел за границы (%d)</Str>
+    </Item>
+    <Item Comment="RTLConsts_SListIndexError">
+      <Str>List index out of bounds (%d)</Str>
+      <Str>List index out of bounds (%d)</Str>
+      <Str>Индекс списка вышел за границы (%d)</Str>
+      <Str>Индекс списка вышел за границы (%d)</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameTue">
+      <Str>Tue</Str>
+      <Str>Tue</Str>
+      <Str>Вт</Str>
+      <Str>Вт</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameWed">
+      <Str>Wed</Str>
+      <Str>Wed</Str>
+      <Str>Ср</Str>
+      <Str>Ср</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameThu">
+      <Str>Thu</Str>
+      <Str>Thu</Str>
+      <Str>Чт</Str>
+      <Str>Чт</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameFri">
+      <Str>Fri</Str>
+      <Str>Fri</Str>
+      <Str>Пт</Str>
+      <Str>Пт</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameSat">
+      <Str>Sat</Str>
+      <Str>Sat</Str>
+      <Str>Сб</Str>
+      <Str>Сб</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameSun">
+      <Str>Sunday</Str>
+      <Str>Sunday</Str>
+      <Str>Воскресенье</Str>
+      <Str>Воскресенье</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameMon">
+      <Str>Monday</Str>
+      <Str>Monday</Str>
+      <Str>Понедельник</Str>
+      <Str>Понедельник</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameTue">
+      <Str>Tuesday</Str>
+      <Str>Tuesday</Str>
+      <Str>Вторник</Str>
+      <Str>Вторник</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameWed">
+      <Str>Wednesday</Str>
+      <Str>Wednesday</Str>
+      <Str>Среда</Str>
+      <Str>Среда</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameThu">
+      <Str>Thursday</Str>
+      <Str>Thursday</Str>
+      <Str>Четверг</Str>
+      <Str>Четверг</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameFri">
+      <Str>Friday</Str>
+      <Str>Friday</Str>
+      <Str>Пятница</Str>
+      <Str>Пятница</Str>
+    </Item>
+    <Item Comment="SysConst_SLongDayNameSat">
+      <Str>Saturday</Str>
+      <Str>Saturday</Str>
+      <Str>Суббота</Str>
+      <Str>Суббота</Str>
+    </Item>
+    <Item Comment="RTLConsts_SAncestorNotFound">
+      <Str>Ancestor for '%s' not found</Str>
+      <Str>Ancestor for '%s' not found</Str>
+      <Str>Предок для '%s' не найден</Str>
+      <Str>Предок для '%s' не найден</Str>
+    </Item>
+    <Item Comment="RTLConsts_SAssignError">
+      <Str>Cannot assign a %s to a %s</Str>
+      <Str>Cannot assign a %s to a %s</Str>
+      <Str>Не могу значение %s присвоить %s</Str>
+      <Str>Не могу значение %s присвоить %s</Str>
+    </Item>
+    <Item Comment="RTLConsts_SBitsIndexError">
+      <Str>Bits index out of range</Str>
+      <Str>Bits index out of range</Str>
+      <Str>Индекс Bits вышел за границы</Str>
+      <Str>Индекс Bits вышел за границы</Str>
+    </Item>
+    <Item Comment="RTLConsts_SCantWriteResourceStreamError">
+      <Str>Can't write to a read-only resource stream</Str>
+      <Str>Can't write to a read-only resource stream</Str>
+      <Str>Не могу записывать в поток ресурсов "только для чтения"</Str>
+      <Str>Не могу записывать в поток ресурсов "только для чтения"</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameNov">
+      <Str>Nov</Str>
+      <Str>Nov</Str>
+      <Str>Ноя</Str>
+      <Str>Ноя</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameDec">
+      <Str>Dec</Str>
+      <Str>Dec</Str>
+      <Str>Дек</Str>
+      <Str>Дек</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameJan">
+      <Str>January</Str>
+      <Str>January</Str>
+      <Str>Январь</Str>
+      <Str>Январь</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameFeb">
+      <Str>February</Str>
+      <Str>February</Str>
+      <Str>Февраль</Str>
+      <Str>Февраль</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameMar">
+      <Str>March</Str>
+      <Str>March</Str>
+      <Str>Март</Str>
+      <Str>Март</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameApr">
+      <Str>April</Str>
+      <Str>April</Str>
+      <Str>Апрель</Str>
+      <Str>Апрель</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameMay">
+      <Str>May</Str>
+      <Str>May</Str>
+      <Str>Май</Str>
+      <Str>Май</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameJun">
+      <Str>June</Str>
+      <Str>June</Str>
+      <Str>Июнь</Str>
+      <Str>Июнь</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameJul">
+      <Str>July</Str>
+      <Str>July</Str>
+      <Str>Июль</Str>
+      <Str>Июль</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameAug">
+      <Str>August</Str>
+      <Str>August</Str>
+      <Str>Август</Str>
+      <Str>Август</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameSep">
+      <Str>September</Str>
+      <Str>September</Str>
+      <Str>Сентябрь</Str>
+      <Str>Сентябрь</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameOct">
+      <Str>October</Str>
+      <Str>October</Str>
+      <Str>Октябрь</Str>
+      <Str>Октябрь</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameNov">
+      <Str>November</Str>
+      <Str>November</Str>
+      <Str>Ноябрь</Str>
+      <Str>Ноябрь</Str>
+    </Item>
+    <Item Comment="SysConst_SLongMonthNameDec">
+      <Str>December</Str>
+      <Str>December</Str>
+      <Str>Декабрь</Str>
+      <Str>Декабрь</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameSun">
+      <Str>Sun</Str>
+      <Str>Sun</Str>
+      <Str>Вс</Str>
+      <Str>Вс</Str>
+    </Item>
+    <Item Comment="SysConst_SShortDayNameMon">
+      <Str>Mon</Str>
+      <Str>Mon</Str>
+      <Str>Пн</Str>
+      <Str>Пн</Str>
+    </Item>
+    <Item Comment="SysConst_SSafecallException">
+      <Str>Exception in safecall method</Str>
+      <Str>Exception in safecall method</Str>
+      <Str>Исключительная ситуация в safecall методе</Str>
+      <Str>Исключительная ситуация в safecall методе</Str>
+    </Item>
+    <Item Comment="SysConst_SAssertError">
+      <Str>%s (%s, line %d)</Str>
+      <Str>%s (%s, line %d)</Str>
+      <Str>%s (%s, строка %d)</Str>
+      <Str>%s (%s, строка %d)</Str>
+    </Item>
+    <Item Comment="SysConst_SAbstractError">
+      <Str>Abstract Error</Str>
+      <Str>Abstract Error</Str>
+      <Str>Абстрактная ошибка</Str>
+      <Str>Абстрактная ошибка</Str>
+    </Item>
+    <Item Comment="SysConst_SModuleAccessViolation">
+      <Str>Access violation at address %p in module '%s'. %s of address %p</Str>
+      <Str>Access violation at address %p in module '%s'. %s of address %p</Str>
+      <Str>Нарушение доступа по адресу %p в модуле '%s'. %s по адресу %p</Str>
+      <Str>Нарушение доступа по адресу %p в модуле '%s'. %s по адресу %p</Str>
+    </Item>
+    <Item Comment="SysConst_SOSError">
+      <Str>System Error.  Code: %d.\r\n%s</Str>
+      <Str>System Error.  Code: %d.\r\n%s</Str>
+      <Str>Системная ошибка.  Код: %d.\r\n%s</Str>
+      <Str>Системная ошибка.  Код: %d.\r\n%s</Str>
+    </Item>
+    <Item Comment="SysConst_SUnkOSError">
+      <Str>A call to an OS function failed</Str>
+      <Str>A call to an OS function failed</Str>
+      <Str>Ошибка при вызове функции ОС</Str>
+      <Str>Ошибка при вызове функции ОС</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameJan">
+      <Str>Jan</Str>
+      <Str>Jan</Str>
+      <Str>Янв</Str>
+      <Str>Янв</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameFeb">
+      <Str>Feb</Str>
+      <Str>Feb</Str>
+      <Str>Фев</Str>
+      <Str>Фев</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameMar">
+      <Str>Mar</Str>
+      <Str>Mar</Str>
+      <Str>Мар</Str>
+      <Str>Мар</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameApr">
+      <Str>Apr</Str>
+      <Str>Apr</Str>
+      <Str>Апр</Str>
+      <Str>Апр</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameMay">
+      <Str>May</Str>
+      <Str>May</Str>
+      <Str>Май</Str>
+      <Str>Май</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameJun">
+      <Str>Jun</Str>
+      <Str>Jun</Str>
+      <Str>Июн</Str>
+      <Str>Июн</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameJul">
+      <Str>Jul</Str>
+      <Str>Jul</Str>
+      <Str>Июл</Str>
+      <Str>Июл</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameAug">
+      <Str>Aug</Str>
+      <Str>Aug</Str>
+      <Str>Авг</Str>
+      <Str>Авг</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameSep">
+      <Str>Sep</Str>
+      <Str>Sep</Str>
+      <Str>Сен</Str>
+      <Str>Сен</Str>
+    </Item>
+    <Item Comment="SysConst_SShortMonthNameOct">
+      <Str>Oct</Str>
+      <Str>Oct</Str>
+      <Str>Окт</Str>
+      <Str>Окт</Str>
+    </Item>
+    <Item Comment="SysConst_SVarArrayBounds">
+      <Str>Variant or safe array index out of bounds</Str>
+      <Str>Variant or safe array index out of bounds</Str>
+      <Str>Индекс вариантного или safe массива вышел за границы</Str>
+      <Str>Индекс вариантного или safe массива вышел за границы</Str>
+    </Item>
+    <Item Comment="SysConst_SReadAccess">
+      <Str>Read</Str>
+      <Str>Read</Str>
+      <Str>Чтение</Str>
+      <Str>Чтение</Str>
+    </Item>
+    <Item Comment="SysConst_SWriteAccess">
+      <Str>Write</Str>
+      <Str>Write</Str>
+      <Str>Запись</Str>
+      <Str>Запись</Str>
+    </Item>
+    <Item Comment="SysConst_SVarArrayCreate">
+      <Str>Error creating variant or safe array</Str>
+      <Str>Error creating variant or safe array</Str>
+      <Str>Ошибка создания вариантного или safe массива</Str>
+      <Str>Ошибка создания вариантного или safe массива</Str>
+    </Item>
+    <Item Comment="SysConst_SVarArrayLocked">
+      <Str>Variant or safe array is locked</Str>
+      <Str>Variant or safe array is locked</Str>
+      <Str>Вариантный или safe массив заблокирован</Str>
+      <Str>Вариантный или safe массив заблокирован</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidVarNullOp">
+      <Str>Invalid variant operation (%s%.8x)\n%s</Str>
+      <Str>Invalid variant operation (%s%.8x)\n%s</Str>
+      <Str>Неверная операция с вариантом (%s%.8x)\n%s</Str>
+      <Str>Неверная операция с вариантом (%s%.8x)\n%s</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidVarOpWithHResultWithPrefix">
+      <Str>Invalid NULL variant operation</Str>
+      <Str>Invalid NULL variant operation</Str>
+      <Str>Неверная операция с NULL</Str>
+      <Str>Неверная операция с NULL</Str>
+    </Item>
+    <Item Comment="SysConst_SVarTypeCouldNotConvert">
+      <Str>Could not convert variant of type (%s) into type (%s)</Str>
+      <Str>Could not convert variant of type (%s) into type (%s)</Str>
+      <Str>Не могу преобразовать вариант типа (%s) в тип (%s)</Str>
+      <Str>Не могу преобразовать вариант типа (%s) в тип (%s)</Str>
+    </Item>
+    <Item Comment="SysConst_SVarTypeConvertOverflow">
+      <Str>Overflow while converting variant of type (%s) into type (%s)</Str>
+      <Str>Overflow while converting variant of type (%s) into type (%s)</Str>
+      <Str>Переполнение при преобразовании варианта типа (%s) в тип (%s)</Str>
+      <Str>Переполнение при преобразовании варианта типа (%s) в тип (%s)</Str>
+    </Item>
+    <Item Comment="SysConst_SVarOverflow">
+      <Str>Variant overflow</Str>
+      <Str>Variant overflow</Str>
+      <Str>Переполнение варианта</Str>
+      <Str>Переполнение варианта</Str>
+    </Item>
+    <Item Comment="SysConst_SVarInvalid">
+      <Str>Invalid argument</Str>
+      <Str>Invalid argument</Str>
+      <Str>Неверный аргумент</Str>
+      <Str>Неверный аргумент</Str>
+    </Item>
+    <Item Comment="SysConst_SVarBadType">
+      <Str>Invalid variant type</Str>
+      <Str>Invalid variant type</Str>
+      <Str>Неверный тип варианта</Str>
+      <Str>Неверный тип варианта</Str>
+    </Item>
+    <Item Comment="SysConst_SVarNotImplemented">
+      <Str>Operation not supported</Str>
+      <Str>Operation not supported</Str>
+      <Str>Операция не поддерживается</Str>
+      <Str>Операция не поддерживается</Str>
+    </Item>
+    <Item Comment="SysConst_SVarUnexpected">
+      <Str>Unexpected variant error</Str>
+      <Str>Unexpected variant error</Str>
+      <Str>Неожиданная ошибка варианта</Str>
+      <Str>Неожиданная ошибка варианта</Str>
+    </Item>
+    <Item Comment="SysConst_SExternalException">
+      <Str>External exception %x</Str>
+      <Str>External exception %x</Str>
+      <Str>Внешняя исключительная ситуация %x</Str>
+      <Str>Внешняя исключительная ситуация %x</Str>
+    </Item>
+    <Item Comment="SysConst_SAssertionFailed">
+      <Str>Assertion failed</Str>
+      <Str>Assertion failed</Str>
+      <Str>Assertion failed</Str>
+      <Str>Assertion failed</Str>
+    </Item>
+    <Item Comment="SysConst_SIntfCastError">
+      <Str>Interface not supported</Str>
+      <Str>Interface not supported</Str>
+      <Str>Интерфейс не поддерживается</Str>
+      <Str>Интерфейс не поддерживается</Str>
+    </Item>
+    <Item Comment="SysConst_SUnderflow">
+      <Str>Floating point underflow</Str>
+      <Str>Floating point underflow</Str>
+      <Str>Нецелочисленная потеря (underflow)</Str>
+      <Str>Нецелочисленная потеря (underflow)</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidPointer">
+      <Str>Invalid pointer operation</Str>
+      <Str>Invalid pointer operation</Str>
+      <Str>Неверная операция с указателем</Str>
+      <Str>Неверная операция с указателем</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidCast">
+      <Str>Invalid class typecast</Str>
+      <Str>Invalid class typecast</Str>
+      <Str>Неверное приведение класса</Str>
+      <Str>Неверное приведение класса</Str>
+    </Item>
+    <Item Comment="SysConst_SAccessViolationArg3">
+      <Str>Access violation at address %p. %s of address %p</Str>
+      <Str>Access violation at address %p. %s of address %p</Str>
+      <Str>Нарушение доступа по адресу %p. %s по адресу %p</Str>
+      <Str>Нарушение доступа по адресу %p. %s по адресу %p</Str>
+    </Item>
+    <Item Comment="SysConst_SAccessViolationNoArg">
+      <Str>Access violation</Str>
+      <Str>Access violation</Str>
+      <Str>Нарушение доступа</Str>
+      <Str>Нарушение доступа</Str>
+    </Item>
+    <Item Comment="SysConst_SStackOverflow">
+      <Str>Stack overflow</Str>
+      <Str>Stack overflow</Str>
+      <Str>Переполнение стека</Str>
+      <Str>Переполнение стека</Str>
+    </Item>
+    <Item Comment="SysConst_SControlC">
+      <Str>Control-C hit</Str>
+      <Str>Control-C hit</Str>
+      <Str>Нажатие Control-C</Str>
+      <Str>Нажатие Control-C</Str>
+    </Item>
+    <Item Comment="SysConst_SPrivilege">
+      <Str>Privileged instruction</Str>
+      <Str>Privileged instruction</Str>
+      <Str>Привилегированная инструкция</Str>
+      <Str>Привилегированная инструкция</Str>
+    </Item>
+    <Item Comment="SysConst_SException">
+      <Str>Exception %s in module %s at %p.\r\n%s%s\r\n</Str>
+      <Str>Exception %s in module %s at %p.\r\n%s%s\r\n</Str>
+      <Str>Исключительная ситуация %s в модуле %s по адресу %p.\r\n%s%s\r\n</Str>
+      <Str>Исключительная ситуация %s в модуле %s по адресу %p.\r\n%s%s\r\n</Str>
+    </Item>
+    <Item Comment="SysConst_SExceptTitle">
+      <Str>Application Error</Str>
+      <Str>Application Error</Str>
+      <Str>Ошибка приложения</Str>
+      <Str>Ошибка приложения</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidFormat">
+      <Str>Format '%s' invalid or incompatible with argument</Str>
+      <Str>Format '%s' invalid or incompatible with argument</Str>
+      <Str>Формат '%s' неверен или несовместим с аргументом</Str>
+      <Str>Формат '%s' неверен или несовместим с аргументом</Str>
+    </Item>
+    <Item Comment="SysConst_SArgumentMissing">
+      <Str>No argument for format '%s'</Str>
+      <Str>No argument for format '%s'</Str>
+      <Str>Нет аргумента для формата '%s'</Str>
+      <Str>Нет аргумента для формата '%s'</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidInteger">
+      <Str>'%s' is not a valid integer value</Str>
+      <Str>'%s' is not a valid integer value</Str>
+      <Str>'%s' - неверное целое значение</Str>
+      <Str>'%s' - неверное целое значение</Str>
+    </Item>
+    <Item Comment="SysConst_SOutOfMemory">
+      <Str>Out of memory</Str>
+      <Str>Out of memory</Str>
+      <Str>Не хватает памяти</Str>
+      <Str>Не хватает памяти</Str>
+    </Item>
+    <Item Comment="SysConst_SInOutError">
+      <Str>I/O error %d</Str>
+      <Str>I/O error %d</Str>
+      <Str>Ошибка ввода/вывода %d</Str>
+      <Str>Ошибка ввода/вывода %d</Str>
+    </Item>
+    <Item Comment="SysConst_SFileNotFound">
+      <Str>File not found</Str>
+      <Str>File not found</Str>
+      <Str>Файл не найден</Str>
+      <Str>Файл не найден</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidFilename">
+      <Str>Invalid filename</Str>
+      <Str>Invalid filename</Str>
+      <Str>Неверное имя файла</Str>
+      <Str>Неверное имя файла</Str>
+    </Item>
+    <Item Comment="SysConst_STooManyOpenFiles">
+      <Str>Too many open files</Str>
+      <Str>Too many open files</Str>
+      <Str>Слишком много открытых файлов</Str>
+      <Str>Слишком много открытых файлов</Str>
+    </Item>
+    <Item Comment="SysConst_SAccessDenied">
+      <Str>File access denied</Str>
+      <Str>File access denied</Str>
+      <Str>В доступе к файлу отказано</Str>
+      <Str>В доступе к файлу отказано</Str>
+    </Item>
+    <Item Comment="SysConst_SEndOfFile">
+      <Str>Read beyond end of file</Str>
+      <Str>Read beyond end of file</Str>
+      <Str>Чтение за окончанием файла</Str>
+      <Str>Чтение за окончанием файла</Str>
+    </Item>
+    <Item Comment="SysConst_SDiskFull">
+      <Str>Disk full</Str>
+      <Str>Disk full</Str>
+      <Str>Диск полон</Str>
+      <Str>Диск полон</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidInput">
+      <Str>Invalid numeric input</Str>
+      <Str>Invalid numeric input</Str>
+      <Str>Неверный ввод числа</Str>
+      <Str>Неверный ввод числа</Str>
+    </Item>
+    <Item Comment="SysConst_SDivByZero">
+      <Str>Division by zero</Str>
+      <Str>Division by zero</Str>
+      <Str>Деление на ноль</Str>
+      <Str>Деление на ноль</Str>
+    </Item>
+    <Item Comment="SysConst_SRangeError">
+      <Str>Range check error</Str>
+      <Str>Range check error</Str>
+      <Str>Ошибка выхода за границы (Range check)</Str>
+      <Str>Ошибка выхода за границы (Range check)</Str>
+    </Item>
+    <Item Comment="SysConst_SIntOverflow">
+      <Str>Integer overflow</Str>
+      <Str>Integer overflow</Str>
+      <Str>Переполнение целого</Str>
+      <Str>Переполнение целого</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidOp">
+      <Str>Invalid floating point operation</Str>
+      <Str>Invalid floating point operation</Str>
+      <Str>Неверная операция с дробными числами</Str>
+      <Str>Неверная операция с дробными числами</Str>
+    </Item>
+    <Item Comment="SysConst_SZeroDivide">
+      <Str>Floating point division by zero</Str>
+      <Str>Floating point division by zero</Str>
+      <Str>Нецелочисленное деление на ноль</Str>
+      <Str>Нецелочисленное деление на ноль</Str>
+    </Item>
+    <Item Comment="SysConst_SOverflow">
+      <Str>Floating point overflow</Str>
+      <Str>Floating point overflow</Str>
+      <Str>Нецелочисленное переполнение</Str>
+      <Str>Нецелочисленное переполнение</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidVarCast">
+      <Str>Invalid variant type conversion</Str>
+      <Str>Invalid variant type conversion</Str>
+      <Str>Неверное преобразование вариантного типа</Str>
+      <Str>Неверное преобразование вариантного типа</Str>
+    </Item>
+    <Item Comment="SysConst_SDispatchError">
+      <Str>Variant method calls not supported</Str>
+      <Str>Variant method calls not supported</Str>
+      <Str>Вызовы вариантных методов не поддерживаются</Str>
+      <Str>Вызовы вариантных методов не поддерживаются</Str>
+    </Item>
+    <Item Comment="SysConst_SInvalidVarOp">
+      <Str>Invalid variant operation</Str>
+      <Str>Invalid variant operation</Str>
+      <Str>Неверная операция с вариантом</Str>
+      <Str>Неверная операция с вариантом</Str>
+    </Item>
+  </Items>
+</RadialixLocalizerTM>

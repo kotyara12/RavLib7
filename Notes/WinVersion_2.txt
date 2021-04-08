@@ -1,0 +1,804 @@
+ Сегодня: 23.12.2007 22:00:47    Курс борьбы с программированием, windows и web  Работаем 2535 день. Начало: 13.1.2001  
+ 
+ Карта сайта Новости Статьи Исходники Программы Юмор Словарь 
+Блог Форум Каталог Компоненты Скрипты Архив Новости инета 
+ 
+  Поиск на сайте:   СайтGoogle   RamblerсайтRambler   СайтЯndex 
+ 
+
+Статьи:  
+C/VC/C++/C#
+DELPHI FAQ (структурирован по темам)
+DELPHI FAQ (неупорядочен по темам)
+DELPHI Лекции, уроки
+Windows
+HTML.CSS.SSI.JavaScript
+PHP и MySql
+Базы данных
+Железо
+Сети.Интернет
+Разное
+Юмор 
+ 
+Каталог:  
+Delphi
+Basic
+Ассемблер
+Windows
+PHP
+Web.CSS
+JavaScript
+Хостинг
+Каталоги
+Форумы
+Культура
+Игры
+Обучение  C/C++
+FoxPro
+WinApi
+Алгоритмы
+Форматы
+Программы
+Базы
+Сети
+Железо 
+Комп.док.
+Новости
+Юмор
+К.Жизнь  
+Безопасность 
+ 
+Новые статьи 
+Конвертировать CSV файл в XML >&nbs... (23/12/07) (21)
+Горячая десятка долгов 10 место: В Древней Греции на земле должника кредитор устанавливал табличку, означавшую, что в сл... (23/12/07) (21)
+XML файл как замена для INI файла {This ... (22/12/07) (42)
+20 фактов о жизни в космосе, о которых вы не знали 1. Практически каждый астронавт испытывает космическую болезнь. К тому же, симптомы включают в се... (22/12/07) (42)
+Премьера - Шла Саша по шоссе и сосала сушку. – разминался он перед зеркалом. - Волнуешься, сы... (21/12/07) (58)
+ 
+
+ 
+Новые ссылки 
+bit.pirit.info forum Программирование на Visual Basic, V...
+FlightGear Многоплатформенный авиасимулятор. ...
+Aldebaran.ru Альдебаран - электронная библиотека...
+Новогодний оркестр Flash оркестр. Кликните по исполнит...
+MetrO Позволяет подобрать кратчайший путь...
+Delphi Distiller бесплатная утилита для настройки De...
+ 
+
+ 
+ 
+ 
+ Как узнать какая Винда на стоит на машине ?
+30 мар 2004 (вторник), 17:17:21 DDA © (21.02.04 22:29) [1]
+Взято из DelphiWorks
+Function IsNTWorkstation: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= (OSVersionInfoEx.wProductType = VER_NT_WORKSTATION);
+End;
+Function IsNTServer: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= (OSVersionInfoEx.wProductType = VER_NT_SERVER);
+End;
+Function IsDomainController: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= (OSVersionInfoEx.wProductType = VER_NT_DOMAIN_CONTROLLER);
+End;
+Function IsNTMachine: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_NT );
+End;
+Function IsWin95: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_WINDOWS ) and
+( OSVersionInfoEx.dwMajorVersion = 4 ) and
+( OSVersionInfoEx.dwMinorVersion = 0 );
+End;
+Function IsWin98: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_WINDOWS ) and
+( OSVersionInfoEx.dwMajorVersion = 4 ) and
+( OSVersionInfoEx.dwMinorVersion = 10 );
+End;
+Function IsWinME: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_WINDOWS ) and
+( OSVersionInfoEx.dwMajorVersion = 4 ) and
+( OSVersionInfoEx.dwMinorVersion = 90 );
+End;
+Function IsNT351: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_NT ) and
+( OSVersionInfoEx.dwMajorVersion = 3 ) and
+( OSVersionInfoEx.dwMinorVersion = 51 );
+End;
+Function IsNT4: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_NT ) and
+( OSVersionInfoEx.dwMajorVersion = 4 ) and
+( OSVersionInfoEx.dwMinorVersion = 0 );
+End;
+Function IsWin2K: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_NT ) and
+( OSVersionInfoEx.dwMajorVersion = 5 ) and
+( OSVersionInfoEx.dwMinorVersion = 0 );
+End;
+Function IsWinXP: Boolean;
+var
+OSVersionInfoEx: TOSVersionInfoEx;
+Begin
+GetWindowsVersionEx(OSVersionInfoEx);
+result:= ( OSVersionInfoEx.dwPlatformId = VER_PLATFORM_WIN32_NT ) and
+( OSVersionInfoEx.dwMajorVersion = 5 ) and
+( OSVersionInfoEx.dwMinorVersion = 1 );
+End;
+--------------------------------------------------------------------------------
+Юрий Зотов © (21.02.04 22:56) [2]
+В модуле SysUtils есть уже готовые переменные Win32Platform, Win32MajorVersion, Win32MinorVersion,
+Win32BuildNumber и Win32CSDVersion. А их расшифровка дана в MSDN:
+dwMajorVersion
+Identifies the major version number of the operating system as follows.
+Operating System Value
+Windows 95 4
+Windows 98 4
+Windows Me 4
+Windows NT 3.51 3
+Windows NT 4.0 4
+Windows 2000 5
+Whistler 5
+dwMinorVersion
+Identifies the minor version number of the operating system as follows.
+Operating System Value
+Windows 95 0
+Windows 98 10
+Windows Me 90
+Windows NT 3.51 51
+Windows NT 4.0 0
+Windows 2000 0
+Whistler 1
+dwBuildNumber
+Windows NT/2000: Identifies the build number of the operating system.
+Windows 95/98: Identifies the build number of the operating system in the low-order word.
+The high-order word contains the major and minor version numbers.
+dwPlatformId
+Identifies the operating system platform. This member can be one of the following values.
+Value Platform
+VER_PLATFORM_WIN32s Win32s on Windows 3.1.
+VER_PLATFORM_WIN32_WINDOWS W95, W98, or Me.
+VER_PLATFORM_WIN32_NT NT 3.51, NT 4.0, 2K, or Whistler.
+szCSDVersion
+Windows NT/2000, Whistler: Contains a null-terminated string, such as "
+Service Pack 3" , that indicates the latest
+Service Pack installed on the system. If no Service Pack has been installed,
+the string is empty.
+Windows 95/98/Me: Contains a null-terminated string that indicates additional
+version information. For example,
+" C" indicates Windows 95 OSR2 and " A"
+indicates Windows 98 SE.
+--------------------------------------------------------------------------------
+DDA © (21.02.04 23:06) [3]
+Чувствую пора мне уже MSDN иметь.
+--------------------------------------------------------------------------------
+Юрий Зотов © (22.02.04 00:11) [4]
+Короче говоря, достал меня этот вопрос, поэтому набросал тут простенький наборчик функций.
+Знает все версии Windows, кроме LongHorn (который несложно и добавить).
+Type
+TWin32Version = (wvUnknown, wv32S,
+wv95, wv95OSR2, wv98, wv98SE, wvME,
+wvNT351, wvNT40, wv2K, wvXP);
+Const
+Win32VersionName: array[TWin32Version] of string =
+('Unknown', 'Win32S on Windows 3.1',
+'Windows 95', 'Windows 95 OSR2', 'Windows 98', 'Windows 98 SE', 'Windows ME',
+'Windows NT 3.51', 'Windows NT 4.0', 'Windows 2000', 'Windows XP');
+// Версия в виде перечислимого типа TWin32Version
+Function GetWin32Version: TWin32Version;
+Begin
+Case Win32Platform of
+VER_PLATFORM_WIN32s:
+Result := wv32S;
+VER_PLATFORM_WIN32_WINDOWS:
+Case Win32MinorVersion of
+0: If Win32CSDVersion = 'C' Then Result := wv95OSR2 Else Result := wv95;
+10: If Win32CSDVersion = 'A' Then Result := wv98SE Else Result := wv98;
+90: Result := wvME
+Else Result := wvUnknown
+End;
+VER_PLATFORM_WIN32_NT:
+Case Win32MajorVersion of
+3: Result := wvNT351;
+4: Result := wvNT40;
+5: Case Win32MinorVersion of
+0: Result := wv2K;
+1: Result := wvXP
+Else Result := wvUnknown
+End
+Else Result := wvUnknown
+End
+Else Result := wvUnknown
+End
+End;
+// Версия в виде 'Micrisoft Windows XXXX'
+Function GetWin32VersionName: string;
+Begin
+Result := 'Microsoft ' + Win32VersionName[GetWin32Version]
+End;
+// Версия в виде 'X.XX.XXXX'
+Function GetWin32VersionNumber: string;
+Begin
+Result := Format('%d.%d.%d', [Win32MajorVersion, Win32MinorVersion, Win32BuildNumber])
+End;
+// Полная версия, включая последний установленный сервиспак
+Function GetFullWin32Version: string;
+Begin
+If Win32Platform = VER_PLATFORM_WIN32_NT Then
+Result := Format('%s version %s, %s', [GetWin32VersionName, GetWin32VersionNumber, Win32CSDVersion])
+Else Result := Format('%s version %s', [GetWin32VersionName, GetWin32VersionNumber])
+End;
+
+--------------------------------------------------------------------------------
+
+Как выполнить длительную(по времени) процедуру в дополнительном потоке 
+и одновременно обновлять TProgressBar в основном потоке.
+29 мар 2004 (понедельник), 16:50:24 unit ufMyLongProcedure;
+interface
+uses
+Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+Dialogs, ComCtrls, StdCtrls;
+Type
+TForm1 = class(TForm)
+Button1: TButton;
+ProgressBar1: TProgressBar;
+Procedure Button1Click(SEnder: TObject);
+Private
+{ Private declarations }
+Public
+{ Public declarations }
+End;
+//Класс потока для выполнения длительных расчетов
+TMyLongProcedure = class(TThread)
+FProgressBar: TProgressBar;
+FCounter: Integer;
+protected
+Procedure Execute; override;
+Public
+//Параметром передаем TProgressBar, который необходимо обновлять
+Constructor Create(aProgressBar: TProgressBar);
+//Процедура для работы с объектами в основном потоке
+Procedure ShowProgress;
+End;
+var
+Form1: TForm1;
+implementation
+{$R *.dfm}
+Constructor TMyLongProcedure.Create(aProgressBar: TProgressBar);
+Begin
+inherited Create(True); //Создается в приостановленном состоянии
+FreeOnTerminate := True; //После окончания выполнения потока все
+// ресурсы освобождаются автоматически
+FProgressBar := aProgressBar;
+FProgressBar.Min := 0;
+FProgressBar.Max := 100;
+FProgressBar.Position := 0;
+FCounter := 0;
+Resume;
+End;
+Procedure TMyLongProcedure.ShowProgress;
+Begin
+//Обновление TProgressBar в основном потоке
+FProgressBar.Position := FCOunter;
+End;
+Procedure TMyLongProcedure.Execute;
+var
+i: Integer;
+Begin
+i := 0;
+While (not Terminated) and (i< 10000) do
+Begin
+If (i mod 10) = 0 Then //Не обновляем на каждой итерации,
+// так как тогда не сможем работать
+// в основном потоке с формой
+Begin
+inc(FCounter);
+Synchronize(ShowProgress); //Обновляем TProgressBar
+If FCounter=100 Then FCOunter := 0; //TProgressBar будет обновляться
+// циклически
+End;
+Sleep(1); //Для эмуляции длительной работы
+Inc(i);
+End;
+End;
+Procedure TForm1.Button1Click(SEnder: TObject);
+Begin
+TMyLongProcedure.Create(ProgressBar1);
+End;
+End.
+
+--------------------------------------------------------------------------------
+
+Как получить список/размер всех файлов в каталоге и его подкаталогах?
+29 мар 2004 Функции или процедуры, позволяющей это сделать нет, поэтому для получения
+списка файлов нужно воспользоваться рекурсивно функциями FindFirst/FindNext/FindClose.
+Пример:
+unit Unit1;
+interface
+uses
+Windows, Messages, SysUtils, Classes, Controls, Forms,
+StdCtrls, Masks;
+Type
+TForm1 = class(TForm)
+Button1: TButton;
+ListBox1: TListBox;
+Procedure Button1Click(SEnder: TObject);
+Private
+{ Private declarations }
+Public
+{ Public declarations }
+End;
+var
+Form1: TForm1;
+implementation
+{$R *.dfm}
+//Простой поиск всех файлов в каталоге и его покаталогах
+Procedure GetFilesSimple(Const aPath: string;Var aListFile: TstringList);
+var
+SR: TSearchRec;
+tPath: string;
+Begin
+tPath := IncludeTrailingBackSlash(aPath);
+If FindFirst(tPath+'\*.*',faAnyFile,SR)=0 Then
+Begin
+Try
+repeat
+If (SR.Name='.') or (SR.Name='..') Then Continue;
+If (SR.Attr and faDirectory)< > 0 Then GetFilesSimple(tPath+SR.Name,aListFile);
+aListFile.Add(tPath+SR.Name);
+until FindNext(SR)< > 0;
+finally
+Sysutils.FindClose(SR);
+End;
+End;
+End;
+//Поиск файлов в каталоге и его покаталогах с фильтром по маске и исключением
+//из поиска всех файлов, атрибуты которых попадают в aExcludeAttr
+Function GetFiles(Const aPath,aMask: string;Var aListFile: TstringList;
+Const aExcludeAttr: Integer=0): Integer;
+var
+SR: TSearchRec;
+tPath: string;
+Begin
+tPath := IncludeTrailingBackSlash(aPath);
+If FindFirst(tPath+'*.*',faDirectory,SR)=0 Then
+Begin
+Try
+repeat
+If (SR.Name='.') or (SR.Name='..') Then Continue;
+If (SR.Attr and faDirectory)< > 0 Then
+GetFiles(tPath+SR.Name,aMask,aListFile,aExcludeAttr);
+If (aExcludeAttr< > 0) and (SR.Attr and aExcludeAttr < > 0) Then Continue;
+If MatchesMask(SR.Name,aMask) Then aListFile.Add(tPath+SR.Name);
+until FindNext(SR)< > 0;
+finally
+Sysutils.FindClose(SR);
+End;
+End;
+End;
+//Процедура вычисления размера каталога
+Procedure GetDirSize(Const aPath: string;Var SizeDir: Int64);
+var
+SR: TSearchRec;
+tPath: string;
+Begin
+tPath := IncludeTrailingBackSlash(aPath);
+If FindFirst(tPath+'*.*',faAnyFile,SR)=0 Then
+Begin
+Try
+repeat
+If (SR.Name='.') or (SR.Name='..') Then Continue;
+If (SR.Attr and faDirectory)< > 0 Then
+Begin
+GetDirSize(tPath+SR.Name,SizeDir);
+Continue;
+End;
+SizeDir := SizeDir +
+(SR.FindData.nFileSizeHigh shl 32)+
+SR.FindData.nFileSizeLow;
+until FindNext(SR)< > 0;
+finally
+Sysutils.FindClose(SR);
+End;
+End;
+End;
+Procedure TForm1.Button1Click(SEnder: TObject);
+var
+SizeDir: Int64;
+ListFiles: TstringList;
+Begin
+ListFiles := TstringList.Create;
+GetFilesSimple('c:\winnt',ListFiles); //Поиск всех файлов
+ListFiles.Add('---------');
+GetFiles('c:\winnt','*.exe',ListFiles,faArchive);
+ListFiles.Add('---------');
+SizeDir := 0;
+GetDirSize('c:\winnt',SizeDir);
+ListFiles.Add('Размер каталога '+IntToStr(SizeDir));
+ListBox1.Items.Assign(ListFiles);
+ListFiles.Free;
+End;
+End.
+
+--------------------------------------------------------------------------------
+
+Как избавиться от ScrollBars на главной MDI-форме:
+29 мар 2004 (понедельник), 16:48:15 { (С) Peter Below (TeamB) }
+unit MainForm;
+interface
+uses
+Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+Menus;
+Type
+TfMain = class(TForm)
+Procedure FormCreate(SEnder: TObject);
+....
+End;
+var
+fMain: TfMain;
+implementation
+{$R *.DFM}
+Function ClientWindowProc( wnd: HWND; msg: Cardinal; wparam, lparam: Integer ): Integer; stdcall;
+var
+f: Pointer;
+Begin
+f := Pointer(GetWindowLong (wnd, GWL_USERDATA));
+Case msg of
+WM_NCCALCSIZE:
+If (GetWindowLong (wnd, GWL_STYLE) and
+(WS_HSCROLL or WS_VSCROLL)) < > 0 Then
+SetWindowLong (wnd, GWL_STYLE,
+GetWindowLong (wnd, GWL_STYLE) and
+not (WS_HSCROLL or WS_VSCROLL));
+End;
+Result := CallWindowProc(f, wnd, msg, wparam, lparam);
+End;
+Procedure TfMain.FormCreate(SEnder: TObject);
+Begin
+If ClientHandle < > 0 Then Begin
+If GetWindowLong (ClientHandle, GWL_USERDATA) < > 0 Then
+Exit; {cannot subclass client window, userdata already in use}
+SetWindowLong (ClientHandle, GWL_USERDATA,
+SetWindowLong (ClientHandle, GWL_WNDPROC,
+integer(@ClientWindowProc)));
+End;
+End;
+End.
+
+--------------------------------------------------------------------------------
+
+Написание сервисов Windows NT на WinAPI
+28 мар 2004 (воскресенье), 18:34:08 Источник: {delphi.xonix.ru}
+Причиной написания этой статьи, как не странно, стала необходимость
+написания своего сервиса.
+Но в Borland'е решили немного " порадовать" нас, пользователей Delphi 6 Personal,
+не добавив возможности создания сервисов (в остальных версиях Delphi 5 и 6 эта
+возможность имеется в виде класса TService). Решив, что еще не все потеряно,
+взял на проверку компоненты из одноименного раздела этого сайта.
+Первый оказался с многочисленными багами, а до пробы второго я не дошел,
+взглянув на исходник - модуль Forms в Uses это не только окошки,
+но и более 300 килобайт " веса" программы.
+Бессмысленного увеличения размера не хотелось и пришлось творить свое.
+Так как сервис из воздуха не сотворишь, то мой исходник и
+эта статья очень сильно опираются на MSDN.
+Итак, приступим к написанию своего сервиса...
+Обычный Win32-сервис это обычная программа.
+Программу рекомендуется сделать консольной
+(DELPHI MENU | Project | Options.. | Linker [X]Generate Console Application) и
+крайне рекомендуется сделать ее без форм !!! и удалить модуль Forms из Uses.
+Рекомендуется потому, что, во-первых, это окошко показывать не стоит потому,
+что оно позволит любому юзеру, прибив ваше окошко прибить и сервис и, во-вторых,
+конечно же, размер файла (19Kb против 350 ).
+Поэтому удаляем форму (DELPHI MENU | Project | Remove from project... ).
+Удалив все формы, перейдем на главный модуль проекта, в котором удаляем
+текст между Begin и End и Forms из Uses и добавляем Windows и WinSvc.
+В результате должно получиться что-то вроде этого
+program Project1;
+uses
+Windows,WinSvc;
+{$R *.res}
+Begin
+End.
+На этом подготовительный этап закончен - начинаем писАть сервис.
+Главная часть программы
+Как уже отмечалось - сервис это обычная программа.
+Программа в Pascal'е находится между Begin и End.
+После запуска нашего сервиса (здесь и далее под запуском сервиса понимается
+именно запуск его из Менеджера сервисов, а не просто запуск exe'шника сервиса)
+менеджер сервисов ждет пока наш сервис вызовет функцию StartServiceCtrlDispatcher.
+Ждать он будет недолго - если в нашем exe'шнике несколько сервисов то секунд 30,
+если один - около секунды, поэтому помещаем вызов StartServiceCtrlDispatcher поближе к Begin.
+StartServiceCtrlDispatcher качестве аргумента требует _SERVICE_TABLE_ENTryA,
+поэтому добавляем в Var DispatchTable : array [0..кол-во сервисов] of _SERVICE_TABLE_ENTryA;
+и заполняем этот массив (естественно перед вызовом StartServiceCtrlDispatcher).
+Т.к. в нашем ехешнике будет 1 сервис, то заполняем его так :
+DispatchTable[0].lpServiceName:=ServiceName;
+DispatchTable[0].lpServiceProc:=@ServiceProc;
+DispatchTable[1].lpServiceName:=nil;
+DispatchTable[1].lpServiceProc:=nil;
+Советую завести константы ServiceName - имя сервиса и ServiceDisplayName - отображаемое имя.
+ServiceProc - основная функция сервиса(о ней ниже), а в функцию мы передаем ее адрес. В DispatchTable[кол-во сервисов] все равно nil - это показывает функции,
+что предыдущее поле было последним. У меня получилось так :
+Begin
+DispatchTable[0].lpServiceName:=ServiceName;
+DispatchTable[0].lpServiceProc:=@ServiceProc;
+DispatchTable[1].lpServiceName:=nil;
+DispatchTable[1].lpServiceProc:=nil;
+If not StartServiceCtrlDispatcher(DispatchTable[0])
+Then LogError('StartServiceCtrlDispatcher Error');
+End.
+StartServiceCtrlDispatcher выполнится только после того, как все сервисы будут остановлены.
+Функция LogError протоколирует ошибки - напишите ее сами.
+Функция ServiceMain
+ServiceMain - основная функция сервиса. Если в ехешнике несколько сервисов,
+но для каждого сервиса пишется своя ServiceMain функция.
+Имя функции может быть любым! и передается в
+DispatchTable.lpServiceProc:=@ServiceMain (см.предыдущущий абзац).
+У меня она называется ServiceProc и описывается так:
+Procedure ServiceProc(argc : DWORD;Var argv : array of PChar);stdcall;
+argc кол-во аргументов и их массив argv передаются менеджером сервисов
+из настроек сервиса. НЕ ЗАБЫВАЙТЕ STDCALL!!!
+Такая забывчивость - частая причина ошибки в программе.
+В ServiceMain требуется выполнить подготовку к запуску сервиса и зарегистрировать
+обработчик сообщений от менеджера сервисов (Handler). Опять после запуска
+ServiceMain и до запуска RegisterServiceCtrlHandler должно пройти минимум времени.
+Если сервису надо делать что-нибудь очень долго и обязательно до вызова
+RegisterServiceCtrlHandler, то надо посылать сообщение SERVICE_START_PEndING
+функией SetServiceStatus.
+Итак, в RegisterServiceCtrlHandler передаем название нашего сервиса и адрес
+функции Handler'а (см.далее). Далее выполняем подготовку к запуску и настройку сервиса.
+Остановимся на настройке поподробнее.
+Эта самая настройка Var ServiceStatus : SERVICE_STATUS;
+(ServiceStatusHandle : SERVICE_STATUS_HANDLE и ServiceStatus надо сделать глобальными
+переменными и поместить их выше всех функций).
+dwServiceType - тип сервиса
+SERVICE_WIN32_OWN_PROCESS Одиночный сервис
+SERVICE_WIN32_SHARE_PROCESS Несколько сервисов в одном процессе
+SERVICE_INTERACTIVE_PROCESS интерактивный сервис (может взаи
+Остальные константы - о драйверах. Если надо - смотрите их в MSDN.
+dwControlsAccepted - принимаемые сообщения (какие сообщения мы будем обрабатывать)
+SERVICE_ACCEPT_PAUSE_CONTINUE приостановка/перезапуск
+SERVICE_ACCEPT_STOP остановка сервиса
+SERVICE_ACCEPT_SHUTDOWN перезагрузка компьютера
+SERVICE_ACCEPT_PARAMCHANGE изменение параметров сервиса без перезапуска (Win2000 и выше)
+Остальные сообщения смотрите опять же в MSDN (куда уж без него ;-)
+dwWin32ExitCode и dwServiceSpecificExitCode - коды ошибок сервиса.
+Если все идет нормально, то они должны быть равны нулю, иначе коду ошибки.
+dwCheckPoint - если сервис выполняет какое-нибудь долгое действие при остановке,
+запуске и т.д. то dwCheckPoint является индикатором прогресса
+(увеличивайте его, чтобы дать понять, что сервис не завис), иначе он должен быть равен нулю. dwWaitHint - время, через которое сервис должен послать свой новый статус
+менеджеру сервисов при выполнении действия (запуска, остановки и т.д.).
+Если dwCurrentState и dwCheckPoint через это кол-во миллисекунд не изменится,
+то менеджер сервисов решит, что произошла ошибка.
+dwCurrentState - см. где-то {здесь} Ставим его в SERVICE_RUNNING, если сервис запущен
+После заполнения этой структуры посылаем наш новый статус функцией
+SetServiceStatus и мы работаем :).
+После этого пишем код самого сервиса. Я вернусь к этому попозже.
+Вот так выглядит моя ServiceMain :
+Procedure ServiceProc(argc : DWORD;Var argv : array of PChar);stdcall;
+var
+Status : DWORD;
+SpecificError : DWORD;
+Begin
+ServiceStatus.dwServiceType := SERVICE_WIN32;
+ServiceStatus.dwCurrentState := SERVICE_START_PEndING;
+ServiceStatus.dwControlsAccepted := SERVICE_ACCEPT_STOP
+or SERVICE_ACCEPT_PAUSE_CONTINUE;
+ServiceStatus.dwWin32ExitCode := 0;
+ServiceStatus.dwServiceSpecificExitCode := 0;
+ServiceStatus.dwCheckPoint := 0;
+ServiceStatus.dwWaitHint := 0;
+ServiceStatusHandle :=
+RegisterServiceCtrlHandler(ServiceName,@ServiceCtrlHandler);
+If ServiceStatusHandle = 0 Then WriteLn('RegisterServiceCtrlHandler Error');
+Status :=ServiceInitialization(argc,argv,SpecificError);
+If Status < > NO_ERROR
+Then Begin
+ServiceStatus.dwCurrentState := SERVICE_STOPPED;
+ServiceStatus.dwCheckPoint := 0;
+ServiceStatus.dwWaitHint := 0;
+ServiceStatus.dwWin32ExitCode:=Status;
+ServiceStatus.dwServiceSpecificExitCode:=SpecificError;
+SetServiceStatus (ServiceStatusHandle, ServiceStatus);
+LogError('ServiceInitialization');
+exit;
+End;
+ServiceStatus.dwCurrentState :=SERVICE_RUNNING;
+ServiceStatus.dwCheckPoint :=0;
+ServiceStatus.dwWaitHint :=0;
+If not SetServiceStatus (ServiceStatusHandle,ServiceStatus)
+Then Begin
+Status:=GetLastError;
+LogError('SetServiceStatus');
+exit;
+End;
+// WORK HERE
+//ЗДЕСЬ БУДЕТ ОСНОВНОЙ КОД ПРОГРАММЫ
+End;
+Функция Handler
+Функция Handler будет вызываться менеджером сервисов при передаче сообщений сервису.
+Опять же название функции - любое. Адрес функции передается с помощью
+функции RegisterServiceCtrlHandler (см. выше). Функция имеет один параметр
+типа DWORD (Cardinal) - сообщение сервису. Если в одном процессе несколько сервисов
+- для каждого из них должна быть своя функция.
+Procedure ServiceCtrlHandler(Opcode : Cardinal);stdcall;
+Опять не забываем про stdcall.
+Итак, функция получает код сообщения, который мы и проверяем. Начинаем вспоминать,
+что мы писали в ServiceStatus.dwControlsAccepted.
+У меня это SERVICE_ACCEPT_STOP и SERVICE_ACCEPT_PAUSE_CONTINUE,
+значит, мне надо проверять сообщения
+SERVICE_CONTROL_PAUSE, SERVICE_CONTROL_CONTINUE, SERVICE_CONTROL_STOP
+и выполнять соответствующие действия. Остальные сообщения:
+ServiceStatus.dwControlsAccepted Обрабатываемые сообщения
+SERVICE_ACCEPT_PAUSE_CONTINUE SERVICE_CONTROL_PAUSE и SERVICE_CONTROL_CONTINUE
+SERVICE_ACCEPT_STOP SERVICE_CONTROL_STOP
+SERVICE_ACCEPT_SHUTDOWN SERVICE_CONTROL_SHUTDOWN
+SERVICE_ACCEPT_PARAMCHANGE SERVICE_CONTROL_PARAMCHANGE
+Также надо обрабатывать SERVICE_CONTROL_INTERROGATE.
+Что это такое - непонятно, но обрабатывать надо :)
+Передаем новый статус сервиса менеджеру сервисов функцией SetServiceStatus.
+Пример функции Handler:
+Procedure ServiceCtrlHandler(Opcode : Cardinal);stdcall;
+var
+Status : Cardinal;
+Begin
+Case Opcode of
+SERVICE_CONTROL_PAUSE :
+Begin
+ServiceStatus.dwCurrentState := SERVICE_PAUSED;
+End;
+SERVICE_CONTROL_CONTINUE :
+Begin
+ServiceStatus.dwCurrentState := SERVICE_RUNNING;
+End;
+SERVICE_CONTROL_STOP :
+Begin
+ServiceStatus.dwWin32ExitCode:=0;
+ServiceStatus.dwCurrentState := SERVICE_STOPPED;
+ServiceStatus.dwCheckPoint :=0;
+ServiceStatus.dwWaitHint :=0;
+If not SetServiceStatus (ServiceStatusHandle,ServiceStatus)
+Then Begin
+Status:=GetLastError;
+LogError('SetServiceStatus');
+Exit;
+End;
+exit;
+End;
+SERVICE_CONTROL_INTERROGATE : ;
+End;
+If not SetServiceStatus (ServiceStatusHandle, ServiceStatus)
+Then Begin
+Status := GetLastError;
+LogError('SetServiceStatus');
+Exit;
+End;
+End;
+Реализация главной функции программы
+В функции ServiceMain (см.там, где отмечено) пишем код сервиса.
+Так как сервис обычно постоянно находится в памяти компьютера,
+то скорее всего код будет находиться в цикле. Например в таком :
+repeat
+Что-нибудь делаем пока сервис не завершится.
+until ServiceStatus.dwCurrentState = SERVICE_STOPPED;
+Но это пройдет если сервис не обрабатывает сообщения приостановки/перезапуска,
+иначе сервис никак не прореагирует. Другой вариант :
+repeat
+If ServiceStatus.dwCurrentState < > SERVICE_PAUSED
+Then чего-то делаем
+until ServiceStatus.dwCurrentState = SERVICE_STOPPED;
+И третий, имхо, самый правильный вариант = использование потока :
+Пишем функцию
+Function MainServiceThread(p:Pointer):DWORD;stdcall;
+Begin
+что-то делаем
+End;
+и в ServiceMain создаем поток
+var
+ThID : Cardinal;
+hThread:=CreateThread(nil,0,@MainServiceThread,nil,0,ThID);
+и ждем его завершения
+WaitForSingleObject(hThread,INFINITE);
+закрывая после этого его дескриптор
+CloseHandle(hThread);
+При этом hThread делаем глобальной переменной.
+Теперь при приостановке сервиса (в Handler) делаем так
+SERVICE_CONTROL_PAUSE :
+Begin
+ServiceStatus.dwCurrentState := SERVICE_PAUSED;
+SuspEndThread(hThread); // приостанавливаем поток
+End;
+и при возобновлении работы сервиса
+SERVICE_CONTROL_CONTINUE :
+Begin
+ServiceStatus.dwCurrentState := SERVICE_RUNNING;
+ResumeThread(hThread); // возобновляем поток
+End; 
+--------------------------------------------------------------------------------
+ 
+Подписка на новости  
+Рассылка Subscribe.Ru 
+    
+Рассылка Rss2Email.ru
+  
+  
+Форум:  
+DELPHI
+C/C++
+WEB
+Алгоритмы
+Прочие
+Новости сайта
+О публикациях
+Windows
+Программы
+Флейм  
+ 
+20 разных статей 
+Какие диски находятся на компьютере? (16/11/05) (1144)
+Каскадные стилевые страницы - Cascading Style Sheets (28/04/07) (435)
+Дурацкие корпоративные правила (11/11/07) (267)
+Разбить файл на части и собрать его (25/11/05) (2215)
+Естественные ключи против искуственных ключей (29/04/05) (1394)
+Функция FlashWindow (07/04/05) (1509)
+Работа с файлами (03/06/04) (2341)
+WinAPI - Hook System (21/12/04) (2953)
+download a file from the Internet? (22/02/06) (1567)
+Oracle: Изучаем метки доступа к строкам: задание свойств столбца доступа в таблице (22/08/07) (298)
+Устранение неисправностей в сети (19/05/05) (1965)
+Просмотр буфера обмена (06/11/05) (2876)
+Инъекционные атаки SQL (20/12/07) (84)
+Как программно спрятать или показать заголовок у формы? (26/02/05) (2367)
+Особенности русского Нового года (19/02/06) (1622)
+Создание wap-страниц (в формате *.wml) (31/07/06) (2513)
+Запись из RichEdit в базу (12/03/05) (2355)
+Программирование на основе Win32 API в Delphi (17/05/04) (2154)
+Создание оригинальных выпадающих списков на примере TTreeView (11/04/05) (2043)
+Способы вывода содержимого файла на экран на php (28/06/04) (2094)
+ 
+
+ 
+ 
+ 
+Карта сайта Новости сайта  Начало страницы Предыдущая страница  Добавить в избранное  Форум Блог  
+                   
+ 
+ - наша кнопка:<a href="http://articles.org.ru" target="_blank"><img src="http://articles.org.ru/mybanner.gif" width="88" height="31" border="0" align="center" alt="Курс борьбы с программированием, windows и web"></a>   0.055с  

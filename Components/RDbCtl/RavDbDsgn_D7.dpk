@@ -1,0 +1,55 @@
+package RavDbDsgn_D7;
+
+{$R *.res}
+{$R 'RDbReg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Rav Db Components for Delphi 7'}
+{$DESIGNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  dbrtl,
+  adortl,
+  vcl,
+  vcldb,
+  DesignIDE,
+  DclStd,
+  vclactnband,
+  vclx,
+  RxCtl7,
+  VclSmp,
+  bdertl,
+  visualclx,
+  RavDbComp_D7,
+  RavCtlComp_D7;
+
+contains
+  RDbReg in 'RDbReg.pas',
+  RDbFldListEditor in 'RDbFldListEditor.pas' {RFldListEditor},
+  RDUItemCreate in 'RDUItemCreate.pas' {RDUItemsCreate},
+  RDUItemsEditor in 'RDUItemsEditor.pas' {RDUItemsEdit},
+  RDFItemCreate in 'RDFItemCreate.pas' {RDFItemsCreate},
+  RDFItemsEditor in 'RDFItemsEditor.pas' {RDFItemsEdit};
+
+end.

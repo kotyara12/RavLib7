@@ -1,0 +1,71 @@
+package RScripts_D7;
+
+{$R *.res}
+{$R 'RScripts.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Rav Scripts Library for Delphi 7'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  RavCtlComp_D7,
+  RxCtl7,
+  vclx,
+  VclSmp,
+  vcldb,
+  dbrtl,
+  visualclx,
+  RavDbComp_D7,
+  bdertl,
+  adortl,
+  IndyCore70,
+  IndySystem70,
+  IndyProtocols70;
+
+contains
+  RScripts in 'RScripts.pas',
+  RVarListEx in '..\..\RVarListEx.pas',
+  RScrCmds in 'RScrCmds.pas',
+  RScrCnst in 'RScrCnst.pas',
+  RFileProcs in '..\..\RFileProcs.pas',
+  RScrFncs in 'RScrFncs.pas',
+  RScrViewer in 'RScrViewer.pas' {FormScrViewer},
+  RScriptsCmd in 'RScriptsCmd.pas' {FormScriptCmd},
+  RScriptsCnd in 'RScriptsCnd.pas' {FormScriptCnd},
+  RScriptsPrm in 'RScriptsPrm.pas' {FormScriptPrm},
+  RScriptsFnc in 'RScriptsFnc.pas' {FormScriptFnc},
+  RScriptsFnb in 'RScriptsFnb.pas' {FormScriptFnb},
+  RScriptsVar in 'RScriptsVar.pas' {FormScriptVar},
+  RVarListSelect in '..\..\RVarListSelect.pas',
+  RPrnUtils in '..\..\RPrnUtils.pas',
+  RPrnProcs in '..\..\RPrnProcs.pas',
+  RSysProcs in '..\..\RSysProcs.pas',
+  RTimeDialog in '..\..\RTimeDialog.pas',
+  RKrnlUtils in '..\..\RKrnlUtils.pas',
+  RWinVer in '..\..\RWinVer.pas',
+  RScriptsCyc in 'RScriptsCyc.pas',
+  RDbiProcs in '..\..\RDbiProcs.pas',
+  RDbiUtils in '..\..\RDbiUtils.pas';
+
+end.

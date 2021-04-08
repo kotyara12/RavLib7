@@ -1,0 +1,9 @@
+GETDATE()=GetDate()
+NOW()=Now()
+Vss_SYSLOG=vss_syslog
+Vss_SETTINGS=vss_settings
+count(=Count(
+FILEname=filename
+Vsr_operations_WORK=vsr_operations_work
+DELETEd=deleted
+typeGRANTS=typegrants

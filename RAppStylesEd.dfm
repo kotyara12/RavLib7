@@ -1,0 +1,1525 @@
+inherited FormStyles: TFormStyles
+  Left = 487
+  Top = 210
+  ActiveControl = TreeView
+  Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1080#1085#1090#1077#1088#1092#1077#1081#1089#1072
+  ClientHeight = 477
+  ClientWidth = 515
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited ButtonsBevel: TBevel
+    Top = 426
+    Width = 515
+  end
+  object TreeViewLabel: TLabel [1]
+    Left = 12
+    Top = 8
+    Width = 117
+    Height = 13
+    Caption = #1069#1083#1077#1084#1077#1085#1090#1099' '#1087#1088#1086#1075#1088#1072#1084#1084#1099':'
+  end
+  object PanelLabel: TLabel [2]
+    Left = 232
+    Top = 8
+    Width = 62
+    Height = 13
+    Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099':'
+    FocusControl = Panel
+  end
+  inherited ButtonsPanel: TPanel
+    Top = 428
+    Width = 515
+    TabOrder = 3
+    inherited HelpBtn: TBitBtn
+      Width = 96
+    end
+    inherited ButtonsMovedPanel: TPanel
+      Left = 200
+      Width = 315
+      inherited OkBtn: TBitBtn
+        Left = 9
+        Width = 96
+      end
+      inherited CancelBtn: TBitBtn
+        Left = 108
+        Width = 96
+      end
+      object ApplyBtn: TBitBtn
+        Left = 207
+        Top = 12
+        Width = 96
+        Height = 25
+        Hint = #1055#1088#1080#1084#1077#1085#1080#1090#1100' '#1074#1074#1077#1076#1077#1085#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
+        Caption = #1055#1088#1080#1084#1077#1085#1080#1090#1100
+        TabOrder = 2
+        OnClick = ApplyBtnClick
+        Glyph.Data = {
+          36060000424D3606000000000000360000002800000020000000100000000100
+          18000000000000060000120B0000120B00000000000000000000FF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FF964924EADAD3FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF5D5D5DDEDEDEFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FF9D4D259D4E28EADAD3FF00FFFF00FFA65833A65833A65833A658
+          33A65833A65833A65833FF00FFFF00FFFF00FFFF00FF616161626262DEDEDEFF
+          00FFFF00FF6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6CCF835D924723
+          9A4B25A24F27AB5429BF6A3FA0502AEADAD3FF00FFA65833FDF8F5FBF2EEFAED
+          E8F7E7DFF6E1D7A658339696965A5A5A5F5F5F6464646A6A6A7F7F7F656565DE
+          DEDEFF00FF6C6C6CF9F9F9F4F4F4F1F1F1EBEBEBE6E6E66C6C6CD78B65FDB089
+          F7905CEC8856DE7F4FD17648C46E42A25631EADAD3A65833FEFCFBFDF8F5FBF3
+          EFFAEEE8F8E7DFA658339E9E9EC3C3C3A9A9A9A1A1A19696968C8C8C83838369
+          6969DEDEDE6C6C6CFCFCFCF9F9F9F5F5F5F1F1F1EBEBEB6C6C6CDE926CFCB997
+          FDA578FC935EF28C59E58453D87B4CC66E41AE582BA65833FFFFFFFEFCFBFDF8
+          F6FBF3EEFAEDE7A65833A5A5A5C9C9C9BABABAADADADA5A5A59C9C9C92929283
+          83836C6C6C6C6C6CFFFFFFFCFCFCF9F9F9F4F4F4F0F0F06C6C6CE49872FBC3A6
+          FDBE9EFEAE85FFA87DF89D6FE58351AE582BF3E7E1A65833FFFFFFFFFFFFFEFC
+          FBFDF8F5FCF2EFA65833ABABABD0D0D0CDCDCDC1C1C1BEBEBEB3B3B39B9B9B6C
+          6C6CEAEAEA6C6C6CFFFFFFFFFFFFFCFCFCF9F9F9F5F5F56C6C6CE89C76E29670
+          DA8E68D1855FDB906AF79A6BAE582BF3E7E1FF00FFA65833FFFFFFFFFFFFFFFF
+          FFFEFCFBFDF8F5A65833AFAFAFA9A9A9A1A1A1989898A2A2A2B1B1B16C6C6CEA
+          EAEAFF00FF6C6C6CFFFFFFFFFFFFFFFFFFFCFCFCF9F9F96C6C6CFF00FFFF00FF
+          FF00FFFF00FFE59973C5764EF3E5DFFF00FFFF00FFA65833A65833A65833A658
+          33A65833A65833A65833FF00FFFF00FFFF00FFFF00FFACACAC898989E9E9E9FF
+          00FFFF00FF6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6CFF00FFFF00FF
+          FF00FFFF00FFE89C76F8EDE8FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFAFAFAFF0F0F0FF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+          FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+          FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+          00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+        NumGlyphs = 2
+      end
+    end
+  end
+  object Panel: TPanel
+    Left = 232
+    Top = 24
+    Width = 273
+    Height = 389
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    ParentColor = True
+    TabOrder = 2
+    object Notebook: TNotebook
+      Left = 2
+      Top = 2
+      Width = 269
+      Height = 385
+      Align = alClient
+      TabOrder = 0
+      object TPage
+        Left = 0
+        Top = 0
+        Caption = 'MainWindow'
+        object MainWinToolCheckBox: TCheckBox
+          Left = 12
+          Top = 12
+          Width = 245
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1072#1085#1077#1083#1100' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1086#1074' '#1074' '#1075#1083#1072#1074#1085#1086#1084' '#1086#1082#1085#1077' '#1087#1088#1086#1075#1088#1072#1084#1084#1099
+          Caption = #1055#1072#1085#1077#1083#1100' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1086#1074
+          TabOrder = 0
+        end
+        object MainWinStatusCheckBox: TCheckBox
+          Left = 12
+          Top = 36
+          Width = 245
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1089#1090#1088#1086#1082#1091' '#1089#1086#1089#1090#1086#1103#1085#1080#1103' '#1074' '#1075#1083#1072#1074#1085#1086#1084' '#1086#1082#1085#1077' '#1087#1088#1086#1075#1088#1072#1084#1084#1099
+          Caption = #1057#1090#1088#1086#1082#1072' '#1089#1086#1089#1090#1086#1103#1085#1080#1103
+          TabOrder = 1
+        end
+        object MainWinUniqueMdi: TCheckBox
+          Left = 12
+          Top = 60
+          Width = 245
+          Height = 17
+          Hint = #1041#1083#1086#1082#1080#1088#1086#1074#1072#1090#1100' '#1086#1090#1082#1088#1099#1090#1080#1077' '#1085#1077#1089#1082#1086#1083#1100#1082#1080#1093' '#1086#1082#1086#1085' '#1086#1076#1085#1086#1075#1086' '#1080' '#1090#1086#1075#1086' '#1078#1077' '#1090#1080#1087#1072
+          Caption = #1041#1083#1086#1082#1080#1088#1086#1074#1072#1090#1100' '#1087#1086#1074#1090#1086#1088#1103#1102#1097#1080#1077#1089#1103' MDI-'#1086#1082#1085#1072
+          TabOrder = 2
+        end
+      end
+      object TPage
+        Left = 0
+        Top = 0
+        Caption = 'DataWindow'
+        object BaseTextRColorComboLabel: TLabel
+          Left = 12
+          Top = 188
+          Width = 67
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1092#1086#1088#1084#1099':'
+          FocusControl = BaseFormRColorCombo
+        end
+        object BaseFontPanelLabel: TLabel
+          Left = 12
+          Top = 332
+          Width = 37
+          Height = 13
+          Caption = #1064#1088#1080#1092#1090':'
+          FocusControl = BaseFontPanel
+        end
+        object ButtonsPanelRColorComboLabel: TLabel
+          Left = 12
+          Top = 284
+          Width = 156
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1087#1072#1085#1077#1083#1080' '#1082#1085#1086#1087#1086#1082' '#1076#1080#1072#1083#1086#1075#1086#1074':'
+          FocusControl = ButtonsPanelRColorCombo
+        end
+        object BaseTextColorComboLabel: TLabel
+          Left = 12
+          Top = 236
+          Width = 65
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = BaseTextRColorCombo
+        end
+        object DataWinToolCheckBox: TCheckBox
+          Left = 12
+          Top = 12
+          Width = 245
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1072#1085#1077#1083#1100' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1086#1074' '#1074' '#1086#1082#1085#1077' '#1076#1072#1085#1085#1099#1093
+          Caption = #1055#1072#1085#1077#1083#1100' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1086#1074
+          TabOrder = 0
+          OnClick = DataWinToolCheckBoxClick
+        end
+        object DataWinStatusCheckBox: TCheckBox
+          Left = 12
+          Top = 56
+          Width = 245
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1089#1090#1088#1086#1082#1091' '#1089#1086#1089#1090#1086#1103#1085#1080#1103' '#1074' '#1086#1082#1085#1077' '#1076#1072#1085#1085#1099#1093
+          Caption = #1057#1090#1088#1086#1082#1072' '#1089#1086#1089#1090#1086#1103#1085#1080#1103
+          TabOrder = 2
+        end
+        object DataWinInfoCheckBox: TCheckBox
+          Left = 12
+          Top = 140
+          Width = 245
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1072#1085#1077#1083#1100' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1074' '#1086#1082#1085#1077' '#1076#1072#1085#1085#1099#1093
+          Caption = #1055#1072#1085#1077#1083#1100' '#1076#1077#1090#1072#1083#1100#1085#1099#1093' '#1089#1074#1077#1076#1077#1085#1080#1081
+          TabOrder = 6
+        end
+        object BaseFormRColorCombo: TRColorCombo
+          Left = 12
+          Top = 204
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1088#1084#1099
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 8
+          OnChange = BaseFormRColorComboChange
+        end
+        object BaseFormColorBtn: TBitBtn
+          Left = 234
+          Top = 204
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1088#1084#1099
+          TabOrder = 9
+          OnClick = BaseFormColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object BaseFontPanel: TPanel
+          Left = 12
+          Top = 348
+          Width = 217
+          Height = 22
+          Hint = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Text'
+          Color = clWindow
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 14
+        end
+        object BaseFontBtn: TBitBtn
+          Left = 234
+          Top = 348
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
+          TabOrder = 15
+          OnClick = BaseFontBtnClick
+          Glyph.Data = {
+            E6000000424DE60000000000000076000000280000000E0000000E0000000100
+            0400000000007000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+            FF00FFFFFF555555FF00FFFFFFFF55FFFF00FFFFFFFF55FFFF00FF66666655FF
+            FF00FFFF66FF55FFFF00FFFF65FF55FF5F00FFFF65FF55FF5F00FFFF655F55F5
+            5F00F6FF655555555F00F6FF66FF6FFFFF00F66F66F66FFFFF00F66666666FFF
+            FF00FFFFFFFFFFFFFF00}
+        end
+        object DataWinCtl3DCheckBox: TCheckBox
+          Left = 12
+          Top = 160
+          Width = 245
+          Height = 17
+          Hint = #1048#1089#1087#1086#1083#1100#1079#1086#1074#1072#1090#1100' '#1086#1073#1098#1077#1084#1085#1099#1077' '#1101#1083#1077#1084#1077#1085#1090#1099' '#1074' '#1086#1082#1085#1077' '#1076#1072#1085#1085#1099#1093
+          Caption = #1054#1073#1098#1077#1084#1085#1099#1077' '#1101#1083#1077#1084#1077#1085#1090#1099' '#1091#1087#1088#1072#1074#1083#1077#1085#1080#1103' (3D)'
+          TabOrder = 7
+        end
+        object ButtonsPanelRColorCombo: TRColorCombo
+          Left = 12
+          Top = 300
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1087#1072#1085#1077#1083#1080' '#1082#1085#1086#1087#1086#1082' '#1076#1080#1072#1083#1086#1075#1086#1074#1086#1075#1086' '#1086#1082#1085#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 12
+        end
+        object ButtonsPanelBtn: TBitBtn
+          Left = 234
+          Top = 300
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1087#1072#1085#1077#1083#1080' '#1082#1085#1086#1087#1086#1082' '#1076#1080#1072#1083#1086#1075#1086#1074#1086#1075#1086' '#1086#1082#1085#1072
+          TabOrder = 13
+          OnClick = ButtonsPanelBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object BaseTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 252
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072' '#1092#1086#1088#1084#1099
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 10
+          OnChange = BaseTextRColorComboChange
+        end
+        object BaseTextColorBtn: TBitBtn
+          Left = 234
+          Top = 252
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072' '#1092#1086#1088#1084#1099
+          TabOrder = 11
+          OnClick = BaseTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object DataWinShowCaptionsCheckBox: TCheckBox
+          Left = 28
+          Top = 32
+          Width = 229
+          Height = 17
+          Hint = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1086#1076#1087#1080#1089#1080' '#1082' '#1082#1085#1086#1087#1082#1072#1084' '#1085#1072' '#1087#1072#1085#1077#1083#1080' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1086#1074
+          Caption = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1086#1076#1087#1080#1089#1080' '#1082' '#1082#1085#1086#1087#1082#1072#1084
+          TabOrder = 1
+        end
+        object DataWinFindCheckBox: TCheckBox
+          Left = 12
+          Top = 76
+          Width = 245
+          Height = 17
+          Hint = 
+            #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1087#1072#1085#1077#1083#1100' '#1073#1099#1089#1090#1088#1086#1075#1086' '#1087#1086#1080#1089#1082#1072' '#1080#1083#1080' '#1073#1099#1089#1090#1088#1086#1075#1086' '#1092#1080#1083#1100#1090#1088#1072' '#1074' '#1086#1082#1085#1077' '#1076#1072 +
+            #1085#1085#1099#1093
+          Caption = #1055#1072#1085#1077#1083#1100' '#1073#1099#1089#1090#1088#1086#1075#1086' '#1087#1086#1080#1089#1082#1072
+          TabOrder = 3
+          OnClick = DataWinFindCheckBoxClick
+        end
+        object DataWinFindDataFocus: TCheckBox
+          Left = 28
+          Top = 96
+          Width = 229
+          Height = 17
+          Hint = 
+            #1055#1088#1080' '#1091#1089#1087#1077#1096#1085#1086#1084' '#1087#1086#1080#1089#1082#1077' '#1074' '#1090#1072#1073#1083#1080#1094#1077' '#1072#1074#1090#1086#1084#1072#1090#1080#1095#1077#1089#1082#1080' '#1087#1077#1088#1077#1084#1077#1097#1072#1090#1100' '#1092#1086#1082#1091#1089' '#1074#1074#1086 +
+            #1076#1072' '#1085#1072' '#1090#1072#1073#1083#1080#1094#1091
+          Caption = #1055#1077#1088#1077#1081#1090#1080' '#1085#1072' '#1090#1072#1073#1083#1080#1094#1091' '#1087#1086#1089#1083#1077' '#1087#1086#1080#1089#1082#1072
+          TabOrder = 4
+        end
+        object DataWinFindUseLeadAsterisk: TCheckBox
+          Left = 28
+          Top = 116
+          Width = 229
+          Height = 17
+          Hint = 
+            #1055#1088#1077#1076#1074#1072#1088#1103#1090#1100' '#1090#1077#1082#1089#1090#1086#1074#1099#1081' '#1087#1086#1080#1089#1082#1086#1074#1099#1081' '#1079#1072#1087#1088#1086#1089' '#1089#1080#1084#1074#1086#1083#1086#1084' '#1087#1086#1076#1089#1090#1072#1085#1086#1074#1082#1080' "'#1079#1074#1077#1079 +
+            #1076#1086#1095#1082#1072'"'
+          Caption = #1055#1088#1077#1076#1074#1072#1088#1103#1090#1100' '#1090#1077#1082#1089#1090#1086#1074#1099#1081' '#1079#1072#1087#1088#1086#1089' [*]'
+          TabOrder = 5
+        end
+      end
+      object TPage
+        Left = 0
+        Top = 0
+        Caption = 'Tree'
+        object TreeRColorComboLabel: TLabel
+          Left = 12
+          Top = 12
+          Width = 57
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1092#1086#1085#1072':'
+          FocusControl = TreeRColorCombo
+        end
+        object TreeTextRColorComboLabel: TLabel
+          Left = 12
+          Top = 60
+          Width = 65
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = TreeTextRColorCombo
+        end
+        object TreeFontPanelLabel: TLabel
+          Left = 12
+          Top = 108
+          Width = 37
+          Height = 13
+          Caption = #1064#1088#1080#1092#1090':'
+          FocusControl = TreeFontPanel
+        end
+        object TreeRColorCombo: TRColorCombo
+          Left = 12
+          Top = 28
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 0
+          OnChange = TreeRColorComboChange
+        end
+        object TreeTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 76
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 2
+          OnChange = TreeTextRColorComboChange
+        end
+        object TreeColorBtn: TBitBtn
+          Left = 234
+          Top = 28
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          TabOrder = 1
+          OnClick = TreeColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object TreeTextColorBtn: TBitBtn
+          Left = 234
+          Top = 76
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          TabOrder = 3
+          OnClick = TreeTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object TreeFontPanel: TPanel
+          Left = 12
+          Top = 124
+          Width = 217
+          Height = 22
+          Hint = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Text'
+          Color = clWindow
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+        end
+        object TreeFontBtn: TBitBtn
+          Left = 234
+          Top = 124
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
+          TabOrder = 5
+          OnClick = TreeFontBtnClick
+          Glyph.Data = {
+            E6000000424DE60000000000000076000000280000000E0000000E0000000100
+            0400000000007000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+            FF00FFFFFF555555FF00FFFFFFFF55FFFF00FFFFFFFF55FFFF00FF66666655FF
+            FF00FFFF66FF55FFFF00FFFF65FF55FF5F00FFFF65FF55FF5F00FFFF655F55F5
+            5F00F6FF655555555F00F6FF66FF6FFFFF00F66F66F66FFFFF00F66666666FFF
+            FF00FFFFFFFFFFFFFF00}
+        end
+      end
+      object TPage
+        Left = 0
+        Top = 0
+        Caption = 'Data'
+        object DataRColorComboLabel: TLabel
+          Left = 12
+          Top = 12
+          Width = 57
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1092#1086#1085#1072':'
+          FocusControl = DataRColorCombo
+        end
+        object DataTextRColorComboLabel: TLabel
+          Left = 12
+          Top = 60
+          Width = 65
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = DataTextRColorCombo
+        end
+        object DataFontPanelLabel: TLabel
+          Left = 12
+          Top = 108
+          Width = 37
+          Height = 13
+          Caption = #1064#1088#1080#1092#1090':'
+          FocusControl = DataFontPanel
+        end
+        object DataPositiveRColorComboLabel: TLabel
+          Left = 12
+          Top = 156
+          Width = 212
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081':'
+          FocusControl = DataPositiveRColorCombo
+        end
+        object CellPositiveRColorComboLabel: TLabel
+          Left = 12
+          Top = 204
+          Width = 210
+          Height = 13
+          Caption = #1060#1086#1085' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081':'
+          FocusControl = CellPositiveRColorCombo
+        end
+        object DataNegativeRColorComboLabel: TLabel
+          Left = 12
+          Top = 252
+          Width = 209
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081':'
+          FocusControl = DataNegativeRColorCombo
+        end
+        object CellNegativeRColorComboLabel: TLabel
+          Left = 12
+          Top = 300
+          Width = 207
+          Height = 13
+          Caption = #1060#1086#1085' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081':'
+          FocusControl = CellNegativeRColorCombo
+        end
+        object DataRColorCombo: TRColorCombo
+          Left = 12
+          Top = 28
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 0
+          OnChange = DataRColorComboChange
+        end
+        object DataColorBtn: TBitBtn
+          Left = 234
+          Top = 28
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          TabOrder = 1
+          OnClick = DataColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object DataTextColorBtn: TBitBtn
+          Left = 234
+          Top = 76
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          TabOrder = 2
+          OnClick = DataTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object DataTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 76
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 3
+          OnChange = DataTextRColorComboChange
+        end
+        object DataFontPanel: TPanel
+          Left = 12
+          Top = 124
+          Width = 217
+          Height = 22
+          Hint = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Text'
+          Color = clWindow
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+        end
+        object DataFontBtn: TBitBtn
+          Left = 234
+          Top = 124
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
+          TabOrder = 5
+          OnClick = DataFontBtnClick
+          Glyph.Data = {
+            E6000000424DE60000000000000076000000280000000E0000000E0000000100
+            0400000000007000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+            FF00FFFFFF555555FF00FFFFFFFF55FFFF00FFFFFFFF55FFFF00FF66666655FF
+            FF00FFFF66FF55FFFF00FFFF65FF55FF5F00FFFF65FF55FF5F00FFFF655F55F5
+            5F00F6FF655555555F00F6FF66FF6FFFFF00F66F66F66FFFFF00F66666666FFF
+            FF00FFFFFFFFFFFFFF00}
+        end
+        object DataPositiveRColorCombo: TRColorCombo
+          Left = 12
+          Top = 172
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 6
+        end
+        object DataPositiveBtn: TBitBtn
+          Left = 234
+          Top = 172
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1094#1080#1092#1088#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          TabOrder = 7
+          OnClick = DataPositiveBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object CellPositiveRColorCombo: TRColorCombo
+          Left = 12
+          Top = 220
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 8
+        end
+        object CellPositiveBtn: TBitBtn
+          Left = 234
+          Top = 220
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1087#1086#1083#1086#1078#1080#1090#1077#1083#1100#1085#1099#1093' '#1094#1080#1092#1088#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          TabOrder = 9
+          OnClick = CellPositiveBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object DataNegativeRColorCombo: TRColorCombo
+          Left = 12
+          Top = 268
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 10
+        end
+        object DataNegativeBtn: TBitBtn
+          Left = 234
+          Top = 268
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1094#1080#1092#1088#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          TabOrder = 11
+          OnClick = DataNegativeBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object CellNegativeRColorCombo: TRColorCombo
+          Left = 12
+          Top = 316
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1095#1080#1089#1083#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 12
+        end
+        object CellNegativeBtn: TBitBtn
+          Left = 234
+          Top = 316
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072' '#1086#1090#1088#1080#1094#1072#1090#1077#1083#1100#1085#1099#1093' '#1094#1080#1092#1088#1086#1074#1099#1093' '#1079#1085#1072#1095#1077#1085#1080#1081
+          TabOrder = 13
+          OnClick = CellNegativeBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+      end
+      object TPage
+        Left = 0
+        Top = 0
+        Caption = 'Info'
+        object InfoRColorComboLabel: TLabel
+          Left = 12
+          Top = 12
+          Width = 96
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1092#1086#1085#1072' '#1087#1072#1085#1077#1083#1080':'
+          FocusControl = InfoRColorCombo
+        end
+        object InfoLabelTextRColorComboLabel: TLabel
+          Left = 12
+          Top = 60
+          Width = 110
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1090#1077#1082#1089#1090#1072' '#1085#1072#1076#1087#1080#1089#1080':'
+          FocusControl = InfoLabelTextRColorCombo
+        end
+        object InfoLabelFontPanelLabel: TLabel
+          Left = 12
+          Top = 108
+          Width = 82
+          Height = 13
+          Caption = #1064#1088#1080#1092#1090' '#1085#1072#1076#1087#1080#1089#1080':'
+          FocusControl = InfoLabelFontPanel
+        end
+        object InfoTextRColorComboLabel: TLabel
+          Left = 12
+          Top = 156
+          Width = 94
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1092#1086#1085#1072' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = InfoTextRColorCombo
+        end
+        object InfoTextTextColorRColorComboLabel: TLabel
+          Left = 12
+          Top = 204
+          Width = 65
+          Height = 13
+          Caption = #1062#1074#1077#1090' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = InfoTextTextRColorCombo
+        end
+        object InfoTextFontPanelLabel: TLabel
+          Left = 12
+          Top = 252
+          Width = 74
+          Height = 13
+          Caption = #1064#1088#1080#1092#1090' '#1090#1077#1082#1089#1090#1072':'
+          FocusControl = InfoTextFontPanel
+        end
+        object InfoRColorCombo: TRColorCombo
+          Left = 12
+          Top = 28
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 0
+          OnChange = InfoRColorComboChange
+        end
+        object InfoColorBtn: TBitBtn
+          Left = 234
+          Top = 28
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          TabOrder = 1
+          OnClick = InfoColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object InfoLabelTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 76
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 2
+          OnChange = InfoLabelTextRColorComboChange
+        end
+        object InfoLabelTextColorBtn: TBitBtn
+          Left = 234
+          Top = 76
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          TabOrder = 3
+          OnClick = InfoLabelTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object InfoLabelFontPanel: TPanel
+          Left = 12
+          Top = 124
+          Width = 217
+          Height = 22
+          Hint = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Text'
+          Color = clWindow
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+        end
+        object InfoLabelFontBtn: TBitBtn
+          Left = 234
+          Top = 124
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
+          TabOrder = 5
+          OnClick = InfoLabelFontBtnClick
+          Glyph.Data = {
+            E6000000424DE60000000000000076000000280000000E0000000E0000000100
+            0400000000007000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+            FF00FFFFFF555555FF00FFFFFFFF55FFFF00FFFFFFFF55FFFF00FF66666655FF
+            FF00FFFF66FF55FFFF00FFFF65FF55FF5F00FFFF65FF55FF5F00FFFF655F55F5
+            5F00F6FF655555555F00F6FF66FF6FFFFF00F66F66F66FFFFF00F66666666FFF
+            FF00FFFFFFFFFFFFFF00}
+        end
+        object InfoTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 172
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 6
+          OnChange = InfoTextRColorComboChange
+        end
+        object InfoTextColorBtn: TBitBtn
+          Left = 234
+          Top = 172
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1092#1086#1085#1072
+          TabOrder = 7
+          OnClick = InfoTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object InfoTextTextRColorCombo: TRColorCombo
+          Left = 12
+          Top = 220
+          Width = 217
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          Options = [ccSystemColors, ccUserDefinedColor]
+          Ctl3D = True
+          ParentCtl3D = False
+          TabOrder = 8
+          OnChange = InfoTextTextRColorComboChange
+        end
+        object InfoTextTextColorBtn: TBitBtn
+          Left = 234
+          Top = 220
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1094#1074#1077#1090#1072' '#1090#1077#1082#1089#1090#1072
+          TabOrder = 9
+          OnClick = InfoTextTextColorBtnClick
+          Glyph.Data = {
+            F6000000424DF600000000000000760000002800000010000000100000000100
+            0400000000008000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+            66666666666666666666600000000000006660AAA0EEE0DDD06660AAA0EEE0DD
+            D06660AAA0EEE0DDD0666000000000000066603330FFF0777066603330FFF077
+            7066603330FFF07770666000000000000066609990BBB0444066609990BBB044
+            4066609990BBB044406660000000000000666666666666666666}
+        end
+        object InfoTextFontPanel: TPanel
+          Left = 12
+          Top = 268
+          Width = 217
+          Height = 22
+          Hint = #1058#1077#1082#1091#1097#1080#1081' '#1096#1088#1080#1092#1090
+          BevelOuter = bvNone
+          BorderStyle = bsSingle
+          Caption = 'Text'
+          Color = clWindow
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 10
+        end
+        object InfoTextFontBtn: TBitBtn
+          Left = 234
+          Top = 268
+          Width = 22
+          Height = 22
+          Hint = #1042#1099#1073#1086#1088' '#1096#1088#1080#1092#1090#1072
+          TabOrder = 11
+          OnClick = InfoTextFontBtnClick
+          Glyph.Data = {
+            E6000000424DE60000000000000076000000280000000E0000000E0000000100
+            0400000000007000000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+            FF00FFFFFF555555FF00FFFFFFFF55FFFF00FFFFFFFF55FFFF00FF66666655FF
+            FF00FFFF66FF55FFFF00FFFF65FF55FF5F00FFFF65FF55FF5F00FFFF655F55F5
+            5F00F6FF655555555F00F6FF66FF6FFFFF00F66F66F66FFFFF00F66666666FFF
+            FF00FFFFFFFFFFFFFF00}
+        end
+      end
+    end
+  end
+  object TreeView: TRIDTreeView
+    Left = 10
+    Top = 24
+    Width = 209
+    Height = 353
+    HideSelection = False
+    Images = ImageList
+    Indent = 19
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 0
+    OnChange = TreeViewChange
+    ListEmptyValue = '-1'
+  end
+  object ResetBtn: TBitBtn
+    Left = 10
+    Top = 384
+    Width = 209
+    Height = 25
+    Hint = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1087#1072#1088#1072#1084#1077#1090#1088#1099' '#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
+    Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' "'#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102'"'
+    TabOrder = 1
+    OnClick = ResetBtnClick
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000000000000000000000000000000000000FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF005B4D4300392A1F00392A1F00392A1F00392A1F00392A1F00392A1F00392A
+      1F00392A1F00392A1F00392A1F00392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF005D4E4400FDFAF900CAC3BF00C9BFBA00718997000499D6000293D1002E39
+      4300C6AD9E00C5AA9900C4A79600392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF005F514700FFFFFF00FDFAF900FAF4F1007A919D0008A3E00055788A003844
+      5100E5C9BB00E1C1B100C5AA9A00392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF0062544900FFFFFF00FFFFFF00FDFAF9008299A3000BACEA0009A6E3004654
+      6400E9D1C600E5C9BB00C6AEA000392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF0065574D00FFFFFF00FFFFFF00FFFFFF008A9FA8000EB3F0000CAFEC004E5E
+      6F00EEDBD100E9D1C600C6B2A600392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF006C5D5200FFFFFF00FFFFFF00FFFFFF008FA4AC008A9FA8008299A3007A91
+      9D00F2E4DC00EEDBD100C7B7AD00392A1F00FF00FF00FF00FF00FF00FF00FF00
+      FF002D374000C3C0C000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FDFAF900FAF4
+      F100F6ECE700F2E4DC00AFA6A2001C212700FF00FF00FF00FF00FF00FF00535F
+      640012B3EF004E5E6F00C0BDBD00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FDFA
+      F900FAF4F100C0B8B50030394400008FCD00444D5400FF00FF00FF00FF00FF00
+      FF00535F640012B3EF004E5E6F00C0BDBD00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00C0BAB800333C48000590CC00444D5400FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00535F640012B3EF004E5E6F00C0BDBD00FFFFFF00FFFFFF00C0BB
+      B9003A4653000794D000444D5400FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00535F640012B3EF004E5E6F00BCB9B800B2ABA7004451
+      60000A9DD900444D5400141A3B00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00535F640012B3EF004E5E6F004B5B6B0014A7
+      E000444D540027316C001A214A00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00535F64002CAFDF0021A7DA00444D
+      5400FF00FF002C37790020285900FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00535F6400444D5400FF00
+      FF00FF00FF002C3779002C377900FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+      FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+  end
+  object ImageList: TImageList
+    Left = 24
+    Top = 268
+    Bitmap = {
+      494C010104000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000003000000001002000000000000030
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000949494007F7F7F007E7E
+      7E007E7E7E007E7E7E007E7E7E007E7E7E007E7E7E007E7E7E007E7E7E007E7E
+      7E007E7E7E007D7D7D00848484007D7D7D000000000000000000000000000000
+      0000000000000000000000000000404040004040400040404000404040004040
+      4000404040000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000BA806200945939008C5132008C51
+      32008B5132008C5132008C5132008C5132008C5132008C5132008C5132008C51
+      3200894F31008E51330073503F007D7D7D000000000000000000000000000000
+      000000000000000000000000000040FFFF0040FFFF0040C0C00000A0A00000A0
+      A000404040000000000000000000000000000000000000000000B8A394006046
+      3200634935006349350063493500634935006349350063493500634935006349
+      350063493500684E3A00000000000000000000000000B8958200A06546009E64
+      45009C6245009A62440099614300975F4300955E4200935E4100915C4100905C
+      40008F5B3F008E5A3E000000000000000000D7B29B00FAF5F300F9F5F200F8F5
+      F200F7F5F200F9F5F200F9F5F200F9F5F200F9F5F200F9F5F200F9F5F200F9F5
+      F200FAF5F300F9F5F200855E47007D7D7D000000000000000000000000000000
+      000000000000000000000000000080FFFF0040FFFF0040C0C00000C0C00000A0
+      A000404040000000000000000000000000000000000000000000B7A29300F9F3
+      ED00E7D9D100E3D4C900E2D1C500DFCBBF00DDC7BC00DEC6BA00D7BFB300D6BC
+      AF00D4B9AB00684E3A00000000000000000000000000B9958300EFD3C600E6B7
+      9E00E6B79E00E5B69D00E4B39A00E3B29900E4B09700E3AF9400E2AE9300E3AD
+      9100E2AC90008E5A3F000000000000000000DBB9A300FFFFFF00FDFFFF00FDFF
+      FF00FCFFFF00FCFFFF00FCFFFF00FCFFFF00FCFFFF00FCFFFF00FCFFFF00FCFF
+      FF00FDFFFF00FEFFFF00855E47007D7D7D000000000000000000000000000000
+      000000000000000000000000000080FFFF0080FFFF0080FFFF0080FFFF0040C0
+      C000404040000000000000000000000000000000000000000000BDA89900FAF7
+      F200FAF5F000FAF3EC00F9F0E800FAEFE600FAEDE200F8EADF00F9E9DD00F9E9
+      DD00D5BDAE00684E3A00000000000000000000000000B9958500EFD5C900EED2
+      C300EFD0BF00EDCABB00EBC8B600EBC6B400EAC4B000E9C3AD00E8C0AC00E8BE
+      AA00E3AD9100905B3F000000000000000000DDB99F00FFFFFF00FAFFFF00FAFF
+      FF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFF
+      FF00FBFFFF00FDFFFE00886045007D7D7D000000000000000000000000000000
+      000000000000000000000000000000C0FF0080FFFF0000C0C000000000000000
+      0000000000000000000000000000000000000000000000000000C6B0A100FCFB
+      F800D8C4B900D6C0B500FBF4EE00CFB3A500CFB3A600FAEDE300CAAB9B00CAAB
+      9B00D8C1B400684E3A00000000000000000000000000B9998800F2D8CC00DFB2
+      9C00DEB19B00DDB09800DBAC9400DBA99100DAA88E00DAA68B00D9A38800D9A3
+      8700E3AF9400915C40000000000000000000E0BB9D00FFFFFF00FAFFFF00FAFF
+      FF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFF
+      FF00FBFFFF00FDFFFE008A6245007D7D7D000000000000000000000000000000
+      0000000000000000000000000000404040004040400040404000404040004040
+      4000404040000000000000000000000000000000000000000000CCB6A700FCFD
+      FB00FCFCF900FBFAF600FBF8F300FBF5EF00FAF3EB00FAF0E700FAEEE400F9EC
+      E100DCC8BD00684E3A00000000000000000000000000BA9B8C00F2DBCE00F2D8
+      CC00F0D4C700EFD0C100EFD0BF00EDCABB00EBC8B600EBC6B400EAC4B000E9C3
+      AD00E3AF9600925D40000000000000000000E3BC9C00FFFFFF00FAFFFF00FAFF
+      FF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFF
+      FF00FBFFFF00FCFFFE008D6345007D7D7D000000000000000000000000000000
+      000000000000000000000000000040FFFF0040FFFF0040C0C00000A0A00000A0
+      A000404040000000000000000000000000000000000000000000CCB6A700FCFE
+      FC00DBCAC000DAC8BD00FBFAF700D3BCAF00D6C0B300FAF3EC00D4BAAD00CFB4
+      A600E0D0C500684E3A00000000000000000000000000BA9D8E00F3DED100DFB2
+      9C00DEB19B00DDB09800DBAC9400DBA99100DAA88E00DAA68B00D9A38800D9A3
+      8700E4B09700935D41000000000000000000E5BE9A00FFFFFF00FAFFFF00FBFF
+      FF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFF
+      FF00FAFFFF00FEFFFD008F6544007D7D7D000000000000000000000000000000
+      000000000000000000000000000080FFFF0040FFFF0040C0C00000C0C00000A0
+      A000404040000000000000000000000000000000000000000000CCB6A700FCFE
+      FC00FCFEFC00FCFEFC00FCFDFA00FCFBF700FBF9F400FBF6F100FBF4ED00FAF1
+      E900E3D7CE00684E3A00000000000000000000000000BB9F8E00F3E0D400F3DE
+      D100F2DBCE00F1D7CB00F0D4C700EFD0C100EECDBC00ECC9BA00ECC7B500EBC5
+      B100E4B39A00935D41000000000000000000E7BF9800FFFFFF00FAFFFF00FAFF
+      FF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FAFFFF00FBFF
+      FF00FBFFFF00FEFFFD00926744007D7D7D000000000000000000000000000000
+      000000000000000000000000000080FFFF0080FFFF0080FFFF0080FFFF0040C0
+      C000404040000000000000000000000000000000000000000000CCB6A700FCFE
+      FC00DBCAC000DBCAC000FCFEFC00D8C4B900D8C4B900FBF9F500D6C1B500D7C2
+      B500ECE2DC00684E3A00000000000000000000000000BCA09100F4DFD700F3E0
+      D400F3DED100F2DBCE00DFB7A300DFB59F00DFB29C00DEB19900DDB09800E5B6
+      9D00E5B69D00935D41000000000000000000EDC39C00FFFFFF00FFFFFF00FEFF
+      FF00FEFFFF00FEFFFF00FEFFFF00FFFFFF00FEFFFF00FEFFFF00FEFFFF00FEFF
+      FF00FFFFFF00FFFFFF00956640007D7D7D000000000000000000000000000000
+      000000000000000000000000000000C0FF0080FFFF0000C0C000000000000000
+      0000000000000000000000000000000000000000000000000000CCB6A700FCFE
+      FC00FCFEFC00FCFEFC00FCFEFC00FCFEFC00FCFDFB00FCFCF900FBFAF600FBF8
+      F200FBF5EF00684E3A00000000000000000000000000B9968600B6907E00B48D
+      7800B3877100F3DED100F1DACD00F0D6CA00EFD3C600EFD0C100EECDBC00ECC9
+      B700E6B79E00935D41000000000000000000E0B48400E5E0D700E4DCCF00E5DD
+      D000E5DCD000E5DCD000E4DDD000E5DCD000E5DCD000E4DCD000E3DACB00E3DA
+      CC00E7DBC900ECDABD009B7A5A007D7D7D000000000040404000404040004040
+      4000404040004040400040404000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000EBAC8D00EAAA
+      8C00EAA98900E9A27E00E8997100E68F6300E5855500E37B4700E3743C00E272
+      3800E3733900CC64300000000000000000000000000000000000B6907E00F6E8
+      E000B48D7800F3E0D400DFB7A300DFB59F00DFB29C00DEB19B00DDB09800E5B6
+      9D00E6B79E00935D41000000000000000000BC670E00BD641000BC630D00BD64
+      0D00BD640D00BD640E00BC630D00BC620B00BC630B00BC630C00C8782800CA73
+      2000B36F37007C575200AE9478007D7D7D000000000040FFFF0040FFFF0040C0
+      C00000A0A00000A0A00040404000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000EBAC8D00FFC3
+      A200FEBF9D00FCBB9800FBB69200FAB08B00F9AB8300F8A67C00F5A07500F59A
+      6D00F5976800D26C38000000000000000000000000000000000000000000B690
+      7E00B6907E00F4DFD500F4DFD200F2DBCE00F2D8CC00F0D6CA00EFD3C600EFD0
+      BF00EDCCBB00935D41000000000000000000E09A4900E5943600E7923000E790
+      2D00E6912B00E68F2C00E6922F00E6902D00E68F2600E48C2400E78F2B00E990
+      2A00E3913400CE873E00E3913400000000000000000080FFFF0040FFFF0040C0
+      C00000C0C00000A0A00040404000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000EBAC8D00EAAA
+      8B00EAAA8B00EAA88900E9A28100E89C7700E7946B00E68C6000E5855400E47D
+      4900E3774000E272390000000000000000000000000000000000000000000000
+      0000B9968600BDA19200BCA09100BCA09100BB9F8E00BA9C8D00BA998A00BA99
+      8A00BA998A00BA998A0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000080FFFF0080FFFF0080FF
+      FF0080FFFF0040C0C00040404000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000C0FF0080FFFF0000C0
+      C000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000300000000100010000000000800100000000000000000000
+      000000000000000000000000FFFFFF0000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000FFFFFFFFFFFFFFFF8000FE07FFFFFFFF
+      0000FE07C00380030000E007C00380030000EE07C00380030000EE3FC0038003
+      0000EE07C00380030000EE07C00380030000E007C00380030000EE07C0038003
+      0000EE3FC0038003000081FFC003C003000081FFC003E003000181FFC003F003
+      FFFF81FFFFFFFFFFFFFF8FFFFFFFFFFF00000000000000000000000000000000
+      000000000000}
+  end
+  object ColorDialog: TColorDialog
+    Left = 52
+    Top = 268
+  end
+  object FontDialog: TFontDialog
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    Left = 80
+    Top = 268
+  end
+end

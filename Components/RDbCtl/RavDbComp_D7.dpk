@@ -1,0 +1,125 @@
+package RavDbComp_D7;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Rav Db Components for Delphi 7'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  dbrtl,
+  adortl,
+  vcl,
+  vcldb,
+  VclSmp,
+  vclx,
+  visualclx,
+  bdertl,
+  RxCtl7,
+  RavCtlComp_D7,
+  tee;
+
+contains
+  RMessages in '..\..\RMessages.pas',
+  RStrUtils in '..\..\RStrUtils.pas',
+  RDateUtils in '..\..\RDateUtils.pas',
+  RFonts in '..\..\RFonts.pas',
+  RAppStyles in '..\..\RAppStyles.pas',
+  RDbUtils in '..\..\RDbUtils.pas',
+  RExHandlers in '..\..\RExHandlers.pas',
+  RFrmStorage in '..\..\RFrmStorage.pas',
+  RProgress in '..\..\RProgress.pas' {FormProgress},
+  TmplBase in '..\..\Templates\TmplBase.pas' {BaseTemplate},
+  TmplDialog in '..\..\Templates\TmplDialog.pas' {DialogTemplate},
+  TmplStorage in '..\..\Templates\TmplStorage.pas' {StorageTemplate},
+  TmplEditors in 'TmplEditors.pas' {EditorsTemplate},
+  RDbCustom in 'RDbCustom.pas',
+  RDbStatus in 'RDbStatus.pas',
+  RDbPanel in 'RDbPanel.pas',
+  RDbText in 'RDbText.pas',
+  RDbColorGrid in 'RDbColorGrid.pas',
+  RDbFind in 'RDbFind.pas' {FormDbFind},
+  RDbOrder in 'RDbOrder.pas' {FormDbOrder},
+  RDbOrderItem in 'RDbOrderItem.pas' {FormDbOrderItem},
+  RDbFilterItem in 'RDbFilterItem.pas' {FormDbFilterItem},
+  RDbFilter in 'RDbFilter.pas' {FormDbFilter},
+  RDbFilterItem_Null in 'RDbFilterItem_Null.pas' {FormDbFilterItem_Null},
+  RDbFilterItem_Boolean in 'RDbFilterItem_Boolean.pas' {FormDbFilterItem_Boolean},
+  RDbFilterItem_Integer in 'RDbFilterItem_Integer.pas' {FormDbFilterItem_Integer},
+  RDbFilterItem_Int64 in 'RDbFilterItem_Int64.pas' {FormDbFilterItem_Int64},
+  RDbFilterItem_Float in 'RDbFilterItem_Float.pas' {FormDbFilterItem_Float},
+  RDbFilterItem_LinkComboDate in 'RDbFilterItem_LinkComboDate.pas' {FormDbFilterItem_LinkComboDate},
+  RDbFilterItem_String in 'RDbFilterItem_String.pas' {FormDbFilterItem_String},
+  RDbFilterItem_LinkCombo in 'RDbFilterItem_LinkCombo.pas' {FormDbFilterItem_LinkCombo},
+  RDbFilterItem_LinkList in 'RDbFilterItem_LinkList.pas' {FormDbFilterItem_LinkList},
+  RDbFilterItem_LinkProc in 'RDbFilterItem_LinkProc.pas' {FormDbFilterItem_LinkProc},
+  RDbGridTuner in 'RDbGridTuner.pas' {FormDbGridTuner},
+  RDbGridTunerItem in 'RDbGridTunerItem.pas' {FormDbGridTunerItem},
+  RDbData in '..\..\RDbData.pas',
+  RDbConst in '..\..\RDbConst.pas',
+  RExpExcel in '..\..\RExpExcel.pas' {FormExpExcel},
+  RExpExcelParam in '..\..\RExpExcelParam.pas' {FormExpExcelParam},
+  RMsExcel in '..\..\RMsExcel.pas',
+  ExcelConst in '..\..\RXLib\ExcelConst.pas',
+  RFileExport in '..\..\RFileExport.pas',
+  RDbEditor in 'RDbEditor.pas',
+  TmplMaster in '..\..\Templates\TmplMaster.pas' {MasterTemplate},
+  RDbImport in 'RDbImport.pas' {FormDbImport},
+  RDbImportField in 'RDbImportField.pas' {FormImportField},
+  RStrings in '..\..\RStrings.pas',
+  RSelProcMode in '..\..\RSelProcMode.pas' {FormSelectMode},
+  RDbSearch in 'RDbSearch.pas' {FormDbSearch},
+  RDbCustomSearch in 'RDbCustomSearch.pas',
+  RListView in '..\..\RListView.pas',
+  RDbTree in 'RDbTree.pas',
+  RRssConst in '..\..\RRssConst.pas',
+  RDbState in '..\..\RDbState.pas',
+  RSysUtils in '..\..\RSysUtils.pas',
+  RDbStatPrm in 'RDbStatPrm.pas' {FormStatPrm},
+  RDbStatRes in 'RDbStatRes.pas' {FormStatRes},
+  RDbUpdater in 'RDbUpdater.pas' {FormDbUpdater},
+  RDbUpdaterItem in 'RDbUpdaterItem.pas' {FormDbUpdaterItem},
+  RDbUpdaterItem_Boolean in 'RDbUpdaterItem_Boolean.pas' {FormDbUpdaterItem_Boolean},
+  RDbUpdaterItem_Int64 in 'RDbUpdaterItem_Int64.pas' {FormDbUpdaterItem_Int64},
+  RDbUpdaterItem_Float in 'RDbUpdaterItem_Float.pas' {FormDbUpdaterItem_Float},
+  RDbUpdaterItem_Date in 'RDbUpdaterItem_Date.pas' {FormDbUpdaterItem_Date},
+  RDbUpdaterItem_String in 'RDbUpdaterItem_String.pas' {FormDbUpdaterItem_String},
+  RDbUpdaterItem_Combo in 'RDbUpdaterItem_Combo.pas' {FormDbUpdaterItem_Combo},
+  RDbUpdaterItem_Color in 'RDbUpdaterItem_Color.pas' {FormDbUpdaterItem_Color},
+  RDbUpdaterItem_Null in 'RDbUpdaterItem_Null.pas' {FormDbUpdaterItem_Null},
+  RDbUpdaterItem_Integer in 'RDbUpdaterItem_Integer.pas' {FormDbUpdaterItem_Integer},
+  RMsgViewer in '..\..\RMsgViewer.pas' {FormMsgViewer},
+  RMsgTypes in '..\..\RMsgTypes.pas',
+  RClipBrd in '..\..\RClipBrd.pas',
+  RCsvExport in '..\..\RCsvExport.pas' {FormCsvExport},
+  RDbGroupFnc in 'RDbGroupFnc.pas' {FormGroupFnc},
+  RDbGroupGrp in 'RDbGroupGrp.pas' {FormGroupGrp},
+  RDbGroupPrm in 'RDbGroupPrm.pas' {FormGroupPrm},
+  RDbGroupRes in 'RDbGroupRes.pas' {FormGroupRes},
+  RDbFilterItem_Date in 'RDbFilterItem_Date.pas' {FormDbFilterItem_Date};
+
+end.
+
+
+

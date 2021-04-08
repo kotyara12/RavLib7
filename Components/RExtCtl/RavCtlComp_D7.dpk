@@ -1,0 +1,56 @@
+package RavCtlComp_D7;
+
+{$R *.res}
+{$R 'RavCtlReg.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Rav Additional Controls for Delphi 7'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl,
+  rtl,
+  visualclx,
+  dbrtl,
+  vcldb,
+  VclSmp,
+  vclx,
+  RxCtl7;
+
+contains
+  RavClrCombo in 'RavClrCombo.pas',
+  RavCtlReg in 'RavCtlReg.pas',
+  RavClrStrings in 'RavClrStrings.pas',
+  RavTreeView_Old in 'RavTreeView_Old.pas',
+  RavFloatEdit in 'RavFloatEdit.pas',
+  RavListView in 'RavListView.pas',
+  RVclUtils in '..\..\RVclUtils.pas',
+  RavIpEdit in 'RavIpEdit.pas',
+  RIpTools in '..\..\RIpTools.pas',
+  RMsgRu in '..\..\RMsgRu.pas',
+  RDialogs in '..\..\RDialogs.pas',
+  RavTreeView in 'RavTreeView.pas',
+  RavSpin64 in 'RavSpin64.pas',
+  RavGrid in 'RavGrid.pas';
+
+end.
+

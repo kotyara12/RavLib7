@@ -1,0 +1,41 @@
+create default
+setuser
+as
+bit
+false
+true
+int
+real
+varchar
+null
+datetime
+text
+image
+delete from
+set
+where
+select
+ in
+update 
+from
+ in 
+ on 
+left join
+inner join
+declare 
+open 
+right join
+cursor for
+while 
+fetch next 
+fetch 
+close 
+deallocate 
+exec 
+begin
+end
+ and 
+ or 
+ if 
+rollback tran
+raiserror
