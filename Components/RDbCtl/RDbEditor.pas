@@ -145,6 +145,7 @@ type
     function BlockFieldIsPresent: Boolean;
     function GetBlockField: TField;
     function GetBlockValue: Boolean;
+    function RecordIsBlocked: Boolean;
     // Record States
     function DataSetIsOpened: Boolean;
     function DataSetIsEmply: Boolean;
@@ -904,6 +905,17 @@ begin
     and DataSet.Active and not DataSet.IsEmpty
   then Result := BlockFld.AsBoolean
   else Result := not fBlockValue;
+end;
+
+function TRDbCustomEditor.RecordIsBlocked: Boolean;
+var
+  BlockFld: TField;
+begin
+  BlockFld := GetBlockField;
+  if Assigned(BlockFld) and (BlockFld.DataType in BooleanDataTypes)
+    and DataSet.Active and not DataSet.IsEmpty
+  then Result := BlockFld.AsBoolean = fBlockValue
+  else Result := False;
 end;
 
 // Record States ---------------------------------------------------------------

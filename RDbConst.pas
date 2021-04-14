@@ -104,6 +104,7 @@ const
   SIdNameText            = '%s, id=%s';
   SFldNameText           = '%s="%s"';
 
+  fltFieldNotDeleted     = '[%s]=%d';
   fltFieldNull           = '[%0:s]=NULL OR [%0:s]=0';
   fltFieldVar            = '[%s]=''%s''';
   fltFieldNotVar         = '[%s]<>''%s''';
@@ -122,8 +123,8 @@ const
 
   sidDbVersion           = 1000;
 
-  tidReadOnly		 = 0;
-  tidInteger	         = 1;
+  tidReadOnly	        	 = 0;
+  tidInteger	           = 1;
   tidString              = 2;
   tidReal                = 3;
   tidDate                = 4;

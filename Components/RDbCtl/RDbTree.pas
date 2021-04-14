@@ -1231,7 +1231,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       while not ItemsDataSet.Eof do
       begin
         ItemId := GetItemsKeyValue;
-        if CheckNodeLoad(ntItem, ItemId) then
+        if not fItemsEditor.RecordIsBlocked and CheckNodeLoad(ntItem, ItemId) then
           fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
             GetItemsNodeImage(False), GetItemsNodeImage(True), GetItemsNodeText, GetItemsNodeSort);
         ItemsDataSet.Next;
@@ -1243,7 +1243,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       while ItemsDataSet.Found do
       begin
         ItemId := GetItemsKeyValue;
-        if CheckNodeLoad(ntItem, ItemId) then
+        if not fItemsEditor.RecordIsBlocked and CheckNodeLoad(ntItem, ItemId) then
           fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
             GetItemsNodeImage(False), GetItemsNodeImage(True), GetItemsNodeText, GetItemsNodeSort);
         if fProgress then UpdateProgressStep(1);
@@ -1265,7 +1265,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       SubBmk := GroupsDataSet.GetBookmark;
       try
         SubId := GetGroupsKeyValue;
-        if CheckNodeLoad(ntGroup, SubId) then
+        if not fGroupsEditor.RecordIsBlocked and CheckNodeLoad(ntGroup, SubId) then
         begin
           SubNode := fTreeView.CreateTypeNode(GroupNode, ntGroup, SubId,
             GetGroupsNodeImage(False), GetGroupsNodeImage(True), GetGroupsNodeText, GetGroupsNodeSort);
@@ -1300,7 +1300,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
         GroupBmk := GroupsDataSet.GetBookmark;
         try
           GroupId := GetGroupsKeyValue;
-          if CheckNodeLoad(ntGroup, GroupId) then
+          if not fGroupsEditor.RecordIsBlocked and CheckNodeLoad(ntGroup, GroupId) then
           begin
             GroupNode := fTreeView.CreateTypeNode(RootNode, ntGroup, GroupId,
               GetGroupsNodeImage(False), GetGroupsNodeImage(True), GetGroupsNodeText, GetGroupsNodeSort);
@@ -1324,7 +1324,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       while not GroupsDataSet.Eof do
       begin
         GroupId := GetGroupsKeyValue;
-        if CheckNodeLoad(ntGroup, GroupId) then
+        if not fGroupsEditor.RecordIsBlocked and CheckNodeLoad(ntGroup, GroupId) then
         begin
           GroupNode := fTreeView.CreateTypeNode(RootNode, ntGroup, GroupId,
             GetGroupsNodeImage(False), GetGroupsNodeImage(True), GetGroupsNodeText, GetGroupsNodeSort);
