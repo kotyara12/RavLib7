@@ -104,7 +104,7 @@ const
   SIdNameText            = '%s, id=%s';
   SFldNameText           = '%s="%s"';
 
-  fltFieldNotDeleted     = '[%s]=%d';
+  fltFieldBlock          = '[%s]=%s';
   fltFieldNull           = '[%0:s]=NULL OR [%0:s]=0';
   fltFieldVar            = '[%s]=''%s''';
   fltFieldNotVar         = '[%s]<>''%s''';

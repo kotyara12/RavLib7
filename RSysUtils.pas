@@ -64,6 +64,8 @@ const
   CSIDL_APPDATA                       = $001a;
   // Установленные принтеры. (обычно C:\Documents and Settings\username\PrintHood)
   CSIDL_PRINTHOOD                    = $001b;
+  // Папка, в которой программы должны хранить свои данные(C:\Documents and Settings\username\Application Data)
+  CSIDL_LOCAL_APPDATA                = $001c;
   // user's nonlocalized Startup program group. Устарело.
   CSIDL_ALTSTARTUP                   = $001d;         // DBCS
   // Устарело
@@ -100,8 +102,6 @@ const
   CSIDL_COMPUTERSNEARME              = $3d;
   // Виртуальная папка, представляет список сетевых подключений
   CSIDL_CONNECTIONS                  = $31;
-  // AppData для приложений, которые не переносятся на другой компьютер (обычно C:\Documents and Settings\username\Local Settings\Application Data)
-  CSIDL_LOCAL_APPDATA                = $1c;
   // Виртуальный каталог, представляющий папку "Мои документы"
   CSIDL_MYDOCUMENTS                  = $0c;
   // Папка "Моя музыка"
@@ -192,6 +192,7 @@ function GetModuleFormFile: TFileName;
 function GetApplicationDataFile: TFileName;
 function GetApplicationVarFile(const AExtension: ShortString): TFileName;
 function GetModuleVarFile(const AExtension: ShortString): TFileName;
+function GetLocalAppData(const ASubFolder, AFileName: string): string;
 { == Операции с именами файлов и каталогов ===================================== }
 function ChangeFileName(const SourceName, NewPart: string): string;
 function IsNetworkPath(const FileName: string): Boolean;
@@ -413,8 +414,16 @@ begin
 end;
 
 function GetModuleFormFile: TFileName;
+var
+  sModule: string;
 begin
+  sModule := GetModuleFileName;
+  {$IFDEF FRMAPPDATA}
+  Result := GetLocalAppData(ChangeFileExt(ExtractFileName(sModule), ''), ChangeFileExt(ExtractFileName(sModule), ssFormExtension));
+  {$ELSE}
   Result := ChangeFileExt(GetModuleFileName, ssFormExtension);
+  {$ENDIF}
+  ForceDirectories(ExtractFilePath(Result));
 end;
 
 function GetApplicationDataFile: TFileName;
@@ -430,6 +439,15 @@ end;
 function GetModuleVarFile(const AExtension: ShortString): TFileName;
 begin
   Result := ChangeFileExt(GetModuleFileName, AExtension);
+end;
+
+function GetLocalAppData(const ASubFolder, AFileName: string): string;
+begin
+  Result := GetShellFolder(CSIDL_LOCAL_APPDATA, False);
+  if ASubFolder <> '' then
+    Result := IncludeTrailingPathDelimiter(Result) + ASubFolder;
+  if AFileName <> '' then
+    Result := IncludeTrailingPathDelimiter(Result) + AFileName;
 end;
 
 { == Операции с именами файлов и каталогов ===================================== }

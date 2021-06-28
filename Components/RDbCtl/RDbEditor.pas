@@ -145,6 +145,7 @@ type
     function BlockFieldIsPresent: Boolean;
     function GetBlockField: TField;
     function GetBlockValue: Boolean;
+    function GetBlockFilter(const isBlocked: boolean): string;
     function RecordIsBlocked: Boolean;
     // Record States
     function DataSetIsOpened: Boolean;
@@ -905,6 +906,17 @@ begin
     and DataSet.Active and not DataSet.IsEmpty
   then Result := BlockFld.AsBoolean
   else Result := not fBlockValue;
+end;
+
+function TRDbCustomEditor.GetBlockFilter(const isBlocked: boolean): string;
+begin
+  if fBlockField = EmptyStr
+  then Result := EmptyStr
+  else begin
+    if isBlocked
+    then Result := Format(fltFieldBlock, [fBlockField, BoolToSqlStr(fBlockValue)])
+    else Result := Format(fltFieldBlock, [fBlockField, BoolToSqlStr(not fBlockValue)]);
+  end;
 end;
 
 function TRDbCustomEditor.RecordIsBlocked: Boolean;

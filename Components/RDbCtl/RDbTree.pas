@@ -25,6 +25,7 @@ type
     fNameField: string;
     fSortField: string;
     fNoteField: string;
+    fBaseFilter: string;
     fNrmImage: Integer;
     fSelImage: Integer;
     fCheckDataSetState: Boolean;
@@ -65,6 +66,7 @@ type
     property NameFieldName: string read fNameField write fNameField;
     property NotesFieldName: string read fNoteField write fNoteField;
     property SortFieldName: string read fSortField write fSortField;
+    property BaseFilter: string read fBaseFilter write fBaseFilter;
     property NrmImage: Integer read fNrmImage write fNrmImage;
     property SelImage: Integer read fSelImage write fSelImage;
     property OnGetImage: TGetImageNotifyEvent read fOnGetImage write fOnGetImage;
@@ -220,6 +222,7 @@ begin
   fNoteField := EmptyStr;
   fNrmImage := intDisable;
   fSelImage := intDisable;
+  fBaseFilter := EmptyStr;
   fCheckDataSetState := True;
   fOnGetImage := nil;
   fOnGetName := nil;
@@ -1238,7 +1241,8 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       end;
     end
     else begin
-      ItemsDataSet.Filter := Format(fltFieldId, [GetItemsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]);
+      ItemsDataSet.Filter := SqlConcatBr(Format(fltFieldId, [GetItemsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]),
+        fItemsEditor.BaseFilter, sqlAnd);
       ItemsDataSet.FindFirst;
       while ItemsDataSet.Found do
       begin
@@ -1257,8 +1261,11 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
     SubId: Integer;
     SubNode: TTreeNode;
     SubBmk: TBookmark;
+    SubFilter: string;
   begin
-    GroupsDataSet.Filter := Format(fltFieldId, [GetGroupsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]);
+    SubFilter := SqlConcatBr(Format(fltFieldId, [GetGroupsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]),
+      fGroupsEditor.BaseFilter, sqlAnd);
+    GroupsDataSet.Filter := SubFilter;
     GroupsDataSet.FindFirst;
     while GroupsDataSet.Found do
     begin
@@ -1273,7 +1280,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
           if ItemsIsLoaded then LoadItems(SubNode);
         end;
       finally
-        GroupsDataSet.Filter := Format(fltFieldId, [GetGroupsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]);
+        GroupsDataSet.Filter := SubFilter;
         try
           GroupsDataSet.GotoBookmark(SubBmk);
         finally
@@ -1290,10 +1297,13 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
     GroupId: Integer;
     GroupNode: TTreeNode;
     GroupBmk: TBookmark;
+    GroupFilter: string;
   begin
     if GroupsDataSetIsOwner then
     begin
-      GroupsDataSet.Filter := Format(fltFieldNull, [GetGroupsOwnerField.FieldName]);
+      GroupFilter := SqlConcatBr(Format(fltFieldNull, [GetGroupsOwnerField.FieldName]),
+        fGroupsEditor.BaseFilter, sqlAnd);
+      GroupsDataSet.Filter := GroupFilter;
       GroupsDataSet.FindFirst;
       while GroupsDataSet.Found do
       begin
@@ -1308,7 +1318,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
             if ItemsIsLoaded then LoadItems(GroupNode);
           end;
         finally
-          GroupsDataSet.Filter := Format(fltFieldNull, [GetGroupsOwnerField.FieldName]);
+          GroupsDataSet.Filter := GroupFilter;
           try
             GroupsDataSet.GotoBookmark(GroupBmk);
           finally
