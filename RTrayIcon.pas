@@ -42,9 +42,9 @@ begin
       else StrPLCopy(szTip, AHintText, SizeOf(szTip) - 1);
     end;
   case AIconMode of
-    tiAdd:    Shell_NotifyIcon(Nim_Add, @Nim);
-    tiDelete: Shell_NotifyIcon(Nim_Delete, @Nim);
-    tiModify: Shell_NotifyIcon(Nim_Modify, @Nim);
+    tiAdd:    Shell_NotifyIcon(NIM_ADD, @Nim);
+    tiDelete: Shell_NotifyIcon(NIM_DELETE, @Nim);
+    tiModify: Shell_NotifyIcon(NIM_MODIFY, @Nim);
   end;
 end;
 
