@@ -4,39 +4,38 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, TmplDialog, StdCtrls, Buttons, ExtCtrls, ComCtrls, Spin, Grids,
-  ValEdit, RAdoUtils, Mask, ToolEdit;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, Spin, Grids,
+  ValEdit, Mask, tmplDialog;
 
 type
 
-  TFormParameters = class(TDialogTemplate)
+  TFormParameters = class(templateDialog)
     PageControl: TPageControl;
-    MainTabSheet: TTabSheet;
-    OptionsTabSheet: TTabSheet;
-    OptionsLabel: TLabel;
+    tsAdoParams: TTabSheet;
+    tsDbOptions: TTabSheet;
+    lblDbOptions: TLabel;
     DateFormatEditLabel: TLabel;
     DateFormatEdit: TEdit;
     CaseCheckBox: TCheckBox;
-    ResqueTabSheet: TTabSheet;
-    ResqueLabel: TLabel;
-    DefaultOptionsButton: TButton;
-    ResqueCheckBox: TCheckBox;
+    tsDbResque: TTabSheet;
+    lblDbResque: TLabel;
+    btnDbOptionsDefault: TButton;
+    cbDbResqueEnabled: TCheckBox;
     SpinEditLabel: TLabel;
-    SpinEdit: TSpinEdit;
-    ConnLabel: TLabel;
-    ValueListEditor: TValueListEditor;
-    EditButton: TButton;
-    CurrentDirRadioButton: TRadioButton;
-    SelectedDirRadioButton: TRadioButton;
-    ResqueDirEdit: TDirectoryEdit;
-    IntervalEdit: TSpinEdit;
+    edDbResqueCount: TSpinEdit;
+    lblConnect: TLabel;
+    vlAdoParams: TValueListEditor;
+    btnAdoParamsEdit: TButton;
+    rbDbResqueCurrentDir: TRadioButton;
+    rbDbResqueSelectedDir: TRadioButton;
+    edDbResqueInterval: TSpinEdit;
     IntervalEditLabel: TLabel;
     lblWatchDogTime: TLabel;
     WatchDogTime: TSpinEdit;
-    procedure MainTabSheetShow(Sender: TObject);
-    procedure EditButtonClick(Sender: TObject);
-    procedure DefaultOptionsButtonClick(Sender: TObject);
-    procedure ResqueCheckBoxClick(Sender: TObject);
+    procedure tsAdoParamsShow(Sender: TObject);
+    procedure btnAdoParamsEditClick(Sender: TObject);
+    procedure btnDbOptionsDefaultClick(Sender: TObject);
+    procedure cbDbResqueEnabledClick(Sender: TObject);
   private
     DefParams: RAdoDbParameters;
     Password: string;
@@ -177,17 +176,17 @@ begin
   ResqueDirEdit.Enabled := SelectedDirRadioButton.Checked and ResqueCheckBox.Checked;
 end;
 
-procedure TFormParameters.MainTabSheetShow(Sender: TObject);
+procedure TFormParameters.tsAdoParamsShow(Sender: TObject);
 begin
   EditButton.SetFocus;
 end;
 
-procedure TFormParameters.EditButtonClick(Sender: TObject);
+procedure TFormParameters.btnAdoParamsEditClick(Sender: TObject);
 begin
   SetConnectionString(PromptDataSource(Handle, GetConnectionString));
 end;
 
-procedure TFormParameters.DefaultOptionsButtonClick(Sender: TObject);
+procedure TFormParameters.btnDbOptionsDefaultClick(Sender: TObject);
 begin
   if (Sender = nil) or (QueryBoxStdYN(SQuerySetDefault) = ID_YES) then
   begin
@@ -197,7 +196,7 @@ begin
   end;
 end;
 
-procedure TFormParameters.ResqueCheckBoxClick(Sender: TObject);
+procedure TFormParameters.cbDbResqueEnabledClick(Sender: TObject);
 begin
   SpinEdit.Enabled := ResqueCheckBox.Checked;
   IntervalEdit.Enabled := ResqueCheckBox.Checked;

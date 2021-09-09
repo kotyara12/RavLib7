@@ -5,18 +5,25 @@ inherited FormParameters: TFormParameters
   Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1103' '#1082' '#1073#1072#1079#1077' '#1076#1072#1085#1085#1099#1093
   ClientHeight = 365
   ClientWidth = 499
+  ExplicitWidth = 505
+  ExplicitHeight = 394
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ButtonsBevel: TBevel
+  inherited bvlButtons: TBevel
     Top = 314
     Width = 499
+    ExplicitTop = 314
+    ExplicitWidth = 499
   end
-  inherited ButtonsPanel: TPanel
+  inherited pnlBottom: TPanel
     Top = 316
     Width = 499
-    inherited ButtonsMovedPanel: TPanel
+    ExplicitTop = 316
+    ExplicitWidth = 499
+    inherited pnlButtons: TPanel
       Left = 277
-      inherited OkBtn: TBitBtn
+      ExplicitLeft = 277
+      inherited btnOk: TBitBtn
         Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1072#1088#1072#1084#1077#1090#1088#1099' '#1080' '#1087#1086#1076#1082#1083#1102#1095#1080#1090#1100#1089#1103' '#1082' '#1073#1072#1079#1077' '#1076#1072#1085#1085#1099#1093
       end
     end
@@ -26,13 +33,13 @@ inherited FormParameters: TFormParameters
     Top = 0
     Width = 499
     Height = 314
-    ActivePage = MainTabSheet
+    ActivePage = tsAdoParams
     Align = alClient
     TabOrder = 1
-    object MainTabSheet: TTabSheet
+    object tsAdoParams: TTabSheet
       Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1089#1086#1077#1076#1080#1085#1077#1085#1080#1103
-      OnShow = MainTabSheetShow
-      object ConnLabel: TLabel
+      OnShow = tsAdoParamsShow
+      object lblConnect: TLabel
         Left = 8
         Top = 8
         Width = 473
@@ -45,7 +52,7 @@ inherited FormParameters: TFormParameters
           #1099' '#1076#1072#1085#1085#1099#1093'.'
         WordWrap = True
       end
-      object ValueListEditor: TValueListEditor
+      object vlAdoParams: TValueListEditor
         Left = 8
         Top = 72
         Width = 473
@@ -61,7 +68,7 @@ inherited FormParameters: TFormParameters
           150
           317)
       end
-      object EditButton: TButton
+      object btnAdoParamsEdit: TButton
         Left = 8
         Top = 248
         Width = 145
@@ -69,13 +76,14 @@ inherited FormParameters: TFormParameters
         Hint = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1072#1088#1072#1084#1077#1090#1088#1099' '#1089#1086#1077#1076#1080#1085#1077#1085#1080#1103' '#1089' '#1073#1072#1079#1086#1081' '#1076#1072#1085#1085#1099#1093
         Caption = #1048#1079#1084#1077#1085#1080#1090#1100
         TabOrder = 1
-        OnClick = EditButtonClick
+        OnClick = btnAdoParamsEditClick
       end
     end
-    object OptionsTabSheet: TTabSheet
+    object tsDbOptions: TTabSheet
       Caption = #1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093
       ImageIndex = 1
-      object OptionsLabel: TLabel
+      ExplicitLeft = 8
+      object lblDbOptions: TLabel
         Left = 8
         Top = 8
         Width = 473
@@ -122,7 +130,7 @@ inherited FormParameters: TFormParameters
           ' '#1088#1077#1075#1080#1089#1090#1088#1072')'
         TabOrder = 1
       end
-      object DefaultOptionsButton: TButton
+      object btnDbOptionsDefault: TButton
         Left = 8
         Top = 248
         Width = 145
@@ -132,7 +140,7 @@ inherited FormParameters: TFormParameters
           ' '#1086#1090#1082#1083#1102#1095#1077#1085#1099')'
         Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
         TabOrder = 2
-        OnClick = DefaultOptionsButtonClick
+        OnClick = btnDbOptionsDefaultClick
       end
       object WatchDogTime: TSpinEdit
         Left = 8
@@ -146,10 +154,10 @@ inherited FormParameters: TFormParameters
         Value = 1000
       end
     end
-    object ResqueTabSheet: TTabSheet
+    object tsDbResque: TTabSheet
       Caption = #1056#1077#1079#1077#1088#1074#1085#1086#1077' '#1082#1086#1087#1080#1088#1086#1074#1072#1085#1080#1077
       ImageIndex = 2
-      object ResqueLabel: TLabel
+      object lblDbResque: TLabel
         Left = 8
         Top = 8
         Width = 473
@@ -169,7 +177,7 @@ inherited FormParameters: TFormParameters
         Width = 68
         Height = 13
         Caption = #1063#1080#1089#1083#1086' '#1082#1086#1087#1080#1081':'
-        FocusControl = SpinEdit
+        FocusControl = edDbResqueCount
       end
       object IntervalEditLabel: TLabel
         Left = 104
@@ -177,18 +185,18 @@ inherited FormParameters: TFormParameters
         Width = 167
         Height = 13
         Caption = #1048#1085#1090#1077#1088#1074#1072#1083' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1082#1086#1087#1080#1081', '#1095#1072#1089#1099':'
-        FocusControl = IntervalEdit
+        FocusControl = edDbResqueInterval
       end
-      object ResqueCheckBox: TCheckBox
+      object cbDbResqueEnabled: TCheckBox
         Left = 8
         Top = 72
         Width = 473
         Height = 17
         Caption = #1042#1082#1083#1102#1095#1080#1090#1100' '#1088#1077#1079#1077#1088#1074#1085#1086#1077' '#1082#1086#1087#1080#1088#1086#1074#1072#1085#1080#1077' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093
         TabOrder = 0
-        OnClick = ResqueCheckBoxClick
+        OnClick = cbDbResqueEnabledClick
       end
-      object SpinEdit: TSpinEdit
+      object edDbResqueCount: TSpinEdit
         Left = 8
         Top = 116
         Width = 81
@@ -199,7 +207,7 @@ inherited FormParameters: TFormParameters
         TabOrder = 1
         Value = 3
       end
-      object CurrentDirRadioButton: TRadioButton
+      object rbDbResqueCurrentDir: TRadioButton
         Left = 8
         Top = 156
         Width = 473
@@ -208,30 +216,18 @@ inherited FormParameters: TFormParameters
         Checked = True
         TabOrder = 2
         TabStop = True
-        OnClick = ResqueCheckBoxClick
+        OnClick = cbDbResqueEnabledClick
       end
-      object SelectedDirRadioButton: TRadioButton
+      object rbDbResqueSelectedDir: TRadioButton
         Left = 8
         Top = 180
         Width = 473
         Height = 17
         Caption = #1056#1077#1079#1077#1088#1074#1085#1099#1077' '#1082#1086#1087#1080#1080' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093' '#1087#1086#1084#1077#1089#1090#1080#1090#1100' '#1074' '#1074#1099#1073#1088#1072#1085#1085#1099#1081' '#1082#1072#1090#1072#1083#1086#1075':'
         TabOrder = 3
-        OnClick = ResqueCheckBoxClick
+        OnClick = cbDbResqueEnabledClick
       end
-      object ResqueDirEdit: TDirectoryEdit
-        Left = 28
-        Top = 204
-        Width = 453
-        Height = 21
-        Hint = #1050#1072#1090#1072#1083#1086#1075' '#1076#1083#1103' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1088#1077#1079#1077#1088#1074#1085#1099#1093' '#1082#1086#1087#1080#1081' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093
-        DialogKind = dkWin32
-        DialogText = #1042#1099#1073#1077#1088#1080#1090#1077' '#1082#1072#1090#1072#1083#1086#1075' '#1076#1083#1103' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1088#1077#1079#1077#1088#1074#1085#1099#1093' '#1082#1086#1087#1080#1081' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093
-        DialogOptions = [sdAllowCreate, sdPerformCreate]
-        NumGlyphs = 1
-        TabOrder = 4
-      end
-      object IntervalEdit: TSpinEdit
+      object edDbResqueInterval: TSpinEdit
         Left = 104
         Top = 116
         Width = 81
@@ -239,7 +235,7 @@ inherited FormParameters: TFormParameters
         Hint = #1048#1085#1090#1077#1088#1074#1072#1083' '#1089#1086#1079#1076#1072#1085#1080#1103' '#1088#1077#1079#1077#1088#1074#1085#1099#1093' '#1082#1086#1087#1080#1081' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093' '#1074' '#1095#1072#1089#1072#1093
         MaxValue = 9999
         MinValue = 0
-        TabOrder = 5
+        TabOrder = 4
         Value = 24
       end
     end
