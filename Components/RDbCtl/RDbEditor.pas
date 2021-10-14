@@ -18,6 +18,7 @@ uses
 type
   ERDbEditorError = class(Exception);
 
+  TKeyGenerate    = (kgNone, kgDatabase, kgClient);
   TEditMode       = (etView, etInsert, etImport, etEdit, etMove, etModify, etDelete);
   TOpenMode       = (omAuto, omEdit, omView, omCheck);
   TMultiExcept    = (meQuery, meStop, meContinue);
@@ -43,6 +44,7 @@ type
   TRDbCustomEditor = class(TDataSource)
   private
     fKeyField: string;
+    fKeyType: TKeyGenerate;
     fOwnerField: string;
     fBlockField: string;
     fBlockValue: Boolean;
@@ -174,6 +176,7 @@ type
   published
     property CheckTags: Boolean read fCheckTags write fCheckTags;
     property KeyFieldName: string read fKeyField write fKeyField;
+    property KeyFieldType: TKeyGenerate read fKeyType write fKeyType default kgClient;
     property BlockFieldName: string read FBlockField write FBlockField;
     property BlockValue: Boolean read FBlockValue write FBlockValue default True;
     property OwnerFieldName: string read fOwnerField write fOwnerField;
@@ -363,6 +366,7 @@ begin
   fObjectDesc := EmptyStr;
   fCopiedFields := EmptyStr;
   fKeyField := EmptyStr;
+  fKeyType := kgClient;
   fOwnerField := EmptyStr;
   fLogEnable := False;
   fNewAppend := True;
@@ -803,25 +807,42 @@ begin
 end;
 
 function TRDbCustomEditor.LocateKey(const KeyValue: Integer): Boolean;
+var
+  KeyFld: TField;
 begin
-  Result := KeyFieldIsPresent and DataSet.Active
+  KeyFld := GetKeyField;
+  Result := (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) and DataSet.Active
     and DataSet.Locate(fKeyField, KeyValue, []);
 end;
 
 procedure TRDbCustomEditor.CreateKeyValue(var KeyValue: Integer);
+var
+  KeyFld: TField;
 begin
   KeyValue := intDisable;
-  if DataSetIsEdited and KeyFieldIsPresent and Assigned(fOnGetKey) then
+  if (fKeyType = kgClient) and Assigned(fOnGetKey) and DataSetIsEdited then
   begin
-    fOnGetKey(Self, KeyValue);
-    GetKeyField.AsInteger := KeyValue;
+    KeyFld := GetKeyField;
+    if (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) then
+    begin
+      fOnGetKey(Self, KeyValue);
+      GetKeyField.AsInteger := KeyValue;
+    end;
   end;
 end;
 
 procedure TRDbCustomEditor.FreeKeyValue(var KeyValue: Integer);
+var
+  KeyFld: TField;
 begin
-  if KeyFieldIsPresent and (KeyValue > intDisable) and Assigned(fOnFreeKey) then
-    fOnFreeKey(Self, KeyValue);
+  if (fKeyType = kgClient) and (KeyValue > intDisable) and Assigned(fOnFreeKey) then
+  begin
+    KeyFld := GetKeyField;
+    if (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) then
+    begin
+      fOnFreeKey(Self, KeyValue);
+    end;
+  end;
 end;
 
 // Owner Field -----------------------------------------------------------------

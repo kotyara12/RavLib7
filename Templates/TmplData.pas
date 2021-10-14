@@ -34,7 +34,6 @@ type
     itemRefreshP: TMenuItem;
     divPopupEnd: TMenuItem;
     divPopupSubmenus: TMenuItem;
-    menuDataP: TMenuItem;
     menuOperationsP: TMenuItem;
     menuReportsP: TMenuItem;
     Find: TAction;

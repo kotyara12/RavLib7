@@ -25,6 +25,8 @@ type
 
 implementation
 
+uses BaseDbUnit;
+
 {$R *.dfm}
 
 { TDbAuditDialogTemplate }

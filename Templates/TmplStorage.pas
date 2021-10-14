@@ -67,7 +67,7 @@ begin
     end;
   except
     on E: Exception do
-      HandleExcept(E, Self, SErrLoadFormPlacement);
+      HandleExcept(E, Self, SErrLoadFormPlacement, 0, 0, esReg);
   end;
 end;
 
@@ -85,7 +85,7 @@ begin
     end;
   except
     on E: Exception do
-      HandleExcept(E, Self, SErrSaveFormPlacement);
+      HandleExcept(E, Self, SErrSaveFormPlacement, 0, 0, esReg);
   end;
 end;
 

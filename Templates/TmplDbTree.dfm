@@ -73,18 +73,28 @@ inherited DbTreeTemplate: TDbTreeTemplate
     object itemCopyRecordP: TMenuItem [3]
       Action = CopyRecord
     end
-    object itemAttachments: TMenuItem [12]
-      Action = Attachments
-    end
-    object divAttachP: TMenuItem [13]
-      Caption = '-'
-      Visible = False
+    inherited meniLoadModeP: TMenuItem
+      inherited itemSelectSaveEMP: TMenuItem [0]
+      end
+      inherited N13: TMenuItem [1]
+      end
+      inherited itemEM_NoneP: TMenuItem [2]
+      end
+      inherited itemEM_RootP: TMenuItem [3]
+      end
+      inherited itemEM_GroupsP: TMenuItem [4]
+      end
+      inherited itemEM_AllP: TMenuItem [5]
+      end
     end
     inherited menuReportsP: TMenuItem
       Visible = True
       object itemReportListP: TMenuItem
         Action = ReportList
       end
+    end
+    object itemAttachments: TMenuItem [17]
+      Action = Attachments
     end
   end
   inherited MainMenu: TMainMenu

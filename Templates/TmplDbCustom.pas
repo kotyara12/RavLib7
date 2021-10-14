@@ -81,7 +81,6 @@ type
     itemDataSetDeleteP: TMenuItem;
     divPopupMulti: TMenuItem;
     itemMultiSelectOnOffP: TMenuItem;
-    divAttachP: TMenuItem;
     itemAttachmentsP: TMenuItem;
     ColumnLeft: TAction;
     ColumnCenter: TAction;
@@ -104,7 +103,6 @@ type
     divGridTitleStat: TMenuItem;
     itemColumnStatisticT: TMenuItem;
     divRepStat: TMenuItem;
-    divRepStatP: TMenuItem;
     divRepStatR: TMenuItem;
     itemDataSetStatisticR: TMenuItem;
     itemDataSetStatisticP: TMenuItem;
@@ -135,6 +133,9 @@ type
     itemDateSetGroupingP: TMenuItem;
     itemDateSetGroupingR: TMenuItem;
     itemDateSetGroupingT: TMenuItem;
+    menuDbNavigation: TMenuItem;
+    menuViewsP: TMenuItem;
+    menuGroupP: TMenuItem;
     procedure DataSetInsertUpdate(Sender: TObject);
     procedure DataSetInsertExecute(Sender: TObject);  virtual;
     procedure DataSetEditUpdate(Sender: TObject);
@@ -327,11 +328,9 @@ begin
     {$IFDEF ATTACH}
     Attachments.Visible := RDbEditor.KeyFieldIsPresent and (DbGrid.AttachField <> '');
     divAttach.Visible := Attachments.Visible;
-    divAttachP.Visible := Attachments.Visible;
     {$ELSE}
     Attachments.Visible := False;
     divAttach.Visible := False;
-    divAttachP.Visible := False;
     {$ENDIF}
     try
       ShowInStatusBar(Format(SMsgLoadDataFormEx, [SPrmFind]));

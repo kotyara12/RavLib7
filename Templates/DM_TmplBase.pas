@@ -76,7 +76,7 @@ type
     function  OpenVariableQuery(Query: TAdoQuery; Filter: TRDbFilter; Order: TRDbOrder;
       const SelectSql, BaseWhereSql: string; const OperId: Integer = 0): Boolean;
     function OpenStaticQuery(Query: TAdoQuery;
-  const SelectSql: string; const OperId: Integer = 0): Boolean;
+      const SelectSql: string; const OperId: Integer = 0): Boolean;
     function GetNewId(const DsName: string; const KeyName: string = fnID): Integer; virtual;
     procedure FreeId(const DsName: string; const Id: Integer); virtual;
     property ResqueEnabled: Boolean read fResqueEnabled;

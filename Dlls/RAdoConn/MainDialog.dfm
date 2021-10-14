@@ -103,14 +103,6 @@ inherited FormParameters: TFormParameters
         Caption = #1060#1086#1088#1084#1072#1090' '#1076#1072#1090#1099':'
         FocusControl = DateFormatEdit
       end
-      object lblWatchDogTime: TLabel
-        Left = 8
-        Top = 160
-        Width = 125
-        Height = 13
-        Caption = #1057#1090#1086#1088#1086#1078#1077#1074#1086#1081' '#1090#1072#1081#1084#1077#1088', '#1084#1089':'
-        FocusControl = WatchDogTime
-      end
       object DateFormatEdit: TEdit
         Left = 8
         Top = 88
@@ -141,17 +133,6 @@ inherited FormParameters: TFormParameters
         Caption = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
         TabOrder = 2
         OnClick = btnDbOptionsDefaultClick
-      end
-      object WatchDogTime: TSpinEdit
-        Left = 8
-        Top = 176
-        Width = 121
-        Height = 22
-        Hint = #1055#1077#1088#1080#1086#1076#1080#1095#1085#1086#1089#1090#1100' '#1087#1088#1086#1074#1077#1088#1082#1080' '#1089#1086#1077#1076#1080#1085#1077#1085#1080#1103' '#1089' '#1073#1072#1079#1086#1081' '#1076#1072#1085#1085#1099#1093' '#1074' '#1084#1080#1083#1083#1080#1089#1077#1082#1091#1085#1076#1072#1093
-        MaxValue = 2147483647
-        MinValue = 1
-        TabOrder = 3
-        Value = 1000
       end
     end
     object tsDbResque: TTabSheet

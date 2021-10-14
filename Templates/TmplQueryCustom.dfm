@@ -187,30 +187,32 @@ inherited QueryCustomTemplate: TQueryCustomTemplate
     RDbFilter = RDbFilter
   end
   inherited PopupMenu: TPopupMenu
-    inherited menuDataP: TMenuItem
-      object itemFilterUserP: TMenuItem [0]
+    object menuFilterP: TMenuItem [9]
+      Caption = #1060#1080#1083#1100#1090#1088' '#1076#1072#1085#1085#1099#1093
+      Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1072' '#1086#1090#1073#1086#1088#1072' '#1076#1072#1085#1085#1099#1093
+      ImageIndex = 15
+      object itemFilterUserP: TMenuItem
         Action = FilterUser
       end
-      object itemFilterDefaultP: TMenuItem [1]
+      object itemFilterDefaultP: TMenuItem
         Action = FilterDefault
       end
-      object itemFilterSelectedP: TMenuItem [2]
+      object itemFilterSelectedP: TMenuItem
         Action = FilterSelected
       end
-      object itemFilterNoneP: TMenuItem [3]
+      object itemFilterNoneP: TMenuItem
         Action = FilterNone
       end
-      object divPopupSort: TMenuItem [4]
-        Caption = '-'
-      end
-      object itemSortUserP: TMenuItem [5]
+    end
+    object menuSortP: TMenuItem [10]
+      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
+      Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1080' '#1076#1072#1085#1085#1099#1093' '#1074' '#1090#1072#1073#1083#1080#1094#1077
+      ImageIndex = 18
+      object itemSortUserP: TMenuItem
         Action = SortUser
       end
-      object itemSortDefaultP: TMenuItem [6]
+      object itemSortDefaultP: TMenuItem
         Action = SortDefault
-      end
-      object divPopupGrid: TMenuItem [7]
-        Caption = '-'
       end
     end
   end

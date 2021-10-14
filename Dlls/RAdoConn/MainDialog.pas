@@ -5,11 +5,12 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, Spin, Grids,
-  ValEdit, Mask, tmplDialog;
+  ValEdit, Mask,
+  rAdoUtils, tmplDialog;
 
 type
 
-  TFormParameters = class(templateDialog)
+  TFormParameters = class(TtemplateDialog)
     PageControl: TPageControl;
     tsAdoParams: TTabSheet;
     tsDbOptions: TTabSheet;
@@ -30,8 +31,6 @@ type
     rbDbResqueSelectedDir: TRadioButton;
     edDbResqueInterval: TSpinEdit;
     IntervalEditLabel: TLabel;
-    lblWatchDogTime: TLabel;
-    WatchDogTime: TSpinEdit;
     procedure tsAdoParamsShow(Sender: TObject);
     procedure btnAdoParamsEditClick(Sender: TObject);
     procedure btnDbOptionsDefaultClick(Sender: TObject);
@@ -58,7 +57,7 @@ implementation
 {$R *.dfm}
 
 uses
-  RVclUtils, IniFiles, AdoDb, RxStrUtils, RDialogs, RMsgRu;
+  RVclUtils, IniFiles, AdoDb, rDialogs;
 
 function ChangeDbParameters(const FileName, DefConnString: string; const DefExtParams: RAdoDbParameters): Boolean;
 begin

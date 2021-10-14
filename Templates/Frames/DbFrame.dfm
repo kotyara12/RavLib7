@@ -765,7 +765,7 @@ object FrameDb: TFrameDb
   object RDbFilter: TRDbFilter
     DateFormatWhere = #39'mm.dd.yyyy'#39
     DateFormatFilter = 'dd.MM.yyyy'
-    Options = [foChangeOptions, foItemActivateOnChange, foItemsDisabledActive]
+    Options = [foStoreItemsState, foChangeOptions, foItemActivateOnChange]
     Left = 148
     Top = 80
   end

@@ -1,5 +1,6 @@
 inherited TreeTemplate: TTreeTemplate
-  Top = 295
+  Left = 551
+  Top = 139
   Width = 764
   ActiveControl = TreeView
   Caption = 'TreeTemplate'
@@ -180,7 +181,7 @@ inherited TreeTemplate: TTreeTemplate
     Left = 0
     Top = 69
     Width = 748
-    Height = 268
+    Height = 342
     Align = alClient
     HideSelection = False
     Indent = 19
@@ -494,84 +495,76 @@ inherited TreeTemplate: TTreeTemplate
     object itemNewItemP: TMenuItem [2]
       Action = NewItem
     end
-    object divPopupNew: TMenuItem [3]
-      Caption = '-'
-    end
-    object itemPropertiesP: TMenuItem [4]
+    object itemPropertiesP: TMenuItem [3]
       Action = Properties
       Default = True
+    end
+    object itemMoveItemP: TMenuItem [4]
+      Action = MoveItem
     end
     object itemDeleteItemP: TMenuItem [5]
       Action = DeleteItem
     end
-    object divPopupEdit: TMenuItem [6]
-      Caption = '-'
-    end
-    object itemMoveItemP: TMenuItem [7]
-      Action = MoveItem
-    end
-    object divPopupMove: TMenuItem [8]
+    object divPopupMove: TMenuItem [6]
       Caption = '-'
     end
     inherited divPopupSubmenus: TMenuItem
       Visible = True
     end
-    inherited menuDataP: TMenuItem
-      Visible = True
-      object menuSortTreeP: TMenuItem
-        Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
-        Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1076#1072#1085#1085#1099#1093
-        ImageIndex = 18
-        object itemSortNoneP: TMenuItem
-          Action = SortNone
-        end
-        object itemSortIdP: TMenuItem
-          Action = SortId
-        end
-        object itemSortTypeIdP: TMenuItem
-          Action = SortTypeId
-        end
-        object itemSortNameP: TMenuItem
-          Action = SortName
-        end
-        object itemSotyTypeNameP: TMenuItem
-          Action = SortTypeName
-        end
-        object itemSortIndexSortP: TMenuItem
-          Action = SortIndexSort
-        end
+    object meniLoadModeP: TMenuItem [9]
+      Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
+      Hint = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099
+      ImageIndex = 32
+      object itemEM_NoneP: TMenuItem
+        Action = EM_None
       end
-      object menuExpandDataP: TMenuItem
-        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
-        ImageIndex = 32
-        object itemSelectSaveEMP: TMenuItem
-          Action = SelectSaveEM
-        end
-        object divEMP: TMenuItem
-          Caption = '-'
-        end
-        object itemEM_NoneP: TMenuItem
-          Action = EM_None
-        end
-        object itemEM_RootP: TMenuItem
-          Action = EM_Root
-        end
-        object itemEM_GroupsP: TMenuItem
-          Action = EM_Groups
-        end
-        object itemEM_AllP: TMenuItem
-          Action = EM_All
-        end
+      object itemEM_RootP: TMenuItem
+        Action = EM_Root
       end
-      object divPopupExp: TMenuItem
+      object itemEM_GroupsP: TMenuItem
+        Action = EM_Groups
+      end
+      object itemEM_AllP: TMenuItem
+        Action = EM_All
+      end
+      object N13: TMenuItem
         Caption = '-'
       end
-      object itemExpandAllP: TMenuItem
-        Action = ExpandAll
+      object itemSelectSaveEMP: TMenuItem
+        Action = SelectSaveEM
       end
-      object itemCollapseAllP: TMenuItem
-        Action = CollapseAll
+    end
+    object menuSortP: TMenuItem [10]
+      Caption = #1059#1087#1086#1088#1103#1076#1086#1095#1080#1090#1100' '#1087#1086'...'
+      Hint = #1055#1086#1088#1103#1076#1086#1082' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1079#1072#1087#1080#1089#1077#1081' '#1074' '#1089#1090#1088#1091#1082#1090#1091#1088#1077
+      ImageIndex = 18
+      object itemSortNoneP: TMenuItem
+        Action = SortNone
       end
+      object itemSortIdP: TMenuItem
+        Action = SortId
+      end
+      object itemSortTypeIdP: TMenuItem
+        Action = SortTypeId
+      end
+      object itemSortNameP: TMenuItem
+        Action = SortName
+      end
+      object itemSortTypeNameP: TMenuItem
+        Action = SortTypeName
+      end
+      object itemSortIndexSortP: TMenuItem
+        Action = SortIndexSort
+      end
+    end
+    object itemExpandAllP: TMenuItem [11]
+      Action = ExpandAll
+    end
+    object itemCollapseAllP: TMenuItem [12]
+      Action = CollapseAll
+    end
+    object N15: TMenuItem [13]
+      Caption = '-'
     end
   end
   inherited MainMenu: TMainMenu
@@ -610,9 +603,32 @@ inherited TreeTemplate: TTreeTemplate
       object divDataFind: TMenuItem
         Caption = '-'
       end
+      object menuExpandMode: TMenuItem
+        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
+        Hint = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099
+        ImageIndex = 32
+        object itemEM_None: TMenuItem
+          Action = EM_None
+        end
+        object itemEM_Root: TMenuItem
+          Action = EM_Root
+        end
+        object itemEM_Groups: TMenuItem
+          Action = EM_Groups
+        end
+        object itemEM_All: TMenuItem
+          Action = EM_All
+        end
+        object divEM: TMenuItem
+          Caption = '-'
+        end
+        object itemSelectSaveEM: TMenuItem
+          Action = SelectSaveEM
+        end
+      end
       object menuSortTree: TMenuItem
-        Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
-        Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1076#1072#1085#1085#1099#1093
+        Caption = #1059#1087#1086#1088#1103#1076#1086#1095#1080#1090#1100' '#1087#1086'...'
+        Hint = #1055#1086#1088#1103#1076#1086#1082' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1079#1072#1087#1080#1089#1077#1081' '#1074' '#1089#1090#1088#1091#1082#1090#1091#1088#1077
         ImageIndex = 18
         object itemSortNone: TMenuItem
           Action = SortNone
@@ -632,31 +648,6 @@ inherited TreeTemplate: TTreeTemplate
         object itemSortIndexSort: TMenuItem
           Action = SortIndexSort
         end
-      end
-      object menuExpandMode: TMenuItem
-        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
-        ImageIndex = 32
-        object itemSelectSaveEM: TMenuItem
-          Action = SelectSaveEM
-        end
-        object divEM: TMenuItem
-          Caption = '-'
-        end
-        object itemEM_None: TMenuItem
-          Action = EM_None
-        end
-        object itemEM_Root: TMenuItem
-          Action = EM_Root
-        end
-        object itemEM_Groups: TMenuItem
-          Action = EM_Groups
-        end
-        object itemEM_All: TMenuItem
-          Action = EM_All
-        end
-      end
-      object divDataExp: TMenuItem
-        Caption = '-'
       end
       object itemExpandAll: TMenuItem
         Action = ExpandAll
@@ -687,8 +678,8 @@ inherited TreeTemplate: TTreeTemplate
     Left = 104
     Top = 92
     object menuSortTreeD: TMenuItem
-      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
-      Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1076#1072#1085#1085#1099#1093
+      Caption = #1059#1087#1086#1088#1103#1076#1086#1095#1080#1090#1100' '#1087#1086'...'
+      Hint = #1055#1086#1088#1103#1076#1086#1082' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1079#1072#1087#1080#1089#1077#1081' '#1074' '#1089#1090#1088#1091#1082#1090#1091#1088#1077
       ImageIndex = 18
       object itemSortNoneD: TMenuItem
         Action = SortNone

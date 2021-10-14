@@ -386,33 +386,34 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     end
   end
   inherited PopupMenu: TPopupMenu
-    object itemNewRecordP: TMenuItem [0]
+    object itemNewRecP: TMenuItem [0]
       Action = NewRecord
       Caption = #1057#1086#1079#1076#1072#1090#1100
     end
-    object itemCopyRecordP: TMenuItem [1]
+    object itemCopyRecP: TMenuItem [1]
       Action = CopyRecord
     end
-    object itemPropertiesP: TMenuItem [2]
+    object itemPropRecP: TMenuItem [2]
       Action = Properties
+      Default = True
     end
-    object itemDeleteItemP: TMenuItem [3]
-      Action = Delete
-    end
-    object divPopupNew: TMenuItem [4]
-      Caption = '-'
-    end
-    object itemMoveItemP: TMenuItem [5]
+    object itemMoveItemP: TMenuItem [3]
       Action = Move
     end
-    object divPopupMove: TMenuItem [6]
+    object itemDeleteItemP: TMenuItem [4]
+      Action = Delete
+    end
+    object divPopupEdit: TMenuItem [5]
       Caption = '-'
     end
-    object divPopupPanel: TMenuItem [12]
+    object divPopupTree: TMenuItem [10]
       Caption = '-'
     end
-    object itemTreeVisibleP: TMenuItem [13]
+    object itemTreeVisibleP: TMenuItem [11]
       Action = TreeVisible
+    end
+    object itemTreeRootOnlyP: TMenuItem [12]
+      Action = TreeRootOnly
     end
   end
   inherited MainMenu: TMainMenu
@@ -458,6 +459,35 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       object divDataFind: TMenuItem
         Caption = '-'
       end
+      object itemTreeVisible: TMenuItem
+        Action = TreeVisible
+      end
+      object menuExpandMode: TMenuItem
+        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1087#1072#1087#1086#1082
+        Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
+        ImageIndex = 32
+        object itemEM_None: TMenuItem
+          Action = EM_None
+        end
+        object itemEM_Root: TMenuItem
+          Action = EM_Root
+        end
+        object itemEM_Groups: TMenuItem
+          Action = EM_Groups
+        end
+        object itemEM_All: TMenuItem
+          Action = EM_All
+        end
+        object divEM: TMenuItem
+          Caption = '-'
+        end
+        object itemSaveTreePosition: TMenuItem
+          Action = SaveTreePosition
+        end
+        object itemSelectSaveEM: TMenuItem
+          Action = SelectSaveEM
+        end
+      end
       object menuSortTree: TMenuItem
         Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1087#1072#1087#1086#1082
         Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
@@ -479,32 +509,6 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
         end
         object itemTreeSort_IndexSort: TMenuItem
           Action = TreeSort_IndexSort
-        end
-      end
-      object menuExpandMode: TMenuItem
-        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
-        Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
-        ImageIndex = 32
-        object itemSaveTreePosition: TMenuItem
-          Action = SaveTreePosition
-        end
-        object itemSelectSaveEM: TMenuItem
-          Action = SelectSaveEM
-        end
-        object divEM: TMenuItem
-          Caption = '-'
-        end
-        object itemEM_None: TMenuItem
-          Action = EM_None
-        end
-        object itemEM_Root: TMenuItem
-          Action = EM_Root
-        end
-        object itemEM_Groups: TMenuItem
-          Action = EM_Groups
-        end
-        object itemEM_All: TMenuItem
-          Action = EM_All
         end
       end
       object itemTreeRootOnly: TMenuItem
@@ -543,23 +547,17 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     object itemCopyRecordT: TMenuItem
       Action = CopyRecord
     end
-    object divTreeNew: TMenuItem
-      Caption = '-'
-    end
     object itemPropertiesT: TMenuItem
       Action = Properties
       Default = True
+    end
+    object itemMoveT: TMenuItem
+      Action = Move
     end
     object itemDeleteT: TMenuItem
       Action = Delete
     end
     object divTreeEdit: TMenuItem
-      Caption = '-'
-    end
-    object itemMoveT: TMenuItem
-      Action = Move
-    end
-    object divTreeMove: TMenuItem
       Caption = '-'
     end
     object itemFindTreeT: TMenuItem
@@ -569,67 +567,62 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     object divTreeFind: TMenuItem
       Caption = '-'
     end
-    object menuDataTree: TMenuItem
-      Caption = #1044#1072#1085#1085#1099#1077
-      Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
-      ImageIndex = 14
-      object menuSortTreeT: TMenuItem
-        Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
-        Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1076#1072#1085#1085#1099#1093
-        ImageIndex = 18
-        object itemTreeSort_NoneT: TMenuItem
-          Action = TreeSort_None
-        end
-        object itemTreeSort_IdT: TMenuItem
-          Action = TreeSort_Id
-        end
-        object itemTreeSort_TypeIdT: TMenuItem
-          Action = TreeSort_TypeId
-        end
-        object itemTreeSort_NameT: TMenuItem
-          Action = TreeSort_Name
-        end
-        object itemTreeSort_TypeNameT: TMenuItem
-          Action = TreeSort_TypeName
-        end
-        object itemTreeSort_IndexSortT: TMenuItem
-          Action = TreeSort_IndexSort
-        end
-      end
-      object menuExpandModeT: TMenuItem
-        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080
-        Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
-        ImageIndex = 32
-        object itemSaveTreePositionT: TMenuItem
-          Action = SaveTreePosition
-        end
-        object itemSelectSaveEMT: TMenuItem
-          Action = SelectSaveEM
-        end
-        object divEMT: TMenuItem
-          Caption = '-'
-        end
-        object itemEM_NoneT: TMenuItem
-          Action = EM_None
-        end
-        object itemEM_RootT: TMenuItem
-          Action = EM_Root
-        end
-        object itemEM_GroupsT: TMenuItem
-          Action = EM_Groups
-        end
-        object itemEM_AllT: TMenuItem
-          Action = EM_All
-        end
-      end
-      object itemTreeRootOnlyT: TMenuItem
-        Action = TreeRootOnly
-      end
-    end
     object itemTreeVisibleT: TMenuItem
       Action = TreeVisible
     end
-    object divTreeExpand: TMenuItem
+    object menuExpandModeT: TMenuItem
+      Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1087#1072#1087#1086#1082
+      Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
+      ImageIndex = 32
+      object itemEM_NoneT: TMenuItem
+        Action = EM_None
+      end
+      object itemEM_RootT: TMenuItem
+        Action = EM_Root
+      end
+      object itemEM_GroupsT: TMenuItem
+        Action = EM_Groups
+      end
+      object itemEM_AllT: TMenuItem
+        Action = EM_All
+      end
+      object divEMT: TMenuItem
+        Caption = '-'
+      end
+      object itemSelectSaveEMT: TMenuItem
+        Action = SelectSaveEM
+      end
+      object itemSaveTreePositionT: TMenuItem
+        Action = SaveTreePosition
+      end
+    end
+    object menuSortTreeT: TMenuItem
+      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1087#1072#1087#1086#1082
+      Hint = #1055#1086#1088#1103#1076#1086#1082' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1079#1072#1087#1080#1089#1077#1081' '#1074' '#1089#1090#1088#1091#1082#1090#1091#1088#1077' '#1087#1072#1087#1086#1082
+      ImageIndex = 18
+      object itemTreeSort_NoneT: TMenuItem
+        Action = TreeSort_None
+      end
+      object itemTreeSort_IdT: TMenuItem
+        Action = TreeSort_Id
+      end
+      object itemTreeSort_TypeIdT: TMenuItem
+        Action = TreeSort_TypeId
+      end
+      object itemTreeSort_NameT: TMenuItem
+        Action = TreeSort_Name
+      end
+      object itemTreeSort_TypeNameT: TMenuItem
+        Action = TreeSort_TypeName
+      end
+      object itemTreeSort_IndexSortT: TMenuItem
+        Action = TreeSort_IndexSort
+      end
+    end
+    object itemTreeRootOnlyT: TMenuItem
+      Action = TreeRootOnly
+    end
+    object divTreeFolders: TMenuItem
       Caption = '-'
     end
     object itemExpandNodeT: TMenuItem

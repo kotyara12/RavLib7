@@ -366,7 +366,7 @@ inherited DbCustomTemplate: TDbCustomTemplate
     end
     object DbGridSetup: TAction [17]
       Category = #1044#1072#1085#1085#1099#1077
-      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1089#1090#1086#1083#1073#1094#1086#1074'...'
+      Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103'...'
       Enabled = False
       Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1089#1090#1086#1083#1073#1094#1086#1074' '#1074' '#1090#1072#1073#1083#1080#1094#1077
       ImageIndex = 19
@@ -547,52 +547,49 @@ inherited DbCustomTemplate: TDbCustomTemplate
     AutoPopup = False
     Left = 88
     Top = 88
-    object itemDataSetFirstP: TMenuItem [0]
-      Action = DataSetFirst
-    end
-    object itemDataSetPriorP: TMenuItem [1]
-      Action = DataSetPrior
-    end
-    object itemDataSetNextP: TMenuItem [2]
-      Action = DataSetNext
-    end
-    object itemDataSetLastP: TMenuItem [3]
-      Action = DataSetLast
-    end
-    object divPopupNav: TMenuItem [4]
-      Caption = '-'
-    end
-    object itemDataSetInsertP: TMenuItem [5]
+    object itemDataSetInsertP: TMenuItem [0]
       Action = DataSetInsert
     end
-    object itemitemDataSetCopyP: TMenuItem [6]
+    object itemitemDataSetCopyP: TMenuItem [1]
       Action = DataSetCopy
     end
-    object itemDataSetEditP: TMenuItem [7]
+    object itemDataSetEditP: TMenuItem [2]
       Action = DataSetEdit
       Default = True
     end
-    object itemDataSetDeleteP: TMenuItem [8]
+    object itemDataSetDeleteP: TMenuItem [3]
       Action = DataSetDelete
     end
-    object divPopupEdit: TMenuItem [9]
+    object divPopupEdit: TMenuItem [4]
       Caption = '-'
     end
-    object itemDbLocateP: TMenuItem [11]
+    object itemDbLocateP: TMenuItem [6]
       Action = DbLocate
     end
     inherited divPopupSubmenus: TMenuItem
       Visible = True
     end
-    object itemAttachmentsP: TMenuItem [13]
-      Action = Attachments
+    object menuDbNavigation: TMenuItem [8]
+      Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103' '#1087#1086' '#1090#1072#1073#1083#1080#1094#1077
+      Hint = #1053#1072#1074#1080#1075#1072#1094#1080#1103' '#1087#1086' '#1090#1072#1073#1083#1080#1094#1077
+      ImageIndex = 14
+      object itemDataSetFirstP: TMenuItem
+        Action = DataSetFirst
+      end
+      object itemDataSetPriorP: TMenuItem
+        Action = DataSetPrior
+      end
+      object itemDataSetNextP: TMenuItem
+        Action = DataSetNext
+      end
+      object itemDataSetLastP: TMenuItem
+        Action = DataSetLast
+      end
     end
-    object divAttachP: TMenuItem [14]
-      Caption = '-'
-      Visible = False
-    end
-    inherited menuDataP: TMenuItem
-      Visible = True
+    object menuViewsP: TMenuItem [9]
+      Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103
+      Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1090#1072#1073#1083#1080#1094#1099
+      ImageIndex = 19
       object itemDbGridSetupP: TMenuItem
         Action = DbGridSetup
       end
@@ -617,9 +614,11 @@ inherited DbCustomTemplate: TDbCustomTemplate
       object itemExportToFileP: TMenuItem
         Action = ExportToFileCsv
       end
-      object divRepStatP: TMenuItem
-        Caption = '-'
-      end
+    end
+    object menuGroupP: TMenuItem [12]
+      Caption = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072
+      Hint = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072' '#1080' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1072
+      ImageIndex = 45
       object itemDateSetGroupingP: TMenuItem
         Action = DateSetGrouping
       end
@@ -627,16 +626,19 @@ inherited DbCustomTemplate: TDbCustomTemplate
         Action = DataSetStatistic
       end
     end
-    object divPopupMulti: TMenuItem [18]
+    object itemAttachmentsP: TMenuItem [13]
+      Action = Attachments
+    end
+    object divPopupMulti: TMenuItem [14]
       Caption = '-'
     end
-    object itemSelectDefaultValuesP: TMenuItem [19]
+    object itemSelectDefaultValuesP: TMenuItem [15]
       Action = SelectDefaultValues
     end
-    object itemMultiSelectOnOffP: TMenuItem [20]
+    object itemMultiSelectOnOffP: TMenuItem [16]
       Action = MultiSelectOnOff
     end
-    object itemSelectAllP: TMenuItem [21]
+    object itemSelectAllP: TMenuItem [17]
       Action = SelectAll
     end
   end

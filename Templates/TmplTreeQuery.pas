@@ -23,10 +23,6 @@ type
     DataSetPrior: TDataSetPrior;
     DataSetNext: TDataSetNext;
     DataSetLast: TDataSetLast;
-    itemDataSetFirstP: TMenuItem;
-    itemDataSetPriorP: TMenuItem;
-    itemDataSetNextP: TMenuItem;
-    itemDataSetLastP: TMenuItem;
     DataSetFirstToolButton: TToolButton;
     DataSetPriorToolButton: TToolButton;
     DataSetNextToolButton: TToolButton;
@@ -64,16 +60,6 @@ type
     divDataGrid: TMenuItem;
     itemDbGridSetup: TMenuItem;
     itemDbGridDefault: TMenuItem;
-    itemDbGridDefaultP: TMenuItem;
-    itemDbGridSetupP: TMenuItem;
-    divPopupSort: TMenuItem;
-    itemSortDefaultP: TMenuItem;
-    itemSortUserP: TMenuItem;
-    divPopupFilter: TMenuItem;
-    itemFilterNoneP: TMenuItem;
-    itemFilterDefaultP: TMenuItem;
-    itemFilterUserP: TMenuItem;
-    divPopupNav: TMenuItem;
     ReportsToolButton: TToolButton;
     itemDataSetExportToExcelP: TMenuItem;
     SeparatorEnd: TToolButton;
@@ -84,7 +70,7 @@ type
     divDataDFilter: TMenuItem;
     itemSortUserD: TMenuItem;
     itemSortDefaultD: TMenuItem;
-    divDataPSort: TMenuItem;
+    divDataDSort: TMenuItem;
     itemDbGridSetupD: TMenuItem;
     itemDbGridDefaultD: TMenuItem;
     DataSetExportToExcel: TAction;
@@ -99,7 +85,7 @@ type
     itemDataSetExportToFileR: TMenuItem;
     itemDataSetExportToFileP: TMenuItem;
     divDataTree: TMenuItem;
-    divDataTreeD: TMenuItem;
+    divDataDTree: TMenuItem;
     RDbEditor: TRDbExportEditor;
     divEditImport: TMenuItem;
     ImportDS: TAction;
@@ -118,7 +104,6 @@ type
     Attachments: TAction;
     divAttach: TMenuItem;
     itemAttachments: TMenuItem;
-    divAttachP: TMenuItem;
     itemAttachmentsP: TMenuItem;
     TitleGridPopupMenu: TPopupMenu;
     itemDbGridSetupT: TMenuItem;
@@ -144,8 +129,6 @@ type
     itemStatistic: TMenuItem;
     itemStatisticR: TMenuItem;
     divRepStatR: TMenuItem;
-    divRepStatP: TMenuItem;
-    itemStatisticP: TMenuItem;
     ColumnStatistic: TAction;
     divMenuTitle3: TMenuItem;
     itemColumnStatisticT: TMenuItem;
@@ -170,15 +153,33 @@ type
     FilterSelected: TAction;
     itemFilterSelected: TMenuItem;
     itemFilterSelectedD: TMenuItem;
-    itemFilterSelectedP: TMenuItem;
     TabViews: TTabSet;
     ViewsPopupMenu: TPopupMenu;
     itemDbGridSetupV: TMenuItem;
     DateSetGrouping: TAction;
     itemDateSetGrouping: TMenuItem;
-    itemDateSetGroupingP: TMenuItem;
     itemDateSetGroupingR: TMenuItem;
     itemDateSetGroupingT: TMenuItem;
+    divPopupMultiedit: TMenuItem;
+    menuNavigationP: TMenuItem;
+    itemDataSetLastP: TMenuItem;
+    itemDataSetNextP: TMenuItem;
+    itemDataSetPriorP: TMenuItem;
+    itemDataSetFirstP: TMenuItem;
+    menuViewsDataP: TMenuItem;
+    itemDbGridDefaultP: TMenuItem;
+    itemDbGridSetupP: TMenuItem;
+    menuGroupsP: TMenuItem;
+    itemDataSetStatisticP: TMenuItem;
+    itemDateSetGroupingP: TMenuItem;
+    menuFilterDataP: TMenuItem;
+    itemFilterNoneP: TMenuItem;
+    itemFilterSelectedP: TMenuItem;
+    itemFilterDefaultP: TMenuItem;
+    itemFilterUserP: TMenuItem;
+    menuSortDataP: TMenuItem;
+    itemSortDefaultP: TMenuItem;
+    itemSortUserP: TMenuItem;
     procedure DbGridSetupExecute(Sender: TObject);
     procedure DbGridSetupUpdate(Sender: TObject);
     procedure DbGridDefaultUpdate(Sender: TObject);
@@ -406,11 +407,9 @@ begin
       {$IFDEF ATTACH}
       Attachments.Visible := RDbEditor.KeyFieldIsPresent and (DbGrid.AttachField <> '');
       divAttach.Visible := Attachments.Visible;
-      divAttachP.Visible := Attachments.Visible;
       {$ELSE}
       Attachments.Visible := False;
       divAttach.Visible := False;
-      divAttachP.Visible := False;
       {$ENDIF}
       RDbFilter.DateFormatWhere := BaseData.DbParameters.DateFormat;
       RDbFilter.CaseStringsEnabled := BaseData.DbParameters.CaseEnabled;

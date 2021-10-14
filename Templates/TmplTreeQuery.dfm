@@ -699,39 +699,33 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited PopupMenu: TPopupMenu
     AutoPopup = False
-    object itemDataSetFirstP: TMenuItem [0]
-      Action = DataSetFirst
-    end
-    object itemDataSetPriorP: TMenuItem [1]
-      Action = DataSetPrior
-    end
-    object itemDataSetNextP: TMenuItem [2]
-      Action = DataSetNext
-    end
-    object itemDataSetLastP: TMenuItem [3]
-      Action = DataSetLast
-    end
-    object divPopupNav: TMenuItem [4]
-      Caption = '-'
-    end
-    inherited itemPropertiesP: TMenuItem
-      Default = True
-    end
-    object itemDbLocateP: TMenuItem [13]
+    object itemDbLocateP: TMenuItem [7]
       Action = DbLocate
     end
     inherited divPopupSubmenus: TMenuItem
       Visible = True
     end
-    object itemAttachmentsP: TMenuItem [15]
-      Action = Attachments
+    object menuNavigationP: TMenuItem [9]
+      Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103' '#1087#1086' '#1090#1072#1073#1083#1080#1094#1077
+      Hint = #1053#1072#1074#1080#1075#1072#1094#1080#1103' '#1087#1086' '#1090#1072#1073#1083#1080#1094#1077
+      ImageIndex = 14
+      object itemDataSetFirstP: TMenuItem
+        Action = DataSetFirst
+      end
+      object itemDataSetPriorP: TMenuItem
+        Action = DataSetPrior
+      end
+      object itemDataSetNextP: TMenuItem
+        Action = DataSetNext
+      end
+      object itemDataSetLastP: TMenuItem
+        Action = DataSetLast
+      end
     end
-    object divAttachP: TMenuItem [16]
-      Caption = '-'
-      Visible = False
-    end
-    inherited menuDataP: TMenuItem
-      Visible = True
+    object menuFilterDataP: TMenuItem [10]
+      Caption = #1060#1080#1083#1100#1090#1088' '#1076#1072#1085#1085#1099#1093
+      Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1072' '#1086#1090#1073#1086#1088#1072' '#1076#1072#1085#1085#1099#1093
+      ImageIndex = 15
       object itemFilterUserP: TMenuItem
         Action = FilterUser
       end
@@ -744,18 +738,22 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       object itemFilterNoneP: TMenuItem
         Action = FilterNone
       end
-      object divPopupFilter: TMenuItem
-        Caption = '-'
-      end
+    end
+    object menuSortDataP: TMenuItem [11]
+      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072
+      Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1080' '#1076#1072#1085#1085#1099#1093' '#1074' '#1090#1072#1073#1083#1080#1094#1077
+      ImageIndex = 18
       object itemSortUserP: TMenuItem
         Action = SortUser
       end
       object itemSortDefaultP: TMenuItem
         Action = SortDefault
       end
-      object divPopupSort: TMenuItem
-        Caption = '-'
-      end
+    end
+    object menuViewsDataP: TMenuItem [12]
+      Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103
+      Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1090#1072#1073#1083#1080#1094#1099
+      ImageIndex = 19
       object itemDbGridSetupP: TMenuItem
         Action = DbGridSetup
       end
@@ -780,15 +778,23 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       object itemDataSetExportToFileP: TMenuItem
         Action = DataSetExportToFileCsv
       end
-      object divRepStatP: TMenuItem
-        Caption = '-'
-      end
+    end
+    object menuGroupsP: TMenuItem [15]
+      Caption = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072
+      Hint = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072' '#1080' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1072
+      ImageIndex = 45
       object itemDateSetGroupingP: TMenuItem
         Action = DateSetGrouping
       end
-      object itemStatisticP: TMenuItem
+      object itemDataSetStatisticP: TMenuItem
         Action = DataSetStatistic
       end
+    end
+    object itemAttachmentsP: TMenuItem [16]
+      Action = Attachments
+    end
+    object divPopupMultiedit: TMenuItem [20]
+      Caption = '-'
     end
     object itemSelectDefaultValuesP: TMenuItem [21]
       Action = SelectDefaultValues
@@ -851,41 +857,41 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       object itemDbLocate: TMenuItem [7]
         Action = DbLocate
       end
-      object divDataFilter: TMenuItem [8]
+      object divDataTree: TMenuItem [8]
         Caption = '-'
       end
-      object itemFilterUser: TMenuItem [9]
+      object divDataFilter: TMenuItem [13]
+        Caption = '-'
+      end
+      object itemFilterUser: TMenuItem [14]
         Action = FilterUser
       end
-      object itemFilterDefault: TMenuItem [10]
+      object itemFilterDefault: TMenuItem [15]
         Action = FilterDefault
       end
-      object itemFilterSelected: TMenuItem [11]
+      object itemFilterSelected: TMenuItem [16]
         Action = FilterSelected
       end
-      object itemFilterNone: TMenuItem [12]
+      object itemFilterNone: TMenuItem [17]
         Action = FilterNone
       end
-      object divDataSort: TMenuItem [13]
+      object divDataSort: TMenuItem [18]
         Caption = '-'
       end
-      object itemSortUser: TMenuItem [14]
+      object itemSortUser: TMenuItem [19]
         Action = SortUser
       end
-      object itemSortDefault: TMenuItem [15]
+      object itemSortDefault: TMenuItem [20]
         Action = SortDefault
       end
-      object divDataGrid: TMenuItem [16]
+      object divDataGrid: TMenuItem [21]
         Caption = '-'
       end
-      object itemDbGridSetup: TMenuItem [17]
+      object itemDbGridSetup: TMenuItem [22]
         Action = DbGridSetup
       end
-      object itemDbGridDefault: TMenuItem [18]
+      object itemDbGridDefault: TMenuItem [23]
         Action = DbGridDefault
-      end
-      object divDataTree: TMenuItem [19]
-        Caption = '-'
       end
     end
     inherited menuReports: TMenuItem
@@ -965,26 +971,26 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
     object itemFilterNoneD: TMenuItem [3]
       Action = FilterNone
     end
-    object divDataDFilter: TMenuItem [4]
+    object divDataDTree: TMenuItem [4]
       Caption = '-'
     end
-    object itemSortUserD: TMenuItem [5]
+    object divDataDFilter: TMenuItem [8]
+      Caption = '-'
+    end
+    object itemSortUserD: TMenuItem [9]
       Action = SortUser
     end
-    object itemSortDefaultD: TMenuItem [6]
+    object itemSortDefaultD: TMenuItem [10]
       Action = SortDefault
     end
-    object divDataPSort: TMenuItem [7]
+    object divDataDSort: TMenuItem [11]
       Caption = '-'
     end
-    object itemDbGridSetupD: TMenuItem [8]
+    object itemDbGridSetupD: TMenuItem [12]
       Action = DbGridSetup
     end
-    object itemDbGridDefaultD: TMenuItem [9]
+    object itemDbGridDefaultD: TMenuItem [13]
       Action = DbGridDefault
-    end
-    object divDataTreeD: TMenuItem [10]
-      Caption = '-'
     end
   end
   inherited ReportsPopupMenu: TPopupMenu

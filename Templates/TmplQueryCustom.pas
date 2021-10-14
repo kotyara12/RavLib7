@@ -28,8 +28,6 @@ type
     itemFilterUserP: TMenuItem;
     itemFilterDefaultP: TMenuItem;
     itemFilterNoneP: TMenuItem;
-    divPopupSort: TMenuItem;
-    divPopupGrid: TMenuItem;
     itemSortUserP: TMenuItem;
     itemSortDefaultP: TMenuItem;
     itemFilterUserD: TMenuItem;
@@ -49,6 +47,8 @@ type
     itemFilterSelected: TMenuItem;
     itemFilterSelectedP: TMenuItem;
     itemFilterSelectedD: TMenuItem;
+    menuFilterP: TMenuItem;
+    menuSortP: TMenuItem;
     procedure FilterUserUpdate(Sender: TObject);
     procedure FilterUserExecute(Sender: TObject);
     procedure FilterDefaultUpdate(Sender: TObject);

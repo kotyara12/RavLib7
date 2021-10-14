@@ -18,7 +18,6 @@ type
     itemReportListP: TMenuItem;
     Attachments: TAction;
     itemAttachments: TMenuItem;
-    divAttachP: TMenuItem;
     itemAttachmentsP: TMenuItem;
     divAttach: TMenuItem;
     CopyRecord: TAction;
@@ -99,11 +98,9 @@ begin
     {$IFDEF ATTACH}
     Attachments.Visible := GroupsEditor.KeyFieldIsPresent or ItemsEditor.KeyFieldIsPresent;
     divAttach.Visible := Attachments.Visible;
-    divAttachP.Visible := Attachments.Visible;
     {$ELSE}
     Attachments.Visible := False;
     divAttach.Visible := False;
-    divAttachP.Visible := False;
     {$ENDIF}
   end;
 end;

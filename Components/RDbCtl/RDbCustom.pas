@@ -166,7 +166,7 @@ begin
   if Assigned(Owner) then
   begin
     if (Owner is TFrame) and Assigned(Owner.Owner)
-    then fOwnerName := Owner.Owner.ClassName + '.' + Owner.ClassName
+    then fOwnerName := Owner.Owner.ClassName + '.' + Owner.Name
     else fOwnerName := Owner.ClassName;
   end;
   fStoreInIniFile := False;
@@ -227,7 +227,7 @@ begin
   if Assigned(Owner) then
   begin
     if (Owner is TFrame) and Assigned(Owner.Owner)
-    then fOwnerName := Owner.Owner.ClassName + '.' + Owner.ClassName
+    then fOwnerName := Owner.Owner.ClassName + '.' + Owner.Name
     else fOwnerName := Owner.ClassName;
   end;
   if not (csDesigning in ComponentState) then

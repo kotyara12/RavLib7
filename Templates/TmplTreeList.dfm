@@ -8,7 +8,7 @@ inherited TreeListTemplate: TTreeListTemplate
   TextHeight = 13
   inherited Splitter: TSplitter
     Top = 40
-    Height = 414
+    Height = 413
   end
   inherited StatusBar: TStatusBar
     Width = 805
@@ -135,20 +135,20 @@ inherited TreeListTemplate: TTreeListTemplate
   end
   inherited TreePanel: TPanel
     Top = 40
-    Height = 414
+    Height = 413
     inherited TreeView: TRTreeView
-      Height = 391
+      Height = 390
     end
   end
   inherited DataPanel: TPanel
     Top = 40
     Width = 581
-    Height = 414
+    Height = 413
     object ListView: TRSortListView
       Left = 0
       Top = 29
       Width = 581
-      Height = 385
+      Height = 384
       Align = alClient
       Columns = <>
       FlatScrollBars = True
@@ -386,40 +386,6 @@ inherited TreeListTemplate: TTreeListTemplate
     end
   end
   inherited PopupMenu: TPopupMenu
-    inherited itemPropertiesP: TMenuItem
-      Default = True
-    end
-    inherited menuDataP: TMenuItem
-      Visible = True
-      object menuSortListP: TMenuItem
-        Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
-        Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
-        ImageIndex = 18
-        object divSortListP: TMenuItem
-          Caption = '-'
-        end
-        object itemListSortAscP: TMenuItem
-          Action = ListSortAsc
-          GroupIndex = 10
-        end
-        object itemListSortDescP: TMenuItem
-          Action = ListSortDesc
-          GroupIndex = 10
-        end
-      end
-      object divDataCheckP: TMenuItem
-        Caption = '-'
-      end
-      object itemCheckAllP: TMenuItem
-        Action = CheckAll
-      end
-      object itemCheckNoneP: TMenuItem
-        Action = CheckNone
-      end
-      object itemCheckInverseP: TMenuItem
-        Action = CheckInverse
-      end
-    end
     inherited menuReportsP: TMenuItem
       object itemListCreateDynamicReportP: TMenuItem
         Action = ListCreateDynamicReport
@@ -431,14 +397,44 @@ inherited TreeListTemplate: TTreeListTemplate
         Action = ListExportToFile
       end
     end
-    object itemListGridP: TMenuItem [13]
-      Action = ListGrid
+    inherited divPopupFolders: TMenuItem [10]
     end
-    object itemMultiSelectOnOffP: TMenuItem [14]
+    object divPopupList: TMenuItem [13]
+      Caption = '-'
+    end
+    object menuSortListP: TMenuItem [14]
+      Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
+      Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
+      ImageIndex = 18
+      object divSortMenuP: TMenuItem
+        Caption = '-'
+      end
+      object itemListSortAscP: TMenuItem
+        Action = ListSortAsc
+      end
+      object itemListSortDescP: TMenuItem
+        Action = ListSortDesc
+      end
+    end
+    object itemCheckAllP: TMenuItem [15]
+      Action = CheckAll
+    end
+    object itemCheckNoneP: TMenuItem [16]
+      Action = CheckNone
+    end
+    object itemCheckInverseP: TMenuItem [17]
+      Action = CheckInverse
+    end
+    object divListMultiedit: TMenuItem [18]
+      Caption = '-'
+    end
+    object itemMultiSelectOnOffP: TMenuItem [19]
       Action = MultiSelectOnOff
     end
-    object itemSelectAllP: TMenuItem [15]
+    object itemSelectAllP: TMenuItem [20]
       Action = SelectAll
+    end
+    inherited divPopupRefresh: TMenuItem [21]
     end
   end
   inherited MainMenu: TMainMenu
@@ -454,10 +450,10 @@ inherited TreeListTemplate: TTreeListTemplate
       end
     end
     inherited menuData: TMenuItem
-      object divDataTree: TMenuItem [2]
+      object divDataList: TMenuItem
         Caption = '-'
       end
-      object menuSortList: TMenuItem [3]
+      object menuSortList: TMenuItem
         Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
         Hint = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1089#1087#1080#1089#1082#1072
         ImageIndex = 18
@@ -470,9 +466,6 @@ inherited TreeListTemplate: TTreeListTemplate
         object itemListSortDesc: TMenuItem
           Action = ListSortDesc
         end
-      end
-      object divDataChk: TMenuItem
-        Caption = '-'
       end
       object itemCheckAll: TMenuItem
         Action = CheckAll
