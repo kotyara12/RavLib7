@@ -11,7 +11,7 @@ inherited DataTemplate: TDataTemplate
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 411
+    Top = 412
     Width = 831
     Height = 19
     Panels = <>

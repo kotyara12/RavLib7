@@ -23,11 +23,6 @@ type
     DataSetPrior: TDataSetPrior;
     DataSetNext: TDataSetNext;
     DataSetLast: TDataSetLast;
-    DataSetFirstToolButton: TToolButton;
-    DataSetPriorToolButton: TToolButton;
-    DataSetNextToolButton: TToolButton;
-    DataSetLastToolButton: TToolButton;
-    SeparatorNav: TToolButton;
     itemDataSetFirst: TMenuItem;
     itemDataSetPrior: TMenuItem;
     itemDataSetNext: TMenuItem;
@@ -180,6 +175,8 @@ type
     menuSortDataP: TMenuItem;
     itemSortDefaultP: TMenuItem;
     itemSortUserP: TMenuItem;
+    FindFastClear: TAction;
+    btnFastFindClear: TBitBtn;
     procedure DbGridSetupExecute(Sender: TObject);
     procedure DbGridSetupUpdate(Sender: TObject);
     procedure DbGridDefaultUpdate(Sender: TObject);
@@ -277,6 +274,9 @@ type
     procedure DateSetGroupingExecute(Sender: TObject);
     procedure DbGridColumnMoved(Sender: TObject; FromIndex,
       ToIndex: Integer);
+    procedure FindFastClearUpdate(Sender: TObject);
+    procedure FindFastClearExecute(Sender: TObject);
+    procedure PopupMenuPopup(Sender: TObject);
   private
     procedure ColumnFlagsReset;
     procedure ColumnFlagsUpdate;
@@ -381,10 +381,13 @@ end;
 
 procedure TTreeQueryTemplate.FindPanelResize(Sender: TObject);
 begin
-  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - 6;
-
-  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - 3;
+  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 8;
+  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 5;
   btnFastFind.Height := edFastFind.Height;
+  btnFastFindClear.Left := btnFastFind.Left + btnFastFind.Width + 2;
+  btnFastFindClear.Width := edFastFind.Height;
+  btnFastFindClear.Height := edFastFind.Height;
+  btnFastFindClear.Caption := '';
 end;
 
 procedure TTreeQueryTemplate.InitDataComponents;
@@ -593,7 +596,8 @@ end;
 
 procedure TTreeQueryTemplate.FindColumnExecute(Sender: TObject);
 begin
-  RDbFind.ShowDialogEx(fCurrColumn.FieldName, EmptyStr, False);
+  if Assigned(fCurrColumn) then
+    RDbFind.ShowDialogEx(fCurrColumn.FieldName, EmptyStr, False);
 end;
 
 { == Перейти к указанной записи ================================================ }
@@ -636,6 +640,19 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TTreeQueryTemplate.FindFastClearUpdate(Sender: TObject);
+begin
+  FindFastClear.Enabled := IsNotWait and RDbEditor.DataSetIsOpened and RDbEditor.DataSet.Filtered;
+end;
+
+procedure TTreeQueryTemplate.FindFastClearExecute(Sender: TObject);
+begin
+  edFastFind.Text := '';
+  RDbEditor.DataSet.Filtered := False;
+  RDbEditor.DataSet.Filter := '';
+  DbGrid.SetFocus;
 end;
 
 procedure TTreeQueryTemplate.edFastFindKeyPress(Sender: TObject; var Key: Char);
@@ -866,8 +883,11 @@ procedure TTreeQueryTemplate.ColumnLeftExecute(Sender: TObject);
 begin
   StartWait;
   try
-    fCurrColumn.Alignment := taLeftJustify;
-    fCurrColumn.Title.Alignment := taLeftJustify;
+    if Assigned(fCurrColumn) then
+    begin
+      fCurrColumn.Alignment := taLeftJustify;
+      fCurrColumn.Title.Alignment := taLeftJustify;
+    end;
   finally
     StopWait;
   end;
@@ -883,8 +903,11 @@ procedure TTreeQueryTemplate.ColumnCenterExecute(Sender: TObject);
 begin
   StartWait;
   try
-    fCurrColumn.Alignment := taCenter;
-    fCurrColumn.Title.Alignment := taCenter;
+    if Assigned(fCurrColumn) then
+    begin
+      fCurrColumn.Alignment := taCenter;
+      fCurrColumn.Title.Alignment := taCenter;
+    end;
   finally
     StopWait;
   end;
@@ -900,8 +923,11 @@ procedure TTreeQueryTemplate.ColumnRightExecute(Sender: TObject);
 begin
   StartWait;
   try
-    fCurrColumn.Alignment := taRightJustify;
-    fCurrColumn.Title.Alignment := taRightJustify;
+    if Assigned(fCurrColumn) then
+    begin
+      fCurrColumn.Alignment := taRightJustify;
+      fCurrColumn.Title.Alignment := taRightJustify;
+    end;
   finally
     StopWait;
   end;
@@ -921,7 +947,8 @@ end;
 
 procedure TTreeQueryTemplate.SetCurrOrderAscExecute(Sender: TObject);
 begin
-  RDbOrder.SetFieldDirection(fCurrColumn.Field.FieldName, odAsc);
+  if Assigned(fCurrColumn) then
+    RDbOrder.SetFieldDirection(fCurrColumn.Field.FieldName, odAsc);
   LoadData;
 end;
 
@@ -939,7 +966,8 @@ end;
 
 procedure TTreeQueryTemplate.SetCurrOrderDescExecute(Sender: TObject);
 begin
-  RDbOrder.SetFieldDirection(fCurrColumn.Field.FieldName, odDesc);
+  if Assigned(fCurrColumn) then
+    RDbOrder.SetFieldDirection(fCurrColumn.Field.FieldName, odDesc);
   LoadData;
 end;
 
@@ -1065,6 +1093,12 @@ begin
   else fLastState := RDbEditor.EditRecord;
 end;
 
+procedure TTreeQueryTemplate.PopupMenuPopup(Sender: TObject);
+begin
+  itemPropRecP.Default := not SelectVisible;
+  itemCloseSelectP.Default := SelectVisible;
+end;
+
 procedure TTreeQueryTemplate.DbGridDblClick(Sender: TObject);
 begin
   {$IFDEF ATTACH}
@@ -1076,12 +1110,20 @@ begin
       AttachmentsExecute(Sender);
   end
   else begin
+    if SelectVisible then
+      CloseSelectExecute(nil)
+    else begin
+      if Properties.Enabled then
+        PropertiesExecute(Sender);
+    end;
+  end;
+  {$ELSE}
+  if SelectVisible then
+    CloseSelectExecute(nil)
+  else begin
     if Properties.Enabled then
       PropertiesExecute(Sender);
   end;
-  {$ELSE}
-  if Properties.Enabled then
-    PropertiesExecute(Sender);
   {$ENDIF}
 end;
 
@@ -1308,7 +1350,8 @@ end;
 
 procedure TTreeQueryTemplate.ColumnStatisticExecute(Sender: TObject);
 begin
-  RDbEditor.ShowStatistic(fCurrColumn.FieldName, True);
+  if Assigned(fCurrColumn) then
+    RDbEditor.ShowStatistic(fCurrColumn.FieldName, True);
 end;
 
 procedure TTreeQueryTemplate.DateSetGroupingUpdate(Sender: TObject);

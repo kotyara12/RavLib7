@@ -45,10 +45,10 @@ inherited FormSettings: TFormSettings
   PixelsPerInch = 96
   TextHeight = 13
   inherited Splitter: TSplitter
-    Height = 438
+    Height = 437
   end
   inherited StatusBar: TStatusBar
-    Top = 478
+    Top = 477
     Width = 852
   end
   inherited CoolBar: TCoolBar
@@ -70,21 +70,21 @@ inherited FormSettings: TFormSettings
     end
   end
   inherited TreePanel: TPanel
-    Height = 438
+    Height = 437
     inherited TreeHeaderPanel: TPanel
       Caption = #1043#1088#1091#1087#1087#1099' '#1087#1072#1088#1072#1084#1077#1090#1088#1086#1074
     end
     inherited TreeView: TRTreeView
-      Height = 415
+      Height = 414
       Images = BaseData.ImageList
     end
   end
   inherited DataPanel: TPanel
     Width = 628
-    Height = 438
+    Height = 437
     inherited ListView: TRSortListView
       Width = 628
-      Height = 409
+      Height = 408
       Columns = <
         item
           Caption = #1050#1086#1076
@@ -129,9 +129,6 @@ inherited FormSettings: TFormSettings
     end
   end
   inherited PopupMenu: TPopupMenu
-    inherited divPopupMove: TMenuItem
-      Visible = False
-    end
     inherited menuReportsP: TMenuItem
       Visible = True
     end
@@ -151,16 +148,10 @@ inherited FormSettings: TFormSettings
     end
   end
   inherited TreePopupMenu: TPopupMenu
-    inherited divTreeNew: TMenuItem
-      Visible = False
-    end
     inherited itemPropertiesT: TMenuItem
       Visible = False
     end
     inherited divTreeEdit: TMenuItem
-      Visible = False
-    end
-    inherited divTreeMove: TMenuItem
       Visible = False
     end
     inherited itemTreeVisibleT: TMenuItem

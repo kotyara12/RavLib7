@@ -8,7 +8,7 @@ uses
 
 type
   TTreePrgsMode = (pmNone, pmAlways, pmAuto);
-  TTreeLoadMode = (lmAll, lmGroups, lmAllParam, lmGroupsParam, lmItemsParam);
+  TTreeLoadMode = (lmAll, lmGroups, lmItems, lmAllParam, lmGroupsParam, lmItemsParam, lmSubitemsParam);
 
   TGetImageNotifyEvent      = procedure (Sender: TObject; const Selected: Boolean; var Value: Integer) of object;
   TCheckNodeLoadNotifyEvent = procedure (Sender: TObject; const LoadMode: TTreeLoadMode;
@@ -102,17 +102,21 @@ type
     // Editors
     fGroupsEditor: TRDbTreeEditor;
     fItemsEditor: TRDbTreeEditor;
+    fSubitemsEditor: TRDbTreeEditor;
     fItemsIsLinked: Boolean;
+    fSubitemsIsLinked: Boolean;
     fOnGetEditRights: TGetNodeRightsNotifyEvent;
     fEnableParentDelete: Boolean;
     // Procedures
     procedure SetGroupsEditor(const Value: TRDbTreeEditor);
     procedure SetItemsEditor(const Value: TRDbTreeEditor);
+    procedure SetSubitemsEditor(const Value: TRDbTreeEditor);
     procedure SetTreeView(const Value: TRTreeView);
   protected
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
     function  CheckNodeLoad(const NodeType: TNodeType; const RecordId: Integer): Boolean;
     function  ItemsIsLinked: Boolean;
+    function  SubitemsIsLinked: Boolean;
     function  GetTreeLoadCount: Integer;
     procedure LoadTreeStructure(const BaseNode: TTreeNode);
     procedure FindNodeOwner(Node: TTreeNode);
@@ -163,6 +167,20 @@ type
     function  GetItemsNodeText: string;
     function  GetItemsNodeSort: string;
     function  ItemsDataSetLocate(const RecordId: Integer): Boolean;
+    // Subitems
+    function  SubitemsIsLoaded(const CheckState: Boolean = True): Boolean;
+    function  SubitemsDataSet: TDataSet;
+    function  SubitemsDataSetIsOpen(const CheckState: Boolean = True): Boolean;
+    function  SubitemsDataSetIsNotEmpty: Boolean;
+    function  SubitemsDataSetIsOwner: Boolean;
+    function  GetSubitemsKeyField: TField;
+    function  GetSubitemsKeyValue: Integer;
+    function  GetSubitemsOwnerField: TField;
+    function  GetSubitemsOwnerValue: Integer;
+    function  GetSubitemsNodeImage(const Selected: Boolean): Integer;
+    function  GetSubitemsNodeText: string;
+    function  GetSubitemsNodeSort: string;
+    function  SubitemsDataSetLocate(const RecordId: Integer): Boolean;
     // Edit Rights
     function  NodeCanInserted(Node: TTreeNode; const NodeType: TNodeType; const CheckRights: Boolean = True): Boolean;
     function  NodeCanCopied(Node: TTreeNode; const CheckRights: Boolean = True): Boolean;
@@ -195,7 +213,9 @@ type
     // Editors
     property  GroupsEditor: TRDbTreeEditor read fGroupsEditor write SetGroupsEditor;
     property  ItemsEditor: TRDbTreeEditor read fItemsEditor write SetItemsEditor;
+    property  SubitemsEditor: TRDbTreeEditor read fSubitemsEditor write SetSubitemsEditor;
     property  LinkedItemsDS: Boolean read fItemsIsLinked write fItemsIsLinked default False;
+    property  LinkedSubitemsDS: Boolean read fSubitemsIsLinked write fSubitemsIsLinked default False;
     property  EnableParentNodeDelete: Boolean read fEnableParentDelete write fEnableParentDelete default False;
     property  OnGetEditRights: TGetNodeRightsNotifyEvent read fOnGetEditRights write fOnGetEditRights;
   end;
@@ -710,7 +730,9 @@ begin
   // Editors
   fGroupsEditor := nil;
   fItemsEditor := nil;
+  fSubitemsEditor := nil;
   fItemsIsLinked := False;
+  fSubitemsIsLinked := False;
   fEnableParentDelete := False;
   fOnGetEditRights := nil;
 end;
@@ -719,6 +741,7 @@ destructor TRDbTreeLoader.Destroy;
 begin
   fGroupsEditor := nil;
   fItemsEditor := nil;
+  fSubitemsEditor := nil;
   fTreeView := nil;
   inherited;
 end;
@@ -731,6 +754,7 @@ begin
   begin
     if (fGroupsEditor <> nil) and (AComponent = fGroupsEditor) then fGroupsEditor := nil;
     if (fItemsEditor <> nil) and (AComponent = fItemsEditor) then fItemsEditor := nil;
+    if (fSubitemsEditor <> nil) and (AComponent = fSubitemsEditor) then fSubitemsEditor := nil;
     if (fTreeView <> nil) and (AComponent = fTreeView) then fTreeView := nil;
   end;
 end;
@@ -750,6 +774,15 @@ begin
   begin
     fItemsEditor := Value;
     if Assigned(fItemsEditor) then Value.FreeNotification(Self);
+  end;
+end;
+
+procedure TRDbTreeLoader.SetSubitemsEditor(const Value: TRDbTreeEditor);
+begin
+  if fSubitemsEditor <> Value then
+  begin
+    fSubitemsEditor := Value;
+    if Assigned(fSubitemsEditor) then Value.FreeNotification(Self);
   end;
 end;
 
@@ -964,6 +997,101 @@ begin
   else Result := False;
 end;
 
+{ == Subitems ================================================================== }
+
+function TRDbTreeLoader.SubitemsDataSet: TDataSet;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.DataSet
+  else Result := nil;
+end;
+
+function TRDbTreeLoader.SubitemsDataSetIsNotEmpty: Boolean;
+begin
+  Result := (fSubitemsEditor <> nil) and fSubitemsEditor.DataSetIsNotEmply;
+end;
+
+function TRDbTreeLoader.SubitemsDataSetIsOpen(const CheckState: Boolean = True): Boolean;
+begin
+  if CheckState
+  then Result := (fSubitemsEditor <> nil) and fSubitemsEditor.DataSetIsOpened
+  else Result := (fSubitemsEditor <> nil)
+    and (not fSubitemsEditor.CheckDataSetState or fSubitemsEditor.DataSetIsOpened);
+end;
+
+function TRDbTreeLoader.SubitemsDataSetIsOwner: Boolean;
+begin
+  Result := (fSubitemsEditor <> nil) and fSubitemsEditor.OwnerFieldIsPresent;
+end;
+
+function TRDbTreeLoader.SubitemsIsLoaded(const CheckState: Boolean = True): Boolean;
+begin
+  Result := (fTreeView <> nil)
+    and GroupsDataSetIsOpen(CheckState) and ItemsDataSetIsOpen(CheckState) and SubitemsDataSetIsOpen(CheckState)
+    and (fLoadMode in [lmAll, lmAllParam, lmSubitemsParam]);
+end;
+
+function TRDbTreeLoader.SubitemsIsLinked: Boolean;
+begin
+  Result := fSubitemsIsLinked;
+end;
+
+function TRDbTreeLoader.GetSubitemsKeyField: TField;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetKeyField
+  else Result := nil;
+end;
+
+function TRDbTreeLoader.GetSubitemsKeyValue: Integer;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetKeyValue
+  else Result := intDisable;
+end;
+
+function TRDbTreeLoader.GetSubitemsOwnerField: TField;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetOwnerField
+  else Result := nil;
+end;
+
+function TRDbTreeLoader.GetSubitemsOwnerValue: Integer;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetOwnerValue
+  else Result := intDisable;
+end;
+
+function TRDbTreeLoader.GetSubitemsNodeImage(const Selected: Boolean): Integer;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetNodeImage(Selected)
+  else Result := intDisable;
+end;
+
+function TRDbTreeLoader.GetSubitemsNodeText: string;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetNodeText
+  else Result := EmptyStr;
+end;
+
+function TRDbTreeLoader.GetSubitemsNodeSort: string;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.GetNodeSort
+  else Result := EmptyStr;
+end;
+
+function TRDbTreeLoader.SubitemsDataSetLocate(const RecordId: Integer): Boolean;
+begin
+  if (fSubitemsEditor <> nil)
+  then Result := fSubitemsEditor.LocateKey(RecordId)
+  else Result := False;
+end;
+
 { == Data Set ================================================================== }
 
 function TRDbTreeLoader.OpenDataSets: Boolean;
@@ -982,6 +1110,12 @@ begin
         if ItemsDataSet.Active then ItemsDataSet.Close;
         ItemsDataSet.Open;
         Result := ItemsDataSet.Active;
+        if Result and (SubitemsDataSet <> nil) then
+        begin
+          if SubitemsDataSet.Active then SubitemsDataSet.Close;
+          SubitemsDataSet.Open;
+          Result := SubitemsDataSet.Active;
+        end;
       end;
     end;
   end;
@@ -991,6 +1125,7 @@ procedure TRDbTreeLoader.CloseDataSets;
 begin
   if Assigned(fCloseDataSets) then fCloseDataSets(Self)
   else begin
+    if SubitemsDataSetIsOpen and (SubitemsDataSet.Owner = Owner) then SubitemsDataSet.Close;
     if ItemsDataSetIsOpen and (ItemsDataSet.Owner = Owner) then ItemsDataSet.Close;
     if GroupsDataSetIsOpen and (GroupsDataSet.Owner = Owner) then GroupsDataSet.Close;
   end;
@@ -1004,6 +1139,7 @@ begin
     case TNodeData(Node.Data)^.NodeType of
       ntGroup: Result := GroupsDataSetLocate(TNodeData(Node.Data)^.RecordId);
       ntItem:  Result := ItemsDataSetLocate(TNodeData(Node.Data)^.RecordId);
+      ntSubitem:  Result := SubitemsDataSetLocate(TNodeData(Node.Data)^.RecordId);
     end;
   end;
 end;
@@ -1014,10 +1150,12 @@ begin
   if (Node <> nil) and (Node.Data <> nil) then
   begin
     case TNodeData(Node.Data)^.NodeType of
-      ntGroup: if GroupsDataSetLocate(TNodeData(Node.Data)^.RecordId)
-               then Result := GetRecordData(GroupsDataSet);
-      ntItem:  if ItemsDataSetLocate(TNodeData(Node.Data)^.RecordId)
-               then Result := GetRecordData(ItemsDataSet);
+      ntGroup:   if GroupsDataSetLocate(TNodeData(Node.Data)^.RecordId)
+                 then Result := GetRecordData(GroupsDataSet);
+      ntItem:    if ItemsDataSetLocate(TNodeData(Node.Data)^.RecordId)
+                 then Result := GetRecordData(ItemsDataSet);
+      ntSubitem: if SubitemsDataSetLocate(TNodeData(Node.Data)^.RecordId)
+                 then Result := GetRecordData(SubitemsDataSet);
     end;
   end;
 end;
@@ -1042,6 +1180,7 @@ begin
   if RootIsLoaded then Inc(Result);
   if GroupsIsLoaded then Inc(Result, GroupsDataSet.RecordCount);
   if ItemsIsLoaded and not ItemsIsLinked then Inc(Result, ItemsDataSet.RecordCount);
+  if SubitemsIsLoaded and not SubitemsIsLinked then Inc(Result, SubitemsDataSet.RecordCount);
 end;
 
 function TRDbTreeLoader.CheckNodeLoad(const NodeType: TNodeType; const RecordId: Integer): Boolean;
@@ -1049,6 +1188,7 @@ begin
   case fLoadMode of
     lmAll: Result := True;
     lmGroups: Result := NodeType in [ntRoot, ntGroup];
+    lmItems: Result := NodeType in [ntRoot, ntGroup, ntItem];
     lmAllParam:
     begin
       Result := True;
@@ -1070,19 +1210,28 @@ begin
           fCheckLoadNode(Self, fLoadMode, NodeType, RecordId, Result);
       end;
     end;
+    lmSubitemsParam:
+    begin
+      if NodeType in [ntRoot, ntGroup, ntItem] then Result := True
+      else begin
+        Result := NodeType = ntSubitem;
+        if Assigned(fCheckLoadNode) then
+          fCheckLoadNode(Self, fLoadMode, NodeType, RecordId, Result);
+      end;
+    end;
     else Result := False;
   end;
 end;
 
 function TRDbTreeLoader.LoadTree: Boolean;
 var
-  GroupsDC, GroupsFS, ItemsFS: Boolean;
-  GroupsFL, ItemsFL: string;
+  GroupsDC, GroupsFS, ItemsFS, SubitemsFS: Boolean;
+  GroupsFL, ItemsFL, SubitemsFL: string;
   ItemsCount: Integer;
 begin
   GroupsDC := False;
-  GroupsFS := False; ItemsFS := False;
-  GroupsFL := EmptyStr; ItemsFL := EmptyStr;
+  GroupsFS := False; ItemsFS := False; SubitemsFS := False;
+  GroupsFL := EmptyStr; ItemsFL := EmptyStr; SubitemsFL := EmptyStr;
   fProgress := False;
   if fPrgsMode = pmAlways then
   begin
@@ -1113,22 +1262,40 @@ begin
           ItemsDataSet.Filtered := False;
         end;
         try
-          // Загружаем или обновляем данные
-          Result := OpenDataSets;
-          if Result then
+          // Отключаем фильтр подэлементов
+          if SubitemsIsLoaded then
           begin
-            // Считаем количество шагов
-            ItemsCount := GetTreeLoadCount;
-            if fProgress then UpdateProgressMax(ItemsCount)
-            else begin
-              if (fPrgsMode = pmAuto) and (ItemsCount >= MinTreeLoadCount) then
-              begin
-                ShowProgress(SMsgLoadDataWait, ItemsCount);
-                fProgress := True;
+            SubitemsDataSet.DisableControls;
+            SubitemsFS := SubitemsDataSet.Filtered;
+            SubitemsFL := SubitemsDataSet.Filter;
+            SubitemsDataSet.Filtered := False;
+          end;
+          try
+            // Загружаем или обновляем данные
+            Result := OpenDataSets;
+            if Result then
+            begin
+              // Считаем количество шагов
+              ItemsCount := GetTreeLoadCount;
+              if fProgress then UpdateProgressMax(ItemsCount)
+              else begin
+                if (fPrgsMode = pmAuto) and (ItemsCount >= MinTreeLoadCount) then
+                begin
+                  ShowProgress(SMsgLoadDataWait, ItemsCount);
+                  fProgress := True;
+                end;
               end;
+              // Загружаем дерево из базы данных
+              LoadTreeStructure(nil);
             end;
-            // Загружаем дерево из базы данных
-            LoadTreeStructure(nil);
+          finally
+            // Восстанавливаем фильтр подэлементов
+            if SubitemsIsLoaded then
+            begin
+              SubitemsDataSet.Filter := SubitemsFL;
+              SubitemsDataSet.Filtered := SubitemsFS;
+              SubitemsDataSet.EnableControls;
+            end;
           end;
         finally
           // Восстанавливаем фильтр элементов
@@ -1159,13 +1326,13 @@ end;
 
 function TRDbTreeLoader.ReloadNode(const BaseNode: TTreeNode): Boolean;
 var
-  GroupsDC, GroupsFS, ItemsFS: Boolean;
-  GroupsFL, ItemsFL: string;
+  GroupsDC, GroupsFS, ItemsFS, SubitemsFS: Boolean;
+  GroupsFL, ItemsFL, SubitemsFL: string;
 begin
   Result := True;
   GroupsDC := False;
-  GroupsFS := False; ItemsFS := False;
-  GroupsFL := EmptyStr; ItemsFL := EmptyStr;
+  GroupsFS := False; ItemsFS := False; SubitemsFS := False;
+  GroupsFL := EmptyStr; ItemsFL := EmptyStr; SubitemsFL := EmptyStr;
   fProgress := False;
   // Отключаем фильтр групп
   if GroupsIsLoaded then
@@ -1189,12 +1356,30 @@ begin
       ItemsDataSet.Filtered := False;
     end;
     try
+      // Отключаем фильтр подэлементов
+      if SubitemsIsLoaded then
+      begin
+        SubitemsDataSet.DisableControls;
+        SubitemsFS := SubitemsDataSet.Filtered;
+        SubitemsFL := SubitemsDataSet.Filter;
+        SubitemsDataSet.Filtered := False;
+      end;
       try
-        // Загружаем дерево из базы данных
-        LoadTreeStructure(BaseNode);
-      except
-        Result := False;
-        raise;
+        try
+          // Загружаем дерево из базы данных
+          LoadTreeStructure(BaseNode);
+        except
+          Result := False;
+          raise;
+        end;
+      finally
+        // Восстанавливаем фильтр подэлементов
+        if SubitemsIsLoaded then
+        begin
+          SubitemsDataSet.Filter := SubitemsFL;
+          SubitemsDataSet.Filtered := SubitemsFS;
+          SubitemsDataSet.EnableControls;
+        end;
       end;
     finally
       // Восстанавливаем фильтр элементов
@@ -1224,9 +1409,42 @@ end;
 
 procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
 
+  procedure LoadSubitems(ItemNode: TTreeNode);
+  var
+    SubitemId: Integer;
+  begin
+    if SubitemsIsLinked then
+    begin
+      SubitemsDataSet.First;
+      while not SubitemsDataSet.Eof do
+      begin
+        SubitemId := GetSubitemsKeyValue;
+        if not fSubitemsEditor.RecordIsBlocked and CheckNodeLoad(ntSubitem, SubitemId) then
+          fTreeView.CreateTypeNode(ItemNode, ntSubitem, SubitemId,
+            GetSubitemsNodeImage(False), GetSubitemsNodeImage(True), GetSubitemsNodeText, GetSubitemsNodeSort);
+        SubitemsDataSet.Next;
+      end;
+    end
+    else begin
+      SubitemsDataSet.Filter := SqlConcatBr(Format(fltFieldId, [GetSubitemsOwnerField.FieldName, fTreeView.GetNodeId(ItemNode)]),
+        fSubitemsEditor.BaseFilter, sqlAnd);
+      SubitemsDataSet.FindFirst;
+      while SubitemsDataSet.Found do
+      begin
+        SubitemId := GetSubitemsKeyValue;
+        if not fSubitemsEditor.RecordIsBlocked and CheckNodeLoad(ntSubitem, SubitemId) then
+          fTreeView.CreateTypeNode(ItemNode, ntSubitem, SubitemId,
+            GetSubitemsNodeImage(False), GetSubitemsNodeImage(True), GetSubitemsNodeText, GetSubitemsNodeSort);
+        if fProgress then UpdateProgressStep(1);
+        SubitemsDataSet.FindNext;
+      end;
+    end;
+  end;
+
   procedure LoadItems(GroupNode: TTreeNode);
   var
     ItemId: Integer;
+    ItemNode: TTreeNode;
   begin
     if ItemsIsLinked then
     begin
@@ -1235,8 +1453,11 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       begin
         ItemId := GetItemsKeyValue;
         if not fItemsEditor.RecordIsBlocked and CheckNodeLoad(ntItem, ItemId) then
-          fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
+        begin
+          ItemNode := fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
             GetItemsNodeImage(False), GetItemsNodeImage(True), GetItemsNodeText, GetItemsNodeSort);
+          if SubitemsIsLoaded then LoadSubitems(ItemNode);
+        end;
         ItemsDataSet.Next;
       end;
     end
@@ -1248,9 +1469,15 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       begin
         ItemId := GetItemsKeyValue;
         if not fItemsEditor.RecordIsBlocked and CheckNodeLoad(ntItem, ItemId) then
-          fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
+        begin
+          ItemNode := fTreeView.CreateTypeNode(GroupNode, ntItem, ItemId,
             GetItemsNodeImage(False), GetItemsNodeImage(True), GetItemsNodeText, GetItemsNodeSort);
-        if fProgress then UpdateProgressStep(1);
+          if fProgress then UpdateProgressStep(1);
+          if SubitemsIsLoaded then LoadSubitems(ItemNode);
+        end
+        else begin
+          if fProgress then UpdateProgressStep(1);
+        end;
         ItemsDataSet.FindNext;
       end;
     end;
@@ -1352,6 +1579,7 @@ begin
   // Включаем фильтрацию
   if GroupsIsLoaded then GroupsDataSet.Filtered := GroupsDataSetIsOwner;
   if ItemsIsLoaded then ItemsDataSet.Filtered := not ItemsIsLinked;
+  if SubitemsIsLoaded then SubitemsDataSet.Filtered := not SubitemsIsLinked;
   // Если не укзана "базовая" нода, грузим все дерево
   if BaseNode = nil then
   begin
@@ -1392,6 +1620,8 @@ begin
     ntGroup: Result := Rights and GroupsIsLoaded(False);
     ntItem: Result := Rights and ItemsIsLoaded(False)
       and (fTreeView.GetNodeType(Node) in [ntGroup, ntItem]);
+    ntSubitem: Result := Rights and SubitemsIsLoaded(False)
+      and (fTreeView.GetNodeType(Node) in [ntGroup, ntItem, ntSubitem]);
     else Result := False;
   end;
 end;
@@ -1406,6 +1636,7 @@ begin
   case fTreeView.GetNodeType(Node) of
     ntGroup: Result := Rights and GroupsIsLoaded(False) and fGroupsEditor.RecordCopyExists;
     ntItem: Result := Rights and ItemsIsLoaded(False) and fItemsEditor.RecordCopyExists;
+    ntSubitem: Result := Rights and SubitemsIsLoaded(False) and fSubitemsEditor.RecordCopyExists;
     else Result := False;
   end;
 end;
@@ -1441,6 +1672,19 @@ begin
         end;
       end
       else Result := False;
+    ntSubitem:
+      if SubitemsIsLoaded(False) then
+      begin
+        if fSubitemsEditor.OpenMode = omEdit
+        then Result := NodeCanEdited(Node, CheckRights)
+        else begin
+          Rights := True;
+          if CheckRights and (fSubitemsEditor.OpenMode = omCheck) and Assigned(OnGetEditRights) then
+            OnGetEditRights(Self, ntSubitem, etView, Rights);
+          Result := Rights;
+        end;
+      end
+      else Result := False;
     else Result := False;
   end;
 end;
@@ -1466,6 +1710,17 @@ begin
         Rights := True;
         if CheckRights and Assigned(OnGetEditRights) then
           OnGetEditRights(Self, ntItem, etEdit, Rights);
+        Result := Rights;
+      end
+      else Result := False;
+    end;
+    ntSubitem:
+    begin
+      if SubitemsIsLoaded(False) then
+      begin
+        Rights := True;
+        if CheckRights and Assigned(OnGetEditRights) then
+          OnGetEditRights(Self, ntSubitem, etEdit, Rights);
         Result := Rights;
       end
       else Result := False;
@@ -1499,6 +1754,17 @@ begin
       end
       else Result := False;
     end;
+    ntSubitem:
+    begin
+      if SubitemsIsLoaded(False) then
+      begin
+        Rights := True;
+        if CheckRights and Assigned(OnGetEditRights) then
+          OnGetEditRights(Self, ntSubitem, etMove, Rights);
+        Result := Rights;
+      end
+      else Result := False;
+    end;
     else Result := False;
   end;
 end;
@@ -1524,6 +1790,17 @@ begin
         Rights := True;
         if CheckRights and Assigned(OnGetEditRights) then
           OnGetEditRights(Self, ntItem, etDelete, Rights);
+        Result := Rights and (fEnableParentDelete or not fTreeView.Selected.HasChildren);
+      end
+      else Result := False;
+    end;
+    ntSubitem:
+    begin
+      if SubitemsIsLoaded(False) then
+      begin
+        Rights := True;
+        if CheckRights and Assigned(OnGetEditRights) then
+          OnGetEditRights(Self, ntSubitem, etDelete, Rights);
         Result := Rights and (fEnableParentDelete or not fTreeView.Selected.HasChildren);
       end
       else Result := False;
@@ -1557,6 +1834,13 @@ begin
         if OwnerNode = nil then
           raise ERDbEditorError.CreateFmt(SErrIdNotFound, [OwnerId]);
       end;
+      ntSubitem:
+      begin
+        OwnerId := GetSubitemsOwnerValue;
+        OwnerNode := fTreeView.FindNode([ntItem], OwnerId);
+        if OwnerNode = nil then
+          raise ERDbEditorError.CreateFmt(SErrIdNotFound, [OwnerId]);
+      end;
       else Exit;
     end;
     // Если текущий владелец и найденный не совпадают - перемещаем и сортируем
@@ -1580,12 +1864,15 @@ begin
   OwnerData := GetNodeRecordData(ParentNode);
   try
     case NodeType of
-      ntGroup: if (fGroupsEditor <> nil)
-               then Result := fGroupsEditor.InsertNode(Self, ParentNode, OwnerData, NodeType)
-               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
-      ntItem:  if (fItemsEditor <> nil)
-               then Result := fItemsEditor.InsertNode(Self, ParentNode, OwnerData, NodeType)
-               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+      ntGroup:   if (fGroupsEditor <> nil)
+                 then Result := fGroupsEditor.InsertNode(Self, ParentNode, OwnerData, NodeType)
+                 else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+      ntItem:    if (fItemsEditor <> nil)
+                 then Result := fItemsEditor.InsertNode(Self, ParentNode, OwnerData, NodeType)
+                 else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+      ntSubitem: if (fSubitemsEditor <> nil)
+                 then Result := fSubitemsEditor.InsertNode(Self, ParentNode, OwnerData, NodeType)
+                 else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
     end;
   finally
     FreeRecordData(OwnerData);
@@ -1598,12 +1885,15 @@ begin
   if (Node = nil) or (Node.Data = nil) then
     raise ERDbEditorError.CreateFmt(SErrEditNodeIsNull, [Self.Name]);
   case TNodeData(Node.Data).NodeType of
-    ntGroup: if (fGroupsEditor <> nil)
-             then Result := fGroupsEditor.CopyNode(Self, Node)
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
-    ntItem:  if (fItemsEditor <> nil)
-             then Result := fItemsEditor.CopyNode(Self, Node)
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntGroup:   if (fGroupsEditor <> nil)
+               then Result := fGroupsEditor.CopyNode(Self, Node)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntItem:    if (fItemsEditor <> nil)
+               then Result := fItemsEditor.CopyNode(Self, Node)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntSubitem: if (fSubitemsEditor <> nil)
+               then Result := fSubitemsEditor.CopyNode(Self, Node)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
   end;
 end;
 
@@ -1613,16 +1903,23 @@ begin
   if (Node = nil) or (Node.Data = nil) then
     raise ERDbEditorError.CreateFmt(SErrEditNodeIsNull, [Self.Name]);
   case TNodeData(Node.Data).NodeType of
-    ntGroup: if (fGroupsEditor <> nil)
-             then Result := fGroupsEditor.EditNode(Self, Node, EnableEdit)
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
-    ntItem:  if (fItemsEditor <> nil) then
-             begin
-               if ItemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
-               then fGroupsEditor.FindNodeRecord(Node.Parent);
-               Result := fItemsEditor.EditNode(Self, Node, EnableEdit);
-             end
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntGroup:   if (fGroupsEditor <> nil)
+               then Result := fGroupsEditor.EditNode(Self, Node, EnableEdit)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntItem:    if (fItemsEditor <> nil) then
+               begin
+                 if ItemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
+                 then fGroupsEditor.FindNodeRecord(Node.Parent);
+                 Result := fItemsEditor.EditNode(Self, Node, EnableEdit);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntSubitem: if (fSubitemsEditor <> nil) then
+               begin
+                 if SubitemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
+                 then fItemsEditor.FindNodeRecord(Node.Parent);
+                 Result := fSubitemsEditor.EditNode(Self, Node, EnableEdit);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
   end;
 end;
 
@@ -1632,16 +1929,23 @@ begin
   if (MovedNode = nil) or (MovedNode.Data = nil) then
     raise ERDbEditorError.CreateFmt(SErrEditNodeIsNull, [Self.Name]);
   case TNodeData(MovedNode.Data).NodeType of
-    ntGroup: if (fGroupsEditor <> nil)
-             then Result := fGroupsEditor.MoveNode(MovedNode, ParentNode)
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
-    ntItem:  if (fItemsEditor <> nil) then
-             begin
-               if ItemsIsLinked and (fGroupsEditor <> nil) and (MovedNode.Parent <> nil)
-               then fGroupsEditor.FindNodeRecord(MovedNode.Parent);
-               Result := fItemsEditor.MoveNode(MovedNode, ParentNode);
-             end
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntGroup:   if (fGroupsEditor <> nil)
+               then Result := fGroupsEditor.MoveNode(MovedNode, ParentNode)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntItem:    if (fItemsEditor <> nil) then
+               begin
+                 if ItemsIsLinked and (fGroupsEditor <> nil) and (MovedNode.Parent <> nil)
+                 then fGroupsEditor.FindNodeRecord(MovedNode.Parent);
+                 Result := fItemsEditor.MoveNode(MovedNode, ParentNode);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntSubitem: if (fSubitemsEditor <> nil) then
+               begin
+                 if SubitemsIsLinked and (fGroupsEditor <> nil) and (MovedNode.Parent <> nil)
+                 then fItemsEditor.FindNodeRecord(MovedNode.Parent);
+                 Result := fSubitemsEditor.MoveNode(MovedNode, ParentNode);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
   end;
 end;
 
@@ -1651,16 +1955,23 @@ begin
   if (Node = nil) or (Node.Data = nil) then
     raise ERDbEditorError.CreateFmt(SErrEditNodeIsNull, [Self.Name]);
   case TNodeData(Node.Data).NodeType of
-    ntGroup: if (fGroupsEditor <> nil)
-             then Result := fGroupsEditor.DeleteNode(Node, ShowDeleteQuery)
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
-    ntItem:  if (fItemsEditor <> nil) then
-             begin
-               if ItemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
-               then fGroupsEditor.FindNodeRecord(Node.Parent);
-               Result := fItemsEditor.DeleteNode(Node, ShowDeleteQuery);
-             end
-             else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntGroup:   if (fGroupsEditor <> nil)
+               then Result := fGroupsEditor.DeleteNode(Node, ShowDeleteQuery)
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntItem:    if (fItemsEditor <> nil) then
+               begin
+                 if ItemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
+                 then fGroupsEditor.FindNodeRecord(Node.Parent);
+                 Result := fItemsEditor.DeleteNode(Node, ShowDeleteQuery);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
+    ntSubitem: if (fSubitemsEditor <> nil) then
+               begin
+                 if SubitemsIsLinked and (fGroupsEditor <> nil) and (Node.Parent <> nil)
+                 then fItemsEditor.FindNodeRecord(Node.Parent);
+                 Result := fSubitemsEditor.DeleteNode(Node, ShowDeleteQuery);
+               end
+               else raise ERDbEditorError.CreateFmt(SErrNodeEditorIsNull, [Self.Name]);
   end;
 end;
 

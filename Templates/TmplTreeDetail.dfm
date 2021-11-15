@@ -10,10 +10,10 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
   object Splitter: TSplitter [0]
     Left = 221
     Top = 29
-    Height = 424
+    Height = 425
   end
   inherited StatusBar: TStatusBar
-    Top = 453
+    Top = 454
     Width = 776
   end
   inherited CoolBar: TCoolBar
@@ -32,7 +32,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     Left = 0
     Top = 29
     Width = 221
-    Height = 424
+    Height = 425
     Align = alLeft
     BevelOuter = bvNone
     BorderStyle = bsSingle
@@ -93,7 +93,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       Left = 0
       Top = 19
       Width = 217
-      Height = 401
+      Height = 402
       Align = alClient
       BorderStyle = bsNone
       Ctl3D = True
@@ -115,7 +115,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     Left = 224
     Top = 29
     Width = 552
-    Height = 424
+    Height = 425
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
@@ -315,7 +315,17 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       OnExecute = NewItemExecute
       OnUpdate = NewItemUpdate
     end
-    object CopyRecord: TAction [25]
+    object NewSubitem: TAction [25]
+      Category = #1055#1088#1072#1074#1082#1072
+      Caption = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1076#1101#1083#1077#1084#1077#1085#1090
+      Enabled = False
+      Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1087#1086#1076#1101#1083#1077#1084#1077#1085#1090
+      ImageIndex = 8
+      Visible = False
+      OnExecute = NewSubitemExecute
+      OnUpdate = NewSubitemUpdate
+    end
+    object CopyRecord: TAction [26]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1050#1083#1086#1085#1080#1088#1086#1074#1072#1090#1100
       Enabled = False
@@ -325,7 +335,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       OnExecute = CopyRecordExecute
       OnUpdate = CopyRecordUpdate
     end
-    object NewRecord: TAction [26]
+    object NewRecord: TAction [27]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1057#1086#1079#1076#1072#1090#1100' '#1079#1072#1087#1080#1089#1100
       Enabled = False
@@ -333,7 +343,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       ImageIndex = 8
       ShortCut = 16429
     end
-    object Properties: TAction [27]
+    object Properties: TAction [28]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1057#1074#1086#1081#1089#1090#1074#1072
       Enabled = False
@@ -343,7 +353,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       OnExecute = PropertiesExecute
       OnUpdate = PropertiesUpdate
     end
-    object Move: TAction [28]
+    object Move: TAction [29]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100
       Enabled = False
@@ -353,7 +363,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       OnExecute = MoveExecute
       OnUpdate = MoveUpdate
     end
-    object Delete: TAction [29]
+    object Delete: TAction [30]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1059#1076#1072#1083#1080#1090#1100
       Enabled = False
@@ -363,7 +373,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       OnExecute = DeleteExecute
       OnUpdate = DeleteUpdate
     end
-    inherited Refresh: TAction [30]
+    inherited Refresh: TAction [31]
     end
     object TreeRootOnly: TAction
       Category = #1042#1080#1076
@@ -427,28 +437,31 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       object itemNewItem: TMenuItem [2]
         Action = NewItem
       end
-      object itemNewRecord: TMenuItem [3]
+      object itemNewSubitem: TMenuItem [3]
+        Action = NewSubitem
+      end
+      object itemNewRecord: TMenuItem [4]
         Action = NewRecord
       end
-      object itemCopyRecord: TMenuItem [4]
+      object itemCopyRecord: TMenuItem [5]
         Action = CopyRecord
       end
-      object divEditNew: TMenuItem [5]
+      object divEditNew: TMenuItem [6]
         Caption = '-'
       end
-      object itemProperties: TMenuItem [6]
+      object itemProperties: TMenuItem [7]
         Action = Properties
       end
-      object itemDelete: TMenuItem [7]
+      object itemDelete: TMenuItem [8]
         Action = Delete
       end
-      object divEditEdit: TMenuItem [8]
+      object divEditEdit: TMenuItem [9]
         Caption = '-'
       end
-      object itemMove: TMenuItem [9]
+      object itemMove: TMenuItem [10]
         Action = Move
       end
-      object divEditRefresh: TMenuItem [10]
+      object divEditRefresh: TMenuItem [11]
         Caption = '-'
       end
     end
@@ -461,32 +474,6 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       end
       object itemTreeVisible: TMenuItem
         Action = TreeVisible
-      end
-      object menuExpandMode: TMenuItem
-        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1087#1072#1087#1086#1082
-        Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
-        ImageIndex = 32
-        object itemEM_None: TMenuItem
-          Action = EM_None
-        end
-        object itemEM_Root: TMenuItem
-          Action = EM_Root
-        end
-        object itemEM_Groups: TMenuItem
-          Action = EM_Groups
-        end
-        object itemEM_All: TMenuItem
-          Action = EM_All
-        end
-        object divEM: TMenuItem
-          Caption = '-'
-        end
-        object itemSaveTreePosition: TMenuItem
-          Action = SaveTreePosition
-        end
-        object itemSelectSaveEM: TMenuItem
-          Action = SelectSaveEM
-        end
       end
       object menuSortTree: TMenuItem
         Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1087#1072#1087#1086#1082
@@ -509,6 +496,32 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
         end
         object itemTreeSort_IndexSort: TMenuItem
           Action = TreeSort_IndexSort
+        end
+      end
+      object menuExpandMode: TMenuItem
+        Caption = #1056#1077#1078#1080#1084#1099' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1087#1072#1087#1086#1082
+        Hint = #1042#1099#1073#1086#1088' '#1088#1077#1078#1080#1084#1086#1074' '#1079#1072#1075#1088#1091#1079#1082#1080' '#1089#1090#1088#1091#1082#1090#1091#1088#1099' '#1087#1072#1087#1086#1082' ('#1075#1088#1091#1087#1087' '#1079#1072#1087#1080#1089#1077#1081')'
+        ImageIndex = 32
+        object itemSaveTreePosition: TMenuItem
+          Action = SaveTreePosition
+        end
+        object itemSelectSaveEM: TMenuItem
+          Action = SelectSaveEM
+        end
+        object divEM: TMenuItem
+          Caption = '-'
+        end
+        object itemEM_None: TMenuItem
+          Action = EM_None
+        end
+        object itemEM_Root: TMenuItem
+          Action = EM_Root
+        end
+        object itemEM_Groups: TMenuItem
+          Action = EM_Groups
+        end
+        object itemEM_All: TMenuItem
+          Action = EM_All
         end
       end
       object itemTreeRootOnly: TMenuItem
@@ -543,6 +556,9 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     end
     object itemNewItemT: TMenuItem
       Action = NewItem
+    end
+    object itemNewSubitemP: TMenuItem
+      Action = NewSubitem
     end
     object itemCopyRecordT: TMenuItem
       Action = CopyRecord
@@ -663,6 +679,9 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     end
     object itemNewItemN: TMenuItem
       Action = NewItem
+    end
+    object itemNewSubitemN: TMenuItem
+      Action = NewSubitem
     end
     object itemNewRecordN: TMenuItem
       Action = NewRecord

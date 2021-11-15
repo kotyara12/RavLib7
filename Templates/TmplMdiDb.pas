@@ -27,8 +27,8 @@ type
   protected
     function  InitApplication: Boolean; override;
     procedure DoneApplication; override;
-    function  InitAppModules: Boolean; dynamic;
-    procedure DoneAppModules; dynamic;
+    function  InitAppModules: Boolean; virtual;
+    procedure DoneAppModules; virtual;
   public
     DbModule: TBaseDataTemplate;
     procedure DoDatabaseConnectOpen;

@@ -13,10 +13,6 @@ inherited DbTreeTemplate: TDbTreeTemplate
   end
   inherited ActionList: TActionList
     Left = 28
-    inherited NewGroup: TAction
-      OnExecute = NewGroupExecute
-      OnUpdate = NewGroupUpdate
-    end
     object CopyRecord: TAction [7]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1050#1083#1086#1085#1080#1088#1086#1074#1072#1090#1100
@@ -27,6 +23,10 @@ inherited DbTreeTemplate: TDbTreeTemplate
       OnExecute = CopyRecordExecute
       OnUpdate = CopyRecordUpdate
     end
+    inherited NewGroup: TAction
+      OnExecute = NewGroupExecute
+      OnUpdate = NewGroupUpdate
+    end
     inherited NewSubGroup: TAction
       OnExecute = NewSubGroupExecute
       OnUpdate = NewSubGroupUpdate
@@ -34,6 +34,16 @@ inherited DbTreeTemplate: TDbTreeTemplate
     inherited NewItem: TAction
       OnExecute = NewItemExecute
       OnUpdate = NewItemUpdate
+    end
+    object NewSubItem: TAction [11]
+      Category = #1055#1088#1072#1074#1082#1072
+      Caption = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1076#1101#1083#1077#1084#1077#1085#1090
+      Enabled = False
+      Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1087#1086#1076#1101#1083#1077#1084#1077#1085#1090' '#1074' '#1090#1077#1082#1091#1097#1077#1081' '#1079#1072#1087#1080#1089#1080
+      ImageIndex = 8
+      Visible = False
+      OnExecute = NewSubItemExecute
+      OnUpdate = NewSubItemUpdate
     end
     inherited Properties: TAction
       OnExecute = PropertiesExecute
@@ -43,7 +53,7 @@ inherited DbTreeTemplate: TDbTreeTemplate
       OnExecute = DeleteItemExecute
       OnUpdate = DeleteItemUpdate
     end
-    object Attachments: TAction [19]
+    object Attachments: TAction [20]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1088#1080#1082#1088#1077#1087#1083#1077#1085#1085#1099#1077' '#1092#1072#1081#1083#1099
       Enabled = False
@@ -70,7 +80,10 @@ inherited DbTreeTemplate: TDbTreeTemplate
   end
   inherited PopupMenu: TPopupMenu
     Left = 84
-    object itemCopyRecordP: TMenuItem [3]
+    object itemNewSubItemP: TMenuItem [3]
+      Action = NewSubItem
+    end
+    object itemCopyRecordP: TMenuItem [4]
       Action = CopyRecord
     end
     inherited meniLoadModeP: TMenuItem
@@ -93,20 +106,23 @@ inherited DbTreeTemplate: TDbTreeTemplate
         Action = ReportList
       end
     end
-    object itemAttachments: TMenuItem [17]
+    object itemAttachments: TMenuItem [18]
       Action = Attachments
     end
   end
   inherited MainMenu: TMainMenu
     Left = 56
     inherited menuEdit: TMenuItem
-      object itemCopyRecord: TMenuItem [3]
+      object itemNewSubItem: TMenuItem [3]
+        Action = NewSubItem
+      end
+      object itemCopyRecord: TMenuItem [4]
         Action = CopyRecord
       end
-      object itemAttachmentsP: TMenuItem [10]
+      object itemAttachmentsP: TMenuItem [11]
         Action = Attachments
       end
-      object divAttach: TMenuItem [11]
+      object divAttach: TMenuItem [12]
         Caption = '-'
         Visible = False
       end
@@ -120,6 +136,9 @@ inherited DbTreeTemplate: TDbTreeTemplate
   end
   inherited NewPopupMenu: TPopupMenu
     Left = 196
+    object itemNewSubItemN: TMenuItem
+      Action = NewSubItem
+    end
   end
   inherited DataPopupMenu: TPopupMenu
     Left = 112
@@ -139,15 +158,16 @@ inherited DbTreeTemplate: TDbTreeTemplate
     RootSelImage = -1
     GroupsEditor = GroupsEditor
     ItemsEditor = ItemsEditor
+    SubitemsEditor = SubitemsEditor
     Left = 28
     Top = 120
   end
   object GroupsEditor: TRDbTreeEditor
     AutoEdit = False
     CheckTags = True
-    KeyFieldName = 'ID'
+    KeyFieldName = 'id'
     BlockValue = False
-    OwnerFieldName = 'OWNER_ID'
+    OwnerFieldName = 'owner_id'
     LogEnable = True
     OpenMode = omAuto
     OnAfterProcessRecord = AfterProcessRecord
@@ -156,8 +176,8 @@ inherited DbTreeTemplate: TDbTreeTemplate
     OnFreeNewKey = FreeRecordId
     OnBeforeDelete = GroupsEditorBeforeDelete
     OnSaveToLog = SaveToLog
-    NameFieldName = 'NAME'
-    NotesFieldName = 'NOTES'
+    NameFieldName = 'name'
+    NotesFieldName = 'notes'
     NrmImage = -1
     SelImage = -1
     Left = 56
@@ -166,9 +186,9 @@ inherited DbTreeTemplate: TDbTreeTemplate
   object ItemsEditor: TRDbTreeEditor
     AutoEdit = False
     CheckTags = True
-    KeyFieldName = 'ID'
+    KeyFieldName = 'id'
     BlockValue = False
-    OwnerFieldName = 'ID_GROUPS'
+    OwnerFieldName = 'id_groups'
     LogEnable = True
     OpenMode = omAuto
     OnAfterProcessRecord = AfterProcessRecord
@@ -177,11 +197,32 @@ inherited DbTreeTemplate: TDbTreeTemplate
     OnFreeNewKey = FreeRecordId
     OnBeforeDelete = ItemsEditorBeforeDelete
     OnSaveToLog = SaveToLog
-    NameFieldName = 'NAME'
-    NotesFieldName = 'NOTES'
+    NameFieldName = 'name'
+    NotesFieldName = 'notes'
     NrmImage = -1
     SelImage = -1
     Left = 84
+    Top = 120
+  end
+  object SubitemsEditor: TRDbTreeEditor
+    AutoEdit = False
+    CheckTags = True
+    KeyFieldName = 'id'
+    BlockValue = False
+    OwnerFieldName = 'id_items'
+    LogEnable = True
+    OpenMode = omAuto
+    OnAfterProcessRecord = AfterProcessRecord
+    OnBeforeShowEditor = SubitemsEditorBeforeShowEditor
+    OnGetNewKey = GetRecordId
+    OnFreeNewKey = FreeRecordId
+    OnBeforeDelete = SubitemsEditorBeforeDelete
+    OnSaveToLog = SaveToLog
+    NameFieldName = 'name'
+    NotesFieldName = 'notes'
+    NrmImage = -1
+    SelImage = -1
+    Left = 112
     Top = 120
   end
 end

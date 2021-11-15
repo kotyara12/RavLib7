@@ -118,6 +118,8 @@ type
     itemExpandAllP: TMenuItem;
     itemCollapseAllP: TMenuItem;
     N15: TMenuItem;
+    FindFastClear: TAction;
+    btnFastFindClear: TBitBtn;
     procedure SortIdUpdate(Sender: TObject);
     procedure SortIdExecute(Sender: TObject);
     procedure SortNameUpdate(Sender: TObject);
@@ -155,6 +157,8 @@ type
     procedure edFastFindExit(Sender: TObject);
     procedure SortIndexSortUpdate(Sender: TObject);
     procedure SortIndexSortExecute(Sender: TObject);
+    procedure FindFastClearUpdate(Sender: TObject);
+    procedure FindFastClearExecute(Sender: TObject);
   protected
     procedure InitFormVariables; override;
     function  LoadDataForm: Boolean; override;
@@ -212,10 +216,13 @@ end;
 
 procedure TTreeTemplate.FindPanelResize(Sender: TObject);
 begin
-  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - 10;
-
-  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - 4;
+  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 12;
+  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 5;
   btnFastFind.Height := edFastFind.Height;
+  btnFastFindClear.Left := btnFastFind.Left + btnFastFind.Width + 2;
+  btnFastFindClear.Width := edFastFind.Height;
+  btnFastFindClear.Height := edFastFind.Height;
+  btnFastFindClear.Caption := '';
 end;
 
 { == —охранение и восстановление размеров формы ================================ }
@@ -521,6 +528,17 @@ begin
   if Assigned(TreeView.Selected)
   then TreeView.SetFocus
   else ErrorBox(Format(SErrStrNotFound, [edFastFind.Text]));
+end;
+
+procedure TTreeTemplate.FindFastClearUpdate(Sender: TObject);
+begin
+  FindFastClear.Enabled := IsNotWait and (TreeView.Items.Count > 0) and (edFastFind.Text <> '');
+end;
+
+procedure TTreeTemplate.FindFastClearExecute(Sender: TObject);
+begin
+  edFastFind.Clear;
+  TreeView.SetFocus;
 end;
 
 procedure TTreeTemplate.edFastFindKeyPress(Sender: TObject; var Key: Char);

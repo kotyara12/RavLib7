@@ -5,7 +5,7 @@ inherited DbTreeQueryTemplate: TDbTreeQueryTemplate
   PixelsPerInch = 96
   TextHeight = 13
   inherited ActionList: TActionList
-    object TreeAttachments: TAction [50]
+    object TreeAttachments: TAction [49]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1088#1080#1082#1088#1077#1087#1083#1077#1085#1085#1099#1077' '#1092#1072#1081#1083#1099
       Enabled = False
@@ -32,6 +32,7 @@ inherited DbTreeQueryTemplate: TDbTreeQueryTemplate
     RootSelImage = -1
     GroupsEditor = GroupsEditor
     ItemsEditor = ItemsEditor
+    SubitemsEditor = SubitemsEditor
     Left = 68
     Top = 92
   end
@@ -73,6 +74,25 @@ inherited DbTreeQueryTemplate: TDbTreeQueryTemplate
     NrmImage = -1
     SelImage = -1
     Left = 124
+    Top = 92
+  end
+  object SubitemsEditor: TRDbTreeEditor
+    AutoEdit = False
+    CheckTags = True
+    KeyFieldName = 'id'
+    BlockValue = False
+    OwnerFieldName = 'Id_items'
+    OpenMode = omAuto
+    OnBeforeShowEditor = SubitemsEditorBeforeShowEditor
+    OnGetNewKey = GetNewKey
+    OnFreeNewKey = FreeNewKey
+    OnBeforeDelete = SubitemsEditorBeforeDelete
+    OnSaveToLog = SaveToLog
+    NameFieldName = 'name'
+    NotesFieldName = 'notes'
+    NrmImage = -1
+    SelImage = -1
+    Left = 152
     Top = 92
   end
 end

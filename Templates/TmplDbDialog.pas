@@ -11,7 +11,7 @@ type
     DataSource: TDataSource;
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
-    function GetEditMode: Boolean;
+    function  GetEditMode: Boolean;
   protected
     procedure InitFormVariables; override;
     procedure StartForm; override;

@@ -7,16 +7,16 @@ inherited FormAttach: TFormAttach
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar: TStatusBar
-    Top = 314
+    Top = 306
   end
   inherited CoolBar: TCoolBar
-    Height = 38
+    Height = 40
     Bands = <
       item
         Control = ToolBar
         ImageIndex = -1
         MinHeight = 36
-        Width = 508
+        Width = 749
       end>
     inherited ToolBar: TToolBar
       Height = 36
@@ -79,8 +79,8 @@ inherited FormAttach: TFormAttach
     end
   end
   inherited ListView: TRSortListView
-    Top = 38
-    Height = 276
+    Top = 69
+    Height = 237
     Columns = <
       item
         Caption = #1048#1084#1103' '#1092#1072#1081#1083#1072
@@ -99,6 +99,9 @@ inherited FormAttach: TFormAttach
     SmallImages = ImageList
     OnDblClick = ListViewDblClick
     SortColumn = 0
+  end
+  inherited FindPanel: TPanel
+    Top = 40
   end
   inherited ActionList: TActionList
     object AddFile: TAction [0]
@@ -188,14 +191,14 @@ inherited FormAttach: TFormAttach
   object OpenDialog: TOpenDialog
     Filter = #1042#1089#1077' '#1092#1072#1081#1083#1099' (*.*)|*.*'
     Options = [ofHideReadOnly, ofAllowMultiSelect, ofPathMustExist, ofFileMustExist, ofEnableSizing]
-    Left = 12
-    Top = 100
+    Left = 28
+    Top = 136
   end
   object SaveDialog: TSaveDialog
     Filter = #1042#1089#1077' '#1092#1072#1081#1083#1099' (*.*)|*.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing]
-    Left = 40
-    Top = 100
+    Left = 56
+    Top = 136
   end
   object SS_ATTACHMENTS: TADOQuery
     AutoCalcFields = False
@@ -206,8 +209,8 @@ inherited FormAttach: TFormAttach
     Prepared = True
     SQL.Strings = (
       'select * from SS_ATTACHMENTS')
-    Left = 76
-    Top = 100
+    Left = 92
+    Top = 136
     object SS_ATTACHMENTSID: TIntegerField
       Tag = 1
       DisplayLabel = #1050#1086#1076' (ID)'
@@ -249,8 +252,8 @@ inherited FormAttach: TFormAttach
     end
   end
   object ImageList: TImageList
-    Left = 104
-    Top = 100
+    Left = 120
+    Top = 136
     Bitmap = {
       494C010101000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010

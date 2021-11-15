@@ -24,51 +24,23 @@ inherited DbTemplate: TDbTemplate
       Width = 840
       Height = 36
       ButtonWidth = 57
-      object DataSetFirstToolButton: TToolButton
-        Left = 0
-        Top = 0
-        Action = DataSetFirst
-      end
-      object DataSetPriorToolButton: TToolButton
-        Left = 57
-        Top = 0
-        Action = DataSetPrior
-      end
-      object DataSetNextToolButton: TToolButton
-        Left = 114
-        Top = 0
-        Action = DataSetNext
-      end
-      object DataSetLastToolButton: TToolButton
-        Left = 171
-        Top = 0
-        Action = DataSetLast
-      end
-      object SeparatorNav: TToolButton
-        Left = 228
-        Top = 0
-        Width = 8
-        Caption = 'SeparatorNav'
-        ImageIndex = 4
-        Style = tbsSeparator
-      end
       object DataSetInsertToolButton: TToolButton
-        Left = 236
+        Left = 0
         Top = 0
         Action = DataSetInsert
       end
       object DataSetEditToolButton: TToolButton
-        Left = 293
+        Left = 57
         Top = 0
         Action = DataSetEdit
       end
       object DataSetDeleteToolButton: TToolButton
-        Left = 350
+        Left = 114
         Top = 0
         Action = DataSetDelete
       end
       object SeparatorEdit: TToolButton
-        Left = 407
+        Left = 171
         Top = 0
         Width = 8
         Caption = 'SeparatorEdit'
@@ -76,12 +48,12 @@ inherited DbTemplate: TDbTemplate
         Style = tbsSeparator
       end
       object DataSetFindToolButton: TToolButton
-        Left = 415
+        Left = 179
         Top = 0
         Action = Find
       end
       object SeparatorFind: TToolButton
-        Left = 472
+        Left = 236
         Top = 0
         Width = 8
         Caption = 'SeparatorFind'
@@ -89,7 +61,7 @@ inherited DbTemplate: TDbTemplate
         Style = tbsSeparator
       end
       object DataToolButton: TToolButton
-        Left = 480
+        Left = 244
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
@@ -97,7 +69,7 @@ inherited DbTemplate: TDbTemplate
         ImageIndex = 14
       end
       object OpersToolButton: TToolButton
-        Left = 537
+        Left = 301
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
@@ -106,7 +78,7 @@ inherited DbTemplate: TDbTemplate
         Visible = False
       end
       object ReportsToolButton: TToolButton
-        Left = 594
+        Left = 358
         Top = 0
         Hint = #1055#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
@@ -114,7 +86,7 @@ inherited DbTemplate: TDbTemplate
         ImageIndex = 23
       end
       object SeparatorRefresh: TToolButton
-        Left = 651
+        Left = 415
         Top = 0
         Width = 8
         Caption = 'SeparatorRefresh'
@@ -122,12 +94,12 @@ inherited DbTemplate: TDbTemplate
         Style = tbsSeparator
       end
       object RefreshToolButton: TToolButton
-        Left = 659
+        Left = 423
         Top = 0
         Action = Refresh
       end
       object SeparatorEnd: TToolButton
-        Left = 716
+        Left = 480
         Top = 0
         Width = 8
         Caption = 'SeparatorEnd'
@@ -135,12 +107,12 @@ inherited DbTemplate: TDbTemplate
         Style = tbsSeparator
       end
       object CloseSelectToolButton: TToolButton
-        Left = 724
+        Left = 488
         Top = 0
         Action = CloseSelect
       end
       object CloseCancelToolButton: TToolButton
-        Left = 781
+        Left = 545
         Top = 0
         Action = CloseCancel
       end

@@ -79,6 +79,8 @@ type
     itemCheckNoneP: TMenuItem;
     itemCheckInverseP: TMenuItem;
     divPopupList: TMenuItem;
+    FindFastClear: TAction;
+    btnFastFindClear: TBitBtn;
     procedure TreePanelResize(Sender: TObject);
     procedure ListSortAscUpdate(Sender: TObject);
     procedure ListSortAscExecute(Sender: TObject);
@@ -112,6 +114,8 @@ type
     procedure CheckNoneExecute(Sender: TObject);
     procedure CheckInverseUpdate(Sender: TObject);
     procedure CheckInverseExecute(Sender: TObject);
+    procedure FindFastClearUpdate(Sender: TObject);
+    procedure FindFastClearExecute(Sender: TObject);
   private
     LastIndex: Integer;
     procedure CreateSortMenus;
@@ -208,10 +212,14 @@ end;
 
 procedure TTreeListTemplate.FindPanelResize(Sender: TObject);
 begin
-  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - 6;
+  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 8;
 
-  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - 3;
+  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 5;
   btnFastFind.Height := edFastFind.Height;
+  btnFastFindClear.Left := btnFastFind.Left + btnFastFind.Width + 2;
+  btnFastFindClear.Width := edFastFind.Height;
+  btnFastFindClear.Height := edFastFind.Height;
+  btnFastFindClear.Caption := '';
 end;
 
 { == —охранение и восстановление позиции в списке ============================== }
@@ -310,6 +318,17 @@ begin
     ListView.SetFocus;
   end
   else ErrorBox(Format(SErrStrNotFound, [edFastFind.Text]));
+end;
+
+procedure TTreeListTemplate.FindFastClearUpdate(Sender: TObject);
+begin
+  FindFastClear.Enabled := IsNotWait and (ListView.Items.Count > 0) and (edFastFind.Text <> '');
+end;
+
+procedure TTreeListTemplate.FindFastClearExecute(Sender: TObject);
+begin
+  edFastFind.Clear;
+  ListView.SetFocus;
 end;
 
 procedure TTreeListTemplate.edFastFindKeyPress(Sender: TObject; var Key: Char);

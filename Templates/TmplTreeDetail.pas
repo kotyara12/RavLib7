@@ -151,6 +151,10 @@ type
     itemTreeRootOnlyP: TMenuItem;
     itemTreeVisible: TMenuItem;
     itemPropRecP: TMenuItem;
+    NewSubitem: TAction;
+    itemNewSubitem: TMenuItem;
+    itemNewSubitemP: TMenuItem;
+    itemNewSubitemN: TMenuItem;
     procedure TreeViewChange(Sender: TObject; Node: TTreeNode);
     procedure TreePanelShow(Sender: TObject);
     procedure TreePanelHide(Sender: TObject);
@@ -208,6 +212,8 @@ type
     procedure ExpandNodeExecute(Sender: TObject);
     procedure CollapseNodeUpdate(Sender: TObject);
     procedure CollapseNodeExecute(Sender: TObject);
+    procedure NewSubitemUpdate(Sender: TObject);
+    procedure NewSubitemExecute(Sender: TObject);
   private
     FTreeLoaded: Boolean;
     FCurrentIndex: Integer;
@@ -234,6 +240,7 @@ type
     function  TreeGroupInsertEnabled(Node: TTreeNode): Boolean; virtual;
     function  TreeSubGroupInsertEnabled(Node: TTreeNode): Boolean; virtual;
     function  TreeItemInsertEnabled(Node: TTreeNode): Boolean; virtual;
+    function  TreeSubitemInsertEnabled(Node: TTreeNode): Boolean; virtual;
     function  TreeNodeCopyEnabled(Node: TTreeNode): Boolean; virtual;
     function  TreeNodeOpenEnabled(Node: TTreeNode): Boolean; virtual;
     function  TreeNodeMoveEnabled(Node: TTreeNode): Boolean; virtual;
@@ -243,6 +250,7 @@ type
     procedure TreeNodeInsertGroup(Node: TTreeNode); virtual; abstract;
     procedure TreeNodeInsertSubGroup(Node: TTreeNode); virtual; abstract;
     procedure TreeNodeInsertItem(Node: TTreeNode); virtual; abstract;
+    procedure TreeNodeInsertSubitem(Node: TTreeNode); virtual; abstract;
     function  TreeNodeSelectTargetNode(MovedNode: TTreeNode): TTreeNode; virtual; abstract;
     function  TreeNodeMove(MovedNode, TargetNode: TTreeNode): Boolean; virtual; abstract;
     procedure TreeNodeCopy(Node: TTreeNode); virtual; abstract;
@@ -807,6 +815,11 @@ begin
   Result := False;
 end;
 
+function TTreeDetailTemplate.TreeSubitemInsertEnabled(Node: TTreeNode): Boolean;
+begin
+  Result := False;
+end;
+
 function TTreeDetailTemplate.TreeNodeCopyEnabled(Node: TTreeNode): Boolean;
 begin
   Result := True;
@@ -918,6 +931,25 @@ begin
   TreeView.OnChangeEvent_Block;
   try
     TreeNodeInsertItem(TreeView.Selected);
+  finally
+    TreeView.OnChangeEvent_Unblock;
+    TreeViewChange(TreeView, TreeView.Selected);
+  end;
+end;
+
+{ == Создать новый подэлемент =================================================== }
+procedure TTreeDetailTemplate.NewSubitemUpdate(Sender: TObject);
+begin
+  NewSubitem.Enabled := IsNotWait and TreePanel.Visible
+    and Assigned(TreeView.Selected)
+    and TreeSubitemInsertEnabled(TreeView.Selected);
+end;
+
+procedure TTreeDetailTemplate.NewSubitemExecute(Sender: TObject);
+begin
+  TreeView.OnChangeEvent_Block;
+  try
+    TreeNodeInsertSubitem(TreeView.Selected);
   finally
     TreeView.OnChangeEvent_Unblock;
     TreeViewChange(TreeView, TreeView.Selected);

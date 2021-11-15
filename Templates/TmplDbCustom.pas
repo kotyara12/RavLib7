@@ -136,6 +136,8 @@ type
     menuDbNavigation: TMenuItem;
     menuViewsP: TMenuItem;
     menuGroupP: TMenuItem;
+    FindFastClear: TAction;
+    btnFastFindClear: TBitBtn;
     procedure DataSetInsertUpdate(Sender: TObject);
     procedure DataSetInsertExecute(Sender: TObject);  virtual;
     procedure DataSetEditUpdate(Sender: TObject);
@@ -216,6 +218,9 @@ type
     procedure DateSetGroupingExecute(Sender: TObject);
     procedure DbGridColumnMoved(Sender: TObject; FromIndex,
       ToIndex: Integer);
+    procedure FindFastClearUpdate(Sender: TObject);
+    procedure FindFastClearExecute(Sender: TObject);
+    procedure PopupMenuPopup(Sender: TObject);
   private
   protected
     fCurrColumn: TColumn;
@@ -303,10 +308,13 @@ end;
 
 procedure TDbCustomTemplate.FindPanelResize(Sender: TObject);
 begin
-  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - 10;
-
-  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - 4;
+  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 12;
+  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 5;
   btnFastFind.Height := edFastFind.Height;
+  btnFastFindClear.Left := btnFastFind.Left + btnFastFind.Width + 2;
+  btnFastFindClear.Width := edFastFind.Height;
+  btnFastFindClear.Height := edFastFind.Height;
+  btnFastFindClear.Caption := '';
 end;
 
 procedure TDbCustomTemplate.InitDataComponents;
@@ -555,6 +563,12 @@ begin
   else fLastState := RDbEditor.EditRecord;
 end;
 
+procedure TDbCustomTemplate.PopupMenuPopup(Sender: TObject);
+begin
+  itemDataSetEditP.Default := not SelectVisible;
+  itemCloseSelectP.Default := SelectVisible;
+end;
+
 procedure TDbCustomTemplate.DbGridDblClick(Sender: TObject);
 begin
   {$IFDEF ATTACH}
@@ -566,12 +580,20 @@ begin
       AttachmentsExecute(Sender);
   end
   else begin
+    if SelectVisible then
+      CloseSelectExecute(nil)
+    else begin
+      if IsNotWait and RDbEditor.RecordCanOpened then
+        DataSetEditExecute(Sender);
+    end;
+  end;
+  {$ELSE}
+  if SelectVisible then
+    CloseSelectExecute(nil)
+  else begin
     if IsNotWait and RDbEditor.RecordCanOpened then
       DataSetEditExecute(Sender);
   end;
-  {$ELSE}
-  if IsNotWait and RDbEditor.RecordCanOpened then
-    DataSetEditExecute(Sender);
   {$ENDIF}
 end;
 
@@ -660,6 +682,19 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TDbCustomTemplate.FindFastClearUpdate(Sender: TObject);
+begin
+  FindFastClear.Enabled := IsNotWait and RDbEditor.DataSetIsOpened and RDbEditor.DataSet.Filtered;
+end;
+
+procedure TDbCustomTemplate.FindFastClearExecute(Sender: TObject);
+begin
+  edFastFind.Text := '';
+  RDbEditor.DataSet.Filtered := False;
+  RDbEditor.DataSet.Filter := '';
+  DbGrid.SetFocus;
 end;
 
 procedure TDbCustomTemplate.edFastFindKeyPress(Sender: TObject; var Key: Char);

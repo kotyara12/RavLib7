@@ -11,11 +11,6 @@ uses
 
 type
   TQueryTemplate = class(TQueryCustomTemplate)
-    DataSetFirstToolButton: TToolButton;
-    DataSetPriorToolButton: TToolButton;
-    DataSetNextToolButton: TToolButton;
-    DataSetLastToolButton: TToolButton;
-    SeparatorNav: TToolButton;
     DataSetFindToolButton: TToolButton;
     SeparatorFind: TToolButton;
     DataSetInsertToolButton: TToolButton;

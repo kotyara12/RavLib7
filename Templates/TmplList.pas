@@ -29,10 +29,6 @@ type
     itemListExportToFileO: TMenuItem;
     ListSortAsc: TAction;
     ListSortDesc: TAction;
-    menuSortListP: TMenuItem;
-    itemListSortDescP: TMenuItem;
-    itemListSortAscP: TMenuItem;
-    divSortListP: TMenuItem;
     menuSortListD: TMenuItem;
     itemListSortDescD: TMenuItem;
     itemListSortAscD: TMenuItem;
@@ -57,10 +53,6 @@ type
     itemCheckAll: TMenuItem;
     itemCheckInverse: TMenuItem;
     itemCheckNone: TMenuItem;
-    divDataP1: TMenuItem;
-    itemCheckAllP: TMenuItem;
-    itemCheckInverseP: TMenuItem;
-    itemCheckNoneP: TMenuItem;
     divDataD1: TMenuItem;
     itemCheckAllD: TMenuItem;
     itemCheckInverseD: TMenuItem;
@@ -69,6 +61,12 @@ type
     edFastFind: TEdit;
     btnFastFind: TBitBtn;
     FindFast: TAction;
+    menuSortListP: TMenuItem;
+    itemListSortDescP: TMenuItem;
+    itemListSortAscP: TMenuItem;
+    divListSortP: TMenuItem;
+    FindFastClear: TAction;
+    btnFastFindClear: TBitBtn;
     procedure ListExportToExcelUpdate(Sender: TObject);
     procedure ListExportToExcelExecute(Sender: TObject);
     procedure FindExecute(Sender: TObject);
@@ -100,6 +98,8 @@ type
     procedure edFastFindKeyPress(Sender: TObject; var Key: Char);
     procedure edFastFindEnter(Sender: TObject);
     procedure edFastFindExit(Sender: TObject);
+    procedure FindFastClearUpdate(Sender: TObject);
+    procedure FindFastClearExecute(Sender: TObject);
   private
     procedure CreateSortMenus;
     procedure UpdateSortMenus;
@@ -194,10 +194,13 @@ end;
 
 procedure TListTemplate.FindPanelResize(Sender: TObject);
 begin
-  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - 10;
-
-  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - 4;
+  edFastFind.Width := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 12;
+  btnFastFind.Left := FindPanel.ClientWidth - btnFastFind.Width - edFastFind.Height - 5;
   btnFastFind.Height := edFastFind.Height;
+  btnFastFindClear.Left := btnFastFind.Left + btnFastFind.Width + 2;
+  btnFastFindClear.Width := edFastFind.Height;
+  btnFastFindClear.Height := edFastFind.Height;
+  btnFastFindClear.Caption := '';
 end;
 
 { == Загрузка данных =========================================================== }
@@ -287,6 +290,17 @@ begin
     ListView.SetFocus;
   end
   else ErrorBox(Format(SErrStrNotFound, [edFastFind.Text]));
+end;
+
+procedure TListTemplate.FindFastClearUpdate(Sender: TObject);
+begin
+  FindFastClear.Enabled := IsNotWait and (ListView.Items.Count > 0) and (edFastFind.Text <> '');
+end;
+
+procedure TListTemplate.FindFastClearExecute(Sender: TObject);
+begin
+  edFastFind.Clear;
+  ListView.SetFocus;
 end;
 
 procedure TListTemplate.edFastFindKeyPress(Sender: TObject; var Key: Char);

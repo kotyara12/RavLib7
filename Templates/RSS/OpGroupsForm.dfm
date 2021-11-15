@@ -70,14 +70,6 @@ inherited FormOpGroups: TFormOpGroups
       Visible = False
     end
   end
-  inherited PopupMenu: TPopupMenu
-    inherited divPopupNew: TMenuItem
-      Visible = False
-    end
-    inherited divPopupEdit: TMenuItem
-      Visible = False
-    end
-  end
   inherited MainMenu: TMainMenu
     inherited menuEdit: TMenuItem
       inherited divEditNew: TMenuItem

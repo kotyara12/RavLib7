@@ -1,6 +1,6 @@
 inherited FormUsers: TFormUsers
-  Left = 269
-  Top = 247
+  Left = 512
+  Top = 419
   Width = 919
   HelpKeyword = 'IDH_USERS'
   Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080' '#1089#1080#1089#1090#1077#1084#1099
@@ -73,7 +73,7 @@ inherited FormUsers: TFormUsers
   inherited DataPanel: TPanel
     Width = 679
     inherited InfoPanel: TRDbInfoPanel
-      Top = 361
+      Top = 360
       Width = 679
       Height = 60
       object IDRDbTextLabel: TLabel
@@ -250,7 +250,7 @@ inherited FormUsers: TFormUsers
     end
     inherited DbGrid: TRDbStyledGrid
       Width = 679
-      Height = 311
+      Height = 310
       Columns = <
         item
           Expanded = False
@@ -294,7 +294,7 @@ inherited FormUsers: TFormUsers
       Width = 679
     end
     inherited TabViews: TTabSet
-      Top = 340
+      Top = 339
       Width = 679
     end
   end
@@ -305,11 +305,7 @@ inherited FormUsers: TFormUsers
     end
   end
   inherited PopupMenu: TPopupMenu
-    inherited itemCopyRecordP: TMenuItem
-      Visible = False
-    end
     inherited menuOperationsP: TMenuItem
-      SubMenuImages = AdminData.AdminImageList
       Visible = True
       object itemUnlockUserP: TMenuItem
         Action = UnlockUser
@@ -327,7 +323,6 @@ inherited FormUsers: TFormUsers
   end
   inherited MainMenu: TMainMenu
     inherited menuOperations: TMenuItem
-      SubMenuImages = AdminData.AdminImageList
       Visible = True
       object itemUnlockUser: TMenuItem
         Action = UnlockUser
@@ -564,7 +559,6 @@ inherited FormUsers: TFormUsers
     StoreInIniFile = True
   end
   inherited OperationsPopupMenu: TPopupMenu
-    Images = AdminData.AdminImageList
     object itemUnlockUserO: TMenuItem
       Action = UnlockUser
     end

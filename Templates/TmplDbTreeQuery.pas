@@ -18,6 +18,7 @@ type
     TreeAttachments: TAction;
     itemTreeAttachments: TMenuItem;
     divTreeAttachP: TMenuItem;
+    SubitemsEditor: TRDbTreeEditor;
     procedure GroupsBeforeShowEditor(Sender: TObject; Editor: TForm;
       const Mode: TEditMode; const EditTag: Integer;
       var Complete: Boolean);
@@ -32,6 +33,12 @@ type
     procedure ItemsEditorBeforeDelete(Sender: TObject; OldData,
       NewData: TRecordData; const Mode: TEditMode; const EditTag: Integer;
       var Complete: Boolean);
+    procedure SubitemsEditorBeforeShowEditor(Sender: TObject;
+      Editor: TForm; const Mode: TEditMode; const EditTag: Integer;
+      var Complete: Boolean);
+    procedure SubitemsEditorBeforeDelete(Sender: TObject; OldData,
+      NewData: TRecordData; const Mode: TEditMode; const EditTag: Integer;
+      var Complete: Boolean);
   protected
     procedure InitDataComponents; override;
     // Загрузка данных
@@ -44,6 +51,7 @@ type
     function  TreeGroupInsertEnabled(Node: TTreeNode): Boolean; override;
     function  TreeSubGroupInsertEnabled(Node: TTreeNode): Boolean; override;
     function  TreeItemInsertEnabled(Node: TTreeNode): Boolean; override;
+    function  TreeSubitemInsertEnabled(Node: TTreeNode): Boolean; override;
     function  TreeNodeCopyEnabled(Node: TTreeNode): Boolean; override;
     function  TreeNodeOpenEnabled(Node: TTreeNode): Boolean; override;
     function  TreeNodeMoveEnabled(Node: TTreeNode): Boolean; override;
@@ -52,6 +60,7 @@ type
     procedure TreeNodeInsertGroup(Node: TTreeNode); override;
     procedure TreeNodeInsertSubGroup(Node: TTreeNode); override;
     procedure TreeNodeInsertItem(Node: TTreeNode); override;
+    procedure TreeNodeInsertSubitem(Node: TTreeNode); override;
     function  TreeNodeSelectTargetNode(MovedNode: TTreeNode): TTreeNode; override;
     function  TreeNodeMove(MovedNode, TargetNode: TTreeNode): Boolean; override;
     procedure TreeNodeCopy(Node: TTreeNode); override;
@@ -112,9 +121,13 @@ var
 begin
   if TreeActive then
   begin
-    if TreeLoader.ItemsIsLoaded(True)
-    then NodeFilter := Format(sqlTreeFilter, [RDbEditor.OwnerFieldName, TreeView.GetIdList(Node, [ntItem])])
-    else NodeFilter := Format(sqlTreeFilter, [RDbEditor.OwnerFieldName, TreeView.GetIdList(Node, [ntGroup])])
+    if TreeLoader.SubitemsIsLoaded(True)
+    then NodeFilter := Format(sqlTreeFilter, [RDbEditor.OwnerFieldName, TreeView.GetIdList(Node, [ntSubitem])])
+    else begin
+      if TreeLoader.ItemsIsLoaded(True)
+      then NodeFilter := Format(sqlTreeFilter, [RDbEditor.OwnerFieldName, TreeView.GetIdList(Node, [ntItem])])
+      else NodeFilter := Format(sqlTreeFilter, [RDbEditor.OwnerFieldName, TreeView.GetIdList(Node, [ntGroup])])
+    end;
   end
   else NodeFilter := EmptyStr;
   Result := BaseData.OpenVariableQuery(TAdoQuery(RDbEditor.DataSet), RDbFilter, RDbOrder,
@@ -154,6 +167,19 @@ begin
   end;
 end;
 
+procedure TDbTreeQueryTemplate.SubitemsEditorBeforeShowEditor(
+  Sender: TObject; Editor: TForm; const Mode: TEditMode;
+  const EditTag: Integer; var Complete: Boolean);
+begin
+  if Editor is TDbDialogTemplate then
+  begin
+    TDbDialogTemplate(Editor).Caption := GetEditorCaption(
+      TRDbCustomEditor(Sender).GetObjectDesc(etView), TRDbCustomEditor(Sender).DataSet);
+    if TDbDialogTemplate(Editor).DataSource.DataSet <> TRDbCustomEditor(Sender).DataSet then
+      TDbDialogTemplate(Editor).DataSource.DataSet := TRDbCustomEditor(Sender).DataSet;
+  end;
+end;
+
 { == Контроль доступности команд =============================================== }
 function TDbTreeQueryTemplate.TreeGroupInsertEnabled(Node: TTreeNode): Boolean;
 begin
@@ -168,6 +194,11 @@ end;
 function TDbTreeQueryTemplate.TreeItemInsertEnabled(Node: TTreeNode): Boolean;
 begin
   Result := TreeLoader.NodeCanInserted(Node, ntItem, True);
+end;
+
+function TDbTreeQueryTemplate.TreeSubitemInsertEnabled(Node: TTreeNode): Boolean;
+begin
+  Result := TreeLoader.NodeCanInserted(Node, ntSubitem, True);
 end;
 
 function TDbTreeQueryTemplate.TreeNodeCopyEnabled(Node: TTreeNode): Boolean;
@@ -201,10 +232,11 @@ var
   ParentNode: TTreeNode;
 begin
   case TreeView.GetNodeType(Node) of
-    ntRoot:  ParentNode := Node;
-    ntGroup: ParentNode := Node.Parent;
-    ntItem:  ParentNode := Node.Parent.Parent;
-    else     ParentNode := nil;
+    ntRoot:    ParentNode := Node;
+    ntGroup:   ParentNode := Node.Parent;
+    ntItem:    ParentNode := Node.Parent.Parent;
+    ntSubitem: ParentNode := Node.Parent.Parent.Parent;
+    else       ParentNode := nil;
   end;
   if ParentNode = nil then ParentNode := TreeView.FindNode([ntRoot], intDisable);
   TreeLoader.InsertNode(ParentNode, ntGroup);
@@ -215,10 +247,11 @@ var
   ParentNode: TTreeNode;
 begin
   case TreeView.GetNodeType(Node) of
-    ntRoot:  ParentNode := Node;
-    ntGroup: ParentNode := Node;
-    ntItem:  ParentNode := Node.Parent;
-    else     ParentNode := nil;
+    ntRoot:    ParentNode := Node;
+    ntGroup:   ParentNode := Node;
+    ntItem:    ParentNode := Node.Parent;
+    ntSubitem: ParentNode := Node.Parent.Parent;
+    else       ParentNode := nil;
   end;
   if ParentNode = nil then ParentNode := TreeView.FindNode([ntRoot], intDisable);
   TreeLoader.InsertNode(ParentNode, ntGroup);
@@ -227,8 +260,17 @@ end;
 procedure TDbTreeQueryTemplate.TreeNodeInsertItem(Node: TTreeNode);
 begin
   case TreeView.GetNodeType(Node) of
-    ntGroup: TreeLoader.InsertNode(Node, ntItem);
-    ntItem:  TreeLoader.InsertNode(Node.Parent, ntItem);
+    ntGroup:   TreeLoader.InsertNode(Node, ntItem);
+    ntItem:    TreeLoader.InsertNode(Node.Parent, ntItem);
+    ntSubitem: TreeLoader.InsertNode(Node.Parent.Parent, ntItem);
+  end;
+end;
+
+procedure TDbTreeQueryTemplate.TreeNodeInsertSubitem(Node: TTreeNode);
+begin
+  case TreeView.GetNodeType(Node) of
+    ntItem:    TreeLoader.InsertNode(Node, ntSubitem);
+    ntSubitem: TreeLoader.InsertNode(Node.Parent, ntSubitem);
   end;
 end;
 
@@ -274,6 +316,17 @@ begin
 {$ENDIF}
 end;
 
+procedure TDbTreeQueryTemplate.SubitemsEditorBeforeDelete(Sender: TObject;
+  OldData, NewData: TRecordData; const Mode: TEditMode;
+  const EditTag: Integer; var Complete: Boolean);
+begin
+  inherited;
+{$IFDEF ATTACH}
+  Complete := Complete and
+    rAttachs_DeleteAttachments(BaseData.acDb, ItemsEditor);
+{$ENDIF}
+end;
+
 procedure TDbTreeQueryTemplate.TreeNodeDelete(Node: TTreeNode);
 begin
   TreeLoader.DeleteNode(TreeView.Selected, True);
@@ -282,9 +335,13 @@ end;
 { == Редактирование данных ===================================================== }
 function TDbTreeQueryTemplate.DetailSelectTargetNode(MovedNode: TTreeNode): TTreeNode;
 begin
-  if TreeLoader.ItemsIsLoaded
-  then Result := MoveToTreeNode(TreeView, True, [ntRoot, ntGroup, ntItem], [ntItem])
-  else Result := MoveToTreeNode(TreeView, True, [ntRoot, ntGroup], [ntGroup]);
+  if TreeLoader.SubitemsIsLoaded
+  then Result := MoveToTreeNode(TreeView, True, [ntRoot, ntGroup, ntItem, ntSubitem], [ntItem, ntSubitem])
+  else begin
+    if TreeLoader.ItemsIsLoaded
+    then Result := MoveToTreeNode(TreeView, True, [ntRoot, ntGroup, ntItem], [ntItem])
+    else Result := MoveToTreeNode(TreeView, True, [ntRoot, ntGroup], [ntGroup]);
+  end;
 end;
 
 procedure TDbTreeQueryTemplate.DetailFindOwnerNode;
@@ -295,15 +352,23 @@ begin
   OwnerId := RDbEditor.GetOwnerValue;
   if OwnerId > intDisable then
   begin
-    if TreeLoader.ItemsIsLoaded
-    then OwnerNode := TreeView.FindNode([ntItem], OwnerId)
-    else OwnerNode := TreeView.FindNode([ntRoot, ntGroup], OwnerId);
-    // 2012-05-25 fixed bug: ошибка поиска элемента дерева, если запись дерева сделана в редакторе
-    if not Assigned(OwnerNode) and ReloadTree then
-    begin
+    if TreeLoader.SubitemsIsLoaded
+    then OwnerNode := TreeView.FindNode([ntSubitem], OwnerId)
+    else begin
       if TreeLoader.ItemsIsLoaded
       then OwnerNode := TreeView.FindNode([ntItem], OwnerId)
       else OwnerNode := TreeView.FindNode([ntRoot, ntGroup], OwnerId);
+    end;
+    // 2012-05-25 fixed bug: ошибка поиска элемента дерева, если запись дерева сделана в редакторе
+    if not Assigned(OwnerNode) and ReloadTree then
+    begin
+      if TreeLoader.SubitemsIsLoaded
+      then OwnerNode := TreeView.FindNode([ntSubitem], OwnerId)
+      else begin
+        if TreeLoader.ItemsIsLoaded
+        then OwnerNode := TreeView.FindNode([ntItem], OwnerId)
+        else OwnerNode := TreeView.FindNode([ntRoot, ntGroup], OwnerId);
+      end;
     end;
     // 2012-05-25 fixed bug: конец
     if Assigned(OwnerNode) then
@@ -324,8 +389,9 @@ begin
   and TreePanel.Visible and Assigned(TreeView.Selected) then
   begin
     case TreeView.GetNodeType(TreeView.Selected) of
-      ntGroup: TreeAttachments.Enabled := GroupsEditor.KeyFieldIsPresent;
-      ntItem: TreeAttachments.Enabled := ItemsEditor.KeyFieldIsPresent;
+      ntGroup:   TreeAttachments.Enabled := GroupsEditor.KeyFieldIsPresent;
+      ntItem:    TreeAttachments.Enabled := ItemsEditor.KeyFieldIsPresent;
+      ntSubitem: TreeAttachments.Enabled := SubitemsEditor.KeyFieldIsPresent;
     end;
   end
   else TreeAttachments.Enabled := False;
@@ -335,9 +401,11 @@ procedure TDbTreeQueryTemplate.TreeAttachmentsExecute(Sender: TObject);
 begin
 {$IFDEF ATTACH}
   case TreeView.GetNodeType(TreeView.Selected) of
-    ntGroup: rAttachs_EditAttachments(BaseData.acDb, GroupsEditor, Tag,
+    ntGroup:   rAttachs_EditAttachments(BaseData.acDb, GroupsEditor, Tag,
       TreeLoader.NodeCanOpened(TreeView.Selected, True));
-    ntItem: rAttachs_EditAttachments(BaseData.acDb, ItemsEditor, Tag,
+    ntItem:    rAttachs_EditAttachments(BaseData.acDb, ItemsEditor, Tag,
+      TreeLoader.NodeCanOpened(TreeView.Selected, True));
+    ntSubitem: rAttachs_EditAttachments(BaseData.acDb, SubitemsEditor, Tag,
       TreeLoader.NodeCanOpened(TreeView.Selected, True));
   end;
 {$ENDIF}

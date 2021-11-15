@@ -9,10 +9,10 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   TextHeight = 13
   inherited Splitter: TSplitter
     Top = 40
-    Height = 420
+    Height = 421
   end
   inherited StatusBar: TStatusBar
-    Top = 460
+    Top = 461
     Width = 851
     Panels = <
       item
@@ -44,36 +44,8 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       Height = 36
       ButtonHeight = 36
       ButtonWidth = 57
-      object DataSetFirstToolButton: TToolButton
-        Left = 0
-        Top = 0
-        Action = DataSetFirst
-      end
-      object DataSetPriorToolButton: TToolButton
-        Left = 57
-        Top = 0
-        Action = DataSetPrior
-      end
-      object DataSetNextToolButton: TToolButton
-        Left = 114
-        Top = 0
-        Action = DataSetNext
-      end
-      object DataSetLastToolButton: TToolButton
-        Left = 171
-        Top = 0
-        Action = DataSetLast
-      end
-      object SeparatorNav: TToolButton
-        Left = 228
-        Top = 0
-        Width = 8
-        Caption = 'SeparatorNav'
-        ImageIndex = 4
-        Style = tbsSeparator
-      end
       object NewToolButton: TToolButton
-        Left = 236
+        Left = 0
         Top = 0
         Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1091#1102' '#1079#1072#1087#1080#1089#1100
         Caption = #1057#1086#1079#1076#1072#1090#1100
@@ -82,17 +54,17 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         PopupMenu = NewPopupMenu
       end
       object PropertiesToolButton: TToolButton
-        Left = 293
+        Left = 57
         Top = 0
         Action = Properties
       end
       object DeleteItemToolButton: TToolButton
-        Left = 350
+        Left = 114
         Top = 0
         Action = Delete
       end
       object SeparatorEdit: TToolButton
-        Left = 407
+        Left = 171
         Top = 0
         Width = 8
         Caption = 'SeparatorEdit'
@@ -100,12 +72,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object FindRecordToolButton: TToolButton
-        Left = 415
+        Left = 179
         Top = 0
         Action = Find
       end
       object SeparatorFind: TToolButton
-        Left = 472
+        Left = 236
         Top = 0
         Width = 8
         Caption = 'SeparatorFind'
@@ -113,7 +85,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object DataToolButton: TToolButton
-        Left = 480
+        Left = 244
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
@@ -121,7 +93,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         ImageIndex = 14
       end
       object OpersToolButton: TToolButton
-        Left = 537
+        Left = 301
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093' '#1080' '#1076#1086#1089#1090#1091#1087' '#1082' '#1076#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
@@ -130,7 +102,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Visible = False
       end
       object ReportsToolButton: TToolButton
-        Left = 594
+        Left = 358
         Top = 0
         Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1086#1090#1095#1077#1090#1086#1074', '#1087#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
@@ -138,7 +110,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         ImageIndex = 23
       end
       object SeparatorRefresh: TToolButton
-        Left = 651
+        Left = 415
         Top = 0
         Width = 8
         Caption = 'SeparatorRefresh'
@@ -146,12 +118,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object RefreshToolButton: TToolButton
-        Left = 659
+        Left = 423
         Top = 0
         Action = Refresh
       end
       object SeparatorEnd: TToolButton
-        Left = 716
+        Left = 480
         Top = 0
         Width = 8
         Caption = 'SeparatorEnd'
@@ -159,12 +131,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object CloseSelectToolButton: TToolButton
-        Left = 724
+        Left = 488
         Top = 0
         Action = CloseSelect
       end
       object CloseCancelToolButton: TToolButton
-        Left = 781
+        Left = 545
         Top = 0
         Action = CloseCancel
       end
@@ -172,18 +144,18 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited TreePanel: TPanel
     Top = 40
-    Height = 420
+    Height = 421
     inherited TreeView: TRTreeView
-      Height = 397
+      Height = 398
     end
   end
   inherited DataPanel: TPanel
     Top = 40
     Width = 627
-    Height = 420
+    Height = 421
     object InfoPanel: TRDbInfoPanel
       Left = 0
-      Top = 379
+      Top = 380
       Width = 627
       Height = 41
       Align = alBottom
@@ -196,7 +168,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       Left = 0
       Top = 29
       Width = 627
-      Height = 329
+      Height = 330
       Align = alClient
       DataSource = RDbEditor
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -231,7 +203,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       object edFastFind: TEdit
         Left = 0
         Top = 4
-        Width = 509
+        Width = 481
         Height = 21
         Hint = 
           #1042#1074#1077#1076#1080#1090#1077' '#1090#1077#1082#1089#1090' '#1076#1083#1103' '#1087#1086#1080#1089#1082#1072' '#1080' '#1085#1072#1078#1084#1080#1090#1077' [ Enter ] ('#1080#1083#1080' '#1082#1085#1086#1087#1082#1091' "'#1055#1086#1080#1089#1082'"' +
@@ -243,12 +215,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         OnKeyPress = edFastFindKeyPress
       end
       object btnFastFind: TBitBtn
-        Left = 516
+        Left = 488
         Top = 4
         Width = 107
         Height = 21
         Action = FindFast
-        Caption = #1055#1086#1080#1089#1082
+        Caption = #1060#1080#1083#1100#1090#1088
         TabOrder = 1
         Glyph.Data = {
           36080000424D3608000000000000360000002800000020000000100000000100
@@ -258,71 +230,147 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF0000445A00006F90007FAFC400FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00444444006E6E6E00B1B1B100FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF0000445A00006F900000AEDF0063D6F500FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00444444006E6E6E00ABABAB00D4D4D400FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF0000445A00006F900000AEDF007FDDF700077FC000FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00444444006E6E6E00ABABAB00DBDBDB0087878700FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF000044
-          5A00006F900000AEDF009CE5F900077FC000FF00FF00FF00FF00FF00FF00FF00
-          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF004444
-          44006E6E6E00ABABAB00E4E4E40087878700FF00FF00FF00FF00FF00FF00FF00
-          FF00F3EEE300CDB48100B48D4300B1862F00BC954700D4BA8500184E5500006F
-          900000AEDF00B8ECFB00077FC000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00EBEBEB00A6A6A600797979006E6E6E0080808000ABABAB004A4A4A006E6E
-          6E00ABABAB00EBEBEB0087878700FF00FF00FF00FF00FF00FF00FF00FF00E7DB
-          C300B28B3A00D0BB9100E4DED100E9E8E800DFD9CC00D0BA8E00B794430036A7
-          B100D5F4FC00077FC000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00D4D4
-          D40075757500AFAFAF00DADADA00E8E8E800D5D5D500AEAEAE007D7D7D009E9E
-          9E00F3F3F30087878700FF00FF00FF00FF00FF00FF00FF00FF00F4EEE300B28B
-          3A00E3DAC700F7F7F700EDEDED00E6E6E600E2E2E200DFDFDF00D6CCB700BE9C
-          4A001F83B000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00EBEBEB007575
-          7500D5D5D500F7F7F700EDEDED00E6E6E600E2E2E200DFDFDF00C6C6C6008585
-          850087878700FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00CDB38000D1BC
-          9100F8F8F800FEFEFE00E9E9E900E2E2E200DFDFDF00DBDBDB00D8D8D800D0B9
-          8B00E1C68F00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00A5A5A500B0B0
-          B000F8F8F800FEFEFE00E9E9E900E2E2E200DFDFDF00DBDBDB00D8D8D800ACAC
-          AC00B7B7B700FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00B7914600E5DF
-          D300ECECEC00E9E9E900E2E2E200DFDFDF00DBDBDB00D9D9D900D4D4D400D1CA
-          BD00D5AF5C00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF007C7C7C00DCDC
-          DC00ECECEC00E9E9E900E2E2E200DFDFDF00DBDBDB00D9D9D900D4D4D400C6C6
-          C60098989800FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00B68B3300E9E8
-          E800E6E6E600E2E2E200DFDFDF00DBDBDB00EDEDED00FEFEFE00FBFBFB00CFCF
-          CF00D7A94A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0073737300E8E8
-          E800E6E6E600E2E2E200DFDFDF00DBDBDB00EDEDED00FEFEFE00FBFBFB00CFCF
-          CF008F8F8F00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00BE994D00E0DA
-          CD00E2E2E200DFDFDF00DBDBDB00EEEEEE00FFFFFF00FFFFFF00FFFFFF00D2CB
-          BF00DCB66100FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0084848400D6D6
-          D600E2E2E200DFDFDF00DBDBDB00EEEEEE00FFFFFF00FFFFFF00FFFFFF00C8C8
-          C8009E9E9E00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00D8BE8800D2BC
-          8F00DFDFDF00DBDBDB00DADADA00FFFFFF00FFFFFF00FFFFFF00EAEAEA00D4BE
-          8E00EBD09600FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00AFAFAF00B0B0
-          B000DFDFDF00DBDBDB00DADADA00FFFFFF00FFFFFF00FFFFFF00EAEAEA00B1B1
-          B100C0C0C000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00F6F1E600C9A0
-          4B00D7CDB800D8D8D800D5D5D500FBFBFB00FDFDFD00E8E8E800D1C6B100E0B6
-          5800FAF4E800FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00EEEEEE008888
-          8800C7C7C700D8D8D800D5D5D500FBFBFB00FDFDFD00E8E8E800C0C0C0009C9C
-          9C00F1F1F100FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00F0E3
-          C900CCA35100D3BD8F00D1CBBD00CDCCCB00D1CABC00D5BF9000E0B75D00F6E9
-          CE00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00DCDC
-          DC008C8C8C00B0B0B000C7C7C700CCCCCC00C6C6C600B2B2B2009E9E9E00E2E2
-          E200FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00F9F3E800E6CB9300DBB45E00DCAA5000E2B96300EDD19800FAF5E900FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-          FF00F0F0F000BBBBBB009C9C9C0092929200A1A1A100C1C1C100F2F2F200FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A004A4A4A004A4A4A004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A004A4A4A004A4A4A004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A0084840000848400004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A0058585800585858004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A00CECECE00BDBDBD004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A00CECECE00BDBDBD004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A00CECECE00BDBDBD004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF004A4A4A00CECECE00BDBDBD004A4A
+          4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF004A4A4A00C6C6C600D6D6D600BDBDBD009494
+          94004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF004A4A4A00C6C6C600D6D6D600BDBDBD009494
+          94004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF004A4A4A00BDBDBD00CECECE00D6D6D600C6C6C600A5A5
+          A500736B73004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF004A4A4A00BDBDBD00CECECE00D6D6D600C6C6C600A5A5
+          A5006F6F6F004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF005A5A5A00CECECE00DEDEDE00DEDEDE00DEDEDE00C6C6C600B5B5
+          B50084848400736B73004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF005A5A5A00CECECE00DEDEDE00DEDEDE00DEDEDE00C6C6C600B5B5
+          B500848484006F6F6F004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF005A5A5A007B7B7B00FFFFFF00F7F7F700E7E7E700D6D6D600CECECE00B5AD
+          B5009C949C007B7B7B00525252004A4A4A00FF00FF00FF00FF00FF00FF00FF00
+          FF005A5A5A007B7B7B00FFFFFF00F7F7F700E7E7E700D6D6D600CECECE00B1B1
+          B100989898007B7B7B00525252004A4A4A00FF00FF00FF00FF00FF00FF00FF00
+          FF0084848400848484007B7B7B007B7B7B006363630063636300636363005A5A
+          5A005A5A5A005A5A5A005A5A5A004A4A4A00FF00FF00FF00FF00FF00FF00FF00
+          FF0084848400848484007B7B7B007B7B7B006363630063636300636363005A5A
+          5A005A5A5A005A5A5A005A5A5A004A4A4A00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+        NumGlyphs = 2
+      end
+      object btnFastFindClear: TBitBtn
+        Left = 596
+        Top = 4
+        Width = 21
+        Height = 21
+        Action = FindFastClear
+        TabOrder = 2
+        Glyph.Data = {
+          36080000424D3608000000000000360000002800000020000000100000000100
+          2000000000000008000000000000000000000000000000000000FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF001E37EB00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF001D26AF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0070707000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0052525200FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF005668F3001030FF001D32FC00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF003C44BC000018C0000E1AAF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00949494007171710072727200FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF006B6B6B004D4D4D004A4A4A00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF002C51FC001030FF000028FF00FF00FF00FF00FF00FF00FF001D2E
+          BF000018D0000E22BE00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0085858500717171006B6B6B00FF00FF00FF00FF00FF00FF005C5C
+          5C005252520053535300FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF002C51FC001030FF000E2BFB00FF00FF001E2FCD000020
+          E0000E22CE00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF0085858500717171006C6C6C00FF00FF00616161005C5C
+          5C0059595900FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF005564F5001038FF000020F0000E2AED002D3A
+          CB00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00929292007575750061616100676767006868
+          6800FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF002048FF001030FF000E2AED00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00808080007171710067676700FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF004060FF003050FF002C49FB001038FF000020
+          F000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00919191008686860081818100757575006161
+          6100FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF004060FF004058FF004B6FFB00FF00FF004A67FB002040
+          FF000020F000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00919191008C8C8C0099999900FF00FF00959595007C7C
+          7C0061616100FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF005070FF005078FF006F84F500FF00FF00FF00FF00FF00FF004A66
+          FA003048FF000020F000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF009C9C9C00A0A0A000A7A7A700FF00FF00FF00FF00FF00FF009494
+          94008282820061616100FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF006078FF006078FF00697EFC00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF004A66FA003050FF000028FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00A2A2A200A2A2A200A5A5A500FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF0094949400868686006B6B6B00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF006985FC00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00556CF400FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00A9A9A900FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF0096969600FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+          FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
           FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
         NumGlyphs = 2
       end
     end
     object TabViews: TTabSet
       Left = 0
-      Top = 358
+      Top = 359
       Width = 627
       Height = 21
       Align = alBottom
@@ -378,13 +426,20 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
     end
     object FindFast: TAction [7]
       Category = #1044#1072#1085#1085#1099#1077
-      Caption = #1055#1086#1080#1089#1082
-      Hint = #1041#1099#1089#1090#1088#1099#1081' '#1087#1086#1080#1089#1082
+      Caption = #1060#1080#1083#1100#1090#1088
+      Hint = #1041#1099#1089#1090#1088#1099#1081' '#1092#1080#1083#1100#1090#1088' '#1087#1086' '#1074#1089#1077#1084' '#1087#1086#1083#1103#1084
       ImageIndex = 13
       OnExecute = FindFastExecute
       OnUpdate = FindFastUpdate
     end
-    object DataSetFirst: TDataSetFirst [8]
+    object FindFastClear: TAction [8]
+      Category = #1044#1072#1085#1085#1099#1077
+      Hint = #1054#1095#1080#1089#1090#1080#1090#1100' '#1073#1099#1089#1090#1088#1099#1081' '#1092#1080#1083#1100#1090#1088
+      ImageIndex = 17
+      OnExecute = FindFastClearExecute
+      OnUpdate = FindFastClearUpdate
+    end
+    object DataSetFirst: TDataSetFirst [9]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1042' '#1085#1072#1095#1072#1083#1086
       Hint = #1055#1077#1088#1077#1081#1090#1080' '#1074' '#1085#1072#1095#1072#1083#1086' '#1090#1072#1073#1083#1080#1094#1099
@@ -392,21 +447,21 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       ShortCut = 36
       DataSource = RDbEditor
     end
-    object DataSetPrior: TDataSetPrior [9]
+    object DataSetPrior: TDataSetPrior [10]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1053#1072#1079#1072#1076
       Hint = #1055#1077#1088#1077#1081#1090#1080' '#1085#1072' '#1087#1088#1077#1076#1099#1076#1091#1097#1091#1102' '#1079#1072#1087#1080#1089#1100
       ImageIndex = 5
       DataSource = RDbEditor
     end
-    object DataSetNext: TDataSetNext [10]
+    object DataSetNext: TDataSetNext [11]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1042#1087#1077#1088#1077#1076
       Hint = #1055#1077#1088#1077#1081#1090#1080' '#1085#1072' '#1089#1083#1077#1076#1091#1102#1097#1091#1102' '#1079#1072#1087#1080#1089#1100
       ImageIndex = 6
       DataSource = RDbEditor
     end
-    object DataSetLast: TDataSetLast [11]
+    object DataSetLast: TDataSetLast [12]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1042' '#1082#1086#1085#1077#1094
       Hint = #1055#1077#1088#1077#1081#1090#1080' '#1074' '#1082#1086#1085#1077#1094' '#1090#1072#1073#1083#1080#1094#1099
@@ -414,7 +469,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       ShortCut = 35
       DataSource = RDbEditor
     end
-    object DbGridSetup: TAction [12]
+    object DbGridSetup: TAction [13]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103'...'
       Enabled = False
@@ -423,7 +478,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DbGridSetupExecute
       OnUpdate = DbGridSetupUpdate
     end
-    object DbGridDefault: TAction [13]
+    object DbGridDefault: TAction [14]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1057#1090#1086#1083#1073#1094#1099' "'#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102'"'
       Enabled = False
@@ -432,7 +487,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DbGridDefaultExecute
       OnUpdate = DbGridDefaultUpdate
     end
-    object ColumnLeft: TAction [14]
+    object ColumnLeft: TAction [15]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1086' '#1083#1077#1074#1086#1084#1091' '#1082#1088#1072#1102
       Enabled = False
@@ -440,7 +495,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = ColumnLeftExecute
       OnUpdate = ColumnLeftUpdate
     end
-    object ColumnCenter: TAction [15]
+    object ColumnCenter: TAction [16]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1086' '#1094#1077#1085#1090#1088#1091
       Enabled = False
@@ -448,7 +503,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = ColumnCenterExecute
       OnUpdate = ColumnCenterUpdate
     end
-    object ColumnRight: TAction [16]
+    object ColumnRight: TAction [17]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1086' '#1087#1088#1072#1074#1086#1084#1091' '#1082#1088#1072#1102
       Enabled = False
@@ -456,19 +511,21 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = ColumnRightExecute
       OnUpdate = ColumnRightUpdate
     end
-    inherited NewGroup: TAction [17]
+    inherited NewGroup: TAction [18]
     end
-    inherited NewSubGroup: TAction [18]
+    inherited NewSubGroup: TAction [19]
     end
-    inherited NewItem: TAction [19]
+    inherited NewItem: TAction [20]
     end
-    inherited NewRecord: TAction [20]
+    inherited NewRecord: TAction [21]
       OnExecute = NewRecordExecute
       OnUpdate = NewRecordUpdate
     end
-    inherited Properties: TAction [21]
+    inherited CopyRecord: TAction [22]
     end
-    object FilterUser: TAction [22]
+    inherited Properties: TAction [23]
+    end
+    object FilterUser: TAction [24]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1060#1080#1083#1100#1090#1088' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103'...'
       Enabled = False
@@ -478,7 +535,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = FilterUserExecute
       OnUpdate = FilterUserUpdate
     end
-    object FilterDefault: TAction [23]
+    object FilterDefault: TAction [25]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1060#1080#1083#1100#1090#1088' "'#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102'"'
       Enabled = False
@@ -488,7 +545,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = FilterDefaultExecute
       OnUpdate = FilterDefaultUpdate
     end
-    object FilterSelected: TAction [24]
+    object FilterSelected: TAction [26]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1060#1080#1083#1100#1090#1088' "'#1087#1086' '#1074#1099#1076#1077#1083#1077#1085#1080#1102'"'
       Enabled = False
@@ -498,7 +555,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = FilterSelectedExecute
       OnUpdate = FilterSelectedUpdate
     end
-    object FilterNone: TAction [25]
+    object FilterNone: TAction [27]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1041#1077#1079' '#1092#1080#1083#1100#1090#1088#1072
       Enabled = False
@@ -508,7 +565,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = FilterNoneExecute
       OnUpdate = FilterNoneUpdate
     end
-    object SortUser: TAction [26]
+    object SortUser: TAction [28]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072'...'
       Enabled = False
@@ -518,7 +575,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SortUserExecute
       OnUpdate = SortUserUpdate
     end
-    object SortDefault: TAction [27]
+    object SortDefault: TAction [29]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' "'#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102'"'
       Enabled = False
@@ -528,7 +585,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SortDefaultExecute
       OnUpdate = SortDefaultUpdate
     end
-    object SetCurrOrderAsc: TAction [28]
+    object SetCurrOrderAsc: TAction [30]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1086' '#1074#1086#1079#1088#1072#1089#1090#1072#1085#1080#1102
       Enabled = False
@@ -536,7 +593,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SetCurrOrderAscExecute
       OnUpdate = SetCurrOrderAscUpdate
     end
-    object SetCurrOrderDesc: TAction [29]
+    object SetCurrOrderDesc: TAction [31]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1055#1086' '#1091#1073#1099#1074#1072#1085#1080#1102
       Enabled = False
@@ -544,25 +601,25 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SetCurrOrderDescExecute
       OnUpdate = SetCurrOrderDescUpdate
     end
-    inherited Move: TAction [30]
+    inherited Move: TAction [32]
     end
-    inherited TreeSort_None: TAction [31]
+    inherited TreeSort_None: TAction [33]
     end
-    inherited AboutBox: TAction [32]
+    inherited AboutBox: TAction [34]
     end
-    inherited TreeSort_Id: TAction [33]
+    inherited TreeSort_Id: TAction [35]
     end
-    inherited TreeSort_TypeId: TAction [34]
+    inherited TreeSort_TypeId: TAction [36]
     end
-    inherited TreeSort_Name: TAction [35]
+    inherited TreeSort_Name: TAction [37]
     end
-    inherited TreeSort_TypeName: TAction [36]
+    inherited TreeSort_TypeName: TAction [38]
     end
-    inherited EM_None: TAction [37]
+    inherited EM_None: TAction [39]
     end
-    inherited EM_Root: TAction [38]
+    inherited EM_Root: TAction [40]
     end
-    object ImportDS: TAction [39]
+    object ImportDS: TAction [41]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1052#1072#1089#1090#1077#1088' '#1080#1084#1087#1086#1088#1090#1072'...'
       Enabled = False
@@ -571,29 +628,29 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = ImportDSExecute
       OnUpdate = ImportDSUpdate
     end
-    inherited TreeVisible: TAction [40]
+    inherited TreeVisible: TAction [42]
     end
-    inherited EM_Groups: TAction [41]
+    inherited EM_Groups: TAction [43]
     end
-    inherited EM_All: TAction [42]
+    inherited EM_All: TAction [44]
     end
-    inherited SelectSaveEM: TAction [43]
+    inherited SelectSaveEM: TAction [45]
     end
-    inherited SaveTreePosition: TAction [44]
+    inherited SaveTreePosition: TAction [46]
     end
-    inherited ExpandAll: TAction [45]
+    inherited ExpandAll: TAction [47]
     end
-    inherited CollapseAll: TAction [46]
+    inherited CollapseAll: TAction [48]
     end
-    inherited ShowHelp: TAction [47]
+    inherited ShowHelp: TAction [49]
     end
-    inherited CopyRecord: TAction [48]
+    inherited TreeSort_IndexSort: TAction [50]
     end
-    inherited TreeSort_IndexSort: TAction [49]
+    inherited NewSubitem: TAction [51]
     end
-    inherited ExpandNode: TAction [50]
+    inherited ExpandNode: TAction [52]
     end
-    object DataSetExportToExcel: TAction
+    object DataSetExportToExcel: TAction [56]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1069#1082#1089#1087#1086#1088#1090' '#1074' Excel'
       Enabled = False
@@ -603,7 +660,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DataSetExportToExcelExecute
       OnUpdate = DataSetExportToExcelUpdate
     end
-    object DataSetExportToFileCsv: TAction
+    object DataSetExportToFileCsv: TAction [57]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1069#1082#1089#1087#1086#1088#1090' '#1074' '#1092#1072#1081#1083' CSV'
       Enabled = False
@@ -613,7 +670,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DataSetExportToFileCsvExecute
       OnUpdate = DataSetExportToFileCsvUpdate
     end
-    object DataSetCreateDynamicReport: TAction
+    object DataSetCreateDynamicReport: TAction [58]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1055#1077#1095#1072#1090#1100' '#1079#1072#1087#1080#1089#1080
       Enabled = False
@@ -623,7 +680,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DataSetCreateDynamicReportExecute
       OnUpdate = DataSetCreateDynamicReportUpdate
     end
-    object DataSetStatistic: TAction
+    object DataSetStatistic: TAction [59]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
       Enabled = False
@@ -633,7 +690,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = DataSetStatisticExecute
       OnUpdate = DataSetStatisticUpdate
     end
-    object Attachments: TAction
+    object Attachments: TAction [60]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1088#1080#1082#1088#1077#1087#1083#1077#1085#1085#1099#1077' '#1092#1072#1081#1083#1099
       Enabled = False
@@ -644,7 +701,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = AttachmentsExecute
       OnUpdate = AttachmentsUpdate
     end
-    object MultiSelectOnOff: TAction
+    object MultiSelectOnOff: TAction [61]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1052#1091#1083#1100#1090#1080#1086#1073#1088#1072#1073#1086#1090#1082#1072
       Enabled = False
@@ -655,7 +712,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = MultiSelectOnOffExecute
       OnUpdate = MultiSelectOnOffUpdate
     end
-    object ColumnStatistic: TAction
+    object ColumnStatistic: TAction [62]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
       Enabled = False
@@ -664,7 +721,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = ColumnStatisticExecute
       OnUpdate = ColumnStatisticUpdate
     end
-    object SelectAll: TAction
+    object SelectAll: TAction [63]
       Category = #1044#1072#1085#1085#1099#1077
       Caption = #1042#1099#1076#1077#1083#1080#1090#1100' '#1074#1089#1077
       Enabled = False
@@ -673,7 +730,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SelectAllExecute
       OnUpdate = SelectAllUpdate
     end
-    object SelectDefaultValues: TAction
+    object SelectDefaultValues: TAction [64]
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1047#1085#1072#1095#1077#1085#1080#1103' "'#1087#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102'"'
       Enabled = False
@@ -684,7 +741,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       OnExecute = SelectDefaultValuesExecute
       OnUpdate = SelectDefaultValuesUpdate
     end
-    object DateSetGrouping: TAction
+    object DateSetGrouping: TAction [65]
       Category = #1054#1090#1095#1077#1090#1099
       Caption = #1043#1088#1091#1087#1087#1080#1088#1086#1074#1082#1072
       Enabled = False
@@ -699,6 +756,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited PopupMenu: TPopupMenu
     AutoPopup = False
+    OnPopup = PopupMenuPopup
     object itemDbLocateP: TMenuItem [7]
       Action = DbLocate
     end

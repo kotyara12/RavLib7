@@ -6,7 +6,7 @@ uses
   Classes, ComCtrls;
 
 type
-  TNodeType  = (ntEmpty, ntRoot, ntGroup, ntItem, ntSubItem, ntULevel1, ntULevel2, ntULevel3);
+  TNodeType  = (ntEmpty, ntRoot, ntGroup, ntItem, ntSubitem, ntULevel1, ntULevel2, ntULevel3);
   TSortMode  = (stNone, stTypeId, stTypeName, stRecordId, stRecordName, stRecordSort);
   TGotoMode  = (gtNoChangeSelection, gtClearSelection, gtSelectTopNode);
   TAExpMode  = (emNone, emRoot, emGroups, emAll);

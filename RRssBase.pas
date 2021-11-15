@@ -16,7 +16,7 @@ const
   DefChangePwdPeriod      = 40;
   DefMinPwdLength         = 6;
 
-  SDefaultPwd             = '11111111';
+  SDefaultPwd             = '';
 
   MaxPwdErrors            = 10;
 

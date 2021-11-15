@@ -23,6 +23,11 @@ type
     CopyRecord: TAction;
     itemCopyRecord: TMenuItem;
     itemCopyRecordP: TMenuItem;
+    SubitemsEditor: TRDbTreeEditor;
+    NewSubItem: TAction;
+    itemNewSubItem: TMenuItem;
+    itemNewSubItemP: TMenuItem;
+    itemNewSubItemN: TMenuItem;
     procedure SaveToLog(Sender: TObject;
       const EditTag: Integer; const Text: String);
     procedure GetRecordId(Sender: TObject; var Value: Integer);
@@ -58,6 +63,14 @@ type
     procedure ItemsEditorBeforeDelete(Sender: TObject; OldData,
       NewData: TRecordData; const Mode: TEditMode; const EditTag: Integer;
       var Complete: Boolean);
+    procedure SubitemsEditorBeforeDelete(Sender: TObject; OldData,
+      NewData: TRecordData; const Mode: TEditMode; const EditTag: Integer;
+      var Complete: Boolean);
+    procedure SubitemsEditorBeforeShowEditor(Sender: TObject;
+      Editor: TForm; const Mode: TEditMode; const EditTag: Integer;
+      var Complete: Boolean);
+    procedure NewSubItemUpdate(Sender: TObject);
+    procedure NewSubItemExecute(Sender: TObject);
   protected
     procedure InitDataComponents; override;
     function  LoadDataTreeBegin: Boolean; override;
@@ -162,6 +175,18 @@ begin
   end;
 end;
 
+procedure TDbTreeTemplate.SubitemsEditorBeforeShowEditor(Sender: TObject;
+  Editor: TForm; const Mode: TEditMode; const EditTag: Integer;
+  var Complete: Boolean);
+begin
+  if Editor is TDbDialogTemplate then
+  begin
+    TDbDialogTemplate(Editor).Caption := GetEditorCaption(
+      TRDbCustomEditor(Sender).GetObjectDesc(etView), TRDbCustomEditor(Sender).DataSet);
+    TDbDialogTemplate(Editor).DataSource.DataSet := TRDbCustomEditor(Sender).DataSet;
+  end;
+end;
+
 { == Запись в журнал аудита ==================================================== }
 procedure TDbTreeTemplate.SaveToLog(Sender: TObject; const EditTag: Integer; const Text: String);
 begin
@@ -188,10 +213,11 @@ var
   ParentNode: TTreeNode;
 begin
   case TreeView.GetNodeType(TreeView.Selected) of
-    ntRoot:  ParentNode := TreeView.Selected;
-    ntGroup: ParentNode := TreeView.Selected.Parent;
-    ntItem:  ParentNode := TreeView.Selected.Parent.Parent;
-    else     ParentNode := nil;
+    ntRoot:    ParentNode := TreeView.Selected;
+    ntGroup:   ParentNode := TreeView.Selected.Parent;
+    ntItem:    ParentNode := TreeView.Selected.Parent.Parent;
+    ntSubitem: ParentNode := TreeView.Selected.Parent.Parent.Parent;
+    else       ParentNode := nil;
   end;
   if ParentNode = nil then ParentNode := TreeView.FindNode([ntRoot], intDisable);
   TreeLoader.InsertNode(ParentNode, ntGroup);
@@ -209,10 +235,11 @@ var
   ParentNode: TTreeNode;
 begin
   case TreeView.GetNodeType(TreeView.Selected) of
-    ntRoot:  ParentNode := TreeView.Selected;
-    ntGroup: ParentNode := TreeView.Selected;
-    ntItem:  ParentNode := TreeView.Selected.Parent;
-    else     ParentNode := nil;
+    ntRoot:    ParentNode := TreeView.Selected;
+    ntGroup:   ParentNode := TreeView.Selected;
+    ntItem:    ParentNode := TreeView.Selected.Parent;
+    ntSubitem: ParentNode := TreeView.Selected.Parent.Parent;
+    else       ParentNode := nil;
   end;
   if ParentNode = nil then ParentNode := TreeView.FindNode([ntRoot], intDisable);
   TreeLoader.InsertNode(ParentNode, ntGroup);
@@ -229,8 +256,26 @@ end;
 procedure TDbTreeTemplate.NewItemExecute(Sender: TObject);
 begin
   case TreeView.GetNodeType(TreeView.Selected) of
-    ntGroup: TreeLoader.InsertNode(TreeView.Selected, ntItem);
-    ntItem:  TreeLoader.InsertNode(TreeView.Selected.Parent, ntItem);
+    ntGroup:   TreeLoader.InsertNode(TreeView.Selected, ntItem);
+    ntItem:    TreeLoader.InsertNode(TreeView.Selected.Parent, ntItem);
+    ntSubitem: TreeLoader.InsertNode(TreeView.Selected.Parent.Parent, ntItem);
+  end;
+end;
+
+{ == Создание нового подэлемента ================================================== }
+procedure TDbTreeTemplate.NewSubItemUpdate(Sender: TObject);
+begin
+  NewSubItem.Enabled := IsNotWait
+    and Assigned(TreeView.Selected)
+    and TreeLoader.NodeCanInserted(TreeView.Selected, ntSubitem, True);
+end;
+
+procedure TDbTreeTemplate.NewSubItemExecute(Sender: TObject);
+begin
+  case TreeView.GetNodeType(TreeView.Selected) of
+    ntGroup:   TreeLoader.InsertNode(TreeView.Selected, ntSubitem);
+    ntItem:    TreeLoader.InsertNode(TreeView.Selected, ntSubitem);
+    ntSubitem: TreeLoader.InsertNode(TreeView.Selected.Parent, ntSubitem);
   end;
 end;
 
@@ -297,6 +342,17 @@ begin
 {$IFDEF ATTACH}
   Complete := Complete and
     rAttachs_DeleteAttachments(BaseData.acDb, ItemsEditor);
+{$ENDIF}
+end;
+
+procedure TDbTreeTemplate.SubitemsEditorBeforeDelete(Sender: TObject;
+  OldData, NewData: TRecordData; const Mode: TEditMode;
+  const EditTag: Integer; var Complete: Boolean);
+begin
+  inherited;
+{$IFDEF ATTACH}
+  Complete := Complete and
+    rAttachs_DeleteAttachments(BaseData.acDb, SubitemsEditor);
 {$ENDIF}
 end;
 

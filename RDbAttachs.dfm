@@ -44,7 +44,7 @@ inherited FormDbAttachs: TFormDbAttachs
   PixelsPerInch = 96
   TextHeight = 13
   inherited StatusBar: TStatusBar
-    Top = 347
+    Top = 346
     Width = 571
     Panels = <
       item
@@ -132,7 +132,7 @@ inherited FormDbAttachs: TFormDbAttachs
   inherited ListView: TRSortListView
     Top = 69
     Width = 571
-    Height = 278
+    Height = 277
     Columns = <
       item
         AutoSize = True
