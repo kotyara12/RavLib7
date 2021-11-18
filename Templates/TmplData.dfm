@@ -11,7 +11,7 @@ inherited DataTemplate: TDataTemplate
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 412
+    Top = 411
     Width = 831
     Height = 19
     Panels = <>
@@ -92,7 +92,7 @@ inherited DataTemplate: TDataTemplate
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1054#1073#1085#1086#1074#1080#1090#1100
       Enabled = False
-      Hint = #1054#1073#1085#1086#1074#1080#1090#1100' '#1076#1072#1085#1085#1099#1077
+      Hint = #1055#1077#1088#1077#1095#1080#1090#1072#1090#1100' '#1076#1072#1085#1085#1099#1077' '#1080#1079' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093
       ImageIndex = 12
       ShortCut = 116
       OnExecute = RefreshExecute

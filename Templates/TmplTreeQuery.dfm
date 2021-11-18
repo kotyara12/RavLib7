@@ -9,10 +9,10 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   TextHeight = 13
   inherited Splitter: TSplitter
     Top = 40
-    Height = 421
+    Height = 420
   end
   inherited StatusBar: TStatusBar
-    Top = 461
+    Top = 460
     Width = 851
     Panels = <
       item
@@ -43,7 +43,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       Width = 838
       Height = 36
       ButtonHeight = 36
-      ButtonWidth = 57
+      ButtonWidth = 58
       object NewToolButton: TToolButton
         Left = 0
         Top = 0
@@ -54,17 +54,17 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         PopupMenu = NewPopupMenu
       end
       object PropertiesToolButton: TToolButton
-        Left = 57
+        Left = 58
         Top = 0
         Action = Properties
       end
       object DeleteItemToolButton: TToolButton
-        Left = 114
+        Left = 116
         Top = 0
         Action = Delete
       end
       object SeparatorEdit: TToolButton
-        Left = 171
+        Left = 174
         Top = 0
         Width = 8
         Caption = 'SeparatorEdit'
@@ -72,12 +72,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object FindRecordToolButton: TToolButton
-        Left = 179
+        Left = 182
         Top = 0
         Action = Find
       end
       object SeparatorFind: TToolButton
-        Left = 236
+        Left = 240
         Top = 0
         Width = 8
         Caption = 'SeparatorFind'
@@ -85,7 +85,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object DataToolButton: TToolButton
-        Left = 244
+        Left = 248
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
@@ -93,7 +93,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         ImageIndex = 14
       end
       object OpersToolButton: TToolButton
-        Left = 301
+        Left = 306
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093' '#1080' '#1076#1086#1089#1090#1091#1087' '#1082' '#1076#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
@@ -102,7 +102,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Visible = False
       end
       object ReportsToolButton: TToolButton
-        Left = 358
+        Left = 364
         Top = 0
         Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1086#1090#1095#1077#1090#1086#1074', '#1087#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
@@ -110,7 +110,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         ImageIndex = 23
       end
       object SeparatorRefresh: TToolButton
-        Left = 415
+        Left = 422
         Top = 0
         Width = 8
         Caption = 'SeparatorRefresh'
@@ -118,12 +118,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object RefreshToolButton: TToolButton
-        Left = 423
+        Left = 430
         Top = 0
         Action = Refresh
       end
       object SeparatorEnd: TToolButton
-        Left = 480
+        Left = 488
         Top = 0
         Width = 8
         Caption = 'SeparatorEnd'
@@ -131,12 +131,12 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Style = tbsSeparator
       end
       object CloseSelectToolButton: TToolButton
-        Left = 488
+        Left = 496
         Top = 0
         Action = CloseSelect
       end
       object CloseCancelToolButton: TToolButton
-        Left = 545
+        Left = 554
         Top = 0
         Action = CloseCancel
       end
@@ -144,18 +144,18 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited TreePanel: TPanel
     Top = 40
-    Height = 421
+    Height = 420
     inherited TreeView: TRTreeView
-      Height = 398
+      Height = 397
     end
   end
   inherited DataPanel: TPanel
     Top = 40
     Width = 627
-    Height = 421
+    Height = 420
     object InfoPanel: TRDbInfoPanel
       Left = 0
-      Top = 380
+      Top = 379
       Width = 627
       Height = 41
       Align = alBottom
@@ -168,7 +168,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       Left = 0
       Top = 29
       Width = 627
-      Height = 330
+      Height = 329
       Align = alClient
       DataSource = RDbEditor
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -370,7 +370,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
     end
     object TabViews: TTabSet
       Left = 0
-      Top = 359
+      Top = 358
       Width = 627
       Height = 21
       Align = alBottom
@@ -471,9 +471,9 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
     end
     object DbGridSetup: TAction [13]
       Category = #1044#1072#1085#1085#1099#1077
-      Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103'...'
+      Caption = #1042#1099#1073#1086#1088' '#1089#1090#1086#1083#1073#1094#1086#1074'...'
       Enabled = False
-      Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1089#1090#1086#1083#1073#1094#1086#1074' '#1074' '#1090#1072#1073#1083#1080#1094#1077
+      Hint = #1042#1099#1073#1086#1088' '#1086#1090#1086#1073#1088#1072#1078#1072#1077#1084#1099#1093' '#1089#1090#1086#1083#1073#1094#1086#1074' '#1074' '#1090#1072#1073#1083#1080#1094#1077
       ImageIndex = 19
       OnExecute = DbGridSetupExecute
       OnUpdate = DbGridSetupUpdate
@@ -809,7 +809,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       end
     end
     object menuViewsDataP: TMenuItem [12]
-      Caption = #1055#1088#1077#1076#1089#1090#1072#1074#1083#1077#1085#1080#1103
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1090#1072#1073#1083#1080#1094#1099
       Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1074#1072#1088#1080#1072#1085#1090#1086#1074' '#1086#1090#1086#1073#1088#1072#1078#1077#1085#1080#1103' '#1090#1072#1073#1083#1080#1094#1099
       ImageIndex = 19
       object itemDbGridSetupP: TMenuItem
@@ -866,31 +866,31 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited MainMenu: TMainMenu
     inherited menuEdit: TMenuItem
-      object itemAttachments: TMenuItem [11]
+      object divAttach: TMenuItem [11]
+        Caption = '-'
+        Visible = False
+      end
+      object itemAttachments: TMenuItem [12]
         Action = Attachments
       end
-      object divAttach: TMenuItem [12]
+      object divEditImport: TMenuItem [13]
         Caption = '-'
-        Visible = False
       end
-      object itemImportDS: TMenuItem [13]
+      object itemImportDS: TMenuItem [14]
         Action = ImportDS
       end
-      object divEditMulti: TMenuItem [14]
+      object divEditMulti: TMenuItem [15]
         Caption = '-'
         Visible = False
       end
-      object itemSelectDefaultValues: TMenuItem [15]
+      object itemSelectDefaultValues: TMenuItem [16]
         Action = SelectDefaultValues
       end
-      object itemMultiSelectOnOff: TMenuItem [16]
+      object itemMultiSelectOnOff: TMenuItem [17]
         Action = MultiSelectOnOff
       end
-      object itemSelectAll: TMenuItem [17]
+      object itemSelectAll: TMenuItem [18]
         Action = SelectAll
-      end
-      object divEditImport: TMenuItem [18]
-        Caption = '-'
       end
     end
     inherited menuData: TMenuItem

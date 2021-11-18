@@ -10,10 +10,10 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
   object Splitter: TSplitter [0]
     Left = 221
     Top = 29
-    Height = 425
+    Height = 424
   end
   inherited StatusBar: TStatusBar
-    Top = 454
+    Top = 453
     Width = 776
   end
   inherited CoolBar: TCoolBar
@@ -32,7 +32,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     Left = 0
     Top = 29
     Width = 221
-    Height = 425
+    Height = 424
     Align = alLeft
     BevelOuter = bvNone
     BorderStyle = bsSingle
@@ -93,7 +93,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       Left = 0
       Top = 19
       Width = 217
-      Height = 402
+      Height = 401
       Align = alClient
       BorderStyle = bsNone
       Ctl3D = True
@@ -115,7 +115,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     Left = 224
     Top = 29
     Width = 552
-    Height = 425
+    Height = 424
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
@@ -345,9 +345,9 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
     end
     object Properties: TAction [28]
       Category = #1055#1088#1072#1074#1082#1072
-      Caption = #1057#1074#1086#1081#1089#1090#1074#1072
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
       Enabled = False
-      Hint = #1057#1074#1086#1081#1089#1090#1074#1072' '#1074#1099#1076#1077#1083#1077#1085#1085#1086#1075#1086' '#1086#1073#1098#1077#1082#1090#1072
+      Hint = #1048#1079#1084#1077#1085#1080#1090#1100' '#1080#1083#1080' '#1087#1088#1086#1089#1084#1086#1090#1088#1077#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1077' '#1079#1072#1087#1080#1089#1080
       ImageIndex = 9
       ShortCut = 16397
       OnExecute = PropertiesExecute
@@ -357,7 +357,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100
       Enabled = False
-      Hint = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1086#1073#1098#1077#1082#1090' '#1074' '#1076#1088#1091#1075#1091#1102' '#1075#1088#1091#1087#1087#1091
+      Hint = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1079#1072#1087#1080#1089#1100' '#1074' '#1076#1088#1091#1075#1091#1102' '#1075#1088#1091#1087#1087#1091
       ImageIndex = 11
       ShortCut = 16461
       OnExecute = MoveExecute
@@ -367,7 +367,7 @@ inherited TreeDetailTemplate: TTreeDetailTemplate
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1059#1076#1072#1083#1080#1090#1100
       Enabled = False
-      Hint = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1081' '#1086#1073#1098#1077#1082#1090
+      Hint = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1077' '#1079#1072#1087#1080#1089#1080
       ImageIndex = 10
       ShortCut = 16430
       OnExecute = DeleteExecute

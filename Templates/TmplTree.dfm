@@ -77,7 +77,7 @@ inherited TreeTemplate: TTreeTemplate
       Width = 735
       Height = 38
       ButtonHeight = 36
-      ButtonWidth = 57
+      ButtonWidth = 58
       EdgeBorders = [ebBottom]
       object NewToolButton: TToolButton
         Left = 0
@@ -88,17 +88,17 @@ inherited TreeTemplate: TTreeTemplate
         ImageIndex = 8
       end
       object PropertiesToolButton: TToolButton
-        Left = 57
+        Left = 58
         Top = 0
         Action = Properties
       end
       object DeleteItemToolButton: TToolButton
-        Left = 114
+        Left = 116
         Top = 0
         Action = DeleteItem
       end
       object SeparatorEdit: TToolButton
-        Left = 171
+        Left = 174
         Top = 0
         Width = 8
         Caption = 'SeparatorEdit'
@@ -106,12 +106,12 @@ inherited TreeTemplate: TTreeTemplate
         Style = tbsSeparator
       end
       object FindItemToolButton: TToolButton
-        Left = 179
+        Left = 182
         Top = 0
         Action = Find
       end
       object SeparatorData: TToolButton
-        Left = 236
+        Left = 240
         Top = 0
         Width = 8
         Caption = 'SeparatorData'
@@ -119,7 +119,7 @@ inherited TreeTemplate: TTreeTemplate
         Style = tbsSeparator
       end
       object DataToolButton: TToolButton
-        Left = 244
+        Left = 248
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
@@ -127,7 +127,7 @@ inherited TreeTemplate: TTreeTemplate
         ImageIndex = 14
       end
       object OpersToolButton: TToolButton
-        Left = 301
+        Left = 306
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
@@ -136,7 +136,7 @@ inherited TreeTemplate: TTreeTemplate
         Visible = False
       end
       object ReportsToolButton: TToolButton
-        Left = 358
+        Left = 364
         Top = 0
         Hint = #1055#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
@@ -145,7 +145,7 @@ inherited TreeTemplate: TTreeTemplate
         Visible = False
       end
       object SeparatorRefresh: TToolButton
-        Left = 415
+        Left = 422
         Top = 0
         Width = 8
         Caption = 'SeparatorRefresh'
@@ -153,12 +153,12 @@ inherited TreeTemplate: TTreeTemplate
         Style = tbsSeparator
       end
       object RefreshToolButton: TToolButton
-        Left = 423
+        Left = 430
         Top = 0
         Action = Refresh
       end
       object SeparatorEnd: TToolButton
-        Left = 480
+        Left = 488
         Top = 0
         Width = 8
         Caption = 'SeparatorEnd'
@@ -166,12 +166,12 @@ inherited TreeTemplate: TTreeTemplate
         Style = tbsSeparator
       end
       object CloseSelectToolButton: TToolButton
-        Left = 488
+        Left = 496
         Top = 0
         Action = CloseSelect
       end
       object CloseCancelToolButton: TToolButton
-        Left = 545
+        Left = 554
         Top = 0
         Action = CloseCancel
       end
@@ -427,9 +427,9 @@ inherited TreeTemplate: TTreeTemplate
     end
     object Properties: TAction [10]
       Category = #1055#1088#1072#1074#1082#1072
-      Caption = #1057#1074#1086#1081#1089#1090#1074#1072
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100
       Enabled = False
-      Hint = #1057#1074#1086#1081#1089#1090#1074#1072' '#1074#1099#1076#1077#1083#1077#1085#1085#1086#1075#1086' '#1086#1073#1098#1077#1082#1090#1072
+      Hint = #1048#1079#1084#1077#1085#1080#1090#1100' '#1080#1083#1080' '#1087#1088#1086#1089#1084#1086#1090#1088#1077#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1091#1102' '#1079#1072#1087#1080#1089#1100
       ImageIndex = 9
       ShortCut = 16397
     end
@@ -437,7 +437,7 @@ inherited TreeTemplate: TTreeTemplate
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100
       Enabled = False
-      Hint = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1086#1073#1098#1077#1082#1090' '#1074' '#1076#1088#1091#1075#1091#1102' '#1075#1088#1091#1087#1087#1091
+      Hint = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1079#1072#1087#1080#1089#1100' '#1074' '#1076#1088#1091#1075#1091#1102' '#1075#1088#1091#1087#1087#1091
       ImageIndex = 11
       ShortCut = 16461
       OnExecute = MoveItemExecute
@@ -447,7 +447,7 @@ inherited TreeTemplate: TTreeTemplate
       Category = #1055#1088#1072#1074#1082#1072
       Caption = #1059#1076#1072#1083#1080#1090#1100
       Enabled = False
-      Hint = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1099#1081' '#1086#1073#1098#1077#1082#1090
+      Hint = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1076#1077#1083#1077#1085#1085#1091#1102' '#1079#1072#1087#1080#1089#1100
       ImageIndex = 10
       ShortCut = 16430
     end
