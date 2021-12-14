@@ -76,8 +76,12 @@ const
   clYellowTone                 = 14286332;
   clYellowTone200              = 11206655;
   clGreenTone                  = 15400938;
+  clGreenTone220               = 14024661;
+  clGreenTone210               = 12582847;
   clGreenTone200               = 11206610;
   clRedTone                    = 15395583;
+  clRedTone220                 = 14013951;
+  clRedTone210                 = 12566527;
   clRedTone200                 = 11184895;
   clOrangeTone                 = 15398911;
   clOrangeTone200              = 11195903;

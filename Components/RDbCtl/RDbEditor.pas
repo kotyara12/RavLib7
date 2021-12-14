@@ -1040,8 +1040,7 @@ begin
   end;
 end;
 
-procedure TRDbCustomEditor.EditorFormFree(Editor: TForm; const Mode: TEditMode; 
-  var Complete: Boolean);
+procedure TRDbCustomEditor.EditorFormFree(Editor: TForm; const Mode: TEditMode; var Complete: Boolean);
 begin
   if Assigned(Editor) then
   begin
