@@ -785,13 +785,13 @@ var
   KeyFld: TField;
 begin
   KeyFld := GetKeyField;
-  Result := (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes);
+  Result := Assigned(KeyFld) and (KeyFld.DataType in IntegerDataTypes);
 end;
 
 function TRDbCustomEditor.GetKeyField: TField;
 begin
   Result := nil;
-  if DataSet <> nil then
+  if Assigned(DataSet) then
     Result := DataSet.FindField(fKeyField);
 end;
 
@@ -800,7 +800,7 @@ var
   KeyFld: TField;
 begin
   KeyFld := GetKeyField;
-  if (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes)
+  if Assigned(KeyFld) and (KeyFld.DataType in IntegerDataTypes)
     and DataSet.Active and not DataSet.IsEmpty
   then Result := KeyFld.AsInteger
   else Result := intDisable;
@@ -811,7 +811,7 @@ var
   KeyFld: TField;
 begin
   KeyFld := GetKeyField;
-  Result := (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) and DataSet.Active
+  Result := Assigned(KeyFld) and (KeyFld.DataType in IntegerDataTypes) and DataSet.Active
     and DataSet.Locate(fKeyField, KeyValue, []);
 end;
 
@@ -823,7 +823,7 @@ begin
   if (fKeyType = kgClient) and Assigned(fOnGetKey) and DataSetIsEdited then
   begin
     KeyFld := GetKeyField;
-    if (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) then
+    if Assigned(KeyFld) and (KeyFld.DataType in IntegerDataTypes) then
     begin
       fOnGetKey(Self, KeyValue);
       GetKeyField.AsInteger := KeyValue;
@@ -838,7 +838,7 @@ begin
   if (fKeyType = kgClient) and (KeyValue > intDisable) and Assigned(fOnFreeKey) then
   begin
     KeyFld := GetKeyField;
-    if (KeyFld <> nil) and (KeyFld.DataType in IntegerDataTypes) then
+    if Assigned(KeyFld) and (KeyFld.DataType in IntegerDataTypes) then
     begin
       fOnFreeKey(Self, KeyValue);
     end;
@@ -852,13 +852,13 @@ var
   OwnerFld: TField;
 begin
   OwnerFld := GetOwnerField;
-  Result := (OwnerFld <> nil) and (OwnerFld.DataType in IntegerDataTypes);
+  Result := Assigned(OwnerFld) and (OwnerFld.DataType in IntegerDataTypes);
 end;
 
 function TRDbCustomEditor.GetOwnerField: TField;
 begin
   Result := nil;
-  if DataSet <> nil then 
+  if Assigned(DataSet) then 
     Result := DataSet.FindField(fOwnerField);
 end;
 
@@ -867,7 +867,7 @@ var
   OwnerFld: TField;
 begin
   OwnerFld := GetOwnerField;
-  if (OwnerFld <> nil) and (OwnerFld.DataType in IntegerDataTypes)
+  if Assigned(OwnerFld) and (OwnerFld.DataType in IntegerDataTypes)
     and DataSet.Active and not DataSet.IsEmpty
   then Result := OwnerFld.AsInteger
   else Result := intDisable;
@@ -909,13 +909,13 @@ var
   BlockFld: TField;
 begin
   BlockFld := GetBlockField;
-  Result := (BlockFld <> nil) and (BlockFld.DataType in BooleanDataTypes);
+  Result := Assigned(BlockFld) and (BlockFld.DataType in BooleanDataTypes);
 end;
 
 function TRDbCustomEditor.GetBlockField: TField;
 begin
   Result := nil;
-  if DataSet <> nil then Result := DataSet.FindField(fBlockField);
+  if Assigned(DataSet) then Result := DataSet.FindField(fBlockField);
 end;
 
 function TRDbCustomEditor.GetBlockValue: Boolean;
@@ -955,17 +955,17 @@ end;
 
 function TRDbCustomEditor.DataSetIsOpened: Boolean;
 begin
-  Result := Enabled and (DataSet <> nil) and DataSet.Active;
+  Result := Enabled and Assigned(DataSet) and DataSet.Active;
 end;
 
 function TRDbCustomEditor.DataSetIsEmply: Boolean;
 begin
-  Result := Enabled and (DataSet <> nil) and DataSet.Active and DataSet.IsEmpty;
+  Result := Enabled and Assigned(DataSet) and DataSet.Active and DataSet.IsEmpty;
 end;
 
 function TRDbCustomEditor.DataSetIsNotEmply: Boolean;
 begin
-  Result := Enabled and (DataSet <> nil) and DataSet.Active and not DataSet.IsEmpty;
+  Result := Enabled and Assigned(DataSet) and DataSet.Active and not DataSet.IsEmpty;
 end;
 
 function TRDbCustomEditor.DataSetIsEdited: Boolean;
@@ -1040,7 +1040,8 @@ begin
   end;
 end;
 
-procedure TRDbCustomEditor.EditorFormFree(Editor: TForm; const Mode: TEditMode; var Complete: Boolean);
+procedure TRDbCustomEditor.EditorFormFree(Editor: TForm; const Mode: TEditMode; 
+  var Complete: Boolean);
 begin
   if Assigned(Editor) then
   begin
@@ -1093,12 +1094,12 @@ end;
 
 function TRDbEditor.GetMultiSelect: Boolean;
 begin
-  Result := (fDbGrid <> nil) and (dgMultiSelect in fDbGrid.Options);
+  Result := Assigned(fDbGrid) and (dgMultiSelect in fDbGrid.Options);
 end;
 
 procedure TRDbEditor.SetMultiSelect(const Value: Boolean);
 begin
-  if (fDbGrid <> nil) and ((dgMultiSelect in fDbGrid.Options) <> Value) then
+  if Assigned(fDbGrid) and ((dgMultiSelect in fDbGrid.Options) <> Value) then
   begin
     if Value
     then fDbGrid.Options := fDbGrid.Options + [dgMultiSelect]
@@ -1108,10 +1109,11 @@ end;
 
 function TRDbEditor.GetSelCount: Integer;
 begin
-  if (DataSet <> nil) and DataSet.Active then
+  if Assigned(DataSet) and DataSet.Active then
   begin
     if DataSet.IsEmpty then Result := 0
-    else if (fDbGrid = nil) or not (dgMultiSelect in fDbGrid.Options)
+    else if not Assigned(fDbGrid)
+         or not (dgMultiSelect in fDbGrid.Options)
          or (fDbGrid.SelectedRows.Count < 1)
          then Result := 1
          else Result := fDbGrid.SelectedRows.Count;
@@ -1124,7 +1126,7 @@ var
   fCurrId, i: Integer;
 begin
   Result := '';
-  if (DataSet <> nil) and DataSet.Active then
+  if Assigned(DataSet) and DataSet.Active then
   begin
     if not DataSet.IsEmpty then
     begin
@@ -1155,7 +1157,7 @@ end;
 
 function TRDbEditor.GraySelected: Boolean;
 begin
-  Result := (DataSet <> nil) and (fDbGrid <> nil)
+  Result := Assigned(DataSet) and Assigned(fDbGrid)
     and (dgMultiSelect in fDbGrid.Options)
     and (fDbGrid.SelectedRows.Count > 0);
 end;

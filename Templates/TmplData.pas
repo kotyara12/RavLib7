@@ -188,7 +188,7 @@ begin
       end;
     except
       on E: Exception do
-        HandleExcept(E, Self, SErrDoneForm);
+        HandleExcept(E, Self, SErrDoneForm, 0, 0, esReg);
     end;
   finally
     ShowInStatusBar(EmptyStr);
@@ -209,7 +209,7 @@ begin
         end;
       except
         on E: Exception do
-          HandleExcept(E, Self, SErrDoneForm);
+          HandleExcept(E, Self, SErrDoneForm, 0, 0, esReg);
       end;
     finally
       inherited;

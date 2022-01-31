@@ -204,6 +204,7 @@ end;
 procedure TFormLogin.NameEditEnter(Sender: TObject);
 begin
   fState := 1;
+  InfoBox('1');
   PwdEdit.Enabled := False;
   OkBtn.Hint := SMsgFindUser;
   ShowMessage(SMsgEnterUsedId);

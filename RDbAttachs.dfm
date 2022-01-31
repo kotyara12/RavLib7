@@ -223,6 +223,8 @@ inherited FormDbAttachs: TFormDbAttachs
     end
     inherited Refresh: TAction [20]
     end
+    inherited FindFastClear: TAction [21]
+    end
   end
   inherited PopupMenu: TPopupMenu
     object itemFileAppendP: TMenuItem [0]

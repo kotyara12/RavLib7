@@ -5385,17 +5385,20 @@ begin
       strFN := GetIniFileName;
       strSN := GetIniSection;
       Ini := TMemIniFile.Create(strFN);
-      try
-        if Ini.ReadBool(strSN, iniRestore, foStoreItemsState in fOptions)
-        then fOptions := fOptions + [foStoreItemsState]
-        else fOptions := fOptions - [foStoreItemsState];
-        if Ini.ReadBool(strSN, iniRebuild, foDialogOnActivate in fOptions)
-        then fOptions := fOptions + [foDialogOnActivate]
-        else fOptions := fOptions - [foDialogOnActivate];
-        if foStoreItemsState in fOptions then
-          LoadItems(Ini);
-      finally
-        Ini.Free;
+      if Assigned(Ini) then
+      begin
+        try
+          if Ini.ReadBool(strSN, iniRestore, foStoreItemsState in fOptions)
+          then fOptions := fOptions + [foStoreItemsState]
+          else fOptions := fOptions - [foStoreItemsState];
+          if Ini.ReadBool(strSN, iniRebuild, foDialogOnActivate in fOptions)
+          then fOptions := fOptions + [foDialogOnActivate]
+          else fOptions := fOptions - [foDialogOnActivate];
+          if foStoreItemsState in fOptions then
+            LoadItems(Ini);
+        finally
+          Ini.Free;
+        end;
       end;
     end;
   end;
@@ -5414,17 +5417,20 @@ begin
       strFN := GetIniFileName;
       strSN := GetIniSection;
       Ini := TMemIniFile.Create(strFN);
-      try
-        if Ini.SectionExists(strSN) then Ini.EraseSection(strSN);
-        if foChangeOptions in fOptions then
-        begin
-          Ini.WriteBool(strSN, iniRestore, foStoreItemsState in fOptions);
-          Ini.WriteBool(strSN, iniRebuild, foDialogOnActivate in fOptions);
+      if Assigned(Ini) then
+      begin
+        try
+          if Ini.SectionExists(strSN) then Ini.EraseSection(strSN);
+          if foChangeOptions in fOptions then
+          begin
+            Ini.WriteBool(strSN, iniRestore, foStoreItemsState in fOptions);
+            Ini.WriteBool(strSN, iniRebuild, foDialogOnActivate in fOptions);
+          end;
+          SaveItems(Ini);
+          Ini.UpdateFile;
+        finally
+          Ini.Free;
         end;
-        SaveItems(Ini);
-        Ini.UpdateFile;
-      finally
-        Ini.Free;
       end;
     end;
   end;
@@ -5461,12 +5467,15 @@ begin
   if not FileExists(FileName) then
     raise ERDbFilterError.CreateFmt(EFilterFileNotFound, [FileName]);
   Ini := TMemIniFile.Create(FileName);
-  try
-    if not Ini.SectionExists(GetIniSection) then
-      raise ERDbFilterError.CreateFmt(EFilterNotFound, [FileName, DataSet.Name]);
-    LoadItems(Ini);
-  finally
-    Ini.Free;
+  if Assigned(Ini) then
+  begin
+    try
+      if not Ini.SectionExists(GetIniSection) then
+        raise ERDbFilterError.CreateFmt(EFilterNotFound, [FileName, DataSet.Name]);
+      LoadItems(Ini);
+    finally
+      Ini.Free;
+    end;
   end;
 end;
 
@@ -5475,15 +5484,18 @@ var
   Ini: TMemIniFile;
 begin
   Ini := TMemIniFile.Create(FileName);
-  try
-    if not (FileExists(FileName) and Ini.SectionExists(GetIniSection))
-    or (Application.MessageBox(PChar(Format(SReplaceFilter, [FileName, DataSet.Name])),
-          PChar(Application.Title),
-          MB_YESNO + MB_ICONQUESTION) = IDYES)
-    then SaveItems(Ini);
-    Ini.UpdateFile;
-  finally
-    Ini.Free;
+  if Assigned(Ini) then
+  begin
+    try
+      if not (FileExists(FileName) and Ini.SectionExists(GetIniSection))
+      or (Application.MessageBox(PChar(Format(SReplaceFilter, [FileName, DataSet.Name])),
+            PChar(Application.Title),
+            MB_YESNO + MB_ICONQUESTION) = IDYES)
+      then SaveItems(Ini);
+      Ini.UpdateFile;
+    finally
+      Ini.Free;
+    end;
   end;
 end;
 

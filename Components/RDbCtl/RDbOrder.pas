@@ -281,14 +281,17 @@ begin
       strFN := GetIniFileName;
       strSN := GetIniSection;
       Ini := TMemIniFile.Create(strFN);
-      try
-        if Ini.ReadBool(strSN, iniRestore, ooStoreItemsState in fOptions)
-        then fOptions := fOptions + [ooStoreItemsState]
-        else fOptions := fOptions - [ooStoreItemsState];
-        if ooStoreItemsState in fOptions then
-          SetOrderString(Ini.ReadString(strSN, iniOrderValue, fOrder_Def));
-      finally
-        Ini.Free;
+      if Assigned(Ini) then
+      begin
+        try
+          if Ini.ReadBool(strSN, iniRestore, ooStoreItemsState in fOptions)
+          then fOptions := fOptions + [ooStoreItemsState]
+          else fOptions := fOptions - [ooStoreItemsState];
+          if ooStoreItemsState in fOptions then
+            SetOrderString(Ini.ReadString(strSN, iniOrderValue, fOrder_Def));
+        finally
+          Ini.Free;
+        end;
       end;
     end;
   end;
@@ -307,13 +310,16 @@ begin
       strFN := GetIniFileName;
       strSN := GetIniSection;
       Ini := TMemIniFile.Create(strFN);
-      try
-        if ooChangeOptions in fOptions then
-          Ini.WriteBool(strSN, iniRestore, ooStoreItemsState in fOptions);
-        Ini.WriteString(strSN, iniOrderValue, fOrder);
-        Ini.UpdateFile;
-      finally
-        Ini.Free;
+      if Assigned(Ini) then
+      begin
+        try
+          if ooChangeOptions in fOptions then
+            Ini.WriteBool(strSN, iniRestore, ooStoreItemsState in fOptions);
+          Ini.WriteString(strSN, iniOrderValue, fOrder);
+          Ini.UpdateFile;
+        finally
+          Ini.Free;
+        end;
       end;
     end;
   end;

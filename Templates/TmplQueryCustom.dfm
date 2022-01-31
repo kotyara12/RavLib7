@@ -27,7 +27,7 @@ inherited QueryCustomTemplate: TQueryCustomTemplate
         Control = ToolBar
         ImageIndex = -1
         MinHeight = 36
-        Width = 786
+        Width = 782
       end>
     inherited ToolBar: TToolBar
       Height = 36
@@ -121,27 +121,23 @@ inherited QueryCustomTemplate: TQueryCustomTemplate
       OnExecute = SortDefaultExecute
       OnUpdate = SortDefaultUpdate
     end
-    inherited DbGridSetup: TAction [24]
+    inherited ExportToFileCsv: TAction [24]
     end
-    inherited ExportToFileCsv: TAction [25]
+    inherited CreateDynamicReport: TAction [26]
     end
-    inherited DataSetReportList: TAction [26]
+    inherited DbGridSetup: TAction [28]
     end
-    inherited DbGridDefault: TAction [27]
+    inherited DbLocate: TAction [29]
     end
-    inherited Refresh: TAction [28]
+    inherited Attachments: TAction [31]
     end
-    inherited CreateDynamicReport: TAction [29]
+    inherited DataSetReportList: TAction [32]
     end
-    inherited ExportToExcel: TAction [30]
+    inherited FindFast: TAction [33]
     end
-    inherited DbLocate: TAction [31]
+    inherited Refresh: TAction [34]
     end
-    inherited MultiSelectOnOff: TAction [32]
-    end
-    inherited Attachments: TAction [33]
-    end
-    inherited FindFast: TAction [34]
+    inherited FindFastClear: TAction [35]
     end
     inherited DataSetStatistic: TAction
       OnExecute = DataSetStatisticExecute

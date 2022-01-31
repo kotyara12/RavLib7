@@ -55,6 +55,8 @@ type
     procedure SetParentComponent(AParent: TComponent); override;
     procedure ReadState(Reader: TReader); override;
     function  GetEditorClass: TFormDbUpdaterItemClass; virtual;
+    procedure BeforeShowEditor; virtual;
+    procedure AfterShowEditor; virtual;
     procedure LoadEditorControls(Editor: TFormDbUpdaterItem); virtual; abstract;
     procedure ReadEditorControls(Editor: TFormDbUpdaterItem); virtual; abstract;
     procedure CheckDbField;
@@ -330,6 +332,7 @@ type
     fLookupFields: string;
     fLookupFieldIndex: Integer;
     fLookupDisabled: Boolean;
+    fLookupFilter: string;
     fComboBoxRO: Boolean;
     fOnSelectKey: TOnSelectKeyNotifyEvent;
     procedure SetDataSet(aValue: TDataSet);
@@ -340,6 +343,8 @@ type
   protected
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
     function  GetEditorClass: TFormDbUpdaterItemClass; override;
+    procedure BeforeShowEditor; override;
+    procedure AfterShowEditor; override;
     procedure LoadEditorControls(Editor: TFormDbUpdaterItem); override;
     procedure ReadEditorControls(Editor: TFormDbUpdaterItem); override;
     procedure CopyToEditBuffer; override;
@@ -357,6 +362,7 @@ type
     property KeyField: string read fKeyField write SetKeyField;
     property LookupFields: string read fLookupFields write SetLookupFields;
     property LookupFieldIndex: Integer read fLookupFieldIndex write fLookupFieldIndex default 0;
+    property LookupFilter: string read fLookupFilter write fLookupFilter;
     property LookupDisabled: Boolean read fLookupDisabled write fLookupDisabled default True;
     property ComboBoxReadOnly: Boolean read fComboBoxRO write fComboBoxRO default False;
     property OnSelectKey: TOnSelectKeyNotifyEvent read fOnSelectKey write fOnSelectKey;
@@ -613,6 +619,18 @@ begin
   Result := TFormDbUpdaterItem;
 end;
 
+procedure TRDUItem.BeforeShowEditor;
+begin
+  if Assigned(fOnBeforeEdit) then
+    fOnBeforeEdit(Self);
+end;
+
+procedure TRDUItem.AfterShowEditor;
+begin
+  if Assigned(fOnAfterEdit) then
+    fOnAfterEdit(Self);
+end;
+
 function TRDUItem.ShowDialog(AOwner: TComponent; const ALeft, ATop: Integer): Boolean;
 var
   Editor: TFormDbUpdaterItem;
@@ -640,8 +658,7 @@ begin
         Editor.SetRadioButton.Checked := True;
       end;
       LoadEditorControls(Editor);
-      if Assigned(fOnBeforeEdit) then
-        fOnBeforeEdit(Self);
+      BeforeShowEditor;
     finally
       StopWait;
     end;
@@ -652,8 +669,7 @@ begin
       try
         fNullValue := Editor.ClearRadioButton.Checked;
         ReadEditorControls(Editor);
-        if Assigned(fOnAfterEdit) then
-          fOnAfterEdit(Self);
+        AfterShowEditor;
       finally
         StopWait;
       end;
@@ -661,8 +677,7 @@ begin
     else begin
       StartWait;
       try
-        if Assigned(fOnAfterEdit) then
-          fOnAfterEdit(Self);
+        AfterShowEditor;
       finally
         StopWait;
       end;
@@ -1575,6 +1590,7 @@ begin
   fKeyField := EmptyStr;
   fLookupFields := EmptyStr;
   fLookupFieldIndex := 0;
+  fLookupFilter := EmptyStr;
   fLookupDisabled := True;
   fComboBoxRO := False;
   fValue := 0;
@@ -1598,6 +1614,7 @@ begin
     fKeyField := TRDULinkComboItem(Source).fKeyField;
     fLookupFields := TRDULinkComboItem(Source).fLookupFields;
     fLookupFieldIndex := TRDULinkComboItem(Source).fLookupFieldIndex;
+    fLookupFilter := TRDULinkComboItem(Source).fLookupFilter;
     fLookupDisabled := TRDULinkComboItem(Source).fLookupDisabled;
     fComboBoxRO := TRDULinkComboItem(Source).fComboBoxRO;
   end;
@@ -1709,6 +1726,26 @@ begin
     else Result := ELookupDataSetNotActive;
   end
   else Result := ELookupDataSetNotDefine;
+end;
+
+procedure TRDULinkComboItem.BeforeShowEditor;
+begin
+  inherited BeforeShowEditor;
+  if fLookupFilter <> EmptyStr then
+  begin
+    fLinkDataSet.Filter := fLookupFilter;
+    fLinkDataSet.Filtered := True;
+  end;
+end;
+
+procedure TRDULinkComboItem.AfterShowEditor;
+begin
+  if fLookupFilter <> EmptyStr then
+  begin
+    fLinkDataSet.Filter := EmptyStr;
+    fLinkDataSet.Filtered := False;
+  end;
+  inherited AfterShowEditor;
 end;
 
 procedure TRDULinkComboItem.LoadEditorControls(Editor: TFormDbUpdaterItem);

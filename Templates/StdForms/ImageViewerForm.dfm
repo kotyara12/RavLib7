@@ -44,8 +44,8 @@ inherited FormImageViewer: TFormImageViewer
   object Image: TImage [0]
     Left = 0
     Top = 40
-    Width = 500
-    Height = 298
+    Width = 831
+    Height = 371
     Align = alClient
     AutoSize = True
     Center = True
@@ -59,7 +59,7 @@ inherited FormImageViewer: TFormImageViewer
         Control = ToolBar
         ImageIndex = -1
         MinHeight = 36
-        Width = 500
+        Width = 831
       end>
     inherited ToolBar: TToolBar
       Height = 36
@@ -149,10 +149,6 @@ inherited FormImageViewer: TFormImageViewer
     end
     object itemSaveToFileP: TMenuItem [4]
       Action = SaveToFile
-    end
-    inherited menuDataP: TMenuItem
-      Enabled = False
-      OnClick = CopyToBufferExecute
     end
     inherited menuOperationsP: TMenuItem
       Enabled = False

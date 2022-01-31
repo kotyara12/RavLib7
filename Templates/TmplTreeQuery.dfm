@@ -1,6 +1,6 @@
 inherited TreeQueryTemplate: TTreeQueryTemplate
-  Left = 531
-  Top = 397
+  Left = 398
+  Top = 216
   Width = 867
   Height = 538
   ActiveControl = DbGrid
@@ -89,25 +89,25 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
-        DropdownMenu = DataPopupMenu
         ImageIndex = 14
+        OnClick = DataToolButtonClick
       end
       object OpersToolButton: TToolButton
         Left = 306
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093' '#1080' '#1076#1086#1089#1090#1091#1087' '#1082' '#1076#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1086#1081' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
-        DropdownMenu = OperationsPopupMenu
         ImageIndex = 24
         Visible = False
+        OnClick = OpersToolButtonClick
       end
       object ReportsToolButton: TToolButton
         Left = 364
         Top = 0
         Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1086#1090#1095#1077#1090#1086#1074', '#1087#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
-        DropdownMenu = ReportsPopupMenu
         ImageIndex = 23
+        OnClick = ReportsToolButtonClick
       end
       object SeparatorRefresh: TToolButton
         Left = 422
@@ -756,6 +756,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
   end
   inherited PopupMenu: TPopupMenu
     AutoPopup = False
+    ParentBiDiMode = False
     OnPopup = PopupMenuPopup
     object itemDbLocateP: TMenuItem [7]
       Action = DbLocate
@@ -1017,6 +1018,7 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
     Top = 104
   end
   inherited DataPopupMenu: TPopupMenu
+    AutoPopup = False
     object itemFilterUserD: TMenuItem [0]
       Action = FilterUser
     end
@@ -1051,7 +1053,11 @@ inherited TreeQueryTemplate: TTreeQueryTemplate
       Action = DbGridDefault
     end
   end
+  inherited OperationsPopupMenu: TPopupMenu
+    AutoPopup = False
+  end
   inherited ReportsPopupMenu: TPopupMenu
+    AutoPopup = False
     object itemDataSetReportListR: TMenuItem
       Action = DataSetReportList
     end

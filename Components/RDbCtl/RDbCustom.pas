@@ -31,6 +31,8 @@ type
     fOnDeactivate: TNotifyEvent;
     procedure SetActive(const aValue: Boolean);
     procedure SetStoreInIniFile(const aValue: Boolean);
+    procedure LoadDataSafe;
+    procedure SaveDataSafe;
   protected
     procedure Loaded; override;
     procedure DbLinkInit; virtual; abstract;
@@ -116,7 +118,7 @@ procedure LoadKeyFieldsToCmbBox(CmbBox: TComboBox; DataSet: TDataSet;
 implementation
 
 uses
-  Windows, Forms, Dialogs, RDialogs, RSysUtils;
+  Windows, Forms, Dialogs, RDialogs, RSysUtils, RMsgRu, RExHandlers;
 
 resourcestring
   EDataSetNotDefine   = 'Для компонента "%s.%s" не определено свойство "DataSet"!';
@@ -220,6 +222,26 @@ begin
   SetActive(False);
 end;
 
+procedure TRDbCustom.LoadDataSafe;
+begin
+  try
+    LoadData;
+  except
+    on E: Exception do
+      HandleExcept(E, Self, SErrLoadFormPlacement, 0, 0, esReg);
+  end;
+end;
+
+procedure TRDbCustom.SaveDataSafe;
+begin
+  try
+    SaveData;
+  except
+    on E: Exception do
+      HandleExcept(E, Self, SErrSaveFormPlacement, 0, 0, esReg);
+  end;
+end;
+
 procedure TRDbCustom.DoActivate;
 begin
   CheckDbLink;
@@ -231,7 +253,7 @@ begin
     else fOwnerName := Owner.ClassName;
   end;
   if not (csDesigning in ComponentState) then
-    LoadData;
+    LoadDataSafe;
   try
     if Assigned(fOnActivate) then
       fOnActivate(Self);
@@ -243,7 +265,7 @@ end;
 procedure TRDbCustom.DoDeactivate;
 begin
   if not (csDesigning in ComponentState) then
-    SaveData;
+    SaveDataSafe;
   try
     if Assigned(fOnDeactivate) then
       fOnDeactivate(Self);

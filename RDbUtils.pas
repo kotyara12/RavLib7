@@ -845,7 +845,7 @@ var
     case Field.FieldKind of
       fkData:
       begin
-        if DataSet.Fields[i].Visible then
+        if Field.Visible then
         begin
           case Field.DataType of
             ftString, ftWideString, ftMemo, ftFmtMemo, ftFixedChar:

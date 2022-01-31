@@ -378,10 +378,7 @@ begin
         NameEdit.SetFocus;
       end;
     end
-    else begin
-      ErrorBox(SErrUserNotEnter);
-      NameEdit.SetFocus;
-    end;
+    else CancelBtnClick(Sender);
   end;
   if FState = 2 then
   begin

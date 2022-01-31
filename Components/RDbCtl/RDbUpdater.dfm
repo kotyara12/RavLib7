@@ -76,7 +76,7 @@ inherited FormDbUpdater: TFormDbUpdater
   inherited ListView: TListView
     Top = 38
     Width = 396
-    Height = 187
+    Height = 186
     Checkboxes = True
     Columns = <
       item

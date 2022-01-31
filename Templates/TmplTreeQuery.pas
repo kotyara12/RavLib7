@@ -277,6 +277,9 @@ type
     procedure FindFastClearUpdate(Sender: TObject);
     procedure FindFastClearExecute(Sender: TObject);
     procedure PopupMenuPopup(Sender: TObject);
+    procedure DataToolButtonClick(Sender: TObject);
+    procedure OpersToolButtonClick(Sender: TObject);
+    procedure ReportsToolButtonClick(Sender: TObject);
   private
     procedure ColumnFlagsReset;
     procedure ColumnFlagsUpdate;
@@ -1426,6 +1429,30 @@ begin
     if InfoPanelPopupMenu.PopupComponent is TImage then
       Clipboard.Assign(TImage(InfoPanelPopupMenu.PopupComponent).Picture);
   end;
+end;
+
+procedure TTreeQueryTemplate.DataToolButtonClick(Sender: TObject);
+var
+  fPosition: TPoint;
+begin
+  fPosition := ToolBar.ClientToScreen(Point(DataToolButton.Left, DataToolButton.Top + DataToolButton.Height));
+  DataPopupMenu.Popup(fPosition.X, fPosition.Y);
+end;
+
+procedure TTreeQueryTemplate.OpersToolButtonClick(Sender: TObject);
+var
+  fPosition: TPoint;
+begin
+  fPosition := ToolBar.ClientToScreen(Point(OpersToolButton.Left, OpersToolButton.Top + OpersToolButton.Height));
+  OperationsPopupMenu.Popup(fPosition.X, fPosition.Y);
+end;
+
+procedure TTreeQueryTemplate.ReportsToolButtonClick(Sender: TObject);
+var
+  fPosition: TPoint;
+begin
+  fPosition := ToolBar.ClientToScreen(Point(ReportsToolButton.Left, ReportsToolButton.Top + ReportsToolButton.Height));
+  ReportsPopupMenu.Popup(fPosition.X, fPosition.Y);
 end;
 
 end.

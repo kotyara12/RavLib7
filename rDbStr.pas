@@ -57,7 +57,7 @@ procedure LoadPopularStrings(DbComboBox: TDBComboBox; const DsName, FlName: stri
 implementation
 
 uses
-  RDbUtils, SysUtils;
+  RDialogs, RDbUtils, SysUtils;
 
 const
   iLimitPopularStrings = 100;

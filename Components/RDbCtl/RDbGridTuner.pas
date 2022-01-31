@@ -604,45 +604,48 @@ begin
       sIniFileName := GetIniFileName;
       sSection := GetIniSection;
       Ini := TMemIniFile.Create(sIniFileName);
-      try
-        // Загружаем опции
-        if fStoreMultiSelect then
-        begin
-          if Ini.ReadBool(sSection, iniMultiSelect, dgMultiSelect in DbGrid.Options)
-          then DbGrid.Options := DbGrid.Options + [dgMultiSelect]
-          else DbGrid.Options := DbGrid.Options - [dgMultiSelect];
-        end;
-        if Ini.ReadBool(sSection, iniRestore, ogStoreItemsState in fOptions)
-        then fOptions := fOptions + [ogStoreItemsState]
-        else fOptions := fOptions - [ogStoreItemsState];
-
-        // Загружаем представления
-        ViewsClear;
-        vCount := Ini.ReadInteger(sSection, iniViewCount, 1);
-        if vCount > 1 then
-        begin
-          // Несколько представлений
-          for v := 1 to vCount do
+      if Assigned(Ini) then
+      begin
+        try
+          // Загружаем опции
+          if fStoreMultiSelect then
           begin
-            if PeakCols(Ini, sSection, v) // and (v <> fActiveView) ????
-            then ViewAppend(Ini.ReadString(sSection, Format(iniView, [v]), SViewDefault),
-              LoadCols(Ini, sSection, v))
-            else ViewAppend(Ini.ReadString(sSection, Format(iniView, [v]), SViewDefault),
+            if Ini.ReadBool(sSection, iniMultiSelect, dgMultiSelect in DbGrid.Options)
+            then DbGrid.Options := DbGrid.Options + [dgMultiSelect]
+            else DbGrid.Options := DbGrid.Options - [dgMultiSelect];
+          end;
+          if Ini.ReadBool(sSection, iniRestore, ogStoreItemsState in fOptions)
+          then fOptions := fOptions + [ogStoreItemsState]
+          else fOptions := fOptions - [ogStoreItemsState];
+
+          // Загружаем представления
+          ViewsClear;
+          vCount := Ini.ReadInteger(sSection, iniViewCount, 1);
+          if vCount > 1 then
+          begin
+            // Несколько представлений
+            for v := 1 to vCount do
+            begin
+              if PeakCols(Ini, sSection, v) // and (v <> fActiveView) ????
+              then ViewAppend(Ini.ReadString(sSection, Format(iniView, [v]), SViewDefault),
+                LoadCols(Ini, sSection, v))
+              else ViewAppend(Ini.ReadString(sSection, Format(iniView, [v]), SViewDefault),
+                LoadCols(Ini, sSection, 0));
+            end;
+            fActiveView := Ini.ReadInteger(sSection, iniViewActive, fActiveView + 1) - 1;
+          end
+          else begin
+            // Одно представление
+            fActiveView := ViewAppend(Ini.ReadString(sSection, Format(iniView, [1]), SViewDefault),
               LoadCols(Ini, sSection, 0));
           end;
-          fActiveView := Ini.ReadInteger(sSection, iniViewActive, fActiveView + 1) - 1;
-        end
-        else begin
-          // Одно представление
-          fActiveView := ViewAppend(Ini.ReadString(sSection, Format(iniView, [1]), SViewDefault),
-            LoadCols(Ini, sSection, 0));
-        end;
 
-        // Применяем активное представление к таблице
-        ApplyColsData(ViewActiveColsData);
-        DoViewChange;
-      finally
-        Ini.Free;
+          // Применяем активное представление к таблице
+          ApplyColsData(ViewActiveColsData);
+          DoViewChange;
+        finally
+          Ini.Free;
+        end;
       end;
     finally
       StopWait;
@@ -664,39 +667,42 @@ begin
       sIniFileName := GetIniFileName;
       sSection := GetIniSection;
       Ini := TMemIniFile.Create(sIniFileName);
-      try
-        // Удаляем секцию
-        Ini.EraseSection(sSection);
+      if Assigned(Ini) then
+      begin
+        try
+          // Удаляем секцию
+          Ini.EraseSection(sSection);
 
-        // Сохраняем опции
-        if ogChangeOptions in fOptions then
-          Ini.WriteBool(sSection, iniRestore, ogStoreItemsState in fOptions);
-        if fStoreMultiSelect then
-          Ini.WriteBool(sSection, iniMultiSelect, dgMultiSelect in DbGrid.Options);
+          // Сохраняем опции
+          if ogChangeOptions in fOptions then
+            Ini.WriteBool(sSection, iniRestore, ogStoreItemsState in fOptions);
+          if fStoreMultiSelect then
+            Ini.WriteBool(sSection, iniMultiSelect, dgMultiSelect in DbGrid.Options);
 
-        // Сохраняем представления
-        vCount := fViews.Count - 1;
-        Ini.WriteInteger(sSection, iniViewCount, vCount + 1);
-        for v := 0 to vCount do
-          Ini.WriteString(sSection, Format(iniView, [v + 1]), fViews[v]);
-        Ini.WriteInteger(sSection, iniViewActive, fActiveView + 1);
-
-        // Сохраняем "текущее" представление
-        ViewUpdateActiveFromGrid;
-        SaveCols(Ini, sSection, 0, ViewActiveColsData);
-
-        // Сохраняем данные представлений
-        vCount := fViews.Count - 1;
-        if vCount > 0 then
-        begin
+          // Сохраняем представления
+          vCount := fViews.Count - 1;
+          Ini.WriteInteger(sSection, iniViewCount, vCount + 1);
           for v := 0 to vCount do
-            SaveCols(Ini, sSection, v + 1, ViewColsData(v));
-        end;
+            Ini.WriteString(sSection, Format(iniView, [v + 1]), fViews[v]);
+          Ini.WriteInteger(sSection, iniViewActive, fActiveView + 1);
 
-        // Фиксируем изменения
-        Ini.UpdateFile;
-      finally
-        Ini.Free;
+          // Сохраняем "текущее" представление
+          ViewUpdateActiveFromGrid;
+          SaveCols(Ini, sSection, 0, ViewActiveColsData);
+
+          // Сохраняем данные представлений
+          vCount := fViews.Count - 1;
+          if vCount > 0 then
+          begin
+            for v := 0 to vCount do
+              SaveCols(Ini, sSection, v + 1, ViewColsData(v));
+          end;
+
+          // Фиксируем изменения
+          Ini.UpdateFile;
+        finally
+          Ini.Free;
+        end;
       end;
     finally
       StopWait;

@@ -113,9 +113,9 @@ RootDir=C:\Program Files\Borland\Delphi7\Bin\
 IncludeVerInfo=1
 AutoIncBuild=0
 MajorVer=10
-MinorVer=6
+MinorVer=7
 Release=0
-Build=386
+Build=387
 Debug=0
 PreRelease=0
 Special=0
@@ -126,13 +126,13 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=Разживин Александр Валерьевич
 FileDescription=Delphi 7 Rav Db Components
-FileVersion=10.6.0.386
+FileVersion=10.7.0.387
 InternalName=RavDbComp_D7
 LegalCopyright=Разживин Александр Валерьевич
 LegalTrademarks=RAV SOFT
 OriginalFilename=RavDbComp_D7
 ProductName=Rav VCL for Delphi 7
-ProductVersion=2021-09-16
+ProductVersion=2022-01-25
 Comments=http://ravsoft2004.narod.ru
 [HistoryLists\hlDebugSourcePath]
 Count=2

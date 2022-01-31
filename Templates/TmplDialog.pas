@@ -93,8 +93,10 @@ type
 
 procedure TDialogTemplate.CMDialogKey(var Msg: TWMKey);
 begin
-  if FEnterTab and not (ActiveControl is TButton) and
-  not ((ActiveControl is TCustomMemo) and THackMemo(ActiveControl).WantReturns) then
+  if FEnterTab
+  and not (ActiveControl is TButton)
+  and not ((ActiveControl is TCustomMemo)
+  and THackMemo(ActiveControl).WantReturns) then
   begin
     if Msg.Charcode = 13 then
       Msg.Charcode := 9;

@@ -119,10 +119,10 @@ function  rAttachs_DeleteAttachments(Db: TAdoConnection; ceEditor: TRDbCustomEdi
 procedure rAttachs_ReadSysParameters(Db: TAdoConnection);
 function  rAttachs_ItemLocate(LI: TListItem; DS: TAdoQuery): Boolean;
 function  rAttachs_ItemCreate(LV: TListView; IM: TImageList; DS: TAdoQuery;
-  const DefaultIcon: Integer): TListItem;
+  const DefaultIcon: Integer; const SubType: string = ''): TListItem;
 function  rAttachs_CreateAttachment(LV: TListView; IM: TImageList; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer;
-  const sFileName: string): Boolean;
+  const sFileName: string; const SubType: string = ''): Boolean;
 function  rAttachs_DeleteAttachment(LI: TListItem; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer): Boolean;
 function rAttachs_SaveAttachment(LI: TListItem; DS: TAdoQuery;
@@ -134,10 +134,10 @@ function rAttachs_SaveAttachment(LI: TListItem; DS: TAdoQuery;
 function  rAttachs_OpenData(Db: TAdoConnection;
   const sObjectName: string; const iObjectId: Integer): TAdoQuery;
 function  rAttachs_LoadData(LV: TListView; IM: TImageList; DS: TAdoQuery;
-  const DefaultIcon: Integer): Boolean;
+  const DefaultIcon: Integer; const ClearList: Boolean = True; const SubType: string = ''): Boolean;
 function  rAttachs_FileAppend(LV: TListView; IM: TImageList; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer;
-  const DefaultIcon: Integer): Boolean;
+  const DefaultIcon: Integer; const SubType: string = ''): Boolean;
 function  rAttachs_FileDelete(LV: TListView; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer): Boolean;
 function  rAttachs_FileOpen(LV: TListView; DS: TAdoQuery;
@@ -534,7 +534,7 @@ begin
 end;
 
 function rAttachs_ItemCreate(LV: TListView; IM: TImageList; DS: TAdoQuery;
-  const DefaultIcon: Integer): TListItem;
+  const DefaultIcon: Integer; const SubType: string): TListItem;
 var
   Id: TId;
   Hndl: HIcon;
@@ -551,6 +551,8 @@ begin
       Caption := DS.FieldByName(fnFilename).AsString;
       Subitems.Add(Format(fmtFileSize, [DS.FieldByName(fnFilesize).AsFloat / 1024]));
       Subitems.Add(DS.FieldByName(fnFiletime).DisplayText);
+      if SubType <> EmptyStr then
+        Subitems.Add(SubType);
 
       Icon := TIcon.Create;
       try
@@ -580,7 +582,7 @@ end;
 
 function rAttachs_CreateAttachment(LV: TListView; IM: TImageList; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer;
-  const sFileName: string): Boolean;
+  const sFileName: string; const SubType: string): Boolean;
 var
   fFileSizeKb: Double;
 begin
@@ -594,7 +596,7 @@ begin
     begin
       Result := _AttachmentAppend(DS, sObjectName, iObjectId, iEditTag, sFileName);
       if Result then
-        LV.Selected := rAttachs_ItemCreate(LV, IM, DS, 0);
+        LV.Selected := rAttachs_ItemCreate(LV, IM, DS, 0, SubType);
     end;
   end
   else ErrorBox(Format(sMsgAttachFileSizeMax,
@@ -666,7 +668,7 @@ begin
 end;
 
 function rAttachs_LoadData(LV: TListView; IM: TImageList; DS: TAdoQuery;
-  const DefaultIcon: Integer): Boolean;
+  const DefaultIcon: Integer; const ClearList: Boolean; const SubType: string): Boolean;
 begin
   try
     Result := Assigned(DS) and DS.Active;
@@ -674,11 +676,11 @@ begin
     begin
       LV.Items.BeginUpdate;
       try
-        LV.Items.Clear;
+        if ClearList then LV.Items.Clear;
         DS.First;
         while not DS.Eof do
         begin
-          rAttachs_ItemCreate(LV, IM, DS, DefaultIcon);
+          rAttachs_ItemCreate(LV, IM, DS, DefaultIcon, SubType);
           DS.Next;
         end;
       finally
@@ -696,7 +698,7 @@ end;
 
 function rAttachs_FileAppend(LV: TListView; IM: TImageList; DS: TAdoQuery;
   const sObjectName: string; const iObjectId, iEditTag: Integer;
-  const DefaultIcon: Integer): Boolean;
+  const DefaultIcon: Integer; const SubType: string): Boolean;
 var
   i: Integer;
   OpenDialog: TOpenDialog;
@@ -717,7 +719,7 @@ begin
         begin
           ShowWaitMsg(Format(sMsgLoadFile, [ExtractFileName(OpenDialog.Files[i])]));
           ShowInStatusBar(Format(sMsgLoadFile, [ExtractFileName(OpenDialog.Files[i])]));
-          if rAttachs_CreateAttachment(LV, IM, DS, sObjectName, iObjectId, iEditTag, OpenDialog.Files[i]) then
+          if rAttachs_CreateAttachment(LV, IM, DS, sObjectName, iObjectId, iEditTag, OpenDialog.Files[i], SubType) then
             Result := True;
         end;
       finally

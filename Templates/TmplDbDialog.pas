@@ -16,9 +16,9 @@ type
     procedure InitFormVariables; override;
     procedure StartForm; override;
     function  CheckOkClose: Boolean; override;
-    procedure InitControls(const EditMode: Boolean); dynamic;
-    procedure InitComponents(const EditMode: Boolean); dynamic;
-    procedure SetOkBtnState; dynamic;
+    procedure InitControls(const EditMode: Boolean); virtual;
+    procedure InitComponents(const EditMode: Boolean); virtual;
+    procedure SetOkBtnState; virtual;
   public
     procedure InitDbDialog;
     procedure UpdateDbControls;

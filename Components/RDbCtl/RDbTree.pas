@@ -1225,11 +1225,11 @@ end;
 
 function TRDbTreeLoader.LoadTree: Boolean;
 var
-  GroupsDC, GroupsFS, ItemsFS, SubitemsFS: Boolean;
+  GroupsDC, GroupsFS, ItemsDC, ItemsFS, SubitemsFS: Boolean;
   GroupsFL, ItemsFL, SubitemsFL: string;
   ItemsCount: Integer;
 begin
-  GroupsDC := False;
+  GroupsDC := False; ItemsDC := False;
   GroupsFS := False; ItemsFS := False; SubitemsFS := False;
   GroupsFL := EmptyStr; ItemsFL := EmptyStr; SubitemsFL := EmptyStr;
   fProgress := False;
@@ -1256,7 +1256,11 @@ begin
         // Отключаем фильтр элементов
         if ItemsIsLoaded then
         begin
-          ItemsDataSet.DisableControls;
+          if not SubitemsIsLoaded or not SubitemsIsLinked then
+          begin
+            ItemsDataSet.DisableControls;
+            ItemsDC := True;
+          end;
           ItemsFS := ItemsDataSet.Filtered;
           ItemsFL := ItemsDataSet.Filter;
           ItemsDataSet.Filtered := False;
@@ -1303,7 +1307,7 @@ begin
           begin
             ItemsDataSet.Filter := ItemsFL;
             ItemsDataSet.Filtered := ItemsFS;
-            ItemsDataSet.EnableControls;
+            if ItemsDC then ItemsDataSet.EnableControls;
           end;
         end;
       finally
@@ -1462,8 +1466,7 @@ procedure TRDbTreeLoader.LoadTreeStructure(const BaseNode: TTreeNode);
       end;
     end
     else begin
-      ItemsDataSet.Filter := SqlConcatBr(Format(fltFieldId, [GetItemsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]),
-        fItemsEditor.BaseFilter, sqlAnd);
+      ItemsDataSet.Filter := SqlConcatBr(Format(fltFieldId, [GetItemsOwnerField.FieldName, fTreeView.GetNodeId(GroupNode)]), fItemsEditor.BaseFilter, sqlAnd);
       ItemsDataSet.FindFirst;
       while ItemsDataSet.Found do
       begin

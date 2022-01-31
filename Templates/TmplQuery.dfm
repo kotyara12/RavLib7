@@ -21,24 +21,24 @@ inherited QueryTemplate: TQueryTemplate
       end>
     inherited ToolBar: TToolBar
       Width = 843
-      ButtonWidth = 57
+      ButtonWidth = 58
       object DataSetInsertToolButton: TToolButton
         Left = 0
         Top = 0
         Action = DataSetInsert
       end
       object DataSetEditToolButton: TToolButton
-        Left = 57
+        Left = 58
         Top = 0
         Action = DataSetEdit
       end
       object DataSetDeleteToolButton: TToolButton
-        Left = 114
+        Left = 116
         Top = 0
         Action = DataSetDelete
       end
       object SeparatorEdit: TToolButton
-        Left = 171
+        Left = 174
         Top = 0
         Width = 8
         Caption = 'SeparatorEdit'
@@ -46,12 +46,12 @@ inherited QueryTemplate: TQueryTemplate
         Style = tbsSeparator
       end
       object DataSetFindToolButton: TToolButton
-        Left = 179
+        Left = 182
         Top = 0
         Action = Find
       end
       object SeparatorFind: TToolButton
-        Left = 236
+        Left = 240
         Top = 0
         Width = 8
         Caption = 'SeparatorFind'
@@ -59,7 +59,7 @@ inherited QueryTemplate: TQueryTemplate
         Style = tbsSeparator
       end
       object DataToolButton: TToolButton
-        Left = 244
+        Left = 248
         Top = 0
         Hint = #1059#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1076#1072#1085#1085#1099#1084#1080
         Caption = #1044#1072#1085#1085#1099#1077
@@ -67,7 +67,7 @@ inherited QueryTemplate: TQueryTemplate
         ImageIndex = 14
       end
       object OpersToolButton: TToolButton
-        Left = 301
+        Left = 306
         Top = 0
         Hint = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1087#1077#1088#1072#1094#1080#1080
@@ -76,7 +76,7 @@ inherited QueryTemplate: TQueryTemplate
         Visible = False
       end
       object ReportsToolButton: TToolButton
-        Left = 358
+        Left = 364
         Top = 0
         Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1086#1090#1095#1077#1090#1086#1074', '#1087#1077#1095#1072#1090#1100' '#1080' '#1101#1082#1089#1087#1086#1088#1090' '#1076#1072#1085#1085#1099#1093
         Caption = #1054#1090#1095#1077#1090#1099
@@ -84,7 +84,7 @@ inherited QueryTemplate: TQueryTemplate
         ImageIndex = 23
       end
       object SeparatorRefresh: TToolButton
-        Left = 415
+        Left = 422
         Top = 0
         Width = 8
         Caption = 'SeparatorRefresh'
@@ -92,12 +92,12 @@ inherited QueryTemplate: TQueryTemplate
         Style = tbsSeparator
       end
       object RefreshToolButton: TToolButton
-        Left = 423
+        Left = 430
         Top = 0
         Action = Refresh
       end
       object SeparatorEnd: TToolButton
-        Left = 480
+        Left = 488
         Top = 0
         Width = 8
         Caption = 'SeparatorEnd'
@@ -105,12 +105,12 @@ inherited QueryTemplate: TQueryTemplate
         Style = tbsSeparator
       end
       object CloseSelectToolButton: TToolButton
-        Left = 488
+        Left = 496
         Top = 0
         Action = CloseSelect
       end
       object CloseCancelToolButton: TToolButton
-        Left = 545
+        Left = 554
         Top = 0
         Action = CloseCancel
       end
